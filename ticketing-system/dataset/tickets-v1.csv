@@ -1,0 +1,1 @@
+ticket_id,created_at,first_response_at,resolved_at,closed_at,category,priority,status,requesting_location,assigned_department,assigned_owner,escalation_flag,reopened_flag,pending_flag,sla_target_hours,resolution_hours,response_hours,sla_met_flag,summary,resolution_notes
