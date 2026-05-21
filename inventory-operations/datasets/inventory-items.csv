@@ -1,0 +1,9 @@
+item_id,item_name,item_category,criticality_level,unit_of_measure,preferred_vendor_id,active_flag
+ITEM-1001,Nitrile Exam Gloves,Clinical Supplies,High,box,VEND-001,TRUE
+ITEM-1002,Sterile Gauze Pads,Wound Care Supplies,High,pack,VEND-002,TRUE
+ITEM-1003,Syringe 5mL,Clinical Supplies,Critical,case,VEND-003,TRUE
+ITEM-1004,Alcohol Prep Pads,Clinical Supplies,Moderate,box,VEND-001,TRUE
+ITEM-1005,Surgical Masks,PPE,High,box,VEND-004,TRUE
+ITEM-1006,Thermometer Probe Covers,Clinical Supplies,Moderate,box,VEND-002,TRUE
+ITEM-1007,IV Start Kits,Procedure Supplies,Critical,kit,VEND-005,TRUE
+ITEM-1008,Biohazard Disposal Bags,Compliance Supplies,High,case,VEND-006,TRUE
