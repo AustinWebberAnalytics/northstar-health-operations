@@ -1,0 +1,6 @@
+discrepancy_id,item_id,location_id,expected_quantity,counted_quantity,variance_quantity,discrepancy_type,investigation_status,discovered_date,resolved_date,related_ticket_id
+DISC-1001,ITEM-1003,LOC-DURHAM-07,12,8,-4,Count Variance,Investigating,5/21/2026,,INC-100012
+DISC-1002,ITEM-1006,LOC-WAKEFOREST-11,15,0,-15,Missing Inventory,Escalated,5/21/2026,,INC-100007
+DISC-1003,ITEM-1008,LOC-CARY-HUB-01,140,160,20,System Entry Error,Resolved,5/20/2026,5/21/2026,
+DISC-1004,ITEM-1002,LOC-RALEIGH-03,25,18,-7,Receiving Error,Open,5/21/2026,,INC-100031
+DISC-1005,ITEM-1005,LOC-WAKEFOREST-11,30,22,-8,Damaged Inventory,Mitigating,5/21/2026,,INC-100018
