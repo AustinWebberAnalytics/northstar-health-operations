@@ -1,0 +1,13 @@
+vendor_id,vendor_name,vendor_type,primary_service_category,support_level,risk_tier,preferred_vendor_flag,emergency_fulfillment_flag,active_vendor_flag,primary_contact_team,notes
+VEND-001,MedSupply Partners,Primary Supplier,Medical Supplies,Core Operational Support,Low,TRUE,FALSE,TRUE,Supply & Inventory Operations,Preferred supplier for routine medical supply replenishment.
+VEND-002,TriPoint Clinical Logistics,Logistics Partner,Distribution Support,Logistics Support,Moderate,FALSE,FALSE,TRUE,Supply & Inventory Operations,Supports regional shipment movement and distribution coordination.
+VEND-003,Carolina Emergency Supply,Emergency Supplier,Emergency Supplies,Emergency Support,Low,FALSE,TRUE,TRUE,Operations Coordination Center,Used for urgent replenishment when critical supply continuity is at risk.
+VEND-004,Northline Medical Equipment,Specialty Supplier,Clinical Equipment,Specialty Support,Moderate,TRUE,FALSE,TRUE,Supply & Inventory Operations,Provides specialty equipment with longer lead times.
+VEND-005,Blue Ridge Fulfillment Group,Backup Supplier,Medical Supplies,Supplemental Support,High,FALSE,FALSE,TRUE,Vendor & Service Management,Backup supplier with inconsistent fulfillment timing.
+VEND-006,Oakwell Distribution Services,Logistics Partner,Distribution Support,Logistics Support,High,FALSE,FALSE,TRUE,Vendor & Service Management,Recurring delivery delays require elevated monitoring.
+VEND-007,Apex Procedural Supply,Primary Supplier,Medical Supplies,Core Operational Support,Moderate,TRUE,FALSE,TRUE,Supply & Inventory Operations,Primary supplier for procedure-related inventory items.
+VEND-008,RapidCare Response Supply,Emergency Supplier,Emergency Supplies,Emergency Support,Moderate,FALSE,TRUE,TRUE,Operations Coordination Center,Supports emergency fulfillment during shortage escalation events.
+VEND-009,Precision Diagnostics Supply,Specialty Supplier,Clinical Equipment,Specialty Support,Critical,FALSE,FALSE,TRUE,Vendor & Service Management,High-dependency specialty vendor with operational risk exposure.
+VEND-010,Evergreen General Operations,Primary Supplier,General Operations,Core Operational Support,Low,TRUE,FALSE,TRUE,Supply & Inventory Operations,Stable vendor for general operational supply needs.
+VEND-011,Piedmont Medline Services,Backup Supplier,Medical Supplies,Supplemental Support,Moderate,FALSE,FALSE,TRUE,Supply & Inventory Operations,Supplemental vendor used when primary supply channels are constrained.
+VEND-012,Legacy Regional Supplies,Backup Supplier,General Operations,Supplemental Support,High,FALSE,FALSE,FALSE,Vendor & Service Management,Inactive vendor retained for historical reporting continuity.
