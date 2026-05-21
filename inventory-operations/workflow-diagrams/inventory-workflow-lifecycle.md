@@ -1,4 +1,4 @@
-\# Inventory Workflow Lifecycle  
+\# Inventory Lifecycle Workflow
 
 \## Northstar Health Operations
 
