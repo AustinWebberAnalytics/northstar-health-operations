@@ -1,0 +1,6 @@
+shortage_id,item_id,location_id,shortage_detected_date,shortage_severity,estimated_days_of_stockout,operational_impact,escalation_flag,related_ticket_id,resolution_status
+SHORT-1001,ITEM-1003,LOC-DURHAM-07,5/21/2026,Critical,3,Low syringe inventory creating risk for clinic procedure delays,TRUE,INC-100012,Open
+SHORT-1002,ITEM-1006,LOC-WAKEFOREST-11,5/21/2026,High,2,Thermometer probe cover stockout impacting patient intake workflows,TRUE,INC-100007,Mitigating
+SHORT-1003,ITEM-1005,LOC-WAKEFOREST-11,5/21/2026,Moderate,1,Reduced PPE inventory levels requiring temporary redistribution,FALSE,,Monitoring
+SHORT-1004,ITEM-1007,LOC-CARY-HUB-01,5/21/2026,Critical,4,IV start kit shortage impacting emergency procedural readiness,TRUE,INC-100021,Escalated
+SHORT-1005,ITEM-1002,LOC-RALEIGH-03,5/21/2026,Low,1,Gauze inventory temporarily below recommended safety threshold,FALSE,,Resolved
