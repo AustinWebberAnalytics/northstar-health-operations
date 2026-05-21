@@ -118,6 +118,7 @@ Contains:
 - operational CSV exports
 - relational datasets
 - stable operational records
+- dataset schema governance files
 
 ### Governance Rules
 
@@ -129,6 +130,121 @@ Datasets should:
 - support future Power BI integration
 - use shared identifiers where appropriate
 
+Every operational CSV dataset should have a dedicated schema markdown file located within the same:
+
+```text
+datasets/
+```
+
+folder as the dataset it governs.
+
+Approved structure example:
+
+```text
+datasets/
+
+├── inventory-items.csv
+├── inventory-items-schema.md
+├── location-inventory.csv
+├── location-inventory-schema.md
+├── replenishment-events.csv
+├── replenishment-events-schema.md
+```
+
+Dataset schema files are considered:
+
+# dataset governance artifacts
+
+NOT:
+
+# general subsystem documentation.
+
+Because schemas directly govern:
+
+- field definitions
+- relational structure
+- identifier standards
+- data types
+- operational grain
+- SQL readiness
+- Power BI readiness
+- cross-system integration
+
+they should remain colocated with the datasets they govern.
+
+Dataset schema files should follow the naming format:
+
+```text
+[dataset-name]-schema.md
+```
+
+Examples:
+
+```text
+inventory-items-schema.md
+location-inventory-schema.md
+vendor-master-schema.md
+vendor-fulfillment-events-schema.md
+```
+
+Avoid:
+
+```text
+inventorySchema.md
+schema-v2.md
+inventory-data-schema.md
+```
+
+Each dataset schema should define:
+
+- dataset purpose
+- dataset grain
+- primary keys
+- foreign keys
+- shared identifiers
+- field definitions
+- data types
+- required fields
+- boolean standards
+- classification standards
+- relationship standards
+- data quality rules
+- SQL readiness
+- Power BI readiness
+- governance alignment
+
+Schema files should be created:
+
+# BEFORE
+
+the operational CSV dataset whenever possible.
+
+This preserves:
+
+- governance-first architecture
+- relational consistency
+- subsystem stability
+- scalable enterprise integration
+
+Legacy subsystem-level schema documents that combine multiple datasets into a single file should gradually be replaced with:
+
+# one schema file per dataset
+
+to improve:
+
+- maintainability
+- dataset ownership clarity
+- relational governance
+- subsystem scalability
+- SQL modeling readiness
+- Power BI relationship management
+
+Legacy schema overview files may either:
+
+- remain as high-level references
+- be renamed as overview documents
+- or be retired after schema decomposition is complete.
+
 ---
 
 ## documentation/
@@ -138,9 +254,11 @@ Datasets should:
 Contains:
 
 - subsystem documentation
-- schema references
-- architecture explanations
+- operational architecture explanations
 - operational definitions
+- onboarding references
+- subsystem workflow context
+- governance interpretation documents
 
 ### Governance Rules
 
@@ -150,6 +268,18 @@ Documentation should:
 - support onboarding continuity
 - clarify workflow behavior
 - reinforce subsystem boundaries
+
+The:
+
+```text
+documentation/
+```
+
+folder should NOT contain:
+
+- individual dataset schema files
+
+unless the document serves as a high-level subsystem overview rather than a dataset-specific governance artifact.
 
 ---
 
@@ -226,7 +356,6 @@ Markdown files should NOT automatically default to the documentation folder.
 The `documentation/` folder should contain broad subsystem reference materials, including:
 
 - subsystem overviews
-- schema references
 - operational definitions
 - architecture explanations
 - onboarding context
@@ -239,7 +368,7 @@ Examples:
 reporting-and-kpis/inventory-kpi-framework.md
 workflow-diagrams/ticket-escalation-workflow.md
 process-improvement/replenishment-process-improvement-notes.md
-datasets/inventory-dataset-schema.md
+datasets/inventory-items-schema.md
 ```
 
 This placement standard preserves:
