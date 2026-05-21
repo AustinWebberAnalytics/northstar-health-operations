@@ -1,0 +1,7 @@
+sla_event_id,vendor_id,shipment_id,fulfillment_event_id,sla_category,sla_target_hours,actual_response_hours,sla_status,sla_breach_flag,escalation_required_flag,operational_impact_level,related_ticket_id,review_date,corrective_action_required_flag,notes
+SLA-1001,VEND-002,SHIP-1001,VF-1001,Delivery SLA,48,48,Met,FALSE,FALSE,Low,,2026-05-23,FALSE,Routine shipment met expected delivery SLA.
+SLA-1002,VEND-003,SHIP-1002,VF-1002,Fulfillment SLA,72,96,Breached,TRUE,TRUE,High,INC-100012,2026-05-24,TRUE,Partial delayed fulfillment breached SLA and required escalation review.
+SLA-1003,VEND-002,SHIP-1003,VF-1003,Operational Support SLA,48,48,Monitoring,FALSE,TRUE,Moderate,INC-100007,2026-05-23,FALSE,Pending shipment remained within monitoring window but required ticket visibility.
+SLA-1004,VEND-005,SHIP-1004,VF-1004,Delivery SLA,72,72,Monitoring,FALSE,FALSE,Moderate,,2026-05-24,FALSE,Backup supplier shipment remains pending but has not exceeded SLA threshold.
+SLA-1005,VEND-001,SHIP-1005,VF-1005,Delivery SLA,48,48,Met,FALSE,FALSE,Low,,2026-05-22,FALSE,Preferred vendor shipment met delivery expectations.
+SLA-1006,VEND-004,SHIP-1006,VF-1006,Fulfillment SLA,48,72,Breached,TRUE,TRUE,High,INC-100001,2026-05-24,TRUE,Delayed partial shipment breached fulfillment SLA and required corrective follow-up.
