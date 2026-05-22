@@ -1,36 +1,36 @@
-\# Ticket KPI Framework  
+# Ticket KPI Framework  
 
-\## Operational Performance Metrics
-
-
-
-\---
+## Operational Performance Metrics
 
 
 
-\# Purpose
+---
 
 
 
-This document defines the primary operational performance metrics generated from the Northstar Health Operations Ticketing \& Incident Management System.
+# Purpose
+
+
+
+This document defines the primary operational performance metrics generated from the Northstar Health Operations Ticketing & Incident Management System.
 
 
 
 The KPI framework is designed to support:
 
-\- Operational visibility
+- Operational visibility
 
-\- Workflow performance monitoring
+- Workflow performance monitoring
 
-\- SLA compliance tracking
+- SLA compliance tracking
 
-\- Escalation management
+- Escalation management
 
-\- Department workload analysis
+- Department workload analysis
 
-\- Process improvement initiatives
+- Process improvement initiatives
 
-\- Leadership reporting
+- Leadership reporting
 
 
 
@@ -38,11 +38,11 @@ The metrics defined in this framework will later support SQL analysis, dashboard
 
 
 
-\---
+---
 
 
 
-\# KPI Design Principles
+# KPI Design Principles
 
 
 
@@ -50,19 +50,19 @@ The ticket KPI framework is designed around several operational principles:
 
 
 
-\- Metrics should support operational decision-making
+- Metrics should support operational decision-making
 
-\- KPIs should reflect workflow performance
+- KPIs should reflect workflow performance
 
-\- Measurements should be understandable across departments
+- Measurements should be understandable across departments
 
-\- Metrics should identify operational risk areas
+- Metrics should identify operational risk areas
 
-\- KPI reporting should support leadership visibility
+- KPI reporting should support leadership visibility
 
-\- Metrics should support trend analysis over time
+- Metrics should support trend analysis over time
 
-\- Operational bottlenecks should become measurable
+- Operational bottlenecks should become measurable
 
 
 
@@ -70,45 +70,45 @@ The framework prioritizes actionable operational insight rather than excessive m
 
 
 
-\---
+---
 
 
 
-\# Core Ticket KPIs
+# Core Ticket KPIs
 
 
 
-\## Average First Response Time
+## Average First Response Time
 
 
 
-\### Definition
+### Definition
 
 Measures the average amount of time between ticket creation and the first operational response.
 
 
 
-\### Business Purpose
+### Business Purpose
 
 Tracks responsiveness and intake efficiency.
 
 
 
-\### Operational Importance
+### Operational Importance
 
 High response times may indicate:
 
-\- understaffing
+- understaffing
 
-\- intake bottlenecks
+- intake bottlenecks
 
-\- poor ticket routing
+- poor ticket routing
 
-\- workflow overload
+- workflow overload
 
 
 
-\### Example Measurement
+### Example Measurement
 
 ```text
 
@@ -118,43 +118,43 @@ High response times may indicate:
 
 
 
-\---
+---
 
 
 
-\## Average Resolution Time
+## Average Resolution Time
 
 
 
-\### Definition
+### Definition
 
 Measures the average amount of time required to fully resolve a ticket.
 
 
 
-\### Business Purpose
+### Business Purpose
 
 Tracks operational efficiency and issue resolution effectiveness.
 
 
 
-\### Operational Importance
+### Operational Importance
 
 High resolution times may indicate:
 
-\- escalation overload
+- escalation overload
 
-\- vendor delays
+- vendor delays
 
-\- staffing strain
+- staffing strain
 
-\- inefficient workflows
+- inefficient workflows
 
-\- poor cross-functional coordination
+- poor cross-functional coordination
 
 
 
-\### Example Measurement
+### Example Measurement
 
 ```text
 
@@ -164,43 +164,43 @@ High resolution times may indicate:
 
 
 
-\---
+---
 
 
 
-\## SLA Compliance Rate
+## SLA Compliance Rate
 
 
 
-\### Definition
+### Definition
 
 Measures the percentage of tickets resolved within established SLA targets.
 
 
 
-\### Business Purpose
+### Business Purpose
 
 Tracks service reliability and operational consistency.
 
 
 
-\### Operational Importance
+### Operational Importance
 
 Low SLA compliance may indicate:
 
-\- excessive workload
+- excessive workload
 
-\- prioritization failures
+- prioritization failures
 
-\- operational bottlenecks
+- operational bottlenecks
 
-\- staffing limitations
+- staffing limitations
 
-\- escalation management issues
+- escalation management issues
 
 
 
-\### Example Measurement
+### Example Measurement
 
 ```text
 
@@ -210,43 +210,43 @@ Low SLA compliance may indicate:
 
 
 
-\---
+---
 
 
 
-\## Ticket Backlog Volume
+## Ticket Backlog Volume
 
 
 
-\### Definition
+### Definition
 
 Measures the number of active unresolved tickets currently in the system.
 
 
 
-\### Business Purpose
+### Business Purpose
 
 Tracks operational workload pressure.
 
 
 
-\### Operational Importance
+### Operational Importance
 
 Growing backlog volume may indicate:
 
-\- staffing imbalance
+- staffing imbalance
 
-\- workflow inefficiencies
+- workflow inefficiencies
 
-\- rising operational demand
+- rising operational demand
 
-\- delayed vendor response
+- delayed vendor response
 
-\- unresolved escalations
+- unresolved escalations
 
 
 
-\### Example Measurement
+### Example Measurement
 
 ```text
 
@@ -256,43 +256,43 @@ Growing backlog volume may indicate:
 
 
 
-\---
+---
 
 
 
-\## Escalation Rate
+## Escalation Rate
 
 
 
-\### Definition
+### Definition
 
 Measures the percentage of tickets escalated beyond normal operational handling.
 
 
 
-\### Business Purpose
+### Business Purpose
 
 Tracks operational stability and workflow effectiveness.
 
 
 
-\### Operational Importance
+### Operational Importance
 
 High escalation rates may indicate:
 
-\- poor initial routing
+- poor initial routing
 
-\- insufficient staffing
+- insufficient staffing
 
-\- unclear ownership
+- unclear ownership
 
-\- recurring operational failures
+- recurring operational failures
 
-\- unresolved process gaps
+- unresolved process gaps
 
 
 
-\### Example Measurement
+### Example Measurement
 
 ```text
 
@@ -302,43 +302,43 @@ High escalation rates may indicate:
 
 
 
-\---
+---
 
 
 
-\## Ticket Reopen Rate
+## Ticket Reopen Rate
 
 
 
-\### Definition
+### Definition
 
 Measures the percentage of previously resolved tickets that were reopened.
 
 
 
-\### Business Purpose
+### Business Purpose
 
 Tracks resolution quality and workflow effectiveness.
 
 
 
-\### Operational Importance
+### Operational Importance
 
 High reopen rates may indicate:
 
-\- incomplete resolutions
+- incomplete resolutions
 
-\- poor communication
+- poor communication
 
-\- recurring issues
+- recurring issues
 
-\- rushed ticket closures
+- rushed ticket closures
 
-\- lack of root cause correction
+- lack of root cause correction
 
 
 
-\### Example Measurement
+### Example Measurement
 
 ```text
 
@@ -348,135 +348,135 @@ High reopen rates may indicate:
 
 
 
-\---
+---
 
 
 
-\## Ticket Volume by Category
+## Ticket Volume by Category
 
 
 
-\### Definition
+### Definition
 
 Measures ticket distribution across operational categories.
 
 
 
-\### Business Purpose
+### Business Purpose
 
 Tracks operational demand trends and workload concentration.
 
 
 
-\### Operational Importance
+### Operational Importance
 
 Category spikes may indicate:
 
-\- inventory instability
+- inventory instability
 
-\- scheduling strain
+- scheduling strain
 
-\- vendor performance issues
+- vendor performance issues
 
-\- reporting failures
+- reporting failures
 
-\- workflow disruptions
-
-
-
-\### Example Categories
-
-\- Inventory \& Supply
-
-\- Operational Incident
-
-\- Data Quality \& Compliance
-
-\- Vendor Management
-
-\- Scheduling Coordination
+- workflow disruptions
 
 
 
-\---
+### Example Categories
+
+- Inventory & Supply
+
+- Operational Incident
+
+- Data Quality & Compliance
+
+- Vendor Management
+
+- Scheduling Coordination
 
 
 
-\## Department Workload Distribution
+---
 
 
 
-\### Definition
+## Department Workload Distribution
+
+
+
+### Definition
 
 Measures ticket assignment volume across operational departments.
 
 
 
-\### Business Purpose
+### Business Purpose
 
 Tracks workload balance and staffing pressure.
 
 
 
-\### Operational Importance
+### Operational Importance
 
 Imbalanced workload may indicate:
 
-\- staffing shortages
+- staffing shortages
 
-\- workflow inefficiencies
+- workflow inefficiencies
 
-\- poor routing logic
+- poor routing logic
 
-\- operational demand spikes
+- operational demand spikes
 
 
 
-\### Example Measurement
+### Example Measurement
 
 ```text
 
-42% of tickets assigned to Supply \& Inventory Operations
+42% of tickets assigned to Supply & Inventory Operations
 
 ```
 
 
 
-\---
+---
 
 
 
-\## Aging Ticket Count
+## Aging Ticket Count
 
 
 
-\### Definition
+### Definition
 
 Measures the number of tickets exceeding predefined aging thresholds.
 
 
 
-\### Business Purpose
+### Business Purpose
 
 Tracks unresolved operational risk.
 
 
 
-\### Operational Importance
+### Operational Importance
 
 High aging volume may indicate:
 
-\- unresolved escalations
+- unresolved escalations
 
-\- vendor dependency delays
+- vendor dependency delays
 
-\- workflow stagnation
+- workflow stagnation
 
-\- insufficient follow-up
+- insufficient follow-up
 
 
 
-\### Example Measurement
+### Example Measurement
 
 ```text
 
@@ -486,11 +486,11 @@ High aging volume may indicate:
 
 
 
-\---
+---
 
 
 
-\# Leadership KPI Priorities
+# Leadership KPI Priorities
 
 
 
@@ -498,95 +498,95 @@ Different leadership groups prioritize different operational metrics.
 
 
 
-\## Chief Operations Officer (COO)
+## Chief Operations Officer (COO)
 
 Primary focus:
 
-\- SLA compliance
+- SLA compliance
 
-\- escalation rate
+- escalation rate
 
-\- operational backlog
+- operational backlog
 
-\- workflow efficiency
-
-
-
-\---
+- workflow efficiency
 
 
 
-\## Director of Supply \& Inventory Operations
-
-Primary focus:
-
-\- inventory-related ticket volume
-
-\- supply escalation trends
-
-\- vendor-related incidents
-
-\- stockout-related disruptions
+---
 
 
 
-\---
-
-
-
-\## Director of Clinical Operations Support
+## Director of Supply & Inventory Operations
 
 Primary focus:
 
-\- operational interruption frequency
+- inventory-related ticket volume
 
-\- scheduling-related incidents
+- supply escalation trends
 
-\- service continuity issues
+- vendor-related incidents
 
-
-
-\---
+- stockout-related disruptions
 
 
 
-\## Director of Operational Analytics
+---
+
+
+
+## Director of Clinical Operations Support
 
 Primary focus:
 
-\- reporting consistency
+- operational interruption frequency
 
-\- KPI trend analysis
+- scheduling-related incidents
 
-\- workload visibility
-
-\- operational forecasting
+- service continuity issues
 
 
 
-\---
+---
 
 
 
-\# KPI Reporting Considerations
+## Director of Operational Analytics
+
+Primary focus:
+
+- reporting consistency
+
+- KPI trend analysis
+
+- workload visibility
+
+- operational forecasting
+
+
+
+---
+
+
+
+# KPI Reporting Considerations
 
 
 
 The KPI framework is designed to support future:
 
-\- Power BI dashboards
+- Power BI dashboards
 
-\- SQL reporting systems
+- SQL reporting systems
 
-\- executive operational summaries
+- executive operational summaries
 
-\- workflow bottleneck analysis
+- workflow bottleneck analysis
 
-\- staffing pressure analysis
+- staffing pressure analysis
 
-\- SLA scorecards
+- SLA scorecards
 
-\- operational trend monitoring
+- operational trend monitoring
 
 
 
@@ -594,33 +594,33 @@ The framework also supports future cross-functional reporting between ticketing,
 
 
 
-\---
+---
 
 
 
-\# Operational Risks Identified Through KPIs
+# Operational Risks Identified Through KPIs
 
 
 
 KPI monitoring may help identify:
 
-\- recurring workflow failures
+- recurring workflow failures
 
-\- operational overload periods
+- operational overload periods
 
-\- vendor instability
+- vendor instability
 
-\- staffing strain
+- staffing strain
 
-\- routing inefficiencies
+- routing inefficiencies
 
-\- escalation growth
+- escalation growth
 
-\- poor resolution quality
+- poor resolution quality
 
-\- backlog accumulation
+- backlog accumulation
 
-\- process bottlenecks
+- process bottlenecks
 
 
 
@@ -628,31 +628,31 @@ These risks create opportunities for future workflow optimization and operationa
 
 
 
-\---
+---
 
 
 
-\# Future Portfolio Expansion
+# Future Portfolio Expansion
 
 
 
 Future KPI framework enhancements may include:
 
-\- cost-per-ticket analysis
+- cost-per-ticket analysis
 
-\- department efficiency scoring
+- department efficiency scoring
 
-\- predictive escalation modeling
+- predictive escalation modeling
 
-\- workload forecasting
+- workload forecasting
 
-\- staffing utilization analysis
+- staffing utilization analysis
 
-\- operational risk scoring
+- operational risk scoring
 
-\- root cause classification reporting
+- root cause classification reporting
 
-\- AI-assisted trend summarization
+- AI-assisted trend summarization
 
 
 
