@@ -1,16 +1,16 @@
-\# Northstar Health Operations
+# Northstar Health Operations
 
 
 
-\## Enterprise Operational Intelligence Ecosystem
+## Enterprise Operational Intelligence Ecosystem
 
 
 
-\---
+---
 
 
 
-\# Overview
+# Overview
 
 
 
@@ -22,7 +22,7 @@ The project is intentionally structured as:
 
 
 
-\# an interconnected operational ecosystem
+# an interconnected operational ecosystem
 
 
 
@@ -30,7 +30,7 @@ NOT:
 
 
 
-\# a collection of disconnected portfolio projects.
+# a collection of disconnected portfolio projects.
 
 
 
@@ -38,21 +38,21 @@ The ecosystem models operational domains commonly found within healthcare and en
 
 
 
-\- inventory operations
+- inventory operations
 
-\- vendor performance
+- vendor performance
 
-\- operational ticketing
+- operational ticketing
 
-\- replenishment workflows
+- replenishment workflows
 
-\- shortage monitoring
+- shortage monitoring
 
-\- escalation management
+- escalation management
 
-\- operational reporting
+- operational reporting
 
-\- cross-system analytics
+- cross-system analytics
 
 
 
