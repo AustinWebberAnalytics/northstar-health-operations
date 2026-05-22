@@ -1,18 +1,18 @@
-\# Ticket Lifecycle Workflow  
+# Ticket Lifecycle Workflow  
 
-\## Operational Workflow Logic
-
-
-
-\---
+## Operational Workflow Logic
 
 
 
-\# Purpose
+---
 
 
 
-This document defines the standard lifecycle for tickets within the Northstar Health Operations Ticketing \& Incident Management System.
+# Purpose
+
+
+
+This document defines the standard lifecycle for tickets within the Northstar Health Operations Ticketing & Incident Management System.
 
 
 
@@ -22,25 +22,25 @@ The purpose of the lifecycle is to create a consistent operational process for r
 
 This workflow supports:
 
-\- Operational consistency
+- Operational consistency
 
-\- SLA tracking
+- SLA tracking
 
-\- Escalation management
+- Escalation management
 
-\- Department accountability
+- Department accountability
 
-\- Reporting accuracy
+- Reporting accuracy
 
-\- Process improvement analysis
-
-
-
-\---
+- Process improvement analysis
 
 
 
-\# Ticket Lifecycle Overview
+---
+
+
+
+# Ticket Lifecycle Overview
 
 
 
@@ -80,15 +80,15 @@ These additional stages are used when tickets require extra review, external dep
 
 
 
-\---
+---
 
 
 
-\# Standard Workflow Stages
+# Standard Workflow Stages
 
 
 
-\## 1. New
+## 1. New
 
 
 
@@ -102,21 +102,21 @@ At this stage, the ticket has not yet been reviewed by the Operations Coordinati
 
 Key actions:
 
-\- Ticket is created
+- Ticket is created
 
-\- Required fields are captured
+- Required fields are captured
 
-\- Initial timestamp is recorded
+- Initial timestamp is recorded
 
-\- Ticket awaits intake review
-
-
-
-\---
+- Ticket awaits intake review
 
 
 
-\## 2. Assigned
+---
+
+
+
+## 2. Assigned
 
 
 
@@ -126,23 +126,23 @@ The Operations Coordination Center reviews the ticket and routes it to the respo
 
 Key actions:
 
-\- Ticket category is confirmed
+- Ticket category is confirmed
 
-\- Priority level is reviewed
+- Priority level is reviewed
 
-\- Responsible department is assigned
+- Responsible department is assigned
 
-\- Operational owner is identified
+- Operational owner is identified
 
-\- SLA expectations are established
-
-
-
-\---
+- SLA expectations are established
 
 
 
-\## 3. In Progress
+---
+
+
+
+## 3. In Progress
 
 
 
@@ -152,23 +152,23 @@ The assigned department begins active investigation or resolution work.
 
 Key actions:
 
-\- Issue is reviewed
+- Issue is reviewed
 
-\- Supporting information is gathered
+- Supporting information is gathered
 
-\- Cross-functional coordination begins if needed
+- Cross-functional coordination begins if needed
 
-\- Resolution actions are started
+- Resolution actions are started
 
-\- Status updates are documented
-
-
-
-\---
+- Status updates are documented
 
 
 
-\## 4. Escalated
+---
+
+
+
+## 4. Escalated
 
 
 
@@ -178,41 +178,41 @@ A ticket is escalated when the issue exceeds normal handling rules or requires i
 
 Common escalation triggers:
 
-\- SLA threshold exceeded
+- SLA threshold exceeded
 
-\- Patient-facing operational risk
+- Patient-facing operational risk
 
-\- Repeated issue pattern
+- Repeated issue pattern
 
-\- Vendor dependency
+- Vendor dependency
 
-\- Multi-department involvement
+- Multi-department involvement
 
-\- Severe inventory or staffing impact
+- Severe inventory or staffing impact
 
-\- Leadership visibility required
+- Leadership visibility required
 
 
 
 Key actions:
 
-\- Escalation flag is updated
+- Escalation flag is updated
 
-\- Higher-level owner is notified
+- Higher-level owner is notified
 
-\- Additional departments may be engaged
+- Additional departments may be engaged
 
-\- Management visibility may be added
+- Management visibility may be added
 
-\- Resolution priority may increase
-
-
-
-\---
+- Resolution priority may increase
 
 
 
-\## 5. Pending
+---
+
+
+
+## 5. Pending
 
 
 
@@ -222,37 +222,37 @@ A ticket is placed in pending status when resolution work is temporarily blocked
 
 Common pending reasons:
 
-\- Awaiting vendor response
+- Awaiting vendor response
 
-\- Awaiting clinic confirmation
+- Awaiting clinic confirmation
 
-\- Awaiting shipment update
+- Awaiting shipment update
 
-\- Awaiting missing information
+- Awaiting missing information
 
-\- Awaiting system access
+- Awaiting system access
 
-\- Awaiting leadership decision
+- Awaiting leadership decision
 
 
 
 Key actions:
 
-\- Pending reason is documented
+- Pending reason is documented
 
-\- Follow-up owner is assigned
+- Follow-up owner is assigned
 
-\- Expected follow-up date may be added
+- Expected follow-up date may be added
 
-\- Ticket remains open but paused
-
-
-
-\---
+- Ticket remains open but paused
 
 
 
-\## 6. Resolved
+---
+
+
+
+## 6. Resolved
 
 
 
@@ -262,23 +262,23 @@ A ticket is marked resolved when the operational issue has been addressed.
 
 Key actions:
 
-\- Resolution action is completed
+- Resolution action is completed
 
-\- Resolution notes are documented
+- Resolution notes are documented
 
-\- Resolution timestamp is recorded
+- Resolution timestamp is recorded
 
-\- Requesting location may be notified
+- Requesting location may be notified
 
-\- Ticket awaits final closure
-
-
-
-\---
+- Ticket awaits final closure
 
 
 
-\## 7. Closed
+---
+
+
+
+## 7. Closed
 
 
 
@@ -288,21 +288,21 @@ A ticket is closed after resolution has been confirmed or the ticket has met clo
 
 Key actions:
 
-\- Closure timestamp is recorded
+- Closure timestamp is recorded
 
-\- Final status is confirmed
+- Final status is confirmed
 
-\- Ticket is archived for reporting
+- Ticket is archived for reporting
 
-\- Metrics become available for KPI reporting
-
-
-
-\---
+- Metrics become available for KPI reporting
 
 
 
-\## 8. Reopened
+---
+
+
+
+## 8. Reopened
 
 
 
@@ -312,35 +312,35 @@ A ticket may be reopened when the issue returns, resolution was incomplete, or t
 
 Common reopen reasons:
 
-\- Issue not fully resolved
+- Issue not fully resolved
 
-\- Same problem recurred
+- Same problem recurred
 
-\- Incorrect routing
+- Incorrect routing
 
-\- Incomplete documentation
+- Incomplete documentation
 
-\- Follow-up action required
+- Follow-up action required
 
 
 
 Key actions:
 
-\- Ticket status returns to In Progress or Assigned
+- Ticket status returns to In Progress or Assigned
 
-\- Reopen reason is documented
+- Reopen reason is documented
 
-\- Reopened ticket flag is updated
+- Reopened ticket flag is updated
 
-\- Root cause review may be triggered
-
-
-
-\---
+- Root cause review may be triggered
 
 
 
-\# Routing Logic
+---
+
+
+
+# Routing Logic
 
 
 
@@ -348,29 +348,29 @@ The Operations Coordination Center routes tickets based on category, priority, o
 
 
 
-\## Inventory \& Supply
+## Inventory & Supply
 
-Routed to Supply \& Inventory Operations.
+Routed to Supply & Inventory Operations.
 
 
 
 Examples:
 
-\- Stockout risk
+- Stockout risk
 
-\- Replenishment delay
+- Replenishment delay
 
-\- Inventory discrepancy
+- Inventory discrepancy
 
-\- Emergency transfer request
-
-
-
-\---
+- Emergency transfer request
 
 
 
-\## Scheduling \& Resource Coordination
+---
+
+
+
+## Scheduling & Resource Coordination
 
 Routed to Clinical Operations Support.
 
@@ -378,65 +378,65 @@ Routed to Clinical Operations Support.
 
 Examples:
 
-\- Staffing conflict
+- Staffing conflict
 
-\- Room availability issue
+- Room availability issue
 
-\- Equipment scheduling conflict
+- Equipment scheduling conflict
 
-\- Clinic support request
-
-
-
-\---
+- Clinic support request
 
 
 
-\## Vendor \& Delivery Management
-
-Routed to Vendor \& Service Management or Supply \& Inventory Operations.
+---
 
 
 
-Examples:
+## Vendor & Delivery Management
 
-\- Vendor delay
-
-\- Incomplete delivery
-
-\- Fulfillment issue
-
-\- Delivery schedule disruption
-
-
-
-\---
-
-
-
-\## Data Quality \& Compliance
-
-Routed to Data Quality \& Compliance.
+Routed to Vendor & Service Management or Supply & Inventory Operations.
 
 
 
 Examples:
 
-\- Missing records
+- Vendor delay
 
-\- Duplicate entries
+- Incomplete delivery
 
-\- Audit exception
+- Fulfillment issue
 
-\- Reporting inconsistency
-
-
-
-\---
+- Delivery schedule disruption
 
 
 
-\## Operational Incident
+---
+
+
+
+## Data Quality & Compliance
+
+Routed to Data Quality & Compliance.
+
+
+
+Examples:
+
+- Missing records
+
+- Duplicate entries
+
+- Audit exception
+
+- Reporting inconsistency
+
+
+
+---
+
+
+
+## Operational Incident
 
 Routed based on issue impact and required department response.
 
@@ -444,19 +444,19 @@ Routed based on issue impact and required department response.
 
 Examples:
 
-\- Clinic workflow interruption
+- Clinic workflow interruption
 
-\- Service continuity concern
+- Service continuity concern
 
-\- Cross-functional operational issue
-
-
-
-\---
+- Cross-functional operational issue
 
 
 
-\## Technical \& Systems Support
+---
+
+
+
+## Technical & Systems Support
 
 Routed to the appropriate systems support owner or reporting support team.
 
@@ -464,21 +464,21 @@ Routed to the appropriate systems support owner or reporting support team.
 
 Examples:
 
-\- Dashboard access issue
+- Dashboard access issue
 
-\- Ticketing platform issue
+- Ticketing platform issue
 
-\- Reporting system interruption
+- Reporting system interruption
 
-\- Workflow tool error
-
-
-
-\---
+- Workflow tool error
 
 
 
-\# Priority Logic
+---
+
+
+
+# Priority Logic
 
 
 
@@ -486,7 +486,7 @@ Priority levels are assigned based on urgency, operational impact, service conti
 
 
 
-\## Priority 1 — Critical
+## Priority 1 — Critical
 
 Requires immediate response.
 
@@ -498,21 +498,21 @@ Used when the issue creates severe operational disruption or high-risk service c
 
 Examples:
 
-\- Clinic unable to operate normally
+- Clinic unable to operate normally
 
-\- Critical supply unavailable
+- Critical supply unavailable
 
-\- Major system interruption
+- Major system interruption
 
-\- High-impact escalation requiring leadership visibility
-
-
-
-\---
+- High-impact escalation requiring leadership visibility
 
 
 
-\## Priority 2 — High
+---
+
+
+
+## Priority 2 — High
 
 Requires rapid response.
 
@@ -524,21 +524,21 @@ Used when the issue may disrupt operations if not addressed quickly.
 
 Examples:
 
-\- High-demand inventory shortage
+- High-demand inventory shortage
 
-\- Vendor delay affecting clinic readiness
+- Vendor delay affecting clinic readiness
 
-\- Staffing/resource issue impacting schedule
+- Staffing/resource issue impacting schedule
 
-\- Repeated operational failure
-
-
-
-\---
+- Repeated operational failure
 
 
 
-\## Priority 3 — Moderate
+---
+
+
+
+## Priority 3 — Moderate
 
 Standard operational priority.
 
@@ -550,21 +550,21 @@ Used for normal service requests and incidents that require timely handling but 
 
 Examples:
 
-\- Routine supply request
+- Routine supply request
 
-\- Non-critical data correction
+- Non-critical data correction
 
-\- Standard scheduling coordination issue
+- Standard scheduling coordination issue
 
-\- General operational support ticket
-
-
-
-\---
+- General operational support ticket
 
 
 
-\## Priority 4 — Low
+---
+
+
+
+## Priority 4 — Low
 
 Low urgency.
 
@@ -576,21 +576,21 @@ Used for informational requests, minor coordination items, documentation updates
 
 Examples:
 
-\- Reporting clarification
+- Reporting clarification
 
-\- Documentation update
+- Documentation update
 
-\- Low-impact system question
+- Low-impact system question
 
-\- Future-dated coordination request
-
-
-
-\---
+- Future-dated coordination request
 
 
 
-\# SLA Logic
+---
+
+
+
+# SLA Logic
 
 
 
@@ -620,11 +620,11 @@ These targets support future KPI calculations such as SLA compliance rate, avera
 
 
 
-\---
+---
 
 
 
-\# Workflow Risks
+# Workflow Risks
 
 
 
@@ -632,21 +632,21 @@ Several operational risks may affect ticket lifecycle performance:
 
 
 
-\- Tickets routed to the wrong department
+- Tickets routed to the wrong department
 
-\- Priority levels assigned inconsistently
+- Priority levels assigned inconsistently
 
-\- Escalations triggered too late
+- Escalations triggered too late
 
-\- Pending tickets not followed up
+- Pending tickets not followed up
 
-\- Resolution notes incomplete
+- Resolution notes incomplete
 
-\- Closed tickets reopened due to incomplete fixes
+- Closed tickets reopened due to incomplete fixes
 
-\- SLA targets missed during high-volume periods
+- SLA targets missed during high-volume periods
 
-\- Multi-department issues lacking clear ownership
+- Multi-department issues lacking clear ownership
 
 
 
@@ -654,11 +654,11 @@ These risks create future opportunities for workflow analysis, process redesign,
 
 
 
-\---
+---
 
 
 
-\# Future Portfolio Use
+# Future Portfolio Use
 
 
 
@@ -666,21 +666,21 @@ This workflow document will support future Northstar portfolio modules, includin
 
 
 
-\- Process maps
+- Process maps
 
-\- SQL ticket lifecycle tables
+- SQL ticket lifecycle tables
 
-\- SLA analysis
+- SLA analysis
 
-\- Power BI ticket dashboards
+- Power BI ticket dashboards
 
-\- Escalation trend reporting
+- Escalation trend reporting
 
-\- Bottleneck analysis
+- Bottleneck analysis
 
-\- Operational staffing analysis
+- Operational staffing analysis
 
-\- Executive summaries
+- Executive summaries
 
-\- Workflow improvement recommendations
+- Workflow improvement recommendations
 
