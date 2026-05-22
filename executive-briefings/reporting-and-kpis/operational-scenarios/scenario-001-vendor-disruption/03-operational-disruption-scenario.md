@@ -1,4 +1,4 @@
-\# Operational Disruption Scenario — V1  
+\# Operational Disruption Scenario — V1 
 
 
 

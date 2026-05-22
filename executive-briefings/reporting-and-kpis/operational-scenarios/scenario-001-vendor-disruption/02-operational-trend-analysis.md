@@ -1,4 +1,4 @@
-\# Operational Trend Analysis — V1  
+\# Operational Trend Analysis — V1 
 
 
 
