@@ -1,44 +1,44 @@
-\# Ticket Dataset Schema  
+# Ticket Dataset Schema  
 
-\## Structured Dataset Blueprint
-
-
-
-\---
+## Structured Dataset Blueprint
 
 
 
-\# Purpose
+---
 
 
 
-This document defines the structured dataset schema for the Northstar Health Operations Ticketing \& Incident Management System.
+# Purpose
+
+
+
+This document defines the structured dataset schema for the Northstar Health Operations Ticketing & Incident Management System.
 
 
 
 The schema translates operational ticket activity into a structured data format that can later support:
 
-\- CSV dataset creation
+- CSV dataset creation
 
-\- Excel analysis
+- Excel analysis
 
-\- SQL database construction
+- SQL database construction
 
-\- Power BI reporting
+- Power BI reporting
 
-\- SLA analysis
+- SLA analysis
 
-\- workflow bottleneck analysis
+- workflow bottleneck analysis
 
-\- operational KPI tracking
-
-
-
-\---
+- operational KPI tracking
 
 
 
-\# Dataset Name
+---
+
+
+
+# Dataset Name
 
 
 
@@ -50,11 +50,11 @@ tickets.csv
 
 
 
-\---
+---
 
 
 
-\# Dataset Grain
+# Dataset Grain
 
 
 
@@ -74,15 +74,15 @@ This means every ticket submitted into the system should appear as one row in th
 
 
 
-\---
+---
 
 
 
-\# Primary Key
+# Primary Key
 
 
 
-\## ticket\_id
+## ticket_id
 
 
 
@@ -102,11 +102,11 @@ INC-100001
 
 
 
-\---
+---
 
 
 
-\# Core Dataset Fields
+# Core Dataset Fields
 
 
 
@@ -114,15 +114,15 @@ INC-100001
 
 |---|---|---:|---|
 
-| ticket\_id | Text | Yes | Unique ticket identifier |
+| ticket_id | Text | Yes | Unique ticket identifier |
 
-| created\_at | Datetime | Yes | Date and time ticket was submitted |
+| created_at | Datetime | Yes | Date and time ticket was submitted |
 
-| first\_response\_at | Datetime | Yes | Date and time first response occurred |
+| first_response_at | Datetime | Yes | Date and time first response occurred |
 
-| resolved\_at | Datetime | Conditional | Date and time ticket was resolved |
+| resolved_at | Datetime | Conditional | Date and time ticket was resolved |
 
-| closed\_at | Datetime | Conditional | Date and time ticket was formally closed |
+| closed_at | Datetime | Conditional | Date and time ticket was formally closed |
 
 | category | Text | Yes | Primary ticket category |
 
@@ -130,41 +130,41 @@ INC-100001
 
 | status | Text | Yes | Current ticket lifecycle status |
 
-| requesting\_location | Text | Yes | Clinic, hub, or department requesting support |
+| requesting_location | Text | Yes | Clinic, hub, or department requesting support |
 
-| assigned\_department | Text | Yes | Department responsible for resolution |
+| assigned_department | Text | Yes | Department responsible for resolution |
 
-| assigned\_owner | Text | Optional | Team member responsible for the ticket |
+| assigned_owner | Text | Optional | Team member responsible for the ticket |
 
-| escalation\_flag | Boolean | Yes | Indicates whether ticket was escalated |
+| escalation_flag | Boolean | Yes | Indicates whether ticket was escalated |
 
-| reopened\_flag | Boolean | Yes | Indicates whether ticket was reopened |
+| reopened_flag | Boolean | Yes | Indicates whether ticket was reopened |
 
-| pending\_flag | Boolean | Yes | Indicates whether ticket entered pending status |
+| pending_flag | Boolean | Yes | Indicates whether ticket entered pending status |
 
-| sla\_target\_hours | Numeric | Yes | Expected resolution target in hours |
+| sla_target_hours | Numeric | Yes | Expected resolution target in hours |
 
-| resolution\_hours | Numeric | Conditional | Total hours from creation to resolution |
+| resolution_hours | Numeric | Conditional | Total hours from creation to resolution |
 
-| response\_hours | Numeric | Yes | Total hours from creation to first response |
+| response_hours | Numeric | Yes | Total hours from creation to first response |
 
-| sla\_met\_flag | Boolean | Conditional | Indicates whether ticket met SLA target |
+| sla_met_flag | Boolean | Conditional | Indicates whether ticket met SLA target |
 
 | summary | Text | Yes | Short description of ticket issue |
 
-| resolution\_notes | Text | Conditional | Notes describing how issue was resolved |
+| resolution_notes | Text | Conditional | Notes describing how issue was resolved |
 
 
 
-\---
+---
 
 
 
-\# Field Definitions
+# Field Definitions
 
 
 
-\## ticket\_id
+## ticket_id
 
 
 
@@ -186,11 +186,11 @@ INC-100003
 
 
 
-\---
+---
 
 
 
-\## created\_at
+## created_at
 
 
 
@@ -200,21 +200,21 @@ Timestamp showing when the ticket was submitted.
 
 Used to calculate:
 
-\- response time
+- response time
 
-\- resolution time
+- resolution time
 
-\- ticket aging
+- ticket aging
 
-\- ticket volume trends
-
-
-
-\---
+- ticket volume trends
 
 
 
-\## first\_response\_at
+---
+
+
+
+## first_response_at
 
 
 
@@ -224,19 +224,19 @@ Timestamp showing when the first operational response occurred.
 
 Used to calculate:
 
-\- average first response time
+- average first response time
 
-\- SLA response performance
+- SLA response performance
 
-\- intake efficiency
-
-
-
-\---
+- intake efficiency
 
 
 
-\## resolved\_at
+---
+
+
+
+## resolved_at
 
 
 
@@ -246,11 +246,11 @@ Timestamp showing when the operational issue was resolved.
 
 Used to calculate:
 
-\- resolution time
+- resolution time
 
-\- SLA compliance
+- SLA compliance
 
-\- workflow performance
+- workflow performance
 
 
 
@@ -258,11 +258,11 @@ This field may be blank if the ticket is still open.
 
 
 
-\---
+---
 
 
 
-\## closed\_at
+## closed_at
 
 
 
@@ -272,11 +272,11 @@ Timestamp showing when the ticket was formally closed.
 
 Used for:
 
-\- audit tracking
+- audit tracking
 
-\- lifecycle reporting
+- lifecycle reporting
 
-\- closure analysis
+- closure analysis
 
 
 
@@ -284,11 +284,11 @@ This field may be blank if the ticket has not been closed.
 
 
 
-\---
+---
 
 
 
-\## category
+## category
 
 
 
@@ -298,25 +298,25 @@ Primary operational category assigned to the ticket.
 
 Accepted values:
 
-\- Inventory \& Supply
+- Inventory & Supply
 
-\- Scheduling \& Resource Coordination
+- Scheduling & Resource Coordination
 
-\- Vendor \& Delivery Management
+- Vendor & Delivery Management
 
-\- Operational Incident
+- Operational Incident
 
-\- Data Quality \& Compliance
+- Data Quality & Compliance
 
-\- Technical \& Systems Support
-
-
-
-\---
+- Technical & Systems Support
 
 
 
-\## priority
+---
+
+
+
+## priority
 
 
 
@@ -326,21 +326,21 @@ Operational urgency level assigned to the ticket.
 
 Accepted values:
 
-\- Priority 1 — Critical
+- Priority 1 — Critical
 
-\- Priority 2 — High
+- Priority 2 — High
 
-\- Priority 3 — Moderate
+- Priority 3 — Moderate
 
-\- Priority 4 — Low
-
-
-
-\---
+- Priority 4 — Low
 
 
 
-\## status
+---
+
+
+
+## status
 
 
 
@@ -350,29 +350,29 @@ Current lifecycle status of the ticket.
 
 Accepted values:
 
-\- New
+- New
 
-\- Assigned
+- Assigned
 
-\- In Progress
+- In Progress
 
-\- Escalated
+- Escalated
 
-\- Pending
+- Pending
 
-\- Resolved
+- Resolved
 
-\- Closed
+- Closed
 
-\- Reopened
-
-
-
-\---
+- Reopened
 
 
 
-\## requesting\_location
+---
+
+
+
+## requesting_location
 
 
 
@@ -382,21 +382,21 @@ Clinic, distribution hub, or operational department requesting support.
 
 Example values:
 
-\- Raleigh Specialty Clinic 03
+- Raleigh Specialty Clinic 03
 
-\- Durham Outpatient Clinic 07
+- Durham Outpatient Clinic 07
 
-\- Cary Distribution Hub 01
+- Cary Distribution Hub 01
 
-\- Wake Forest Clinic 11
-
-
-
-\---
+- Wake Forest Clinic 11
 
 
 
-\## assigned\_department
+---
+
+
+
+## assigned_department
 
 
 
@@ -406,25 +406,25 @@ Department responsible for ticket resolution.
 
 Accepted values:
 
-\- Operations Coordination Center
+- Operations Coordination Center
 
-\- Supply \& Inventory Operations
+- Supply & Inventory Operations
 
-\- Clinical Operations Support
+- Clinical Operations Support
 
-\- Data Quality \& Compliance
+- Data Quality & Compliance
 
-\- Vendor \& Service Management
+- Vendor & Service Management
 
-\- Operational Analytics \& Reporting
-
-
-
-\---
+- Operational Analytics & Reporting
 
 
 
-\## assigned\_owner
+---
+
+
+
+## assigned_owner
 
 
 
@@ -434,19 +434,19 @@ Individual operational owner assigned to the ticket.
 
 This field supports:
 
-\- accountability tracking
+- accountability tracking
 
-\- workload balancing
+- workload balancing
 
-\- operational ownership analysis
-
-
-
-\---
+- operational ownership analysis
 
 
 
-\## escalation\_flag
+---
+
+
+
+## escalation_flag
 
 
 
@@ -466,11 +466,11 @@ FALSE
 
 
 
-\---
+---
 
 
 
-\## reopened\_flag
+## reopened_flag
 
 
 
@@ -490,11 +490,11 @@ FALSE
 
 
 
-\---
+---
 
 
 
-\## pending\_flag
+## pending_flag
 
 
 
@@ -514,11 +514,11 @@ FALSE
 
 
 
-\---
+---
 
 
 
-\## sla\_target\_hours
+## sla_target_hours
 
 
 
@@ -544,11 +544,11 @@ Example mapping:
 
 
 
-\---
+---
 
 
 
-\## resolution\_hours
+## resolution_hours
 
 
 
@@ -562,7 +562,7 @@ Formula concept:
 
 ```text
 
-resolved\_at - created\_at
+resolved_at - created_at
 
 ```
 
@@ -572,11 +572,11 @@ This field may be blank for unresolved tickets.
 
 
 
-\---
+---
 
 
 
-\## response\_hours
+## response_hours
 
 
 
@@ -590,17 +590,17 @@ Formula concept:
 
 ```text
 
-first\_response\_at - created\_at
+first_response_at - created_at
 
 ```
 
 
 
-\---
+---
 
 
 
-\## sla\_met\_flag
+## sla_met_flag
 
 
 
@@ -614,7 +614,7 @@ Formula concept:
 
 ```text
 
-resolution\_hours <= sla\_target\_hours
+resolution_hours <= sla_target_hours
 
 ```
 
@@ -636,11 +636,11 @@ This field may be blank for unresolved tickets.
 
 
 
-\---
+---
 
 
 
-\## summary
+## summary
 
 
 
@@ -658,11 +658,11 @@ Inventory shortage reported for high-use clinical supply
 
 
 
-\---
+---
 
 
 
-\## resolution\_notes
+## resolution_notes
 
 
 
@@ -684,35 +684,35 @@ This field may be blank for unresolved tickets.
 
 
 
-\---
+---
 
 
 
-\# Future Dataset Expansion
+# Future Dataset Expansion
 
 
 
 Future versions of this dataset may include:
 
-\- root\_cause
+- root_cause
 
-\- vendor\_id
+- vendor_id
 
-\- item\_id
+- item_id
 
-\- clinic\_region
+- clinic_region
 
-\- reopened\_count
+- reopened_count
 
-\- pending\_reason
+- pending_reason
 
-\- escalation\_reason
+- escalation_reason
 
-\- operational\_impact\_score
+- operational_impact_score
 
-\- cost\_impact\_estimate
+- cost_impact_estimate
 
-\- follow\_up\_required\_flag
+- follow_up_required_flag
 
 
 
@@ -720,31 +720,31 @@ These fields are intentionally deferred to keep the first dataset manageable and
 
 
 
-\---
+---
 
 
 
-\# Portfolio Use
+# Portfolio Use
 
 
 
 This schema will support future project phases including:
 
-\- generating the first synthetic ticket dataset
+- generating the first synthetic ticket dataset
 
-\- importing ticket data into Excel
+- importing ticket data into Excel
 
-\- creating SQL tables
+- creating SQL tables
 
-\- writing SQL validation queries
+- writing SQL validation queries
 
-\- creating Power BI ticket dashboards
+- creating Power BI ticket dashboards
 
-\- analyzing SLA performance
+- analyzing SLA performance
 
-\- identifying workflow bottlenecks
+- identifying workflow bottlenecks
 
-\- producing executive operational summaries
+- producing executive operational summaries
 
 
 

@@ -1,18 +1,18 @@
-\# Ticket Data Model  
+# Ticket Data Model  
 
-\## Operational Data Structure Overview
-
-
-
-\---
+## Operational Data Structure Overview
 
 
 
-\# Purpose
+---
 
 
 
-The Ticket Data Model defines the core operational data structure used within the Northstar Health Operations (NHO) Ticketing \& Incident Management System.
+# Purpose
+
+
+
+The Ticket Data Model defines the core operational data structure used within the Northstar Health Operations (NHO) Ticketing & Incident Management System.
 
 
 
@@ -22,29 +22,29 @@ The purpose of this model is to standardize how operational events, service requ
 
 This data structure supports:
 
-\- Operational coordination
+- Operational coordination
 
-\- Workflow management
+- Workflow management
 
-\- KPI reporting
+- KPI reporting
 
-\- SLA monitoring
+- SLA monitoring
 
-\- Escalation tracking
+- Escalation tracking
 
-\- Process improvement analysis
+- Process improvement analysis
 
-\- Operational visibility
+- Operational visibility
 
-\- Cross-functional reporting
-
-
-
-\---
+- Cross-functional reporting
 
 
 
-\# Core Design Principles
+---
+
+
+
+# Core Design Principles
 
 
 
@@ -52,21 +52,21 @@ The ticket data structure is designed around several operational principles:
 
 
 
-\- Standardized workflow tracking
+- Standardized workflow tracking
 
-\- Consistent operational categorization
+- Consistent operational categorization
 
-\- Measurable service performance
+- Measurable service performance
 
-\- Cross-functional coordination visibility
+- Cross-functional coordination visibility
 
-\- Escalation traceability
+- Escalation traceability
 
-\- Reporting consistency
+- Reporting consistency
 
-\- Audit support
+- Audit support
 
-\- Operational analytics readiness
+- Operational analytics readiness
 
 
 
@@ -74,25 +74,25 @@ The model prioritizes operational clarity and reporting usability over unnecessa
 
 
 
-\---
+---
 
 
 
-\# Core Ticket Fields
+# Core Ticket Fields
 
 
 
-\## Ticket ID
+## Ticket ID
 
 
 
-\### Purpose
+### Purpose
 
 Unique identifier assigned to each ticket.
 
 
 
-\### Example
+### Example
 
 ```text
 
@@ -102,27 +102,27 @@ INC-104582
 
 
 
-\### Operational Use
+### Operational Use
 
 Used for ticket lookup, reporting, escalation tracking, and audit reference.
 
 
 
-\---
+---
 
 
 
-\## Created Timestamp
+## Created Timestamp
 
 
 
-\### Purpose
+### Purpose
 
 Date and time the ticket was initially submitted.
 
 
 
-\### Example
+### Example
 
 ```text
 
@@ -132,133 +132,133 @@ Date and time the ticket was initially submitted.
 
 
 
-\### Operational Use
+### Operational Use
 
 Supports response-time calculations, SLA tracking, workload analysis, and trend reporting.
 
 
 
-\---
+---
 
 
 
-\## Ticket Category
+## Ticket Category
 
 
 
-\### Purpose
+### Purpose
 
 Defines the primary operational issue type.
 
 
 
-\### Example Values
+### Example Values
 
-\- Inventory \& Supply
+- Inventory & Supply
 
-\- Scheduling \& Resource Coordination
+- Scheduling & Resource Coordination
 
-\- Vendor \& Delivery Management
+- Vendor & Delivery Management
 
-\- Operational Incident
+- Operational Incident
 
-\- Data Quality \& Compliance
+- Data Quality & Compliance
 
-\- Technical \& Systems Support
+- Technical & Systems Support
 
 
 
-\### Operational Use
+### Operational Use
 
 Supports workflow routing, workload distribution analysis, and operational trend monitoring.
 
 
 
-\---
+---
 
 
 
-\## Priority Level
+## Priority Level
 
 
 
-\### Purpose
+### Purpose
 
 Indicates operational urgency and business impact.
 
 
 
-\### Example Values
+### Example Values
 
-\- Priority 1 — Critical
+- Priority 1 — Critical
 
-\- Priority 2 — High
+- Priority 2 — High
 
-\- Priority 3 — Moderate
+- Priority 3 — Moderate
 
-\- Priority 4 — Low
+- Priority 4 — Low
 
 
 
-\### Operational Use
+### Operational Use
 
 Supports escalation logic, SLA prioritization, and operational risk management.
 
 
 
-\---
+---
 
 
 
-\## Current Status
+## Current Status
 
 
 
-\### Purpose
+### Purpose
 
 Tracks the ticket’s current position within the workflow lifecycle.
 
 
 
-\### Example Values
+### Example Values
 
-\- New
+- New
 
-\- Assigned
+- Assigned
 
-\- In Progress
+- In Progress
 
-\- Escalated
+- Escalated
 
-\- Pending
+- Pending
 
-\- Resolved
+- Resolved
 
-\- Closed
+- Closed
 
 
 
-\### Operational Use
+### Operational Use
 
 Supports workflow monitoring, backlog analysis, and operational visibility.
 
 
 
-\---
+---
 
 
 
-\## Requesting Location
+## Requesting Location
 
 
 
-\### Purpose
+### Purpose
 
 Identifies the clinic, department, or operational site that submitted the ticket.
 
 
 
-\### Example
+### Example
 
 ```text
 
@@ -268,61 +268,61 @@ Raleigh Specialty Clinic 03
 
 
 
-\### Operational Use
+### Operational Use
 
 Supports location-based reporting, operational trend analysis, and workload distribution monitoring.
 
 
 
-\---
+---
 
 
 
-\## Assigned Department
+## Assigned Department
 
 
 
-\### Purpose
+### Purpose
 
 Identifies the department responsible for resolution ownership.
 
 
 
-\### Example Values
+### Example Values
 
-\- Operations Coordination Center
+- Operations Coordination Center
 
-\- Supply \& Inventory Operations
+- Supply & Inventory Operations
 
-\- Clinical Operations Support
+- Clinical Operations Support
 
-\- Data Quality \& Compliance
+- Data Quality & Compliance
 
-\- Vendor \& Service Management
+- Vendor & Service Management
 
 
 
-\### Operational Use
+### Operational Use
 
 Supports departmental workload analysis and escalation routing.
 
 
 
-\---
+---
 
 
 
-\## Assigned Team Member
+## Assigned Team Member
 
 
 
-\### Purpose
+### Purpose
 
 Identifies the operational owner currently responsible for the ticket.
 
 
 
-\### Example
+### Example
 
 ```text
 
@@ -332,27 +332,27 @@ Jordan Lee
 
 
 
-\### Operational Use
+### Operational Use
 
 Supports accountability tracking and workload balancing analysis.
 
 
 
-\---
+---
 
 
 
-\## Ticket Summary
+## Ticket Summary
 
 
 
-\### Purpose
+### Purpose
 
 Short operational description of the issue or request.
 
 
 
-\### Example
+### Example
 
 ```text
 
@@ -362,75 +362,75 @@ Inventory shortage impacting clinic supply continuity
 
 
 
-\### Operational Use
+### Operational Use
 
 Provides quick operational visibility during triage and reporting.
 
 
 
-\---
+---
 
 
 
-\## Detailed Description
+## Detailed Description
 
 
 
-\### Purpose
+### Purpose
 
 Expanded operational explanation of the issue, event, or request.
 
 
 
-\### Operational Use
+### Operational Use
 
 Supports investigation, escalation review, audit documentation, and cross-functional coordination.
 
 
 
-\---
+---
 
 
 
-\## Escalation Flag
+## Escalation Flag
 
 
 
-\### Purpose
+### Purpose
 
 Indicates whether the ticket has been escalated.
 
 
 
-\### Example Values
+### Example Values
 
-\- Yes
+- Yes
 
-\- No
+- No
 
 
 
-\### Operational Use
+### Operational Use
 
 Supports escalation reporting and operational risk monitoring.
 
 
 
-\---
+---
 
 
 
-\## Resolution Timestamp
+## Resolution Timestamp
 
 
 
-\### Purpose
+### Purpose
 
 Date and time the operational issue was resolved.
 
 
 
-\### Example
+### Example
 
 ```text
 
@@ -440,57 +440,57 @@ Date and time the operational issue was resolved.
 
 
 
-\### Operational Use
+### Operational Use
 
 Supports resolution-time calculations, SLA reporting, and operational performance analysis.
 
 
 
-\---
+---
 
 
 
-\## Closure Timestamp
+## Closure Timestamp
 
 
 
-\### Purpose
+### Purpose
 
 Date and time the ticket was formally closed.
 
 
 
-\### Operational Use
+### Operational Use
 
 Supports workflow lifecycle reporting and audit tracking.
 
 
 
-\---
+---
 
 
 
-\## Resolution Notes
+## Resolution Notes
 
 
 
-\### Purpose
+### Purpose
 
 Documents actions taken to resolve the issue.
 
 
 
-\### Operational Use
+### Operational Use
 
 Supports audit review, workflow analysis, and process improvement evaluation.
 
 
 
-\---
+---
 
 
 
-\# Supporting Operational Metrics
+# Supporting Operational Metrics
 
 
 
@@ -500,23 +500,23 @@ The ticket data model enables calculation of several operational KPIs.
 
 Example metrics include:
 
-\- Average response time
+- Average response time
 
-\- Average resolution time
+- Average resolution time
 
-\- Ticket backlog volume
+- Ticket backlog volume
 
-\- Escalation frequency
+- Escalation frequency
 
-\- SLA compliance rate
+- SLA compliance rate
 
-\- Ticket aging
+- Ticket aging
 
-\- Department workload distribution
+- Department workload distribution
 
-\- Category-specific incident trends
+- Category-specific incident trends
 
-\- Reopened ticket rate
+- Reopened ticket rate
 
 
 
@@ -524,31 +524,31 @@ These metrics support operational reporting, leadership visibility, and process 
 
 
 
-\---
+---
 
 
 
-\# Reporting \& Analytics Considerations
+# Reporting & Analytics Considerations
 
 
 
 The ticket structure is intentionally designed to support future:
 
-\- SQL database implementation
+- SQL database implementation
 
-\- Dashboard development
+- Dashboard development
 
-\- Workflow bottleneck analysis
+- Workflow bottleneck analysis
 
-\- SLA monitoring
+- SLA monitoring
 
-\- Staffing analysis
+- Staffing analysis
 
-\- Escalation trend reporting
+- Escalation trend reporting
 
-\- Operational forecasting
+- Operational forecasting
 
-\- KPI scorecards
+- KPI scorecards
 
 
 
@@ -556,33 +556,33 @@ The model also supports future integration with inventory systems, scheduling sy
 
 
 
-\---
+---
 
 
 
-\# Future Expansion Opportunities
+# Future Expansion Opportunities
 
 
 
 The ticket data model may later expand to include:
 
-\- SLA target fields
+- SLA target fields
 
-\- Reopened ticket tracking
+- Reopened ticket tracking
 
-\- Multi-department assignment logic
+- Multi-department assignment logic
 
-\- Automated escalation triggers
+- Automated escalation triggers
 
-\- Root cause classifications
+- Root cause classifications
 
-\- Incident severity scoring
+- Incident severity scoring
 
-\- Operational cost impact estimates
+- Operational cost impact estimates
 
-\- AI-assisted categorization workflows
+- AI-assisted categorization workflows
 
-\- Workflow dependency mapping
+- Workflow dependency mapping
 
 
 
