@@ -1,4 +1,4 @@
-# Ticket Data Model  
+# Ticket Relational Model  
 
 ## Operational Data Structure Overview
 
@@ -12,7 +12,7 @@
 
 
 
-The Ticket Data Model defines the core operational data structure used within the Northstar Health Operations (NHO) Ticketing & Incident Management System.
+The Ticket Relational Model defines the core operational data structure used within the Northstar Health Operations (NHO) Ticketing & Incident Management System.
 
 
 
