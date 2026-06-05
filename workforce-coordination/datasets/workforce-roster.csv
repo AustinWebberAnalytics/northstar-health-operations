@@ -1,0 +1,16 @@
+employee_id,employee_name,department,team,role,employment_status,primary_shift,standard_weekly_hours,skill_area,coverage_priority,active_flag
+EMP-001,Maya Thompson,Operations,Service Response,Operations Coordinator,Active,Day,40,Ticket Triage,High,TRUE
+EMP-002,Daniel Reyes,Operations,Service Response,Operations Specialist,Active,Day,40,Ticket Resolution,High,TRUE
+EMP-003,Aisha Patel,Operations,Inventory Support,Inventory Coordinator,Active,Day,40,Inventory Processing,High,TRUE
+EMP-004,Marcus Hill,Operations,Inventory Support,Inventory Specialist,Active,Evening,40,Inventory Reconciliation,Moderate,TRUE
+EMP-005,Elena Brooks,Vendor Management,Vendor Operations,Vendor Coordinator,Active,Day,40,Vendor Follow-Up,High,TRUE
+EMP-006,Noah Kim,Vendor Management,Vendor Operations,Vendor Analyst,Active,Day,40,SLA Monitoring,Moderate,TRUE
+EMP-007,Grace Miller,Operations,Escalation Support,Escalation Specialist,Active,Day,40,Operational Escalations,High,TRUE
+EMP-008,Jordan Lee,Operations,Escalation Support,Operations Associate,Active,Evening,32,Escalation Support,Moderate,TRUE
+EMP-009,Sofia Martinez,Operations,Service Response,Operations Associate,Active,Day,32,Ticket Support,Moderate,TRUE
+EMP-010,Ethan Carter,Operations,Inventory Support,Inventory Associate,Active,Day,32,Stock Review,Moderate,TRUE
+EMP-011,Olivia Nguyen,Vendor Management,Vendor Operations,Vendor Support Associate,Active,Evening,32,Corrective Action Tracking,Moderate,TRUE
+EMP-012,Liam Johnson,Operations,Coverage Support,Floater,Active,Variable,24,Cross-Team Support,High,TRUE
+EMP-013,Natalie King,Operations,Coverage Support,Floater,Leave,Variable,24,Cross-Team Support,High,FALSE
+EMP-014,Caleb Wright,Operations,Service Response,Operations Associate,Active,Evening,32,Ticket Support,Low,TRUE
+EMP-015,Priya Shah,Operations,Inventory Support,Inventory Associate,Active,Day,32,Inventory Count Support,Low,TRUE

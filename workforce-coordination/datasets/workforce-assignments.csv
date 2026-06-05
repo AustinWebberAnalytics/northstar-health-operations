@@ -1,0 +1,19 @@
+assignment_id,employee_id,assignment_name,assignment_category,priority_level,estimated_hours_per_week,assignment_status,start_date,end_date,cross_functional_flag
+ASSIGN-001,EMP-001,Ticket Queue Coordination,Ticketing,High,15,Active,2026-06-01,,FALSE
+ASSIGN-002,EMP-001,Escalation Review Support,Escalation Management,Moderate,10,Active,2026-06-01,,TRUE
+ASSIGN-003,EMP-002,Ticket Resolution Processing,Ticketing,High,30,Active,2026-06-01,,FALSE
+ASSIGN-004,EMP-003,Inventory Replenishment Coordination,Inventory Operations,High,25,Active,2026-06-01,,FALSE
+ASSIGN-005,EMP-003,Inventory Shortage Review,Inventory Operations,Moderate,10,Active,2026-06-01,,FALSE
+ASSIGN-006,EMP-004,Inventory Reconciliation,Inventory Operations,High,30,Active,2026-06-01,,FALSE
+ASSIGN-007,EMP-005,Vendor Performance Monitoring,Vendor Management,High,20,Active,2026-06-01,,FALSE
+ASSIGN-008,EMP-005,Corrective Action Follow-Up,Vendor Management,Moderate,10,Active,2026-06-01,,TRUE
+ASSIGN-009,EMP-006,SLA Compliance Monitoring,Vendor Management,High,25,Active,2026-06-01,,FALSE
+ASSIGN-010,EMP-007,Operational Escalation Management,Escalation Management,Critical,30,Active,2026-06-01,,TRUE
+ASSIGN-011,EMP-008,Escalation Queue Support,Escalation Management,High,20,Active,2026-06-01,,TRUE
+ASSIGN-012,EMP-009,Ticket Queue Support,Ticketing,Moderate,20,Active,2026-06-01,,FALSE
+ASSIGN-013,EMP-010,Inventory Count Support,Inventory Operations,Moderate,20,Active,2026-06-01,,FALSE
+ASSIGN-014,EMP-011,Vendor Corrective Action Tracking,Vendor Management,Moderate,20,Active,2026-06-01,,FALSE
+ASSIGN-015,EMP-012,Cross-Team Coverage Support,Workforce Coordination,High,20,Active,2026-06-01,,TRUE
+ASSIGN-016,EMP-013,Cross-Team Coverage Support,Workforce Coordination,High,20,Suspended,2026-06-01,,TRUE
+ASSIGN-017,EMP-014,Ticket Queue Support,Ticketing,Low,15,Active,2026-06-01,,FALSE
+ASSIGN-018,EMP-015,Inventory Count Support,Inventory Operations,Low,15,Active,2026-06-01,,FALSE
