@@ -1,0 +1,11 @@
+escalation_id,escalation_date,department,escalation_type,severity_level,affected_team,root_cause,current_status,resolution_owner,business_impact
+WF-ESC-001,2026-06-02,Operations,Staffing Shortage,High,Service Response,Employee Leave,Open,Operations Manager,Increased Ticket Backlog
+WF-ESC-002,2026-06-03,Operations,Coverage Gap,Moderate,Coverage Support,Unfilled Shift,Monitoring,Workforce Coordinator,Reduced Scheduling Flexibility
+WF-ESC-003,2026-06-04,Operations,Workload Imbalance,Moderate,Inventory Support,Uneven Task Distribution,In Progress,Inventory Manager,Delayed Inventory Processing
+WF-ESC-004,2026-06-05,Vendor Management,Capacity Constraint,High,Vendor Operations,Increased Vendor Activity,In Progress,Vendor Manager,SLA Monitoring Delays
+WF-ESC-005,2026-06-05,Operations,Escalation Queue Backlog,Critical,Escalation Support,High Incident Volume,Open,Operations Manager,Extended Resolution Times
+WF-ESC-006,2026-06-06,Operations,Cross-Team Support Request,Low,Coverage Support,Temporary Resource Need,Resolved,Workforce Coordinator,Minimal Operational Impact
+WF-ESC-007,2026-06-07,Operations,Staffing Shortage,High,Inventory Support,Employee Absence,Monitoring,Inventory Manager,Reduced Processing Capacity
+WF-ESC-008,2026-06-08,Vendor Management,Workload Imbalance,Moderate,Vendor Operations,Corrective Action Volume,In Progress,Vendor Manager,Delayed Follow-Up Activity
+WF-ESC-009,2026-06-09,Operations,Coverage Gap,Moderate,Service Response,Schedule Conflict,Resolved,Workforce Coordinator,Temporary Coverage Reduction
+WF-ESC-010,2026-06-10,Operations,Capacity Constraint,High,Escalation Support,Sustained High Workload,Open,Operations Manager,Escalation Processing Delays

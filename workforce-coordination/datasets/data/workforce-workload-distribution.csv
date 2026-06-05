@@ -1,0 +1,16 @@
+workload_id,employee_id,reporting_period,assigned_tasks,completed_tasks,open_tasks,estimated_hours,actual_hours,workload_status,capacity_utilization_percent
+WORK-001,EMP-001,2026-06,42,38,4,25,28,Balanced,70
+WORK-002,EMP-002,2026-06,58,49,9,30,37,Overloaded,93
+WORK-003,EMP-003,2026-06,44,41,3,25,29,Balanced,73
+WORK-004,EMP-004,2026-06,51,43,8,30,35,Overloaded,88
+WORK-005,EMP-005,2026-06,36,34,2,20,22,Balanced,55
+WORK-006,EMP-006,2026-06,41,39,2,25,27,Balanced,68
+WORK-007,EMP-007,2026-06,63,55,8,30,39,Overloaded,98
+WORK-008,EMP-008,2026-06,31,28,3,20,23,Balanced,72
+WORK-009,EMP-009,2026-06,29,26,3,20,21,Balanced,66
+WORK-010,EMP-010,2026-06,27,24,3,20,19,Underutilized,48
+WORK-011,EMP-011,2026-06,24,22,2,20,18,Underutilized,45
+WORK-012,EMP-012,2026-06,35,30,5,20,26,Balanced,65
+WORK-013,EMP-013,2026-06,0,0,0,0,0,Unavailable,0
+WORK-014,EMP-014,2026-06,18,16,2,15,13,Underutilized,41
+WORK-015,EMP-015,2026-06,22,20,2,15,14,Underutilized,44

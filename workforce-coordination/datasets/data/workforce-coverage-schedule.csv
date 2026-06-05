@@ -1,0 +1,16 @@
+schedule_id,employee_id,schedule_date,shift_type,scheduled_hours,coverage_status,coverage_area,coverage_priority,backup_required_flag
+SCHED-001,EMP-001,2026-06-01,Day,8,Covered,Service Response,High,FALSE
+SCHED-002,EMP-002,2026-06-01,Day,8,Covered,Service Response,High,FALSE
+SCHED-003,EMP-003,2026-06-01,Day,8,Covered,Inventory Support,High,FALSE
+SCHED-004,EMP-004,2026-06-01,Evening,8,Covered,Inventory Support,Moderate,FALSE
+SCHED-005,EMP-005,2026-06-01,Day,8,Covered,Vendor Operations,High,FALSE
+SCHED-006,EMP-006,2026-06-01,Day,8,Covered,Vendor Operations,Moderate,FALSE
+SCHED-007,EMP-007,2026-06-01,Day,8,Covered,Escalation Support,High,FALSE
+SCHED-008,EMP-008,2026-06-01,Evening,8,Covered,Escalation Support,Moderate,FALSE
+SCHED-009,EMP-009,2026-06-01,Day,8,Covered,Service Response,Moderate,FALSE
+SCHED-010,EMP-010,2026-06-01,Day,8,Covered,Inventory Support,Moderate,FALSE
+SCHED-011,EMP-011,2026-06-01,Evening,8,Covered,Vendor Operations,Moderate,FALSE
+SCHED-012,EMP-012,2026-06-01,Variable,6,Covered,Cross-Team Support,High,TRUE
+SCHED-013,EMP-013,2026-06-01,Variable,6,Uncovered,Cross-Team Support,High,TRUE
+SCHED-014,EMP-014,2026-06-01,Evening,8,Covered,Service Response,Low,FALSE
+SCHED-015,EMP-015,2026-06-01,Day,8,Covered,Inventory Support,Low,FALSE
