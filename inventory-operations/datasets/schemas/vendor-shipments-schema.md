@@ -2,9 +2,9 @@
 
 ## Purpose
 
-The Vendor Shipments dataset tracks inbound shipment activity associated with inventory operations.
+The Vendor Shipments dataset tracks inbound inventory shipments from vendors to operational locations.
 
-It provides visibility into shipment performance, delivery reliability, replenishment support, and operational impacts resulting from delayed or incomplete shipments.
+It provides visibility into shipment timing, delivery performance, fulfillment accuracy, and vendor-related inventory support activities.
 
 ---
 
@@ -28,18 +28,15 @@ shipment_id
 |vendor_id|Vendor associated with the shipment|
 |item_id|Inventory item associated with the shipment|
 |location_id|Operational location receiving the shipment|
-|shipment_date|Date the shipment was initiated|
-|expected_arrival_date|Expected shipment arrival date|
-|actual_arrival_date|Actual shipment arrival date, if received|
-|shipment_status|Current or final shipment status|
-|expected_quantity|Quantity expected in the shipment|
-|received_quantity|Quantity received from the shipment|
-|delay_flag|Indicates whether the shipment was delayed|
-|partial_shipment_flag|Indicates whether the shipment was partially received|
-|operational_impact_level|Operational impact associated with the shipment|
-|escalation_required_flag|Indicates whether escalation was required|
+|ordered_quantity|Quantity ordered from the vendor|
+|received_quantity|Quantity received from the vendor|
+|order_date|Date the shipment order was initiated|
+|expected_delivery_date|Expected shipment delivery date|
+|actual_delivery_date|Actual shipment delivery date|
+|delivery_status|Current or final delivery status|
+|fulfillment_accuracy_flag|Indicates whether the shipment was fulfilled accurately|
+|delay_flag|Indicates whether the shipment experienced a delay|
 |related_ticket_id|Related operational ticket identifier, if applicable|
-|notes|Optional operational notes related to the shipment|
 
 ---
 
@@ -47,12 +44,11 @@ shipment_id
 
 * Each shipment_id should remain unique.
 * Vendor, item, location, and ticket references should align with approved subsystem identifiers when present.
-* Expected and received quantities should not be negative.
-* Shipment status values should remain standardized.
-* Delivered shipments should include an actual_arrival_date.
-* Escalated shipments should include a related_ticket_id when applicable.
-* Boolean fields should use TRUE or FALSE consistently.
-* Operational impact values should remain standardized and reporting-friendly.
+* Ordered and received quantities should not be negative.
+* Delivery status values should remain standardized.
+* Fulfillment accuracy and delay indicators should use TRUE or FALSE consistently.
+* Delivered shipments should include an actual_delivery_date when applicable.
+* Expected and actual delivery dates should accurately reflect shipment activity.
 
 ---
 
@@ -62,10 +58,10 @@ This dataset supports:
 
 * Vendor delivery monitoring
 * Shipment performance analysis
-* Replenishment visibility
-* Delay tracking
-* Operational disruption analysis
-* Escalation reporting
+* Fulfillment accuracy tracking
+* Delivery delay monitoring
+* Replenishment support visibility
+* Vendor performance reporting
 
-The Vendor Shipments dataset provides visibility into inbound inventory movement and supports monitoring of vendor delivery performance and supply continuity.
+The Vendor Shipments dataset provides visibility into vendor shipment activity and supports monitoring of delivery reliability and inventory fulfillment performance.
 
