@@ -1,4 +1,4 @@
-# Inventory Dataset Observations v1  
+# Inventory Observations v1  
 
 ## Northstar Health Operations
 
