@@ -1,918 +1,286 @@
-\# Inventory KPI Framework  
+# Inventory KPI Framework
 
-\## Northstar Health Operations
+## Purpose
 
+This document defines the key performance indicators used to monitor operational performance within the Inventory Operations subsystem.
 
+The framework supports visibility into inventory availability, replenishment effectiveness, shortage activity, vendor performance, inventory accuracy, and escalation trends.
 
-\---
+---
 
+# Inventory Availability
 
+## Low Stock Item Count
 
-\# Purpose
+**Definition**
 
+Number of inventory records where current stock levels are at or below established reorder thresholds.
 
+**Operational Importance**
 
-This document defines the operational KPI framework for the Northstar Health Operations Inventory \& Supply Operations subsystem.
+Provides visibility into inventory items that may require replenishment attention.
 
+**Related Dataset**
 
+* location-inventory
 
-The purpose of the KPI framework is to identify measurable operational indicators used to monitor:
+---
 
-\- inventory stability
+## Critical Low Inventory Count
 
-\- replenishment performance
+**Definition**
 
-\- shortage risk
+Number of inventory records classified as Critical Low.
 
-\- vendor reliability
+**Operational Importance**
 
-\- inventory accuracy
+Highlights inventory conditions with elevated operational risk.
 
-\- operational continuity
+**Related Dataset**
 
-\- supply chain workflow health
+* location-inventory
 
+---
 
+## Stockout Event Count
 
-This framework supports:
+**Definition**
 
-\- operational monitoring
+Number of inventory records classified as Stockout.
 
-\- leadership reporting
+**Operational Importance**
 
-\- escalation visibility
+Identifies inventory conditions that may disrupt operational continuity.
 
-\- process improvement analysis
+**Related Dataset**
 
-\- executive operational briefings
+* location-inventory
 
+---
 
+# Replenishment Performance
 
-\---
+## Replenishment Turnaround Time
 
+**Definition**
 
+Average time between replenishment request initiation and inventory receipt.
 
-\# KPI Framework Overview
+**Operational Importance**
 
+Measures replenishment responsiveness and inventory recovery effectiveness.
 
+**Related Dataset**
 
-The Inventory \& Supply Operations subsystem tracks operational performance across several major categories:
+* replenishment-events
 
+---
 
+## Delayed Replenishment Count
 
-| KPI Category | Operational Focus |
+**Definition**
 
-|---|---|
+Number of replenishment events not completed within expected timelines.
 
-| Inventory Availability | Current inventory health |
+**Operational Importance**
 
-| Replenishment Performance | Inventory workflow efficiency |
+Highlights potential supply continuity risks and inventory recovery delays.
 
-| Shortage Risk Monitoring | Operational disruption exposure |
+**Related Dataset**
 
-| Vendor Performance | Supplier reliability |
+* replenishment-events
 
-| Inventory Accuracy | Reconciliation and integrity |
+---
 
-| Escalation Activity | Operational pressure visibility |
+## Open Replenishment Volume
 
+**Definition**
 
+Number of replenishment events currently pending, approved, or in progress.
 
-\---
+**Operational Importance**
 
+Provides visibility into active inventory recovery efforts.
 
+**Related Dataset**
 
-\# Inventory Availability KPIs
+* replenishment-events
 
+---
 
+# Shortage Risk
 
-These KPIs measure current operational inventory stability.
+## Active Shortage Count
 
+**Definition**
 
+Number of shortage records that remain unresolved.
 
-\---
+**Operational Importance**
 
+Measures current inventory disruption exposure.
 
+**Related Dataset**
 
-\## Low Stock Item Count
+* shortage-events
 
+---
 
+## High Severity Shortage Count
 
-\### Definition
+**Definition**
 
+Number of shortage events classified within elevated severity categories.
 
+**Operational Importance**
 
-Number of inventory records currently below established reorder thresholds.
+Identifies shortages with greater operational impact.
 
+**Related Dataset**
 
+* shortage-events
 
-\### Operational Importance
+---
 
+## Escalated Shortage Count
 
+**Definition**
 
-Helps identify:
+Number of shortage events requiring escalation activity.
 
-\- replenishment pressure
+**Operational Importance**
 
-\- inventory instability
+Provides visibility into shortages requiring increased operational attention.
 
-\- elevated shortage risk
+**Related Dataset**
 
+* shortage-events
 
+---
 
-\### Related Dataset
+# Vendor Performance
 
+## Vendor Delay Rate
 
+**Definition**
 
-```text
+Percentage of shipments marked as delayed.
 
-location-inventory.csv
+**Operational Importance**
 
-```
+Measures shipment reliability and vendor delivery performance.
 
+**Related Dataset**
 
+* vendor-shipments
 
-\### Example Metric
+---
 
+## Fulfillment Accuracy Rate
 
+**Definition**
 
-```text
+Percentage of shipments fulfilled in accordance with original order requirements.
 
-5 inventory items currently below reorder point
+**Operational Importance**
 
-```
+Measures shipment accuracy and fulfillment reliability.
 
+**Related Dataset**
 
+* vendor-shipments
 
-\---
+---
 
+## Shipment Volume
 
+**Definition**
 
-\## Critical Low Inventory Count
+Total number of vendor shipments recorded during the reporting period.
 
+**Operational Importance**
 
+Provides visibility into overall vendor shipment activity.
 
-\### Definition
+**Related Dataset**
 
+* vendor-shipments
 
+---
 
-Number of inventory records classified as:
+# Inventory Accuracy
 
-\- Critical Low
+## Inventory Discrepancy Count
 
-\- Stockout
+**Definition**
 
+Total number of inventory discrepancy records identified.
 
+**Operational Importance**
 
-\### Operational Importance
+Measures inventory variance activity requiring investigation or reconciliation.
 
+**Related Dataset**
 
+* inventory-discrepancies
 
-Highlights operational continuity risk and high-priority inventory concerns.
+---
 
+## Open Discrepancy Count
 
+**Definition**
 
-\### Related Dataset
+Number of discrepancy records that remain unresolved.
 
+**Operational Importance**
 
+Provides visibility into active inventory accuracy concerns.
 
-```text
+**Related Dataset**
 
-location-inventory.csv
+* inventory-discrepancies
 
-```
+---
 
+## Inventory Accuracy Rate
 
+**Definition**
 
-\---
+Percentage of inventory counts completed without quantity variance.
 
+**Operational Importance**
 
+Measures overall inventory record accuracy.
 
-\## Stockout Event Count
+**Related Dataset**
 
+* inventory-discrepancies
 
+---
 
-\### Definition
+# Escalation Activity
 
+## Escalated Operational Event Count
 
+**Definition**
 
-Number of inventory records currently in:
+Total number of inventory-related events requiring escalation activity.
 
-```text
+**Operational Importance**
 
-Stockout
+Measures operational workload generated by inventory disruptions, shortages, discrepancies, and shipment issues.
 
-```
+**Related Datasets**
 
-status.
+* shortage-events
+* inventory-discrepancies
+* vendor-shipments
 
+---
 
+# KPI Framework Summary
 
-\### Operational Importance
+The Inventory Operations KPI framework provides visibility into inventory health, replenishment effectiveness, shortage activity, vendor performance, inventory accuracy, and escalation trends.
 
-
-
-Tracks operational interruption exposure and shortage severity.
-
-
-
-\### Related Dataset
-
-
-
-```text
-
-location-inventory.csv
-
-```
-
-
-
-\---
-
-
-
-\# Replenishment Performance KPIs
-
-
-
-These KPIs measure replenishment workflow effectiveness.
-
-
-
-\---
-
-
-
-\## Replenishment Turnaround Time
-
-
-
-\### Definition
-
-
-
-Average time between:
-
-\- replenishment request
-
-and
-
-\- inventory receipt
-
-
-
-\### Operational Importance
-
-
-
-Measures replenishment workflow efficiency.
-
-
-
-\### Related Dataset
-
-
-
-```text
-
-replenishment-events.csv
-
-```
-
-
-
-\---
-
-
-
-\## Delayed Replenishment Count
-
-
-
-\### Definition
-
-
-
-Number of replenishment events currently marked:
-
-```text
-
-Delayed
-
-```
-
-
-
-\### Operational Importance
-
-
-
-Highlights workflow bottlenecks and vendor coordination risk.
-
-
-
-\### Related Dataset
-
-
-
-```text
-
-replenishment-events.csv
-
-```
-
-
-
-\---
-
-
-
-\## In-Transit Replenishment Volume
-
-
-
-\### Definition
-
-
-
-Number of replenishment events currently in:
-
-```text
-
-In Transit
-
-```
-
-status.
-
-
-
-\### Operational Importance
-
-
-
-Measures active replenishment pipeline volume.
-
-
-
-\### Related Dataset
-
-
-
-```text
-
-replenishment-events.csv
-
-```
-
-
-
-\---
-
-
-
-\# Shortage Risk KPIs
-
-
-
-These KPIs monitor operational disruption exposure.
-
-
-
-\---
-
-
-
-\## Active Shortage Event Count
-
-
-
-\### Definition
-
-
-
-Number of unresolved shortage events.
-
-
-
-\### Operational Importance
-
-
-
-Measures current operational inventory disruption.
-
-
-
-\### Related Dataset
-
-
-
-```text
-
-shortage-events.csv
-
-```
-
-
-
-\---
-
-
-
-\## Critical Shortage Count
-
-
-
-\### Definition
-
-
-
-Number of shortages classified as:
-
-```text
-
-Critical
-
-```
-
-
-
-\### Operational Importance
-
-
-
-Tracks high-risk operational inventory disruptions.
-
-
-
-\### Related Dataset
-
-
-
-```text
-
-shortage-events.csv
-
-```
-
-
-
-\---
-
-
-
-\## Escalated Shortage Count
-
-
-
-\### Definition
-
-
-
-Number of shortage events with:
-
-```text
-
-escalation\_flag = TRUE
-
-```
-
-
-
-\### Operational Importance
-
-
-
-Measures operational pressure requiring elevated visibility.
-
-
-
-\### Related Dataset
-
-
-
-```text
-
-shortage-events.csv
-
-```
-
-
-
-\---
-
-
-
-\# Vendor Performance KPIs
-
-
-
-These KPIs monitor supplier reliability and shipment performance.
-
-
-
-\---
-
-
-
-\## Vendor Delay Rate
-
-
-
-\### Definition
-
-
-
-Percentage of vendor shipments marked:
-
-```text
-
-delay\_flag = TRUE
-
-```
-
-
-
-\### Operational Importance
-
-
-
-Measures vendor timeliness and supply chain stability.
-
-
-
-\### Related Dataset
-
-
-
-```text
-
-vendor-shipments.csv
-
-```
-
-
-
-\---
-
-
-
-\## Fulfillment Accuracy Rate
-
-
-
-\### Definition
-
-
-
-Percentage of shipments where:
-
-```text
-
-fulfillment\_accuracy\_flag = TRUE
-
-```
-
-
-
-\### Operational Importance
-
-
-
-Measures shipment completeness and receiving accuracy.
-
-
-
-\### Related Dataset
-
-
-
-```text
-
-vendor-shipments.csv
-
-```
-
-
-
-\---
-
-
-
-\## Partial Shipment Count
-
-
-
-\### Definition
-
-
-
-Number of shipments marked:
-
-```text
-
-Partial
-
-```
-
-
-
-\### Operational Importance
-
-
-
-Tracks incomplete fulfillment events impacting operational continuity.
-
-
-
-\### Related Dataset
-
-
-
-```text
-
-vendor-shipments.csv
-
-```
-
-
-
-\---
-
-
-
-\# Inventory Accuracy KPIs
-
-
-
-These KPIs monitor inventory integrity and reconciliation quality.
-
-
-
-\---
-
-
-
-\## Inventory Discrepancy Count
-
-
-
-\### Definition
-
-
-
-Total number of inventory discrepancy records.
-
-
-
-\### Operational Importance
-
-
-
-Measures operational inventory integrity pressure.
-
-
-
-\### Related Dataset
-
-
-
-```text
-
-inventory-discrepancies.csv
-
-```
-
-
-
-\---
-
-
-
-\## Open Discrepancy Count
-
-
-
-\### Definition
-
-
-
-Number of discrepancies not yet resolved.
-
-
-
-\### Operational Importance
-
-
-
-Tracks unresolved inventory reconciliation workload.
-
-
-
-\### Related Dataset
-
-
-
-```text
-
-inventory-discrepancies.csv
-
-```
-
-
-
-\---
-
-
-
-\## Inventory Accuracy Rate
-
-
-
-\### Definition
-
-
-
-Percentage of inventory counts without discrepancy variance.
-
-
-
-\### Operational Importance
-
-
-
-Measures overall inventory reporting reliability.
-
-
-
-\### Related Dataset
-
-
-
-```text
-
-inventory-discrepancies.csv
-
-```
-
-
-
-\---
-
-
-
-\# Escalation Activity KPIs
-
-
-
-These KPIs monitor operational pressure and workflow risk.
-
-
-
-\---
-
-
-
-\## Escalated Operational Events
-
-
-
-\### Definition
-
-
-
-Total operational events linked to escalation activity.
-
-
-
-Includes:
-
-\- shortages
-
-\- delayed replenishments
-
-\- discrepancy escalations
-
-\- vendor disruption events
-
-
-
-\### Operational Importance
-
-
-
-Measures operational instability requiring elevated management visibility.
-
-
-
-\### Related Datasets
-
-
-
-```text
-
-shortage-events.csv
-
-replenishment-events.csv
-
-inventory-discrepancies.csv
-
-vendor-shipments.csv
-
-```
-
-
-
-\---
-
-
-
-\# Future Reporting Opportunities
-
-
-
-This KPI framework will support future:
-
-\- Excel pivot reporting
-
-\- Power BI dashboards
-
-\- SQL KPI calculations
-
-\- vendor scorecards
-
-\- operational forecasting
-
-\- executive reporting summaries
-
-\- process improvement recommendations
-
-
-
-\---
-
-
-
-\# Executive Reporting Value
-
-
-
-This KPI framework is designed to simulate realistic operational leadership reporting used to monitor:
-
-\- inventory health
-
-\- operational continuity
-
-\- supply chain stability
-
-\- replenishment efficiency
-
-\- escalation exposure
-
-\- vendor reliability
-
-
-
-These KPIs intentionally mirror operational metrics commonly used within:
-
-\- healthcare operations
-
-\- clinical supply management
-
-\- warehouse operations
-
-\- regulated inventory environments
-
-\- enterprise operational support organizations
-
-
-
-\---
-
-
-
-\# Portfolio Significance
-
-
-
-This framework demonstrates:
-
-\- operational KPI reasoning
-
-\- workflow measurement understanding
-
-\- supply chain operational awareness
-
-\- inventory analytics planning
-
-\- operational reporting design
-
-\- executive communication thinking
-
-\- enterprise operational systems reasoning
-
-
-
-This KPI framework significantly expands the analytical maturity of the Northstar Health Operations ecosystem.
+Together, these measures support operational monitoring, risk identification, and informed decision-making across inventory operations.
 
