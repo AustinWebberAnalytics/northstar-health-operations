@@ -1,4 +1,4 @@
-# Inventory Operations Subsystem Overview
+# Inventory Operations Overview
 
 ## Purpose
 
