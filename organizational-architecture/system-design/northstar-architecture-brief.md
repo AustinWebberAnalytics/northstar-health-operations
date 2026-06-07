@@ -1,14 +1,14 @@
-\# Northstar Health Operations  
+# Northstar Health Operations  
 
-\## Operational Architecture Brief
-
-
-
-\---
+## Operational Architecture Brief
 
 
 
-\# Organization Overview
+---
+
+
+
+# Organization Overview
 
 
 
@@ -24,11 +24,11 @@ Northstar Health Operations is intentionally designed to simulate realistic orga
 
 
 
-\---
+---
 
 
 
-\# Core Operational Functions
+# Core Operational Functions
 
 
 
@@ -36,21 +36,21 @@ Northstar Health Operations focuses on several primary operational functions:
 
 
 
-\- Operational incident coordination
+- Operational incident coordination
 
-\- Inventory and supply management
+- Inventory and supply management
 
-\- Vendor and logistics coordination
+- Vendor and logistics coordination
 
-\- Service request escalation
+- Service request escalation
 
-\- Scheduling and operational support
+- Scheduling and operational support
 
-\- Data quality and compliance monitoring
+- Data quality and compliance monitoring
 
-\- Operational reporting and KPI tracking
+- Operational reporting and KPI tracking
 
-\- Workflow optimization and process improvement
+- Workflow optimization and process improvement
 
 
 
@@ -58,15 +58,15 @@ The organization operates through centralized operational support teams that coo
 
 
 
-\---
+---
 
 
 
-\# Organizational Departments
+# Organizational Departments
 
 
 
-\## Operations Coordination Center (OCC)
+## Operations Coordination Center (OCC)
 
 
 
@@ -76,49 +76,49 @@ The Operations Coordination Center serves as the central operational command cen
 
 Primary responsibilities include:
 
-\- Ticket intake and routing
+- Ticket intake and routing
 
-\- Operational escalation management
+- Operational escalation management
 
-\- SLA monitoring
+- SLA monitoring
 
-\- Incident prioritization
+- Incident prioritization
 
-\- Cross-department communication
-
-
-
-\---
+- Cross-department communication
 
 
 
-\## Supply \& Inventory Operations
+---
 
 
 
-The Supply \& Inventory Operations department manages inventory continuity, replenishment coordination, discrepancy resolution, and distribution logistics across all supported clinic locations.
+## Supply & Inventory Operations
+
+
+
+The Supply & Inventory Operations department manages inventory continuity, replenishment coordination, discrepancy resolution, and distribution logistics across all supported clinic locations.
 
 
 
 Primary responsibilities include:
 
-\- Inventory tracking
+- Inventory tracking
 
-\- Replenishment workflows
+- Replenishment workflows
 
-\- Vendor coordination
+- Vendor coordination
 
-\- Distribution scheduling
+- Distribution scheduling
 
-\- Inventory discrepancy management
-
-
-
-\---
+- Inventory discrepancy management
 
 
 
-\## Clinical Operations Support
+---
+
+
+
+## Clinical Operations Support
 
 
 
@@ -128,75 +128,75 @@ Clinical Operations Support teams help maintain clinic operational continuity by
 
 Primary responsibilities include:
 
-\- Scheduling coordination
+- Scheduling coordination
 
-\- Resource allocation support
+- Resource allocation support
 
-\- Clinic operational support
+- Clinic operational support
 
-\- Service interruption escalation
+- Service interruption escalation
 
-\- Operational continuity management
-
-
-
-\---
+- Operational continuity management
 
 
 
-\## Data Quality \& Compliance
+---
 
 
 
-The Data Quality \& Compliance department supports reporting accuracy, operational audit processes, validation workflows, and compliance monitoring.
+## Data Quality & Compliance
 
 
 
-Primary responsibilities include:
-
-\- Data validation
-
-\- Audit support
-
-\- Exception monitoring
-
-\- Reporting consistency checks
-
-\- Operational compliance tracking
-
-
-
-\---
-
-
-
-\## Operational Analytics \& Reporting
-
-
-
-The Operational Analytics \& Reporting department transforms operational data into decision-support reporting, KPI visibility, workflow analysis, and process improvement recommendations.
+The Data Quality & Compliance department supports reporting accuracy, operational audit processes, validation workflows, and compliance monitoring.
 
 
 
 Primary responsibilities include:
 
-\- KPI reporting
+- Data validation
 
-\- Operational dashboards
+- Audit support
 
-\- Trend analysis
+- Exception monitoring
 
-\- Process improvement analysis
+- Reporting consistency checks
 
-\- Executive operational reporting
-
-
-
-\---
+- Operational compliance tracking
 
 
 
-\# Core Operational Systems
+---
+
+
+
+## Operational Analytics & Reporting
+
+
+
+The Operational Analytics & Reporting department transforms operational data into decision-support reporting, KPI visibility, workflow analysis, and process improvement recommendations.
+
+
+
+Primary responsibilities include:
+
+- KPI reporting
+
+- Operational dashboards
+
+- Trend analysis
+
+- Process improvement analysis
+
+- Executive operational reporting
+
+
+
+---
+
+
+
+# Core Operational Systems
 
 
 
@@ -204,47 +204,47 @@ Northstar Health Operations utilizes several core operational systems that suppo
 
 
 
-\## Ticketing \& Incident Management System
+## Ticketing & Incident Management System
 
 Tracks operational incidents, service requests, escalations, response times, and workflow routing activities.
 
 
 
-\## Inventory Management System
+## Inventory Management System
 
 Tracks inventory levels, replenishment activity, distribution logistics, stock discrepancies, and inventory transfers.
 
 
 
-\## Scheduling \& Resource Coordination System
+## Scheduling & Resource Coordination System
 
 Tracks staffing coordination, operational scheduling, clinic support requests, and resource allocation activities.
 
 
 
-\## Vendor Management System
+## Vendor Management System
 
 Tracks vendor performance, delivery timelines, fulfillment accuracy, and supplier service interruptions.
 
 
 
-\## Reporting \& KPI System
+## Reporting & KPI System
 
 Centralized reporting environment used for operational dashboards, KPI tracking, leadership reporting, and trend analysis.
 
 
 
-\## Data Validation \& Audit System
+## Data Validation & Audit System
 
 Supports operational data quality checks, audit workflows, reconciliation processes, and reporting validation activities.
 
 
 
-\---
+---
 
 
 
-\# Primary Operational Challenges
+# Primary Operational Challenges
 
 
 
@@ -254,21 +254,21 @@ Northstar Health Operations is designed with several realistic operational chall
 
 Primary operational challenges include:
 
-\- Escalation backlog growth
+- Escalation backlog growth
 
-\- Inventory discrepancies
+- Inventory discrepancies
 
-\- Vendor delivery variability
+- Vendor delivery variability
 
-\- Cross-department communication gaps
+- Cross-department communication gaps
 
-\- Reporting inconsistencies
+- Reporting inconsistencies
 
-\- Workflow bottlenecks
+- Workflow bottlenecks
 
-\- Staffing strain during high-demand periods
+- Staffing strain during high-demand periods
 
-\- Operational visibility limitations
+- Operational visibility limitations
 
 
 
@@ -276,11 +276,11 @@ These challenges create the foundation for future portfolio projects involving a
 
 
 
-\---
+---
 
 
 
-\# Portfolio Purpose Statement
+# Portfolio Purpose Statement
 
 
 
@@ -290,21 +290,21 @@ The Northstar Health Operations ecosystem was created to simulate realistic oper
 
 This portfolio is designed to showcase:
 
-\- Operational reasoning
+- Operational reasoning
 
-\- Systems thinking
+- Systems thinking
 
-\- Analytical problem-solving
+- Analytical problem-solving
 
-\- Workflow analysis
+- Workflow analysis
 
-\- KPI development
+- KPI development
 
-\- Cross-functional coordination
+- Cross-functional coordination
 
-\- Process improvement methodologies
+- Process improvement methodologies
 
-\- Business communication and reporting
+- Business communication and reporting
 
 
 
