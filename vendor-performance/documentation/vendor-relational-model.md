@@ -2,75 +2,74 @@
 
 ## Purpose
 
-This document defines the relational structure of the vendor performance subsystem and evaluates how the current operational datasets support future SQL querying, vendor intelligence analysis, escalation monitoring, and business intelligence reporting workflows.
+This document defines the relational structure of the Vendor Performance subsystem and describes how operational datasets support vendor performance analysis, fulfillment monitoring, SLA evaluation, corrective action tracking, escalation visibility, and operational reporting.
 
-The purpose of this relational model is not to normalize the datasets into idealized structures. Instead, this model preserves realistic enterprise operational conditions while identifying the primary analytical relationships that support vendor performance interpretation across the subsystem.
+The purpose of this relational model is not to normalize datasets into idealized structures. Instead, it preserves realistic operational conditions while documenting the primary relationships that support performance monitoring and operational interpretation.
 
-This relational environment intentionally allows for:
+The relational environment intentionally accommodates:
 
-* incomplete operational visibility
-* delayed escalation activity
-* partial SLA tracking
-* vendor recovery inconsistencies
-* corrective action dependencies
-* operational reporting ambiguity
+* Incomplete operational visibility
+* Delayed escalation activity
+* Partial SLA tracking
+* Vendor recovery inconsistencies
+* Corrective action dependencies
+* Operational reporting ambiguity
 
-to better reflect realistic enterprise vendor management environments.
+These conditions reflect realistic enterprise vendor management environments and provide opportunities for operational analysis.
 
 ---
 
-## Relational Modeling Scope
+# Relational Modeling Scope
 
-The vendor performance subsystem currently includes the following primary operational datasets:
+The Vendor Performance subsystem currently includes the following operational datasets:
 
-|Dataset|Operational Function|
-|-|-|
-|vendor-master|Vendor reference and operational classification data|
-|vendor-fulfillment-events|Shipment fulfillment and delivery performance activity|
-|vendor-sla-tracking|SLA compliance and service-level monitoring|
-|vendor-corrective-actions|Vendor remediation and corrective action tracking|
+| Dataset                   | Operational Function                                   |
+| ------------------------- | ------------------------------------------------------ |
+| vendor-master             | Vendor reference and operational classification data   |
+| vendor-fulfillment-events | Shipment fulfillment and delivery performance activity |
+| vendor-sla-tracking       | SLA compliance and service-level monitoring            |
+| vendor-corrective-actions | Vendor remediation and corrective action tracking      |
 
-These datasets collectively support:
+Together, these datasets support:
 
-* vendor reliability analysis
+* Vendor reliability analysis
 * SLA monitoring
-* escalation visibility
-* fulfillment performance reporting
-* operational risk interpretation
-* corrective action oversight
-* future SQL-based vendor intelligence development
+* Escalation visibility
+* Fulfillment performance reporting
+* Operational risk interpretation
+* Corrective action oversight
 
 ---
 
-## Core Relational Keys
+# Core Relational Keys
 
-The subsystem currently relies on several recurring identifiers that support relational analysis across vendor operational datasets.
+The subsystem relies on recurring identifiers that support relational analysis across operational datasets.
 
-|Relational Key|Operational Purpose|
-|-|-|
-|vendor_id|Primary vendor relationship identifier|
-|fulfillment_event_id|Shipment fulfillment and delivery tracking|
-|sla_event_id|SLA compliance tracking and reporting|
-|corrective_action_id|Vendor remediation and corrective action monitoring|
-|shipment_id|Shipment relationship tracking across operational workflows|
-|related_ticket_id|Escalation and ticketing workflow linkage|
+| Relational Key       | Operational Purpose                                         |
+| -------------------- | ----------------------------------------------------------- |
+| vendor_id            | Primary vendor relationship identifier                      |
+| fulfillment_event_id | Shipment fulfillment and delivery tracking                  |
+| sla_event_id         | SLA compliance tracking and reporting                       |
+| corrective_action_id | Vendor remediation and corrective action monitoring         |
+| shipment_id          | Shipment relationship tracking across operational workflows |
+| related_ticket_id    | Escalation and ticketing workflow linkage                   |
 
-These identifiers support future relational analysis involving:
+These identifiers support:
 
-* SLA compliance trends
-* shipment delay analysis
-* vendor reliability interpretation
-* escalation monitoring
-* corrective action tracking
-* operational risk visibility
+* SLA compliance analysis
+* Shipment delay analysis
+* Vendor reliability evaluation
+* Escalation monitoring
+* Corrective action tracking
+* Operational risk visibility
 
 ---
 
-## Dataset Relationship Overview
+# Dataset Relationship Overview
 
-### vendor-master
+## vendor-master
 
-The `vendor-master` dataset functions as the primary operational vendor reference table for the subsystem.
+The `vendor-master` dataset functions as the primary vendor reference table within the subsystem.
 
 This dataset supports relationships with:
 
@@ -84,15 +83,15 @@ Primary relationship key:
 
 Operational role:
 
-* vendor classification
-* operational risk visibility
-* vendor tier interpretation
+* Vendor classification
+* Operational risk visibility
+* Vendor tier interpretation
 * SLA ownership visibility
-* corrective action association
+* Corrective action association
 
 ---
 
-### vendor-fulfillment-events
+## vendor-fulfillment-events
 
 The `vendor-fulfillment-events` dataset tracks shipment fulfillment activity, delivery performance, and operational shipment behavior.
 
@@ -110,15 +109,15 @@ Primary relationship keys:
 
 Operational role:
 
-* shipment reliability monitoring
-* delayed fulfillment visibility
-* operational delivery tracking
-* fulfillment trend interpretation
-* replenishment dependency support
+* Shipment reliability monitoring
+* Delayed fulfillment visibility
+* Operational delivery tracking
+* Fulfillment trend interpretation
+* Replenishment dependency support
 
 ---
 
-### vendor-sla-tracking
+## vendor-sla-tracking
 
 The `vendor-sla-tracking` dataset tracks SLA performance, compliance conditions, and service-level reporting activity.
 
@@ -136,14 +135,14 @@ Primary relationship keys:
 Operational role:
 
 * SLA compliance visibility
-* vendor accountability monitoring
-* operational service-level tracking
-* escalation condition identification
-* reporting reliability interpretation
+* Vendor accountability monitoring
+* Operational service-level tracking
+* Escalation condition identification
+* Reporting reliability interpretation
 
 ---
 
-### vendor-corrective-actions
+## vendor-corrective-actions
 
 The `vendor-corrective-actions` dataset tracks vendor remediation activity and operational recovery workflows.
 
@@ -161,132 +160,127 @@ Primary relationship keys:
 
 Operational role:
 
-* remediation visibility
-* escalation recovery monitoring
-* corrective action oversight
-* operational recovery tracking
-* vendor accountability interpretation
+* Remediation visibility
+* Escalation recovery monitoring
+* Corrective action oversight
+* Operational recovery tracking
+* Vendor accountability interpretation
 
 ---
 
-## Operational Relationship Patterns
+# Operational Relationship Patterns
 
-The vendor performance subsystem demonstrates several recurring operational relationship patterns that support future SQL querying and business intelligence analysis.
+The Vendor Performance subsystem demonstrates several recurring relationship patterns that support operational analysis and reporting.
 
-### One-to-Many Relationships
+## One-to-Many Relationships
 
 Examples include:
 
-* one vendor linked to multiple fulfillment events
-* one vendor linked to multiple SLA records
-* one vendor linked to multiple corrective actions
-* one escalation condition linked to multiple remediation workflows
+* One vendor linked to multiple fulfillment events
+* One vendor linked to multiple SLA events
+* One vendor linked to multiple corrective actions
+* One operational issue linked to multiple remediation activities
 
 These relationships support:
 
-* vendor trend analysis
+* Vendor trend analysis
 * SLA performance monitoring
-* escalation frequency analysis
-* operational reliability interpretation
-* vendor recovery visibility
+* Escalation analysis
+* Operational reliability interpretation
+* Vendor recovery visibility
 
 ---
 
-### Cross-System Relationship Dependencies
+## Cross-System Relationship Dependencies
 
 Several vendor datasets demonstrate dependencies on external operational systems including:
 
-* inventory replenishment workflows
-* shipment escalation workflows
-* ticketing escalation systems
-* operational recovery tracking
+* Inventory replenishment workflows
+* Shipment escalation workflows
+* Ticketing systems
+* Operational recovery activities
 
 Examples include:
 
-* shipment relationships influencing inventory replenishment timing
-* escalation references linked to ticketing workflows
-* SLA violations influencing corrective action activity
+* Shipment performance affecting replenishment timing
+* Escalation references linked to ticketing workflows
+* SLA failures contributing to corrective action activity
 
-These relationships support future analysis involving:
+These relationships support:
 
-* cross-system operational intelligence
-* escalation propagation visibility
-* vendor operational risk analysis
-* fulfillment dependency interpretation
-* operational continuity monitoring
+* Cross-system operational visibility
+* Escalation impact analysis
+* Vendor operational risk analysis
+* Fulfillment dependency interpretation
+* Operational continuity monitoring
 
 ---
 
-## Operational Data Conditions
+# Operational Data Conditions
 
-The vendor relational environment intentionally preserves realistic operational reporting conditions including:
+The Vendor Performance relational environment intentionally preserves realistic operational reporting conditions including:
 
-* delayed SLA updates
-* stale fulfillment statuses
-* incomplete escalation visibility
-* partial remediation tracking
-* inconsistent operational synchronization
-* delayed corrective action closure visibility
+* Delayed SLA updates
+* Stale fulfillment statuses
+* Incomplete escalation visibility
+* Partial remediation tracking
+* Inconsistent operational synchronization
+* Delayed corrective action closure visibility
 
-These conditions are intentionally maintained as operational analytical scenarios rather than treated as isolated dataset defects.
+These conditions are maintained as operational analytical scenarios rather than treated as isolated dataset defects.
 
-As a result, future SQL analysis and reporting workflows may require:
+As a result, analysis may require:
 
-* reconciliation awareness
-* exception monitoring
-* escalation interpretation
-* reporting freshness validation
-* operational confidence assessment
+* Reconciliation awareness
+* Exception monitoring
+* Escalation interpretation
+* Reporting freshness validation
+* Operational confidence assessment
 
 rather than relying exclusively on idealized relational consistency.
 
 ---
 
-## SQL and Business Intelligence Readiness
+# Analytical Readiness
 
-The current relational structure supports future development involving:
+The current relational structure supports:
 
 * SQL joins
-* SLA aggregation reporting
-* fulfillment delay analysis
-* vendor risk visibility
-* escalation trend monitoring
-* corrective action reporting
-* Power BI dashboard development
-* operational vendor intelligence reporting
+* SLA reporting
+* Fulfillment delay analysis
+* Vendor risk analysis
+* Escalation monitoring
+* Corrective action reporting
+* Operational dashboards
+* Vendor performance reporting
 
-The subsystem is structured to support both:
+The subsystem supports both:
 
-* operational reporting workflows
+* Operational reporting workflows
+* Operational intelligence interpretation
 
-and:
-
-* operational intelligence interpretation workflows
-
-without requiring major restructuring of the current dataset ecosystem.
+without requiring significant restructuring of the current dataset environment.
 
 ---
 
-## Future Relational Development Opportunities
+# Relational Analysis Considerations
 
-Future relational modeling opportunities may include:
+Analysis of vendor performance should consider:
 
-* vendor communication history tracking
-* fulfillment aging analysis
-* SLA historical trend modeling
-* escalation propagation visibility
-* corrective action lifecycle tracking
-* vendor operational scoring support
-* cross-subsystem analytical joins
-* executive vendor intelligence reporting
+* Vendor dependency relationships
+* Shipment performance patterns
+* SLA compliance activity
+* Escalation frequency
+* Corrective action recurrence
+* Recovery effectiveness
+* Cross-system operational impacts
 
-Future development should prioritize:
+These considerations help ensure relational analysis remains operationally relevant, interpretable, and aligned with subsystem objectives.
 
-* analytical readability
-* operational realism
-* relational consistency
-* reporting interpretability
-* enterprise operational clarity
+---
 
-while avoiding unnecessary relational complexity or artificial overengineering.
+# Summary
 
+The Vendor Performance relational model establishes the relationships that connect vendor classification, fulfillment activity, SLA performance, corrective action management, and escalation visibility.
+
+The structure supports operational reporting, performance analysis, and cross-system visibility while preserving realistic enterprise operational conditions.
