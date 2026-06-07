@@ -87,15 +87,10 @@ Examples:
 
 
 * Schemas define dataset structure.
-
 * Relational models define dataset relationships.
-
 * KPI frameworks define performance measures.
-
 * Analysis frameworks define analytical methodology.
-
 * Observations summarize findings.
-
 * Executive summaries communicate business outcomes.
 
 
@@ -121,11 +116,8 @@ Documentation should avoid sections such as:
 
 
 * Future SQL Opportunities
-
 * Future Business Intelligence Opportunities
-
 * Future Reporting Opportunities
-
 * Future Analytical Opportunities
 
 
@@ -147,11 +139,8 @@ Subsystem documentation should describe:
 
 
 * What the subsystem does
-
 * How the subsystem functions
-
 * Who uses the subsystem
-
 * How the subsystem interacts with other operational domains
 
 
@@ -165,11 +154,8 @@ Examples to avoid:
 
 
 * Portfolio Significance
-
 * Project Significance
-
 * Resume Positioning Language
-
 * Self-promotional project descriptions
 
 
@@ -191,9 +177,7 @@ Examples include:
 
 
 * Executive workbooks
-
 * Observation documents
-
 * Reporting summaries
 
 
@@ -343,11 +327,8 @@ Modernization efforts should prioritize:
 
 
 * Accuracy
-
 * Clarity
-
 * Consistency
-
 * Readability
 
 
@@ -422,5 +403,174 @@ Major governance discoveries should be incorporated before proceeding to later p
 
 ```
 
+
+## Governance Reclassification Principle
+
+During subsystem audits, remediation efforts should evaluate not only document quality but also document ownership.
+
+A document may be accurately written while belonging to the wrong ownership layer.
+
+When this occurs, the preferred remediation action is:
+
+```text
+Reclassify
+↓
+Relocate
+↓
+Reevaluate
 ```
+
+rather than automatically rewriting the document.
+
+Examples may include:
+
+* Subsystem documents that represent enterprise governance concepts
+* Governance artifacts incorrectly owned by operational subsystems
+* Cross-system standards embedded within subsystem documentation
+
+Correct ownership should be established before content modernization begins.
+
+---
+
+## Analysis Layer Architecture Principle
+
+Operational subsystems should maintain clear separation between:
+
+```text
+KPI Framework
+↓
+Analysis Framework
+↓
+Analysis Implementation
+↓
+Observations
+↓
+Executive Reporting
+```
+
+Each layer serves a distinct purpose:
+
+* KPI Framework defines performance measures.
+* Analysis Framework defines analytical methodology.
+* Analysis Implementation defines analytical execution.
+* Observations document findings.
+* Executive Reporting communicates business outcomes.
+
+Subsystems should avoid combining these responsibilities into a single artifact.
+
+---
+
+## Subsystem Integrity Review Principle
+
+Major subsystem remediation efforts should conclude with an integrity review before expansion resumes.
+
+The purpose of the integrity review is to verify:
+
+* Documentation consistency
+* Dataset alignment
+* Governance compliance
+* Reporting consistency
+* Architectural completeness
+
+Integrity reviews help identify latent drift before new subsystem work begins.
+
+---
+
+## Dataset Versioning Principle
+
+Dataset version naming should accurately reflect dataset state.
+
+Active operational datasets should not retain historical version identifiers when substantial revisions have occurred and the original version no longer exists.
+
+Future governance review should determine whether the ecosystem standard becomes:
+
+```text
+tickets.csv
+inventory-items.csv
+vendor-master.csv
+```
+
+with archived historical versions stored separately,
+
+or
+
+```text
+tickets-v2.csv
+tickets-v3.csv
+```
+
+with explicit version progression maintained.
+
+A single enterprise-wide standard should be adopted and applied consistently.
+
+---
+
+## Governance Discovery Capture Principle
+
+Governance discoveries identified during remediation should be documented as they occur.
+
+Governance improvements should not rely on conversational memory or future recollection.
+
+Capturing discoveries when identified helps prevent:
+
+* methodology drift
+* repeated remediation work
+* inconsistent subsystem implementation
+* loss of institutional knowledge
+
+Governance evolution should remain traceable through documented additions and later consolidation.
+
+---
+
+## Reporting-to-Observation Traceability Principle
+
+Observations should be derived from validated reporting outputs.
+
+The preferred analytical sequence is:
+
+```text
+Dataset
+↓
+Reporting
+↓
+Analysis
+↓
+Observations
+```
+
+Observations should be supported by:
+
+* reporting outputs
+* KPI performance
+* analytical review
+* documented evidence
+
+Observation documents should not serve as speculative planning artifacts.
+
+---
+
+## Ownership Before Modernization Principle
+
+When auditing documentation, ownership should be evaluated before content modernization.
+
+Review sequence:
+
+```text
+Ownership
+↓
+Purpose
+↓
+Accuracy
+↓
+Modernization
+```
+
+Documents assigned to the wrong ownership layer should be reclassified before content changes are considered.
+
+This reduces unnecessary rewrites and improves governance consistency.
+
+
+
+```
+
 
