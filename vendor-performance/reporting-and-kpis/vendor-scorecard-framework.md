@@ -1,794 +1,294 @@
-\# Vendor Scorecard Framework  
+# Vendor Scorecard Framework
 
+## Purpose
 
+This document defines the vendor scorecard framework used within the Vendor Performance subsystem.
 
-\## Northstar Health Operations
+The framework establishes a standardized approach for evaluating overall vendor performance through the consolidation of operational performance, SLA outcomes, escalation activity, operational impact, and corrective action history.
 
+Scorecards support vendor comparison, performance interpretation, operational prioritization, and leadership visibility across the Northstar Health Operations ecosystem.
 
+---
 
-\---
+# Scorecard Philosophy
 
+Vendor scorecards should provide a consolidated operational view of vendor performance.
 
+Scorecard evaluation considers:
 
-\# Purpose
+* Performance consistency
+* Service reliability
+* Escalation exposure
+* Operational impact
+* Corrective action requirements
 
+The objective is to summarize operational performance across multiple domains while preserving the underlying context that contributes to overall vendor evaluation.
 
+Scorecards are intended to support operational decision-making rather than replace detailed subsystem analysis.
 
-This document defines the vendor scorecard framework for the Vendor Performance subsystem within Northstar Health Operations.
+---
 
+# Scorecard Governance Standards
 
+Vendor scorecards should:
 
-The purpose of this framework is to:
+* Remain operationally relevant
+* Support leadership visibility
+* Maintain evaluation consistency
+* Incorporate multiple performance domains
+* Support cross-system interpretation
+* Align with subsystem objectives
 
+Scorecard outcomes should reflect recurring operational patterns rather than isolated events whenever possible.
 
+---
 
-\- standardize vendor performance evaluation
+# Scorecard Evaluation Categories
 
-\- define vendor reliability scoring logic
+Vendor scorecards evaluate performance across five primary categories:
 
-\- support leadership vendor comparison
+* SLA Performance
+* Fulfillment Reliability
+* Escalation Exposure
+* Operational Impact Severity
+* Corrective Action Dependency
 
-\- support operational risk visibility
+Together, these categories provide a balanced view of vendor performance and operational reliability.
 
-\- support escalation-aware vendor analysis
+---
 
-\- support corrective action prioritization
+# SLA Performance
 
-\- support future Power BI scorecards
+## Purpose
 
-\- support future SQL-based vendor ranking systems
+Evaluates vendor consistency in meeting operational service expectations.
 
+## Evaluation Considerations
 
+Scorecard evaluation may consider:
 
-This framework serves as the primary reference for interpreting overall vendor operational performance across the Northstar ecosystem.
+* SLA compliance rates
+* SLA breach frequency
+* Response performance
+* Escalation-linked SLA activity
 
+## Operational Significance
 
+Strong SLA performance may indicate:
 
-\---
-
-
-
-\# Operational Reporting Philosophy
-
-
-
-Vendor scorecards should prioritize:
-
-
-
-\- operational clarity
-
-\- leadership readability
-
-\- vendor accountability
-
-\- operational continuity visibility
-
-\- escalation awareness
-
-\- consistency across reporting periods
-
-
-
-Vendor scorecards should support:
-
-
-
-\# operational decision-making
-
-
-
-NOT:
-
-
-
-\# isolated metric reporting.
-
-
-
-The framework is intended to consolidate operational vendor behavior into a leadership-oriented performance interpretation layer.
-
-
-
-\---
-
-
-
-\# Scorecard Objectives
-
-
-
-The Vendor Scorecard Framework is intended to support analysis of:
-
-
-
-\- vendor reliability
-
-\- SLA consistency
-
-\- escalation frequency
-
-\- shipment stability
-
-\- fulfillment performance
-
-\- operational disruption exposure
-
-\- corrective action dependency
-
-\- operational continuity risk
-
-
-
-The framework should help leadership identify:
-
-
-
-\- high-performing vendors
-
-\- operationally unstable vendors
-
-\- escalation-heavy vendor relationships
-
-\- continuity-sensitive suppliers
-
-\- corrective action trends
-
-\- operational dependency risks
-
-
-
-\---
-
-
-
-\# Core Scorecard Categories
-
-
-
-Vendor scorecards should evaluate vendors across multiple operational dimensions.
-
-
-
-\---
-
-
-
-\# SLA Performance
-
-
-
-\## Purpose
-
-
-
-Measures vendor consistency in meeting operational SLA expectations.
-
-
-
-\## Example Inputs
-
-
-
-May include:
-
-
-
-\- SLA compliance rate
-
-\- SLA breach frequency
-
-\- average response time
-
-\- escalation-linked SLA failures
-
-
-
-\## Operational Significance
-
-
-
-Strong SLA performance generally indicates:
-
-
-
-\- reliable operational coordination
-
-\- stable delivery behavior
-
-\- reduced continuity risk
-
-
+* Reliable vendor responsiveness
+* Consistent operational support
+* Reduced service disruption exposure
 
 Weak SLA performance may indicate:
 
+* Service instability
+* Escalation pressure
+* Increased operational oversight requirements
 
+---
 
-\- inconsistent vendor responsiveness
+# Fulfillment Reliability
 
-\- elevated operational disruption exposure
+## Purpose
 
-\- escalation pressure
+Evaluates consistency and stability of vendor fulfillment activity.
 
+## Evaluation Considerations
 
+Scorecard evaluation may consider:
 
-\---
+* Delayed shipment frequency
+* Partial fulfillment activity
+* Fulfillment consistency
+* Shipment stability
 
+## Operational Significance
 
+Strong fulfillment reliability may indicate:
 
-\# Fulfillment Reliability
-
-
-
-\## Purpose
-
-
-
-Measures consistency and stability of vendor fulfillment activity.
-
-
-
-\## Example Inputs
-
-
-
-May include:
-
-
-
-\- delayed fulfillment frequency
-
-\- partial shipment frequency
-
-\- fulfillment completion consistency
-
-\- emergency fulfillment activity
-
-
-
-\## Operational Significance
-
-
-
-Strong fulfillment reliability generally indicates:
-
-
-
-\- stable replenishment support
-
-\- improved operational continuity
-
-\- reduced shortage risk
-
-
+* Stable replenishment support
+* Improved operational continuity
+* Reduced shortage exposure
 
 Weak fulfillment reliability may indicate:
 
+* Replenishment instability
+* Inventory pressure
+* Increased dependency risk
 
+---
 
-\- replenishment instability
+# Escalation Exposure
 
-\- increased inventory pressure
+## Purpose
 
-\- elevated operational dependency risk
+Evaluates the degree to which vendor activity contributes to operational escalation activity.
 
+## Evaluation Considerations
 
+Scorecard evaluation may consider:
 
-\---
+* Escalation-required events
+* Escalation-linked SLA failures
+* Vendor-related incidents
+* Escalation frequency trends
 
+## Operational Significance
 
+Elevated escalation exposure may indicate:
 
-\# Escalation Exposure
+* Operational instability
+* Vendor coordination challenges
+* Increased workload requirements
+* Greater disruption exposure
 
+---
 
+# Operational Impact Severity
 
-\## Purpose
+## Purpose
 
+Evaluates the severity of operational outcomes associated with vendor activity.
 
+## Evaluation Considerations
 
-Measures operational escalation frequency connected to vendor activity.
-
-
-
-\## Example Inputs
-
-
-
-May include:
-
-
-
-\- escalation-required events
-
-\- escalation-linked shipment failures
-
-\- escalation-linked SLA breaches
-
-\- unresolved vendor incidents
-
-
-
-\## Operational Significance
-
-
-
-Higher escalation exposure may indicate:
-
-
-
-\- operational instability
-
-\- vendor communication issues
-
-\- increased coordination workload
-
-\- elevated disruption exposure
-
-
-
-\---
-
-
-
-\# Operational Impact Severity
-
-
-
-\## Purpose
-
-
-
-Measures the operational severity associated with vendor-related events.
-
-
-
-\## Example Inputs
-
-
-
-May include event classifications such as:
-
-
+Scorecard evaluation may consider event classifications such as:
 
 ```text
-
 Low
-
 Moderate
-
 High
-
 Critical
-
 ```
 
+## Operational Significance
 
+Higher concentrations of severe-impact events may indicate:
 
-\## Operational Significance
+* Continuity-sensitive dependencies
+* Elevated operational risk
+* Significant disruption exposure
+* Operational bottlenecks
 
+---
 
+# Corrective Action Dependency
 
-Higher concentrations of:
+## Purpose
 
+Evaluates how frequently vendor performance requires intervention or corrective action.
 
+## Evaluation Considerations
+
+Scorecard evaluation may consider:
+
+* Corrective action requirements
+* Repeated SLA failures
+* Recurring fulfillment issues
+* Ongoing remediation activity
+
+## Operational Significance
+
+Elevated corrective action dependency may indicate:
+
+* Performance instability
+* Increased oversight requirements
+* Process inconsistency
+* Vendor reliability concerns
+
+---
+
+# Scorecard Structure
+
+Vendor scorecards may utilize weighted evaluation categories.
+
+Example structure:
+
+|Category|Example Weight|
+|-|-|
+|SLA Performance|30%|
+|Fulfillment Reliability|30%|
+|Escalation Exposure|20%|
+|Operational Impact Severity|10%|
+|Corrective Action Dependency|10%|
+
+These weights are intended as operational examples and should be adjusted based on reporting objectives and organizational priorities.
+
+---
+
+# Vendor Performance Tiers
+
+Vendor scorecards may classify vendors into performance tiers.
+
+Example structure:
+
+|Tier|Interpretation|
+|-|-|
+|Preferred|Highly stable operational vendor|
+|Stable|Reliable operational vendor|
+|Monitoring|Periodic review recommended|
+|At Risk|Elevated operational concerns|
+|Critical Review|Significant operational instability|
+
+Performance tiers provide a standardized framework for vendor comparison and prioritization.
+
+---
+
+# KPI Relationships
+
+Vendor scorecards incorporate information from:
+
+* Vendor Performance Reporting
+* Vendor SLA Monitoring
+* Vendor Risk Classification
+* Corrective Action Tracking
+
+Shared identifiers supporting scorecard evaluation include:
 
 ```text
-
-High
-
-Critical
-
+vendor_id
+sla_event_id
+fulfillment_event_id
+shipment_id
+related_ticket_id
 ```
 
+These relationships support integrated vendor evaluation and cross-functional reporting.
 
+---
 
-events may indicate:
+# Reporting Standards
 
+Scorecard reporting should emphasize:
 
+* Vendor comparison
+* Performance trends
+* Escalation exposure
+* Operational reliability
+* Emerging performance concerns
 
-\- continuity-sensitive vendor relationships
+Reporting outputs should prioritize concise interpretation, leadership readability, and actionable operational insights.
 
-\- operational bottlenecks
+---
 
-\- severe disruption exposure
+# Governance Alignment
 
+This framework follows established Northstar governance standards including:
 
+* Subsystem-centered architecture
+* Reporting standardization principles
+* Documentation layering standards
+* Naming convention standards
+* Cross-system integration practices
 
-\---
+Changes to scorecard methodology should be evaluated for consistency, reporting impact, and subsystem alignment before implementation.
 
+---
 
+# Summary
 
-\# Corrective Action Dependency
+The Vendor Scorecard Framework establishes a standardized methodology for evaluating overall vendor performance across multiple operational domains.
 
-
-
-\## Purpose
-
-
-
-Measures how frequently vendor activity requires operational intervention or corrective action.
-
-
-
-\## Example Inputs
-
-
-
-May include:
-
-
-
-\- corrective action requirements
-
-\- repeated SLA failures
-
-\- repeated shipment delays
-
-\- recurring operational escalations
-
-
-
-\## Operational Significance
-
-
-
-Higher corrective action dependency may indicate:
-
-
-
-\- unstable vendor workflows
-
-\- increased oversight requirements
-
-\- operational process weakness
-
-
-
-\---
-
-
-
-\# Example Vendor Scorecard Structure
-
-
-
-Example scorecard categories may include:
-
-
-
-| Category | Example Weight |
-
-|---|---|
-
-| SLA Performance | 30% |
-
-| Fulfillment Reliability | 30% |
-
-| Escalation Exposure | 20% |
-
-| Operational Impact Severity | 10% |
-
-| Corrective Action Dependency | 10% |
-
-
-
-These weights are intended as:
-
-
-
-\# illustrative operational examples
-
-
-
-NOT:
-
-
-
-\# fixed enterprise standards.
-
-
-
-\---
-
-
-
-\# Vendor Performance Tiers
-
-
-
-Vendor scorecards may classify vendors into operational performance tiers.
-
-
-
-Example:
-
-
-
-| Tier | Interpretation |
-
-|---|---|
-
-| Preferred | Highly stable operational vendor |
-
-| Stable | Reliable operational vendor |
-
-| Monitoring | Requires periodic operational review |
-
-| At Risk | Elevated disruption or escalation exposure |
-
-| Critical Review | Significant operational instability |
-
-
-
-\---
-
-
-
-\# Executive Reporting Standards
-
-
-
-Executive scorecards should prioritize:
-
-
-
-\- concise operational interpretation
-
-\- vendor comparison visibility
-
-\- escalation visibility
-
-\- operational continuity awareness
-
-\- scan-friendly formatting
-
-\- leadership readability
-
-
-
-Executive reporting should emphasize:
-
-
-
-\- recurring SLA failures
-
-\- high-risk vendors
-
-\- escalation-heavy suppliers
-
-\- operationally critical disruptions
-
-\- continuity-sensitive vendor dependencies
-
-
-
-\---
-
-
-
-\# Recommended Visualizations
-
-
-
-Recommended future Power BI or reporting visualizations include:
-
-
-
-| Visualization | Purpose |
-
-|---|---|
-
-| Vendor scorecard dashboard | Leadership vendor comparison |
-
-| Vendor ranking table | Operational vendor prioritization |
-
-| SLA compliance trend chart | Vendor reliability visibility |
-
-| Escalation heat map | Disruption concentration visibility |
-
-| Operational impact distribution chart | Severity exposure analysis |
-
-| Corrective action trend chart | Vendor stability monitoring |
-
-
-
-\---
-
-
-
-\# Cross-System Reporting Relationships
-
-
-
-Vendor scorecards may integrate with:
-
-
-
-| Related Dataset | Reporting Purpose |
-
-|---|---|
-
-| vendor-master.csv | Vendor identity and classification |
-
-| vendor-sla-tracking.csv | SLA compliance analysis |
-
-| vendor-fulfillment-events.csv | Fulfillment reliability analysis |
-
-| vendor-shipments.csv | Shipment stability analysis |
-
-| replenishment-events.csv | Replenishment dependency visibility |
-
-| shortage-events.csv | Operational continuity risk analysis |
-
-| tickets-v1.csv | Escalation visibility and operational coordination analysis |
-
-
-
-This supports:
-
-
-
-\# cross-system operational vendor intelligence
-
-
-
-across the Northstar ecosystem.
-
-
-
-\---
-
-
-
-\# Future SQL Readiness
-
-
-
-This framework supports future SQL integration through:
-
-
-
-\- standardized vendor scoring logic
-
-\- reusable vendor KPI aggregation
-
-\- escalation-aware vendor analysis
-
-\- operational continuity measurement
-
-\- vendor ranking calculations
-
-
-
-Future SQL reporting may support:
-
-
-
-\- rolling vendor performance scoring
-
-\- vendor reliability rankings
-
-\- SLA breach trend analysis
-
-\- escalation-linked vendor analysis
-
-\- operational dependency scoring
-
-
-
-\---
-
-
-
-\# Future Power BI Readiness
-
-
-
-This framework supports future Power BI development through:
-
-
-
-\- standardized scorecard definitions
-
-\- reusable vendor scoring logic
-
-\- executive reporting consistency
-
-\- vendor segmentation capability
-
-\- operational risk visualization
-
-
-
-Potential dashboard layers may include:
-
-
-
-\- executive vendor scorecards
-
-\- operational vendor rankings
-
-\- escalation exposure dashboards
-
-\- continuity risk dashboards
-
-\- vendor SLA trend reporting
-
-
-
-\---
-
-
-
-\# Governance Alignment
-
-
-
-This framework follows established Northstar governance standards, including:
-
-
-
-\- subsystem-centered architecture
-
-\- reporting standardization methodology
-
-\- naming convention standards
-
-\- shared identifier standards
-
-\- governance-first operational modeling
-
-\- SQL readiness
-
-\- Power BI readiness
-
-
-
-Future scorecard modifications should be made:
-
-
-
-\# systematically
-
-
-
-NOT:
-
-
-
-\# reactively.
-
-
-
-\---
-
-
-
-\# Portfolio Significance
-
-
-
-This framework demonstrates:
-
-
-
-\- operational scorecard architecture
-
-\- vendor reliability analysis design
-
-\- escalation-aware reporting methodology
-
-\- leadership operational reporting strategy
-
-\- enterprise systems thinking
-
-\- SQL analytical readiness
-
-\- Power BI reporting readiness
-
-\- scalable operational intelligence planning
-
-
-
-The Vendor Scorecard Framework strengthens the Vendor Performance subsystem by establishing a standardized vendor evaluation layer supporting leadership vendor analysis, operational continuity monitoring, escalation visibility, and enterprise operational reporting.
+By consolidating performance, SLA outcomes, escalation activity, operational impact, and corrective action history, the framework provides a consistent foundation for vendor comparison, operational prioritization, and leadership reporting.
 
