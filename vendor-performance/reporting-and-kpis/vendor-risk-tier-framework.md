@@ -1,748 +1,558 @@
-\# Vendor Risk Tier Framework  
+# Vendor Risk Tier Framework
 
 
 
-\## Northstar Health Operations
+## Purpose
 
 
 
-\---
+This document defines the vendor risk classification framework used within the Vendor Performance subsystem.
 
 
 
-\# Purpose
+The framework establishes a standardized approach for evaluating operational exposure associated with vendor relationships and supports consistent classification of vendor risk across the Northstar Health Operations ecosystem.
 
 
 
-This document defines the vendor risk tier framework for the Vendor Performance subsystem within Northstar Health Operations.
+Risk tiering supports operational prioritization, continuity planning, escalation awareness, and leadership visibility.
 
 
 
-The purpose of this framework is to:
+---
 
 
 
-\- standardize vendor operational risk classification
+# Risk Classification Philosophy
 
-\- support operational continuity planning
 
-\- support escalation-aware vendor analysis
 
-\- support leadership vendor prioritization
+Vendor risk classification should evaluate the operational exposure associated with a vendor relationship rather than isolated performance events.
 
-\- support dependency-risk visibility
 
-\- support corrective action oversight
 
-\- support future Power BI vendor risk dashboards
+Risk evaluation considers:
 
-\- support future SQL-based vendor segmentation
 
 
+* Operational dependency
 
-This framework serves as the primary reference for classifying vendor operational risk across the Northstar ecosystem.
+* Service reliability
 
+* Fulfillment stability
 
+* Escalation activity
 
-\---
+* Corrective action requirements
 
+* Continuity impact
 
 
-\# Operational Reporting Philosophy
 
+The objective is to understand the potential operational consequences of vendor instability and identify relationships requiring additional oversight.
 
 
-Vendor risk tiering should prioritize:
 
+---
 
 
-\- operational continuity awareness
 
-\- leadership readability
+# Risk Governance Standards
 
-\- escalation visibility
 
-\- dependency-risk interpretation
 
-\- vendor stability classification
+Vendor risk classification should:
 
-\- proactive operational oversight
 
 
+* Remain operationally relevant
 
-Vendor risk classification should support:
+* Support leadership visibility
 
+* Maintain classification consistency
 
+* Support cross-system analysis
 
-\# operational risk management
+* Reflect available operational evidence
 
+* Align with subsystem objectives
 
 
-NOT:
 
+Risk classification should be based on recurring operational patterns rather than isolated incidents whenever possible.
 
 
-\# isolated event analysis.
 
+---
 
 
-The framework is intended to consolidate operational vendor exposure into a leadership-oriented risk interpretation layer.
 
+# Risk Evaluation Categories
 
 
-\---
 
+Vendor risk classification considers five primary evaluation domains:
 
 
-\# Risk Tier Objectives
 
+* SLA Stability Risk
 
+* Fulfillment Disruption Risk
 
-The Vendor Risk Tier Framework is intended to support analysis of:
+* Escalation Dependency Risk
 
+* Operational Continuity Risk
 
+* Corrective Action Risk
 
-\- operational vendor dependency
 
-\- SLA instability
 
-\- escalation frequency
+Together, these categories provide a structured view of vendor-related operational exposure.
 
-\- fulfillment inconsistency
 
-\- operational disruption exposure
 
-\- shortage recovery sensitivity
+---
 
-\- corrective action dependency
 
-\- continuity-critical vendor relationships
 
+# SLA Stability Risk
 
 
-The framework should help leadership identify:
 
+## Purpose
 
 
-\- operationally critical vendors
 
-\- unstable supplier relationships
+Evaluates operational exposure associated with inconsistent SLA performance.
 
-\- escalation-heavy vendors
 
-\- continuity-sensitive dependencies
 
-\- high-risk operational bottlenecks
+## Risk Considerations
 
-\- vendors requiring proactive oversight
 
 
+Risk evaluation may consider:
 
-\---
 
 
+* SLA breach frequency
 
-\# Core Risk Evaluation Categories
+* Repeated response delays
 
+* Escalation-linked SLA failures
 
+* Unresolved SLA monitoring events
 
-Vendor risk classification should evaluate vendors across multiple operational dimensions.
 
 
+## Operational Significance
 
-\---
 
 
+Elevated SLA instability may indicate:
 
-\# SLA Stability Risk
 
 
+* Reduced service reliability
 
-\## Purpose
+* Increased disruption exposure
 
+* Greater operational oversight requirements
 
+* Continuity-sensitive dependencies
 
-Measures operational exposure created by vendor SLA inconsistency.
 
 
+---
 
-\## Example Inputs
 
 
+# Fulfillment Disruption Risk
 
-May include:
 
 
+## Purpose
 
-\- SLA breach frequency
 
-\- repeated response delays
 
-\- escalation-linked SLA failures
+Evaluates operational exposure associated with unstable fulfillment performance.
 
-\- unresolved SLA monitoring events
 
 
+## Risk Considerations
 
-\## Operational Significance
 
 
+Risk evaluation may consider:
 
-Higher SLA instability may indicate:
 
 
+* Delayed fulfillment events
 
-\- unreliable operational responsiveness
+* Partial shipment frequency
 
-\- increased disruption exposure
+* Shipment instability
 
-\- continuity-sensitive dependencies
+* Fulfillment inconsistency
 
 
 
-\---
+## Operational Significance
 
 
 
-\# Fulfillment Disruption Risk
+Elevated fulfillment disruption risk may indicate:
 
 
 
-\## Purpose
+* Replenishment instability
 
+* Increased shortage exposure
 
+* Operational coordination challenges
 
-Measures operational exposure created by unstable fulfillment activity.
+* Greater workflow disruption risk
 
 
 
-\## Example Inputs
+---
 
 
 
-May include:
+# Escalation Dependency Risk
 
 
 
-\- delayed fulfillment events
+## Purpose
 
-\- partial shipment frequency
 
-\- emergency fulfillment activity
 
-\- failed replenishment support
+Evaluates the extent to which vendor activity contributes to operational escalation activity.
 
 
 
-\## Operational Significance
+## Risk Considerations
 
 
 
-Higher fulfillment disruption risk may indicate:
+Risk evaluation may consider:
 
 
 
-\- unstable replenishment support
+* Escalation-required events
 
-\- elevated shortage exposure
+* Repeated escalation patterns
 
-\- increased operational coordination burden
+* Escalation-linked SLA failures
 
+* Vendor-related incident activity
 
 
-\---
 
+## Operational Significance
 
 
-\# Escalation Dependency Risk
 
+Elevated escalation dependency risk may indicate:
 
 
-\## Purpose
 
+* Vendor coordination challenges
 
+* Increased operational workload
 
-Measures the degree to which vendor activity generates operational escalation pressure.
+* Greater management oversight requirements
 
+* Operational instability
 
 
-\## Example Inputs
 
+---
 
 
-May include:
 
+# Operational Continuity Risk
 
 
-\- escalation-required events
 
-\- unresolved operational incidents
+## Purpose
 
-\- repeated escalation-linked disruptions
 
-\- operational ticket dependency
 
+Evaluates the potential impact of vendor instability on operational continuity.
 
 
-\## Operational Significance
 
+## Risk Considerations
 
 
-Higher escalation dependency may indicate:
 
+Risk evaluation may consider:
 
 
-\- unstable vendor coordination
 
-\- increased operational workload
+* Continuity-sensitive inventory relationships
 
-\- elevated operational oversight requirements
+* Critical shipment delays
 
+* High-impact operational events
 
+* Dependency concentration
 
-\---
 
 
+## Operational Significance
 
-\# Operational Continuity Risk
 
 
+Elevated continuity risk may indicate:
 
-\## Purpose
 
 
+* Increased operational vulnerability
 
-Measures the potential operational impact associated with vendor instability.
+* Critical supplier dependencies
 
+* Potential service disruption exposure
 
+* Operational bottlenecks
 
-\## Example Inputs
 
 
+---
 
-May include:
 
 
+# Corrective Action Risk
 
-\- continuity-sensitive inventory relationships
 
-\- shortage-linked vendor disruptions
 
-\- critical shipment delays
+## Purpose
 
-\- high-severity operational events
 
 
+Evaluates the frequency and severity of operational intervention required to maintain vendor performance.
 
-\## Operational Significance
 
 
+## Risk Considerations
 
-Higher continuity risk may indicate:
 
 
+Risk evaluation may consider:
 
-\- elevated operational vulnerability
 
-\- dependency-sensitive supplier relationships
 
-\- operational bottlenecks
+* Corrective action requirements
 
+* Repeated SLA failures
 
+* Recurring fulfillment issues
 
-\---
+* Ongoing remediation activity
 
 
 
-\# Corrective Action Risk
+## Operational Significance
 
 
 
-\## Purpose
+Elevated corrective action risk may indicate:
 
 
 
-Measures how frequently vendor relationships require operational intervention.
+* Recurring performance concerns
 
+* Process instability
 
+* Increased management involvement
 
-\## Example Inputs
+* Vendor reliability challenges
 
 
 
-May include:
+---
 
 
 
-\- corrective action requirements
+# Risk Tier Structure
 
-\- repeated SLA breaches
 
-\- recurring fulfillment failures
 
-\- operational recovery intervention
+Vendor risk classification may utilize the following operational tiers:
 
 
 
-\## Operational Significance
+| Tier          | Interpretation                           |
 
+| ------------- | ---------------------------------------- |
 
+| Low Risk      | Operationally stable vendor relationship |
 
-Higher corrective action dependency may indicate:
+| Moderate Risk | Periodic monitoring recommended          |
 
+| Elevated Risk | Increased operational exposure           |
 
+| High Risk     | Significant operational instability      |
 
-\- unstable operational processes
+| Critical Risk | Severe continuity-sensitive dependency   |
 
-\- recurring performance failures
 
-\- elevated management oversight needs
 
+These tiers provide a consistent framework for operational interpretation and prioritization.
 
 
-\---
 
+---
 
 
-\# Example Vendor Risk Tiers
 
+# Risk Tier Indicators
 
 
-Example operational vendor risk tiers may include:
 
+Examples of operational indicators that may contribute to elevated risk classification include:
 
 
-| Tier | Interpretation |
 
-|---|---|
+| Operational Indicator          | Potential Risk Signal         |
 
-| Low Risk | Operationally stable vendor relationship |
+| ------------------------------ | ----------------------------- |
 
-| Moderate Risk | Periodic operational monitoring recommended |
+| Frequent SLA breaches          | Service reliability concerns  |
 
-| Elevated Risk | Increased escalation or continuity exposure |
+| Repeated delayed shipments     | Fulfillment instability       |
 
-| High Risk | Significant operational instability |
+| High escalation frequency      | Coordination challenges       |
 
-| Critical Risk | Severe continuity-sensitive operational dependency |
+| Corrective action dependency   | Performance inconsistency     |
 
+| High-impact operational events | Continuity-sensitive exposure |
 
 
-\---
 
+These indicators serve as operational guidance and should be evaluated alongside broader operational context.
 
 
-\# Example Risk Tier Indicators
 
+Risk classification should not rely exclusively on any single indicator.
 
 
-Example vendor characteristics may include:
 
+---
 
 
-| Operational Indicator | Possible Risk Signal |
 
-|---|---|
+# KPI Relationships
 
-| Frequent SLA breaches | Elevated operational instability |
 
-| Repeated delayed shipments | Replenishment disruption exposure |
 
-| High escalation frequency | Vendor coordination instability |
+Vendor risk classification incorporates information from:
 
-| Corrective action dependency | Operational process weakness |
 
-| Critical operational impact events | Continuity-sensitive disruption exposure |
 
+* Vendor Performance Reporting
 
+* Vendor SLA Monitoring
 
-These indicators are intended as:
+* Corrective Action Tracking
 
+* Escalation Management
 
 
-\# operational guidance examples
 
+Shared identifiers supporting risk evaluation include:
 
 
-NOT:
 
+```text id="qmydwn"
 
+vendor_id
 
-\# rigid enterprise thresholds.
+sla_event_id
 
+fulfillment_event_id
 
+shipment_id
 
-\---
+related_ticket_id
 
+```
 
 
-\# Executive Reporting Standards
 
+These relationships support integrated operational analysis and risk interpretation.
 
 
-Executive vendor risk reporting should prioritize:
 
+---
 
 
-\- concise operational interpretation
 
-\- leadership readability
+# Reporting Standards
 
-\- continuity-risk visibility
 
-\- escalation awareness
 
-\- scan-friendly formatting
+Risk reporting should emphasize:
 
-\- operational prioritization clarity
 
 
+* High-risk vendor visibility
 
-Executive summaries should emphasize:
+* Continuity-sensitive dependencies
 
+* Escalation-heavy vendor relationships
 
+* Emerging operational concerns
 
-\- high-risk vendors
+* Operational prioritization
 
-\- continuity-sensitive suppliers
 
-\- escalation-heavy relationships
 
-\- recurring disruption patterns
+Reporting outputs should prioritize concise interpretation and leadership readability.
 
-\- operational bottlenecks
 
 
+---
 
-\---
 
 
+# Governance Alignment
 
-\# Recommended Visualizations
 
 
+This framework follows established Northstar governance standards including:
 
-Recommended future Power BI or reporting visualizations include:
 
 
+* Subsystem-centered architecture
 
-| Visualization | Purpose |
+* Reporting standardization principles
 
-|---|---|
+* Documentation layering standards
 
-| Vendor risk heat map | Operational risk concentration visibility |
+* Naming convention standards
 
-| Vendor tier distribution chart | Leadership vendor segmentation |
+* Cross-system integration practices
 
-| Escalation-risk dashboard | Escalation-heavy vendor visibility |
 
-| Continuity-risk scorecard | Operational dependency monitoring |
 
-| SLA instability trend chart | Vendor reliability visibility |
+Changes to risk classification methodology should be evaluated for consistency, reporting impact, and subsystem alignment before implementation.
 
-| Corrective action trend chart | Operational oversight analysis |
 
 
+---
 
-\---
 
 
+# Summary
 
-\# Cross-System Reporting Relationships
 
 
+The Vendor Risk Tier Framework establishes a standardized approach for evaluating vendor-related operational exposure.
 
-Vendor risk analysis may integrate with:
 
 
+Through structured risk classification and consistent evaluation criteria, the framework supports operational prioritization, continuity planning, escalation awareness, and leadership visibility across the Vendor Performance subsystem.
 
-| Related Dataset | Reporting Purpose |
 
-|---|---|
-
-| vendor-master.csv | Vendor identity and classification |
-
-| vendor-sla-tracking.csv | SLA instability analysis |
-
-| vendor-fulfillment-events.csv | Fulfillment disruption visibility |
-
-| vendor-shipments.csv | Shipment reliability analysis |
-
-| replenishment-events.csv | Inventory recovery dependency visibility |
-
-| shortage-events.csv | Continuity-sensitive operational analysis |
-
-| tickets-v1.csv | Escalation and disruption visibility |
-
-
-
-This supports:
-
-
-
-\# enterprise operational risk intelligence
-
-
-
-across subsystem boundaries.
-
-
-
-\---
-
-
-
-\# Future SQL Readiness
-
-
-
-This framework supports future SQL integration through:
-
-
-
-\- standardized vendor segmentation logic
-
-\- reusable operational risk calculations
-
-\- escalation-aware vendor classification
-
-\- continuity-risk aggregation
-
-\- vendor dependency analysis
-
-
-
-Future SQL reporting may support:
-
-
-
-\- rolling vendor risk calculations
-
-\- escalation-driven risk scoring
-
-\- continuity-sensitive vendor analysis
-
-\- operational dependency rankings
-
-\- vendor instability trend reporting
-
-
-
-\---
-
-
-
-\# Future Power BI Readiness
-
-
-
-This framework supports future Power BI development through:
-
-
-
-\- standardized vendor tier definitions
-
-\- reusable operational risk logic
-
-\- vendor segmentation capability
-
-\- leadership operational dashboards
-
-\- continuity-risk visualization
-
-
-
-Potential dashboard layers may include:
-
-
-
-\- executive vendor risk scorecards
-
-\- operational dependency dashboards
-
-\- escalation-risk monitoring
-
-\- continuity exposure reporting
-
-\- vendor instability trend analysis
-
-
-
-\---
-
-
-
-\# Governance Alignment
-
-
-
-This framework follows established Northstar governance standards, including:
-
-
-
-\- subsystem-centered architecture
-
-\- reporting standardization methodology
-
-\- naming convention standards
-
-\- shared identifier standards
-
-\- governance-first operational modeling
-
-\- SQL readiness
-
-\- Power BI readiness
-
-
-
-Future risk classification modifications should be made:
-
-
-
-\# systematically
-
-
-
-NOT:
-
-
-
-\# reactively.
-
-
-
-\---
-
-
-
-\# Portfolio Significance
-
-
-
-This framework demonstrates:
-
-
-
-\- operational risk classification architecture
-
-\- escalation-aware systems thinking
-
-\- continuity-risk modeling
-
-\- vendor dependency analysis design
-
-\- leadership operational reporting strategy
-
-\- enterprise systems thinking
-
-\- SQL analytical readiness
-
-\- Power BI reporting readiness
-
-\- scalable operational intelligence planning
-
-
-
-The Vendor Risk Tier Framework strengthens the Vendor Performance subsystem by establishing a standardized vendor operational risk classification layer supporting continuity-risk visibility, escalation analysis, operational dependency monitoring, and leadership operational reporting.
 
