@@ -1,4 +1,4 @@
-# Vendor Performance Subsystem Overview
+# Vendor Performance Overview
 
 ## Purpose
 
