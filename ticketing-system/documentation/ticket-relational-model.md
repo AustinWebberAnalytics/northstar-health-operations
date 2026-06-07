@@ -1,590 +1,229 @@
-# Ticket Relational Model  
+# Ticket Relational Model
 
-## Operational Data Structure Overview
+## Purpose
 
+This document defines the operational relationships represented within the Ticketing & Incident Management subsystem.
 
+The model describes how ticket records connect operational activities, departments, locations, ownership, escalation workflows, and reporting processes.
 
----
-
-
-
-# Purpose
-
-
-
-The Ticket Relational Model defines the core operational data structure used within the Northstar Health Operations (NHO) Ticketing & Incident Management System.
-
-
-
-The purpose of this model is to standardize how operational events, service requests, workflow escalations, and incident activities are captured, tracked, measured, and reported across the organization.
-
-
-
-This data structure supports:
-
-- Operational coordination
-
-- Workflow management
-
-- KPI reporting
-
-- SLA monitoring
-
-- Escalation tracking
-
-- Process improvement analysis
-
-- Operational visibility
-
-- Cross-functional reporting
-
-
+The current subsystem utilizes a single primary ticket dataset. Relationships are represented through operational fields and workflow dependencies captured within the ticket lifecycle.
 
 ---
 
+# Dataset Overview
 
-
-# Core Design Principles
-
-
-
-The ticket data structure is designed around several operational principles:
-
-
-
-- Standardized workflow tracking
-
-- Consistent operational categorization
-
-- Measurable service performance
-
-- Cross-functional coordination visibility
-
-- Escalation traceability
-
-- Reporting consistency
-
-- Audit support
-
-- Operational analytics readiness
-
-
-
-The model prioritizes operational clarity and reporting usability over unnecessary technical complexity.
-
-
-
----
-
-
-
-# Core Ticket Fields
-
-
-
-## Ticket ID
-
-
-
-### Purpose
-
-Unique identifier assigned to each ticket.
-
-
-
-### Example
+The Ticketing & Incident Management subsystem is currently supported by one primary operational dataset:
 
 ```text
-
-INC-104582
-
+tickets-v1
 ```
 
-
-
-### Operational Use
-
-Used for ticket lookup, reporting, escalation tracking, and audit reference.
-
-
+The dataset captures operational events, service requests, escalations, workflow activity, ownership information, and resolution outcomes.
 
 ---
 
+# Primary Record Structure
 
+Each ticket represents a single operational event requiring review, coordination, resolution, escalation, or reporting.
 
-## Created Timestamp
-
-
-
-### Purpose
-
-Date and time the ticket was initially submitted.
-
-
-
-### Example
+Primary identifier:
 
 ```text
-
-2026-05-20 08:42:15
-
+ticket_id
 ```
 
+Each ticket record contains information related to:
 
-
-### Operational Use
-
-Supports response-time calculations, SLA tracking, workload analysis, and trend reporting.
-
-
-
----
-
-
-
-## Ticket Category
-
-
-
-### Purpose
-
-Defines the primary operational issue type.
-
-
-
-### Example Values
-
-- Inventory & Supply
-
-- Scheduling & Resource Coordination
-
-- Vendor & Delivery Management
-
-- Operational Incident
-
-- Data Quality & Compliance
-
-- Technical & Systems Support
-
-
-
-### Operational Use
-
-Supports workflow routing, workload distribution analysis, and operational trend monitoring.
-
-
+* Operational category
+* Priority level
+* Workflow status
+* Requesting location
+* Assigned department
+* Assigned owner
+* Escalation activity
+* SLA performance
+* Resolution activity
 
 ---
 
+# Core Operational Relationships
 
+## Ticket → Requesting Location
 
-## Priority Level
-
-
-
-### Purpose
-
-Indicates operational urgency and business impact.
-
-
-
-### Example Values
-
-- Priority 1 — Critical
-
-- Priority 2 — High
-
-- Priority 3 — Moderate
-
-- Priority 4 — Low
-
-
-
-### Operational Use
-
-Supports escalation logic, SLA prioritization, and operational risk management.
-
-
-
----
-
-
-
-## Current Status
-
-
-
-### Purpose
-
-Tracks the ticket’s current position within the workflow lifecycle.
-
-
-
-### Example Values
-
-- New
-
-- Assigned
-
-- In Progress
-
-- Escalated
-
-- Pending
-
-- Resolved
-
-- Closed
-
-
-
-### Operational Use
-
-Supports workflow monitoring, backlog analysis, and operational visibility.
-
-
-
----
-
-
-
-## Requesting Location
-
-
-
-### Purpose
-
-Identifies the clinic, department, or operational site that submitted the ticket.
-
-
-
-### Example
+Each ticket originates from a specific operational location.
 
 ```text
-
-Raleigh Specialty Clinic 03
-
+Ticket
+↓
+Requesting Location
 ```
 
-
-
-### Operational Use
-
-Supports location-based reporting, operational trend analysis, and workload distribution monitoring.
-
-
+This relationship supports location-level reporting, workload analysis, and operational trend monitoring.
 
 ---
 
+## Ticket → Assigned Department
 
-
-## Assigned Department
-
-
-
-### Purpose
-
-Identifies the department responsible for resolution ownership.
-
-
-
-### Example Values
-
-- Operations Coordination Center
-
-- Supply & Inventory Operations
-
-- Clinical Operations Support
-
-- Data Quality & Compliance
-
-- Vendor & Service Management
-
-
-
-### Operational Use
-
-Supports departmental workload analysis and escalation routing.
-
-
-
----
-
-
-
-## Assigned Team Member
-
-
-
-### Purpose
-
-Identifies the operational owner currently responsible for the ticket.
-
-
-
-### Example
+Each ticket is assigned to a department responsible for resolution ownership.
 
 ```text
-
-Jordan Lee
-
+Ticket
+↓
+Assigned Department
 ```
 
-
-
-### Operational Use
-
-Supports accountability tracking and workload balancing analysis.
-
-
+This relationship supports workflow routing, workload distribution, escalation management, and departmental reporting.
 
 ---
 
+## Ticket → Assigned Owner
 
-
-## Ticket Summary
-
-
-
-### Purpose
-
-Short operational description of the issue or request.
-
-
-
-### Example
+Each ticket may be assigned to an operational owner responsible for resolution activity.
 
 ```text
-
-Inventory shortage impacting clinic supply continuity
-
+Ticket
+↓
+Assigned Owner
 ```
 
-
-
-### Operational Use
-
-Provides quick operational visibility during triage and reporting.
-
-
+This relationship supports accountability, workload balancing, and operational visibility.
 
 ---
 
+## Ticket → Priority Level
 
-
-## Detailed Description
-
-
-
-### Purpose
-
-Expanded operational explanation of the issue, event, or request.
-
-
-
-### Operational Use
-
-Supports investigation, escalation review, audit documentation, and cross-functional coordination.
-
-
-
----
-
-
-
-## Escalation Flag
-
-
-
-### Purpose
-
-Indicates whether the ticket has been escalated.
-
-
-
-### Example Values
-
-- Yes
-
-- No
-
-
-
-### Operational Use
-
-Supports escalation reporting and operational risk monitoring.
-
-
-
----
-
-
-
-## Resolution Timestamp
-
-
-
-### Purpose
-
-Date and time the operational issue was resolved.
-
-
-
-### Example
+Each ticket receives a priority classification based on urgency and operational impact.
 
 ```text
-
-2026-05-20 14:33:42
-
+Ticket
+↓
+Priority
 ```
 
-
-
-### Operational Use
-
-Supports resolution-time calculations, SLA reporting, and operational performance analysis.
-
-
+This relationship supports escalation decisions, service prioritization, and operational risk management.
 
 ---
 
+## Ticket → Workflow Status
 
+Each ticket progresses through a defined lifecycle.
 
-## Closure Timestamp
+```text
+Ticket
+↓
+Status
+```
 
+Example statuses include:
 
+* New
+* Assigned
+* In Progress
+* Escalated
+* Pending
+* Resolved
+* Closed
 
-### Purpose
-
-Date and time the ticket was formally closed.
-
-
-
-### Operational Use
-
-Supports workflow lifecycle reporting and audit tracking.
-
-
-
----
-
-
-
-## Resolution Notes
-
-
-
-### Purpose
-
-Documents actions taken to resolve the issue.
-
-
-
-### Operational Use
-
-Supports audit review, workflow analysis, and process improvement evaluation.
-
-
+This relationship supports workflow monitoring and operational reporting.
 
 ---
 
+## Ticket → Escalation Activity
 
+Tickets may require escalation when operational conditions warrant increased visibility or intervention.
 
-# Supporting Operational Metrics
+```text
+Ticket
+↓
+Escalation Flag
+```
 
-
-
-The ticket data model enables calculation of several operational KPIs.
-
-
-
-Example metrics include:
-
-- Average response time
-
-- Average resolution time
-
-- Ticket backlog volume
-
-- Escalation frequency
-
-- SLA compliance rate
-
-- Ticket aging
-
-- Department workload distribution
-
-- Category-specific incident trends
-
-- Reopened ticket rate
-
-
-
-These metrics support operational reporting, leadership visibility, and process optimization initiatives.
-
-
+This relationship supports escalation tracking, SLA monitoring, and operational risk visibility.
 
 ---
 
+## Ticket → Resolution Activity
 
+Tickets record resolution and closure activity throughout the lifecycle.
 
-# Reporting & Analytics Considerations
+```text
+Ticket
+↓
+Resolution
+```
 
+Resolution-related fields support:
 
-
-The ticket structure is intentionally designed to support future:
-
-- SQL database implementation
-
-- Dashboard development
-
-- Workflow bottleneck analysis
-
-- SLA monitoring
-
-- Staffing analysis
-
-- Escalation trend reporting
-
-- Operational forecasting
-
-- KPI scorecards
-
-
-
-The model also supports future integration with inventory systems, scheduling systems, vendor management workflows, and operational reporting environments.
-
-
+* Resolution tracking
+* Service performance analysis
+* SLA evaluation
+* Workflow reporting
 
 ---
 
+# Reporting Relationships
 
+Ticket records generate operational reporting data used throughout the subsystem.
 
-# Future Expansion Opportunities
+```text
+Ticket
+↓
+Response Time Metrics
+↓
+Resolution Time Metrics
+↓
+SLA Performance
+↓
+Operational Reporting
+```
 
+These relationships support KPI reporting, workload monitoring, escalation visibility, and service performance evaluation.
 
+---
 
-The ticket data model may later expand to include:
+# Cross-System Relationships
 
-- SLA target fields
+The Ticketing & Incident Management subsystem interacts with multiple operational domains.
 
-- Reopened ticket tracking
+Examples include:
 
-- Multi-department assignment logic
+```text
+Inventory Issue
+↓
+Ticket Created
+↓
+Investigation
+↓
+Resolution
+```
 
-- Automated escalation triggers
+```text
+Vendor Delay
+↓
+Ticket Created
+↓
+Escalation
+↓
+Operational Response
+```
 
-- Root cause classifications
+```text
+Data Quality Issue
+↓
+Ticket Created
+↓
+Review Activity
+↓
+Resolution
+```
 
-- Incident severity scoring
+These relationships provide visibility into how operational issues are coordinated and managed across the organization.
 
-- Operational cost impact estimates
+---
 
-- AI-assisted categorization workflows
+# Operational Summary
 
-- Workflow dependency mapping
+The Ticket Relational Model documents the operational relationships represented within the Ticketing & Incident Management subsystem.
 
-
-
-The structure is intentionally modular to support long-term portfolio ecosystem growth.
+The model supports understanding of how ticket records connect locations, departments, ownership structures, workflow activity, escalation processes, and reporting outcomes while maintaining alignment with the current operational dataset structure.
 
