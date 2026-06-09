@@ -1,36 +1,25 @@
-# Ticket Severity Framework  
+# Operational Severity Framework
 
 ## Northstar Health Operations
 
-
-
 ---
-
-
 
 # Purpose
 
-This document defines the operational severity governance framework for the Ticketing System subsystem within Northstar Health Operations.
+This document defines the enterprise operational severity framework used throughout the Northstar Health Operations ecosystem.
 
 The purpose of this framework is to:
 
-- standardize operational severity interpretation
+* standardize operational severity interpretation
+* support consistent escalation evaluation
+* support operational prioritization
+* support leadership visibility standards
+* support continuity-risk assessment
+* support cross-system operational coordination
+* maintain severity classification consistency across enterprise domains
+* establish a shared severity language throughout the ecosystem
 
-- support escalation prioritization
-
-- support workflow coordination consistency
-
-- support leadership visibility standards
-
-- support operational disruption classification
-
-- support future SLA governance expansion
-
-- support future Power BI escalation reporting
-
-- support future SQL-based operational analysis
-
-This framework serves as the primary reference for interpreting operational severity across ticket escalation workflows within the Northstar ecosystem.
+This framework serves as the authoritative reference for operational severity interpretation across all current and future operational subsystems.
 
 ---
 
@@ -40,55 +29,40 @@ Operational severity should reflect:
 
 # operational impact and continuity risk
 
-rather than simple task urgency alone.
+rather than simple task urgency, ticket age, or workload volume.
 
 Severity classifications should consider:
 
-- operational disruption exposure
+* operational disruption exposure
+* continuity-sensitive impact
+* workflow interruption scope
+* organizational dependency risk
+* escalation sensitivity
+* leadership visibility requirements
+* cross-functional coordination requirements
 
-- workflow interruption scope
+Operational severity exists to support:
 
-- continuity-sensitive impact
-
-- escalation dependency
-
-- service visibility
-
-- leadership awareness requirements
-
-- cross-functional operational pressure
-
-Operational severity is intended to support:
-
-- consistent escalation handling
-
-- operational prioritization
-
-- leadership reporting
-
-- workflow coordination
-
-- operational stabilization planning
+* operational prioritization
+* escalation consistency
+* leadership communication
+* continuity awareness
+* operational stabilization efforts
+* enterprise decision-making
 
 ---
 
 # Severity Classification Structure
 
-The Ticketing System currently uses a five-level operational severity model.
+Northstar Health Operations uses a standardized five-level operational severity model.
 
-| Severity Level | Classification |
-
-|---|---|
-
-| Severity 1 | Critical Operational Disruption |
-
-| Severity 2 | Major Operational Impact |
-
-| Severity 3 | Moderate Operational Impact |
-
-| Severity 4 | Minor Operational Impact |
-
-| Severity 5 | Informational / Low Impact |
+|Severity Level|Classification|
+|-|-|
+|Severity 1|Critical Operational Disruption|
+|Severity 2|Major Operational Impact|
+|Severity 3|Moderate Operational Impact|
+|Severity 4|Minor Operational Impact|
+|Severity 5|Informational / Low Impact|
 
 Severity classifications should remain:
 
@@ -102,51 +76,38 @@ rather than excessively technical.
 
 ## Definition
 
-Represents operational events causing immediate or near-immediate disruption to critical workflows, operational continuity, or enterprise visibility.
+Represents operational conditions causing immediate or near-immediate disruption to critical workflows, operational continuity, organizational visibility, or enterprise stability.
 
 ## Example Conditions
 
 Examples may include:
 
-- sustained inventory outage
-
-- continuity-sensitive shipment failure
-
-- enterprise-level escalation activity
-
-- unresolved operational shutdown conditions
-
-- multi-location operational disruption
-
-- critical SLA breach with cascading impact
+* sustained inventory outage
+* critical supplier failure
+* enterprise-level operational disruption
+* multi-location operational interruption
+* unresolved continuity-threatening conditions
+* critical service failure with cascading impact
 
 ## Operational Characteristics
 
-Severity 1 events typically involve:
+Severity 1 conditions typically involve:
 
-- immediate escalation requirements
-
-- leadership visibility
-
-- cross-functional coordination
-
-- continuity-sensitive operational pressure
-
-- elevated remediation urgency
+* immediate escalation requirements
+* executive visibility
+* cross-functional coordination
+* continuity-sensitive exposure
+* elevated remediation urgency
 
 ## Recommended Operational Response
 
-Severity 1 incidents should typically involve:
+Severity 1 conditions should typically involve:
 
-- immediate escalation review
-
-- executive operational visibility
-
-- rapid coordination workflows
-
-- active remediation tracking
-
-- ongoing operational monitoring
+* immediate review
+* leadership awareness
+* active coordination
+* remediation oversight
+* continuous monitoring
 
 ---
 
@@ -154,47 +115,36 @@ Severity 1 incidents should typically involve:
 
 ## Definition
 
-Represents operational disruptions causing significant workflow degradation or elevated escalation pressure but not complete operational failure.
+Represents significant operational disruptions causing elevated organizational pressure without creating complete operational failure.
 
 ## Example Conditions
 
 Examples may include:
 
-- repeated SLA instability
-
-- delayed replenishment recovery
-
-- high-priority vendor escalation
-
-- operational backlog growth
-
-- recurring workflow coordination failures
-
-- shipment disruption with operational exposure
+* major workflow instability
+* recurring operational disruptions
+* significant vendor performance failures
+* operational backlog growth
+* continuity-sensitive delays
+* elevated escalation activity
 
 ## Operational Characteristics
 
-Severity 2 events typically involve:
+Severity 2 conditions typically involve:
 
-- elevated operational coordination
-
-- moderate continuity-sensitive pressure
-
-- escalation-aware monitoring
-
-- active workflow prioritization
+* increased coordination requirements
+* elevated monitoring expectations
+* moderate continuity exposure
+* active prioritization efforts
 
 ## Recommended Operational Response
 
-Severity 2 incidents should typically involve:
+Severity 2 conditions should typically involve:
 
-- operational escalation visibility
-
-- workflow prioritization
-
-- active coordination monitoring
-
-- reassessment checkpoints
+* escalation visibility
+* coordination monitoring
+* active prioritization
+* scheduled reassessment
 
 ---
 
@@ -202,43 +152,34 @@ Severity 2 incidents should typically involve:
 
 ## Definition
 
-Represents operational disruptions affecting workflow efficiency or operational visibility without major continuity-sensitive exposure.
+Represents operational disruptions affecting efficiency, visibility, or workflow performance without creating significant continuity exposure.
 
 ## Example Conditions
 
 Examples may include:
 
-- moderate workflow delays
-
-- replenishment timing inconsistencies
-
-- isolated shipment coordination issues
-
-- localized operational disruptions
-
-- moderate escalation activity
+* moderate workflow delays
+* localized operational disruptions
+* isolated coordination failures
+* recurring process inefficiencies
+* moderate escalation activity
 
 ## Operational Characteristics
 
-Severity 3 events typically involve:
+Severity 3 conditions typically involve:
 
-- operational monitoring
-
-- workflow coordination
-
-- localized remediation activity
-
-- limited escalation exposure
+* operational monitoring
+* localized remediation activity
+* limited escalation sensitivity
+* manageable continuity exposure
 
 ## Recommended Operational Response
 
-Severity 3 incidents should typically involve:
+Severity 3 conditions should typically involve:
 
-- standard operational review
-
-- routine workflow prioritization
-
-- monitoring and reassessment
+* operational review
+* standard prioritization
+* monitoring and reassessment
 
 ---
 
@@ -246,41 +187,33 @@ Severity 3 incidents should typically involve:
 
 ## Definition
 
-Represents low-impact operational disruptions with limited workflow consequences or continuity-sensitive exposure.
+Represents low-impact operational disruptions with limited workflow consequences and minimal continuity exposure.
 
 ## Example Conditions
 
 Examples may include:
 
-- documentation corrections
-
-- isolated inventory discrepancies
-
-- non-critical coordination delays
-
-- informational workflow issues
-
-- low-impact operational interruptions
+* documentation corrections
+* isolated discrepancies
+* minor coordination delays
+* low-impact workflow interruptions
+* limited operational inefficiencies
 
 ## Operational Characteristics
 
-Severity 4 events typically involve:
+Severity 4 conditions typically involve:
 
-- low operational urgency
-
-- limited escalation exposure
-
-- localized operational handling
+* low urgency
+* limited escalation exposure
+* localized handling
 
 ## Recommended Operational Response
 
-Severity 4 incidents should typically involve:
+Severity 4 conditions should typically involve:
 
-- standard workflow handling
-
-- routine operational tracking
-
-- localized coordination resolution
+* routine handling
+* standard tracking
+* localized resolution
 
 ---
 
@@ -288,127 +221,80 @@ Severity 4 incidents should typically involve:
 
 ## Definition
 
-Represents informational events, monitoring activities, or operational observations requiring visibility but limited active intervention.
+Represents informational events, observations, monitoring activities, or visibility requirements that do not require active intervention.
 
 ## Example Conditions
 
 Examples may include:
 
-- informational notifications
-
-- monitoring checkpoints
-
-- operational audit notes
-
-- non-actionable observations
-
-- low-risk workflow visibility events
+* informational notifications
+* monitoring checkpoints
+* operational observations
+* audit notes
+* low-risk visibility events
 
 ## Operational Characteristics
 
-Severity 5 events typically involve:
+Severity 5 conditions typically involve:
 
-- low operational pressure
-
-- minimal escalation sensitivity
-
-- limited coordination requirements
+* minimal operational pressure
+* limited coordination requirements
+* passive monitoring
 
 ## Recommended Operational Response
 
-Severity 5 incidents should typically involve:
+Severity 5 conditions should typically involve:
 
-- informational logging
-
-- passive monitoring
-
-- low-priority workflow handling
+* informational logging
+* passive observation
+* low-priority review
 
 ---
 
 # Severity vs Priority Distinction
 
-The ecosystem recognizes a distinction between:
+The ecosystem recognizes a distinction between severity and priority.
 
-| Concept | Meaning |
-
-|---|---|
-
-| Severity | Operational impact and continuity exposure |
-
-| Priority | Workflow execution urgency |
+|Concept|Meaning|
+|-|-|
+|Severity|Operational impact and continuity exposure|
+|Priority|Execution urgency and response timing|
 
 Examples:
 
-- A moderate operational disruption may become high priority if leadership deadlines exist
-
-- A critical operational disruption may require immediate escalation regardless of ticket age
-
-- Informational events may remain low priority even when highly visible
+* A moderate operational disruption may become high priority due to business deadlines.
+* A critical operational disruption may require immediate action regardless of age.
+* Informational events may remain low priority despite broad visibility.
 
 Maintaining this distinction improves:
 
-- workflow consistency
-
-- operational realism
-
-- escalation interpretation clarity
-
-- executive operational reporting
+* operational consistency
+* escalation clarity
+* prioritization accuracy
+* leadership communication
 
 ---
 
 # Severity Classification Inputs
 
-Operational severity classification may consider:
+Operational severity assessment may consider:
 
-- workflow disruption scope
-
-- continuity-sensitive exposure
-
-- operational dependency impact
-
-- escalation pressure
-
-- vendor involvement
-
-- inventory exposure
-
-- SLA instability
-
-- cross-functional coordination requirements
-
-- leadership visibility needs
+* workflow disruption scope
+* continuity exposure
+* organizational dependency impact
+* escalation pressure
+* inventory exposure
+* vendor involvement
+* staffing constraints
+* service instability
+* cross-functional coordination requirements
+* leadership visibility needs
 
 Severity interpretation should prioritize:
 
 # operational business impact
 
-rather than purely technical classification.
-
----
-
-# Escalation Relationship Philosophy
-
-Higher severity levels generally correspond to:
-
-- increased escalation visibility
-
-- increased leadership awareness
-
-- elevated workflow coordination
-
-- elevated operational monitoring
-
-- higher continuity-sensitive exposure
-
-However:
-
-# escalation activity alone does not automatically determine severity.
-
-Severity interpretation should remain:
-
-# operationally contextual.
+rather than technical classification alone.
 
 ---
 
@@ -416,47 +302,36 @@ Severity interpretation should remain:
 
 Leadership visibility expectations generally increase with operational severity.
 
-| Severity Level | Leadership Visibility Expectation |
+|Severity Level|Visibility Expectation|
+|-|-|
+|Severity 1|Executive visibility expected|
+|Severity 2|Leadership visibility recommended|
+|Severity 3|Operational management visibility appropriate|
+|Severity 4|Team-level visibility generally sufficient|
+|Severity 5|Informational visibility only|
 
-|---|---|
+Visibility expectations may vary based on:
 
-| Severity 1 | Executive operational awareness expected |
-
-| Severity 2 | Leadership visibility recommended |
-
-| Severity 3 | Operational management visibility appropriate |
-
-| Severity 4 | Team-level visibility generally sufficient |
-
-| Severity 5 | Informational visibility only |
-
-These expectations may vary depending on:
-
-- operational timing
-
-- continuity exposure
-
-- enterprise sensitivity
-
-- escalation concentration
+* timing
+* continuity exposure
+* organizational sensitivity
+* escalation concentration
 
 ---
 
 # Cross-System Severity Relationships
 
-Operational severity may interact with:
+Operational severity may affect multiple enterprise domains simultaneously.
 
-| Related Subsystem | Example Relationship |
+Examples include:
 
-|---|---|
-
-| Inventory Operations | Inventory shortages increasing escalation severity |
-
-| Vendor Performance | SLA instability increasing operational disruption impact |
-
-| Executive Briefings | Leadership visibility increasing escalation sensitivity |
-
-| Workforce Coordination | Staffing shortages increasing operational exposure |
+|Related Domain|Example Relationship|
+|-|-|
+|Ticketing System|Escalation concentration increasing operational exposure|
+|Inventory Operations|Shortages increasing continuity risk|
+|Vendor Performance|Supplier instability increasing operational impact|
+|Workforce Coordination|Staffing constraints increasing operational vulnerability|
+|Executive Briefings|Leadership visibility increasing response requirements|
 
 This supports:
 
@@ -466,76 +341,61 @@ across subsystem boundaries.
 
 ---
 
-# Reporting and KPI Relationships
+# Severity Governance Principles
 
-Severity classifications may later support:
+Severity classifications should:
 
-- escalation trend analysis
+* remain operationally grounded
+* remain consistent across enterprise domains
+* support leadership interpretation
+* support continuity-risk awareness
+* avoid subsystem-specific severity definitions
+* preserve enterprise-wide severity consistency
 
-- operational backlog monitoring
-
-- response-time reporting
-
-- SLA interpretation
-
-- operational disruption dashboards
-
-- continuity-sensitive escalation reporting
-
-Potential future reporting layers may include:
-
-- severity distribution dashboards
-
-- escalation heat maps
-
-- continuity-risk escalation analysis
-
-- operational disruption trend reporting
+Severity classifications should evolve only when operational justification clearly exists.
 
 ---
 
 # Governance Alignment
 
-This framework follows established Northstar governance standards, including:
+This framework aligns with established Northstar governance standards, including:
 
-- governance-first operational modeling
+* subsystem-centered architecture
+* governance-first ecosystem design
+* documentation ownership standards
+* remediation standards
+* operational intelligence standardization
+* process improvement governance
+* cross-system operational consistency
 
-- workflow/framework separation doctrine
-
-- harmonization-aware subsystem evolution
-
-- subsystem-centered architecture
-
-- SQL readiness
-
-- Power BI readiness
-
-Future severity modifications should occur:
-
-# intentionally
-
-and only when operational justification clearly exists.
+Severity interpretation should remain consistent regardless of operational domain.
 
 ---
 
-# Portfolio Significance
+# Future Expansion Standards
 
-This framework demonstrates:
+Future operational domains should inherit this framework rather than creating subsystem-specific severity models.
 
-- operational severity governance design
+Examples may include:
 
-- escalation-aware operational reasoning
+* compliance operations
+* procurement operations
+* forecasting operations
+* enterprise analytics
+* future operational support functions
 
-- workflow prioritization philosophy
+Enterprise-wide severity consistency improves:
 
-- operational continuity interpretation
+* operational communication
+* leadership interpretation
+* escalation standardization
+* cross-system coordination
 
-- enterprise operational coordination thinking
+---
 
-- governance-guided subsystem evolution
+# Summary
 
-- SQL analytical readiness
+The Operational Severity Framework establishes a standardized enterprise-wide methodology for interpreting operational impact and continuity exposure throughout the Northstar Health Operations ecosystem.
 
-- Power BI reporting readiness
+By maintaining a shared severity model across operational domains, the ecosystem supports consistent prioritization, escalation interpretation, leadership visibility, continuity awareness, and long-term governance alignment while preserving operational realism and cross-system consistency.
 
-The Ticket Severity Framework strengthens the Northstar Health Operations ecosystem by establishing a standardized operational severity interpretation layer supporting escalation consistency, operational prioritization, leadership visibility, and long-term enterprise operational scalability.
