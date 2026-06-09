@@ -1,4 +1,4 @@
-# Project Governance Standards  
+# Project Governance Standards
 
 ## Northstar Health Operations
 
@@ -6,328 +6,276 @@
 
 # Purpose
 
-This document defines the operational governance, continuity standards, architectural rules, reporting methodologies, and subsystem expansion principles for the Northstar Health Operations ecosystem.
+This document defines the enterprise governance standards used throughout the Northstar Health Operations ecosystem.
 
-The purpose of this document is to:
+The purpose of these standards is to:
 
-- prevent architectural drift
-- maintain subsystem consistency
-- standardize reporting methodology
-- support scalable ecosystem growth
-- preserve continuity across future project sessions
-- maintain operational realism
-- establish source-of-truth governance standards
+* maintain architectural consistency
+* prevent governance drift
+* preserve subsystem integrity
+* support operational realism
+* standardize documentation practices
+* establish enterprise-wide governance expectations
+* support scalable ecosystem growth
+* maintain long-term ecosystem continuity
 
-This document serves as the primary continuity and methodology reference for the entire ecosystem.
+This document serves as the primary governance authority for the Northstar Health Operations ecosystem.
 
 ---
 
 # Governance Philosophy
 
-Northstar Health Operations is intentionally designed as:
+Northstar Health Operations follows a:
 
-# a scalable enterprise operational intelligence ecosystem
+# governance-first operational architecture
 
-NOT:
+All ecosystem expansion, subsystem development, reporting activities, documentation efforts, and remediation initiatives should remain aligned with established governance standards.
 
-# a collection of disconnected portfolio projects.
+Governance exists to support:
 
-All future expansion, reporting, subsystem construction, and analytical development should prioritize:
+* consistency
+* maintainability
+* scalability
+* operational realism
+* subsystem autonomy
+* enterprise cohesion
 
-- structural consistency
-- subsystem modularity
-- operational realism
-- reporting cohesion
-- maintainability
-- controlled scalability
-- governance-first expansion
+Governance standards should remain:
 
----
+* practical
+* enforceable
+* maintainable
+* operationally grounded
 
-# Ecosystem Evolution Philosophy
+The objective of governance is not to maximize documentation.
 
-The Northstar Health Operations ecosystem is intentionally designed to evolve over time through:
-
-# governance-guided subsystem maturation
-
-rather than uncontrolled expansion.
-
-As the ecosystem grows, operational domains may mature at different rates depending on:
-
-- operational complexity
-- reporting requirements
-- workflow depth
-- governance needs
-- cross-system dependency exposure
-- analytical maturity
-
-This maturity diversity is considered:
-
-# healthy and realistic
-
-within enterprise operational ecosystems.
-
-Subsystems should NOT be forced into identical maturity structures when operational needs differ.
-
-Instead, subsystem expansion should prioritize:
-
-- operational realism
-- governance justification
-- subsystem identity preservation
-- analytical cohesion
-- architectural maintainability
+The objective is to ensure the ecosystem evolves in a controlled, consistent, and sustainable manner.
 
 ---
 
-# Governance-Guided Evolution Principle
+# Core Governance Principles
 
-The ecosystem should evolve through:
+## Data Authority Principle
+
+Operational datasets serve as the authoritative source of truth throughout the ecosystem.
+
+Schemas, workflows, frameworks, analysis artifacts, observations, reporting outputs, and executive summaries must accurately reflect underlying datasets.
+
+When discrepancies occur, datasets take precedence unless a formal dataset correction has been approved.
+
+---
+
+## Validation Hierarchy Principle
+
+Documentation validation should follow the hierarchy below:
 
 ```text
-governance
+Dataset
+
 ↓
-harmonization
+
+Schema
+
 ↓
-controlled expansion
+
+Relational Model
+
 ↓
-stabilization
+
+Workflow
+
+↓
+
+Framework
+
+↓
+
+Analysis
+
+↓
+
+Observations
+
+↓
+
+Reporting Artifacts
+
+↓
+
+Executive Reporting
 ```
 
-rather than:
-
-```text
-rapid expansion
-↓
-retroactive governance correction
-```
-
-This philosophy helps prevent:
-
-- governance drift
-- subsystem fragmentation
-- duplicate framework proliferation
-- inconsistent workflow modeling
-- architectural instability
-- uncontrolled complexity growth
+Validation should begin at the dataset level and proceed downward through the hierarchy.
 
 ---
 
-# Stabilization Phase Philosophy
+## Documentation Ownership Principle
 
-Subsystems should periodically enter:
+Each document should maintain a clearly defined ownership layer.
 
-# stabilization phases
-
-after major expansion periods.
-
-Stabilization phases may include:
-
-- subsystem maturity audits
-- governance consistency reviews
-- workflow/framework separation review
-- taxonomy harmonization
-- README refinement
-- relational integrity validation
-- reporting consistency evaluation
-
-Stabilization is considered:
-
-# an intentional architectural phase
-
-NOT:
-
-# a pause in progress.
-
----
-
-# Harmonization Philosophy
-
-The ecosystem recognizes a distinction between:
-
-| Concept | Meaning |
-|---|---|
-| Expansion | Adding new operational capability |
-| Harmonization | Aligning existing capability with evolved governance standards |
-
-Harmonization should prioritize:
-
-- preserving operational intelligence
-- improving governance consistency
-- reducing architectural drift
-- maintaining subsystem identity
-- improving long-term scalability
-
-Harmonization should NOT default to:
-
-- subsystem replacement
-- excessive restructuring
-- unnecessary framework duplication
-- flattening subsystem-specific strengths
-
----
-
-# Framework Governance Philosophy
-
-Framework creation should occur only when operational justification clearly exists.
-
-Examples of justified framework expansion include:
-
-- operational ambiguity
-- inconsistent interpretation
-- lifecycle governance gaps
-- escalation standardization needs
-- reporting inconsistency risks
-- leadership visibility requirements
-
-Framework proliferation without operational justification should be avoided.
-
-Governance artifacts are considered:
-
-# operational tools
-
-NOT:
-
-# documentation quantity metrics.
-
----
-
-# Workflow vs Framework Separation Doctrine
-
-The ecosystem distinguishes between:
-
-| Artifact Type | Primary Responsibility |
-|---|---|
-| Framework | Governance, interpretation, classification, standards |
-| Workflow | Operational execution flow and lifecycle movement |
-
-Frameworks define:
-
-# what operational governance means
-
-Workflows define:
-
-# how operational processes move
-
-Maintaining this separation improves:
-
-- subsystem readability
-- governance clarity
-- lifecycle understanding
-- future SQL readiness
-- future Power BI readiness
-
----
-
-# Subsystem Identity Preservation Principle
-
-Subsystems may evolve differently based on operational domain needs.
+Documents should not attempt to fulfill multiple governance functions simultaneously.
 
 Examples:
 
-- Vendor Performance may become governance-heavy due to risk, SLA, and remediation requirements
-- Ticketing may emphasize operational reasoning and escalation interpretation
-- Inventory Operations may emphasize structural operational coordination and continuity monitoring
+* Schemas define dataset structure.
+* Relational models define dataset relationships.
+* Workflows define operational execution.
+* Frameworks define governance and interpretation.
+* Analysis frameworks define analytical methodology.
+* Analysis implementation documents define analytical execution.
+* Observations summarize findings.
+* Executive reporting communicates business outcomes.
 
-This diversity is considered:
-
-# architecturally beneficial
-
-provided governance consistency remains controlled.
-
-Future harmonization efforts should preserve:
-
-- subsystem strengths
-- operational realism
-- analytical uniqueness
-- domain-specific maturity characteristics
+Documentation overlap should be minimized whenever practical.
 
 ---
 
-# Maturity Audit Governance Principle
+## Ownership Before Modernization Principle
 
-Subsystem maturity audits are considered official governance artifacts within the ecosystem.
+When reviewing artifacts, ownership should be evaluated before modernization.
 
-Maturity audits help:
+Review sequence:
 
-- evaluate subsystem completeness
-- identify governance gaps
-- identify harmonization opportunities
-- identify scaling risks
-- assess operational cohesion
-- support controlled expansion planning
+```text
+Ownership
 
-Subsystem maturity audits should be performed periodically as subsystem complexity increases.
+↓
 
----
+Purpose
 
-# Governance Modernization Principle
+↓
 
-Governance documents themselves may require periodic modernization as ecosystem philosophy evolves.
+Accuracy
 
-Governance modernization should prioritize:
+↓
 
-- preserving architectural continuity
-- formally encoding evolved philosophy
-- minimizing unnecessary governance churn
-- maintaining ecosystem readability
-- supporting long-term scalability
+Modernization
+```
 
-Governance modernization should occur:
-
-# incrementally
-
-NOT:
-
-# reactively or through wholesale replacement.
+Artifacts assigned to the wrong ownership layer should be reclassified before content revisions are considered.
 
 ---
 
-# Source-of-Truth Governance Rule
+## Governance Reclassification Principle
 
-The newest approved governance and architecture documents always override:
+Governance reviews should evaluate both content quality and ownership accuracy.
 
-- outdated methodologies
-- prior formatting approaches
-- legacy subsystem structures
-- older workflow standards
-- previous conversational assumptions
+When an artifact belongs to the wrong layer, the preferred sequence is:
 
-Future project sessions should prioritize:
+```text
+Reclassify
 
-1. governance documents
-2. architecture documents
-3. current subsystem standards
-4. newest approved methodologies
+↓
 
-OVER:
+Relocate
 
-- historical chat assumptions
-- outdated implementation patterns
-- legacy formatting decisions
+↓
+
+Reevaluate
+```
+
+rather than immediately rewriting the artifact.
 
 ---
 
-# Enterprise Architecture Standards
+## Current-State Documentation Principle
+
+Operational documentation should describe current operational reality.
+
+Documentation should avoid speculative future-state sections unless the document specifically exists for roadmap planning.
+
+Examples to avoid include:
+
+* Future SQL Opportunities
+* Future Business Intelligence Opportunities
+* Future Reporting Opportunities
+* Future Analytical Opportunities
+
+---
+
+## Operational Documentation Principle
+
+Operational documentation should describe:
+
+* what the subsystem does
+* how the subsystem functions
+* who uses the subsystem
+* how the subsystem interacts with other domains
+
+Documentation should not contain portfolio marketing language, self-promotional content, or resume-positioning narratives.
+
+---
+
+## Documentation Modernization Principle
+
+Modernization efforts should prioritize:
+
+* accuracy
+* clarity
+* consistency
+* readability
+
+Modernization should not alter operational meaning, dataset structure, workflow logic, or KPI definitions without validation against authoritative sources.
+
+---
+
+# Ecosystem Lifecycle Governance
+
+Northstar Health Operations evolves through a structured governance lifecycle.
+
+```text
+Expansion
+
+↓
+
+Governance Review
+
+↓
+
+Remediation
+
+↓
+
+Integrity Review
+
+↓
+
+Controlled Expansion
+```
+
+This lifecycle supports:
+
+* architectural consistency
+* governance alignment
+* subsystem stability
+* controlled growth
+* long-term maintainability
+
+Expansion should occur only after governance validation has been completed.
+
+---
+
+# Enterprise Architecture Governance
 
 The ecosystem follows a:
 
 # subsystem-centered architecture model
 
-Each subsystem represents a distinct operational domain.
+Each subsystem represents a distinct operational domain with clearly defined responsibilities.
 
-All future operational domains should:
+Subsystems should:
 
-- remain modular
-- contain self-contained reporting structures
-- integrate through shared identifiers
-- follow standardized internal architecture
-- support future enterprise integration
+* maintain operational ownership
+* remain modular
+* support shared identifiers
+* follow standardized architecture
+* support enterprise integration
 
 ---
 
 # Standardized Subsystem Architecture
 
-All operational subsystems should follow the standardized internal structure:
+All operational subsystems should follow the standard internal structure:
 
 ```text
 subsystem/
@@ -341,76 +289,201 @@ subsystem/
 └── process-improvement/
 ```
 
----
-
-# Subfolder Governance Standards
+This structure provides consistency while preserving subsystem autonomy.
 
 ---
 
-## datasets/
+# Markdown Placement Standards
 
-### Purpose
+Markdown files should reside in the operational layer they support.
 
-Contains:
-
-- operational CSV exports
-- relational datasets
-- stable operational records
-- dataset schema governance files
-
-### Governance Rules
-
-Datasets should:
-
-- remain normalized
-- maintain naming consistency
-- support future SQL integration
-- support future Power BI integration
-- use shared identifiers where appropriate
-
-Every operational CSV dataset should have a dedicated schema markdown file located within the same:
+Examples:
 
 ```text
-datasets/
+datasets/inventory-items-schema.md
+
+workflow-diagrams/ticket-escalation-workflow.md
+
+reporting-and-kpis/inventory-kpi-framework.md
+
+process-improvement/vendor-improvement-framework.md
 ```
 
-folder as the dataset it governs.
+Governance Rule:
 
-Approved structure example:
+A document should live where its operational function lives.
+
+If a document explains the subsystem broadly, it belongs in:
 
 ```text
-datasets/
-
-├── inventory-items.csv
-├── inventory-items-schema.md
-├── location-inventory.csv
-├── location-inventory-schema.md
-├── replenishment-events.csv
-├── replenishment-events-schema.md
+documentation/
 ```
 
-Dataset schema files are considered:
+If it governs a specific operational layer, it belongs within that layer.
 
-# dataset governance artifacts
+---
 
-NOT:
+# Operational Intelligence Governance
 
-# general subsystem documentation.
+## Analysis Layer Architecture Principle
 
-Because schemas directly govern:
+Operational subsystems should maintain separation between:
 
-- field definitions
-- relational structure
-- identifier standards
-- data types
-- operational grain
-- SQL readiness
-- Power BI readiness
-- cross-system integration
+```text
+KPI Framework
 
-they should remain colocated with the datasets they govern.
+↓
 
-Dataset schema files should follow the naming format:
+Analysis Framework
+
+↓
+
+Analysis Implementation
+
+↓
+
+Observations
+
+↓
+
+Executive Reporting
+```
+
+Each layer maintains a distinct purpose and should not absorb responsibilities owned by another layer.
+
+---
+
+## Reporting-to-Observation Traceability Principle
+
+Observations should be derived from validated reporting outputs.
+
+Preferred sequence:
+
+```text
+Dataset
+
+↓
+
+Reporting
+
+↓
+
+Analysis
+
+↓
+
+Observations
+```
+
+Observations should be supported by documented evidence and validated reporting outputs.
+
+---
+
+## Single Active Source Principle
+
+Each subsystem should maintain a single active version of major reporting artifacts.
+
+Examples include:
+
+* observation documents
+* executive summaries
+* reporting workbooks
+
+Historical versions should be archived rather than maintained as parallel active artifacts.
+
+---
+
+## Artifact Preservation Principle
+
+Governance improvements should not automatically trigger artifact replacement.
+
+Historically valid artifacts should be preserved whenever practical.
+
+Version progression should remain visible when substantial revisions occur.
+
+The objective is to preserve ecosystem evolution while avoiding unnecessary artifact churn.
+
+---
+
+# Process Improvement Governance
+
+The process-improvement layer exists to govern:
+
+* issue identification
+* root cause analysis
+* improvement planning
+* remediation oversight
+* effectiveness evaluation
+* recurrence prevention
+
+Process-improvement artifacts should focus on improvement governance rather than operational execution.
+
+Recommended naming convention:
+
+```text
+[subsystem]-improvement-framework.md
+```
+
+Examples:
+
+```text
+ticket-improvement-framework.md
+
+inventory-improvement-framework.md
+
+vendor-improvement-framework.md
+
+workforce-improvement-framework.md
+```
+
+Workflow artifacts remain responsible for execution.
+
+Improvement frameworks remain responsible for improvement governance.
+
+---
+
+# Data Governance Standards
+
+## CSV Philosophy
+
+CSV datasets serve as:
+
+# stable operational data assets
+
+CSV files should prioritize:
+
+* consistency
+* normalization
+* portability
+* interoperability
+
+CSV datasets represent the authoritative operational record layer.
+
+---
+
+## XLSX Philosophy
+
+XLSX workbooks serve as:
+
+# operational analytical workspaces
+
+Workbooks may contain:
+
+* pivots
+* charts
+* executive summaries
+* analytical calculations
+* reporting artifacts
+
+Workbooks should not serve as authoritative operational datasets.
+
+---
+
+## Schema Governance Standards
+
+Each operational dataset should maintain a dedicated schema document.
+
+Recommended format:
 
 ```text
 [dataset-name]-schema.md
@@ -420,545 +493,213 @@ Examples:
 
 ```text
 inventory-items-schema.md
-location-inventory-schema.md
+
 vendor-master-schema.md
-vendor-fulfillment-events-schema.md
+
+tickets-schema.md
 ```
 
-Avoid:
+Schema documents should define:
 
-```text
-inventorySchema.md
-schema-v2.md
-inventory-data-schema.md
-```
+* dataset purpose
+* dataset grain
+* primary keys
+* foreign keys
+* shared identifiers
+* field definitions
+* data quality rules
+* relationship standards
 
-Each dataset schema should define:
-
-- dataset purpose
-- dataset grain
-- primary keys
-- foreign keys
-- shared identifiers
-- field definitions
-- data types
-- required fields
-- boolean standards
-- classification standards
-- relationship standards
-- data quality rules
-- SQL readiness
-- Power BI readiness
-- governance alignment
-
-Schema files should be created:
-
-# BEFORE
-
-the operational CSV dataset whenever possible.
-
-This preserves:
-
-- governance-first architecture
-- relational consistency
-- subsystem stability
-- scalable enterprise integration
-
-Legacy subsystem-level schema documents that combine multiple datasets into a single file should gradually be replaced with:
-
-# one schema file per dataset
-
-to improve:
-
-- maintainability
-- dataset ownership clarity
-- relational governance
-- subsystem scalability
-- SQL modeling readiness
-- Power BI relationship management
-
-Legacy schema overview files may either:
-
-- remain as high-level references
-- be renamed as overview documents
-- or be retired after schema decomposition is complete.
+Schema documents should remain colocated with the datasets they govern.
 
 ---
 
-## documentation/
+## Shared Identifier Standards
 
-### Purpose
-
-Contains:
-
-- subsystem documentation
-- operational architecture explanations
-- operational definitions
-- onboarding references
-- subsystem workflow context
-- governance interpretation documents
-
-### Governance Rules
-
-Documentation should:
-
-- explain subsystem operational purpose
-- support onboarding continuity
-- clarify workflow behavior
-- reinforce subsystem boundaries
-
-The:
-
-```text
-documentation/
-```
-
-folder should NOT contain:
-
-- individual dataset schema files
-
-unless the document serves as a high-level subsystem overview rather than a dataset-specific governance artifact.
-
----
-
-## reporting-and-kpis/
-
-### Purpose
-
-Contains:
-
-- KPI frameworks
-- executive summaries
-- operational observations
-- analytical workbooks
-- reporting artifacts
-
-### Governance Rules
-
-Reporting artifacts should:
-
-- follow executive reporting standards
-- maintain consistent formatting philosophy
-- prioritize operational readability
-- support leadership-style communication
-
----
-
-## workflow-diagrams/
-
-### Purpose
-
-Contains:
-
-- lifecycle workflows
-- escalation paths
-- operational process maps
-
-### Governance Rules
-
-Workflow diagrams should:
-
-- emphasize operational realism
-- maintain consistent naming
-- support cross-system understanding
-
----
-
-## process-improvement/
-
-### Purpose
-
-Contains:
-
-- operational optimization ideas
-- bottleneck observations
-- enhancement recommendations
-- future workflow improvements
-
-### Governance Rules
-
-Process improvement recommendations should:
-
-- remain operationally grounded
-- support measurable improvement logic
-- align with subsystem architecture
-
----
-
-# Markdown File Placement Standards
-
-Markdown files should be placed in the subsystem folder that best matches the function of the document.
-
-Markdown files should NOT automatically default to the documentation folder.
-
-The `documentation/` folder should contain broad subsystem reference materials, including:
-
-- subsystem overviews
-- operational definitions
-- architecture explanations
-- onboarding context
-
-Function-specific markdown files should remain inside the subfolder they directly support.
-
-Examples:
-
-```text
-reporting-and-kpis/inventory-kpi-framework.md
-workflow-diagrams/ticket-escalation-workflow.md
-process-improvement/replenishment-process-improvement-notes.md
-datasets/inventory-items-schema.md
-```
-
-This placement standard preserves:
-
-- subsystem readability
-- folder-level ownership
-- governance clarity
-- analytical workflow organization
-- long-term maintainability
-
-Governance Rule:
-
-A markdown file should live where its operational function lives.
-
-If a document explains the subsystem broadly, place it in:
-
-```text
-documentation/
-```
-
-If a document governs or supports a specific operational layer, place it in that layer’s folder.
-
----
-
-# Reporting Standardization Principles
-
-All executive reporting artifacts should maintain:
-
-# unified reporting identity
-
-This includes:
-
-- executive readability
-- clean hierarchy
-- spacing consistency
-- operational tone
-- leadership-oriented communication
-- section-based formatting
-- concise KPI visibility
-- controlled visual emphasis
-
----
-
-# Executive Summary Standards
-
-Executive summaries should generally include:
-
-- organization title
-- report title
-- reporting period
-- KPI highlights
-- key operational observations
-- recommended operational focus areas
-
-Executive summaries should:
-
-- avoid excessive narrative density
-- remain scan-friendly
-- prioritize operational interpretation
-- feel presentation-ready
-
----
-
-# Formatting Governance Standards
-
-Reporting workbooks should generally follow these formatting principles:
-
-| Standard | Purpose |
-|---|---|
-| Gridlines removed | Reduce spreadsheet noise |
-| Freeze panes | Improve navigation usability |
-| Underline section borders | Maintain clean hierarchy |
-| Controlled whitespace | Improve readability |
-| Consistent alignment | Maintain presentation stability |
-| Limited bold usage | Preserve hierarchy clarity |
-| Controlled report width | Maintain document-like structure |
-
----
-
-# Data Governance Standards
-
----
-
-# CSV Philosophy
-
-CSV datasets serve as:
-
-# stable operational data exports
-
-CSV files are prioritized because they support:
-
-- SQL ingestion
-- Python ingestion
-- Power BI integration
-- portability
-- interoperability
-- analytical scalability
-
-CSV formatting should prioritize:
-
-- consistency
-- normalization
-- portability
-
-OVER:
-
-- spreadsheet formatting appearance
-
----
-
-# XLSX Philosophy
-
-XLSX workbooks serve as:
-
-# operational analytical workspaces
-
-XLSX files may contain:
-
-- pivots
-- charts
-- formatting
-- executive summaries
-- temporary calculations
-- reporting layers
-
-XLSX workbooks should NOT serve as:
-
-# primary source-of-truth operational datasets.
-
----
-
-# Date & Timestamp Standards
-
----
-
-## Date-Only Fields
-
-Operational date fields may use:
-
-```text
-MM/DD/YYYY
-```
-
-provided:
-
-- formatting remains internally consistent
-- future ingestion normalization remains possible
-
----
-
-## Timestamp Fields
-
-Operational timestamp fields should use:
-
-```text
-YYYY-MM-DD HH:MM:SS
-```
+Subsystems should use shared identifiers whenever operationally appropriate.
 
 Examples include:
 
-- ticket creation timestamps
-- escalation timestamps
-- workflow timing metrics
-- SLA measurements
-
----
-
-# Shared Identifier Standards
-
-Subsystems should use shared identifiers where operationally appropriate.
-
-Examples include:
-
-- related_ticket_id
-- vendor_id
-- item_id
-- location_id
-- employee_id
+* related_ticket_id
+* vendor_id
+* item_id
+* location_id
+* employee_id
 
 Shared identifiers support:
 
-- relational analysis
-- SQL integration
-- Power BI integration
-- enterprise reporting
-- cross-system operational visibility
+* traceability
+* cross-system visibility
+* reporting consistency
+* enterprise integration
+
+---
+
+# Reporting Governance Standards
+
+Executive reporting artifacts should maintain:
+
+# unified reporting identity
+
+Reporting should prioritize:
+
+* executive readability
+* operational interpretation
+* concise communication
+* visual consistency
+* presentation readiness
+
+---
+
+## Executive Summary Standards
+
+Executive summaries should generally include:
+
+* organization title
+* report title
+* reporting period
+* KPI highlights
+* key observations
+* operational focus areas
+
+Executive summaries should remain concise, scan-friendly, and leadership-oriented.
+
+---
+
+# Remediation Governance
+
+Subsystem remediation should follow the standards established within:
+
+```text
+remediation-standards.md
+```
+
+Major remediation efforts should conclude with an integrity review before expansion resumes.
+
+Integrity reviews should verify:
+
+* documentation consistency
+* dataset alignment
+* governance compliance
+* reporting consistency
+* architectural completeness
 
 ---
 
 # GitHub Governance Standards
 
-GitHub should function as:
+GitHub functions as:
 
-# the operational version-control layer
+# the ecosystem version-control layer
 
 ---
 
-# Commit Governance Principles
+## Commit Governance Principles
 
 Commits should occur:
 
-- after meaningful milestones
-- after subsystem completions
-- after reporting phases
-- after governance updates
-- before major architectural transitions
+* after meaningful milestones
+* after subsystem completion
+* after governance updates
+* after reporting cycles
+* before major architectural transitions
 
 ---
 
-# Commit Message Standards
-
-Commit messages should:
-
-- remain descriptive
-- reflect operational milestones
-- explain architectural progress
-- maintain subsystem clarity
-
----
-
-# Push Governance Principles
+## Push Governance Principles
 
 Operational workflow should generally follow:
 
 ```text
-Work completed
+Work Completed
+
 ↓
-Validation performed
+
+Validation Performed
+
 ↓
-GitHub checkpoint created
+
+GitHub Checkpoint Created
+
 ↓
-Push origin
+
+Push Origin
+
 ↓
-Next expansion phase begins
+
+Next Phase Begins
 ```
 
-This prevents:
+This process helps prevent:
 
-- structural confusion
-- version drift
-- ecosystem inconsistency
+* version drift
+* structural confusion
+* governance inconsistency
 
 ---
 
 # Expansion Governance Standards
 
-New subsystems should NOT be created reactively.
+New subsystem construction should occur only after:
 
-Expansion should occur only after:
+* governance review
+* architecture validation
+* integrity review
+* ecosystem alignment assessment
 
-- existing subsystem stabilization
-- architecture validation
-- reporting standardization
-- governance consistency review
+Expansion should prioritize:
 
-Future subsystem expansion should prioritize:
+* operational realism
+* subsystem cohesion
+* analytical value
+* maintainability
+* cross-system visibility
 
-- operational realism
-- ecosystem cohesion
-- analytical value
-- cross-system interaction potential
-- maintainability
-
----
-
-# AI Continuity Governance
-
-Future project sessions should:
-
-- reference governance documents first
-- prioritize newest architecture standards
-- maintain reporting consistency
-- preserve subsystem architecture
-- avoid reverting to outdated methodologies
-
-Future chats should treat:
-
-```text
-organizational-architecture/
-```
-
-as:
-
-# the primary ecosystem continuity layer.
+Expansion should strengthen the ecosystem rather than increase complexity without operational justification.
 
 ---
 
-# Recommended Continuity Workflow
+# Governance Discovery Standards
 
-When beginning future project sessions:
+Governance discoveries identified during remediation should be documented when they occur.
 
-1. Reference:
+Governance improvements should not rely on future recollection.
 
-   - enterprise-system-map.md
-   - project-governance-standards.md
-   - README.md
+Documenting discoveries helps prevent:
 
-2. Explicitly state:
+* methodology drift
+* repeated remediation work
+* inconsistent implementation
+* loss of institutional knowledge
 
-```text
-Newest governance documents override older project methods.
-```
-
-3. Reconfirm:
-
-- subsystem-centered architecture
-- reporting standardization
-- governance-first expansion philosophy
-
-This process minimizes:
-
-- AI drift
-- formatting inconsistency
-- methodology regression
-- architectural fragmentation
+Governance evolution should remain traceable over time.
 
 ---
 
-# Long-Term Ecosystem Vision
+# Source-of-Truth Governance Rule
 
-Northstar Health Operations is intentionally designed to evolve toward:
+The newest approved governance and architecture documents override:
 
-- enterprise operational analytics
-- cross-system operational intelligence
-- SQL-integrated operational reporting
-- Power BI operational dashboards
-- workflow simulation environments
-- operational forecasting systems
-- enterprise KPI aggregation
-- leadership operational intelligence
+* outdated methodologies
+* historical implementation patterns
+* legacy formatting approaches
+* superseded governance decisions
+* prior conversational assumptions
 
-The ecosystem should continue evolving:
+Future project sessions should prioritize:
 
-# systematically
+1. Governance Documents
+2. Architecture Documents
+3. Current Subsystem Standards
+4. Approved Methodologies
 
-NOT:
-
-# reactively.
+over historical project assumptions.
 
 ---
 
-# Portfolio Significance
+# Summary
 
-This governance framework demonstrates:
+The Project Governance Standards establish the enterprise governance framework used throughout the Northstar Health Operations ecosystem.
 
-- enterprise systems thinking
-- operational governance planning
-- scalable architecture reasoning
-- analytical infrastructure management
-- reporting standardization methodology
-- long-term maintainability thinking
-- subsystem coordination planning
-- operational ecosystem design maturity
+By standardizing ownership, validation, documentation, operational intelligence, remediation, reporting, architecture, and expansion practices, the ecosystem maintains consistency, scalability, operational realism, and long-term architectural integrity across all current and future operational domains.
 
-This governance layer significantly strengthens the professional maturity and scalability of the Northstar Health Operations ecosystem.
