@@ -1,139 +1,108 @@
-\# Naming Convention Standards  
+# Naming Convention Standards
 
+## Northstar Health Operations
 
+---
 
-\## Northstar Health Operations
+# Purpose
 
-
-
-\---
-
-
-
-\# Purpose
-
-
-
-This document defines the enterprise naming governance standards used across the Northstar Health Operations ecosystem.
-
-
+This document defines the enterprise naming standards used throughout the Northstar Health Operations ecosystem.
 
 The purpose of these standards is to:
 
+* maintain naming consistency
+* prevent naming drift
+* support subsystem scalability
+* improve operational readability
+* support cross-system integration
+* establish enterprise-wide naming expectations
+* reinforce governance-first architecture
+* maintain long-term ecosystem maintainability
 
+This document serves as the authoritative naming governance reference for the Northstar Health Operations ecosystem.
 
-\- maintain ecosystem consistency
+---
 
-\- prevent naming drift
-
-\- support scalable subsystem expansion
-
-\- improve operational readability
-
-\- support future SQL integration
-
-\- support future Power BI integration
-
-\- preserve executive reporting consistency
-
-\- reinforce governance-first architecture standards
-
-
-
-This document serves as the primary naming governance reference for the Northstar Health Operations ecosystem.
-
-
-
-\---
-
-
-
-\# Naming Governance Philosophy
-
-
+# Naming Philosophy
 
 Northstar Health Operations prioritizes:
 
+# operational clarity over naming creativity
 
+Naming conventions exist to improve:
 
-\# operational clarity over naming creativity
+* readability
+* consistency
+* maintainability
+* interoperability
+* traceability
+* governance alignment
 
+Naming standards should remain:
 
+* predictable
+* stable
+* business-readable
+* operationally meaningful
+* enterprise-consistent
 
-All naming standards should prioritize:
+The objective of naming governance is not to create rigid formatting rules.
 
+The objective is to create a shared language that supports operational understanding across all enterprise domains.
 
+---
 
-\- business readability
+# Enterprise Naming Model
 
-\- operational consistency
+The ecosystem applies naming standards across multiple governance layers.
 
-\- scalability
+```text
+Repository
 
-\- maintainability
+↓
 
-\- cross-system clarity
+Subsystem
 
-\- future analytical integration
+↓
 
+Folder
 
+↓
 
-Naming conventions should remain:
+Dataset
 
+↓
 
+Field
 
-\- predictable
+↓
 
-\- stable
+Identifier
 
-\- relationally consistent
+↓
 
-\- leadership-readable
+Reporting Artifact
 
+↓
 
+Workflow Artifact
+```
 
-The ecosystem is intentionally designed as:
+Each layer serves a distinct operational purpose and should maintain naming consistency with the layers surrounding it.
 
+---
 
+# Repository & Subsystem Naming Standards
 
-\# a scalable enterprise operational intelligence environment
+Repository and subsystem names should use:
 
-
-
-NOT:
-
-
-
-\# a collection of disconnected portfolio artifacts.
-
-
-
-\---
-
-
-
-\# Repository \& Subsystem Naming Standards
-
-
-
-Subsystem and repository names should use:
-
-
-
-\- lowercase formatting
-
-\- hyphen-separated naming
-
-\- operationally descriptive wording
-
-
+* lowercase formatting
+* hyphen-separated naming
+* operationally descriptive terminology
 
 Examples:
 
-
-
 ```text
-
 ticketing-system/
 
 inventory-operations/
@@ -145,17 +114,11 @@ workforce-coordination/
 executive-briefings/
 
 organizational-architecture/
-
 ```
-
-
 
 Avoid:
 
-
-
 ```text
-
 InventorySystem/
 
 VendorData/
@@ -163,41 +126,23 @@ VendorData/
 Ops/
 
 tickets/
-
 ```
 
+Subsystem names should clearly communicate:
 
+* operational purpose
+* organizational role
+* enterprise function
 
-Subsystem names should clearly reflect:
+---
 
+# Standardized Subsystem Architecture Naming
 
+All operational subsystems should maintain standardized internal folder naming.
 
-\- operational purpose
-
-\- organizational role
-
-\- enterprise function
-
-
-
-\---
-
-
-
-\# Standardized Internal Subfolder Naming
-
-
-
-All operational subsystems should maintain standardized internal folder architecture.
-
-
-
-Approved internal subfolder structure:
-
-
+Approved structure:
 
 ```text
-
 datasets/
 
 documentation/
@@ -207,45 +152,19 @@ reporting-and-kpis/
 workflow-diagrams/
 
 process-improvement/
-
 ```
 
+Folder names should:
 
-
-\---
-
-
-
-\# Subfolder Governance Rules
-
-
-
-Subfolder names should:
-
-
-
-\- remain lowercase
-
-\- remain hyphen-separated where applicable
-
-\- avoid abbreviations
-
-\- avoid synonym drift
-
-\- remain standardized across all subsystems
-
-
-
-Avoid creating subsystem-specific naming variations unless formally approved through governance updates.
-
-
+* remain lowercase
+* remain hyphen-separated where applicable
+* avoid abbreviations
+* avoid synonym drift
+* remain consistent across subsystems
 
 Avoid:
 
-
-
 ```text
-
 reports/
 
 kpis/
@@ -255,17 +174,11 @@ docs/
 workflow-maps/
 
 improvements/
-
 ```
-
-
 
 Preferred:
 
-
-
 ```text
-
 reporting-and-kpis/
 
 documentation/
@@ -273,41 +186,25 @@ documentation/
 workflow-diagrams/
 
 process-improvement/
-
 ```
 
+Subsystem-specific folder naming variations should not be introduced without governance approval.
 
+---
 
-\---
-
-
-
-\# Dataset Naming Standards
-
-
+# Dataset Naming Standards
 
 Dataset filenames should use:
 
-
-
-\- lowercase formatting
-
-\- hyphen-separated naming
-
-\- business-readable terminology
-
-\- pluralized naming where appropriate
-
-\- workflow-aware naming
-
-
+* lowercase formatting
+* hyphen-separated naming
+* business-readable terminology
+* workflow-aware naming
+* operationally meaningful descriptions
 
 Examples:
 
-
-
 ```text
-
 inventory-items.csv
 
 location-inventory.csv
@@ -321,91 +218,56 @@ vendor-shipments.csv
 vendor-scorecards.csv
 
 tickets-v1.csv
-
 ```
-
-
 
 Avoid:
 
-
-
 ```text
-
 InventoryData.csv
 
 ticketsNEW.csv
 
 vendorReport.xlsx
 
-inventory\_export\_final.csv
-
+inventory_export_final.csv
 ```
 
+Dataset names should clearly communicate:
 
+* dataset purpose
+* operational function
+* workflow context
+* analytical use case
 
-Dataset names should reflect:
+---
 
-
-
-\- operational workflow
-
-\- dataset grain
-
-\- business function
-
-\- analytical purpose
-
-
-
-\---
-
-
-
-\# Field Naming Standards
-
-
+# Field Naming Standards
 
 All field names should use:
 
-
-
 ```text
-
-snake\_case
-
+snake_case
 ```
-
-
 
 Examples:
 
-
-
 ```text
+vendor_id
 
-vendor\_id
+related_ticket_id
 
-related\_ticket\_id
+shipment_delay_hours
 
-shipment\_delay\_hours
+resolution_timestamp
 
-resolution\_timestamp
+escalation_flag
 
-escalation\_flag
-
-inventory\_status
-
+inventory_status
 ```
-
-
 
 Avoid:
 
-
-
 ```text
-
 vendorID
 
 VendorId
@@ -413,91 +275,52 @@ VendorId
 shipmentDelay
 
 ResolutionHours
-
 ```
 
+---
 
-
-\---
-
-
-
-\# Field Naming Governance Rules
-
-
+# Field Naming Governance Principles
 
 Field names should:
 
-
-
-\- remain business-readable
-
-\- avoid inconsistent abbreviations
-
-\- remain operationally descriptive
-
-\- support SQL readability
-
-\- maintain cross-system consistency
-
-
+* remain business-readable
+* remain operationally descriptive
+* avoid inconsistent abbreviations
+* maintain cross-system consistency
+* support analytical readability
 
 Avoid:
 
+* spaces
+* camelCase
+* mixed naming conventions
+* subsystem-specific shorthand
 
+Field naming should prioritize long-term consistency over short-term convenience.
 
-\- spaces
+---
 
-\- camelCase
+# Shared Identifier Standards
 
-\- mixed naming styles
+Shared identifiers serve as enterprise assets and should remain consistent across operational domains.
 
-\- subsystem-specific shorthand
+Approved prefixes:
 
-
-
-\---
-
-
-
-\# Shared Identifier Prefix Standards
-
-
-
-Shared identifiers should use stable enterprise-wide prefixes.
-
-
-
-| Entity | Prefix |
-
-|---|---|
-
-| Tickets | INC |
-
-| Inventory Items | ITEM |
-
-| Vendors | VEND |
-
-| Locations | LOC |
-
-| Shipments | SHIP |
-
-| Replenishments | REPL |
-
-| Shortages | SHORT |
-
-| Discrepancies | DISC |
-
-| Employees | EMP |
-
-
+|Entity|Prefix|
+|-|-|
+|Tickets|INC|
+|Inventory Items|ITEM|
+|Vendors|VEND|
+|Locations|LOC|
+|Shipments|SHIP|
+|Replenishments|REPL|
+|Shortages|SHORT|
+|Discrepancies|DISC|
+|Employees|EMP|
 
 Examples:
 
-
-
 ```text
-
 INC-100012
 
 ITEM-1003
@@ -507,77 +330,31 @@ VEND-003
 LOC-DURHAM-07
 
 SHIP-1002
-
 ```
-
-
-
-\---
-
-
-
-\# Shared Identifier Governance Rules
-
-
 
 Shared identifiers should:
 
+* remain standardized
+* avoid subsystem-specific variations
+* support cross-system visibility
+* maintain stable formatting
 
+Shared identifiers are governed as enterprise assets rather than subsystem-specific implementations.
 
-\- remain standardized across all subsystems
+---
 
-\- avoid local subsystem variations
-
-\- maintain stable formatting
-
-\- support future relational integration
-
-
-
-Shared identifiers are considered:
-
-
-
-\# enterprise operational assets
-
-
-
-NOT:
-
-
-
-\# subsystem-local naming decisions.
-
-
-
-\---
-
-
-
-\# Reporting Artifact Naming Standards
-
-
+# Reporting Artifact Naming Standards
 
 Reporting artifacts should use:
 
-
-
-\- operationally descriptive naming
-
-\- leadership-readable terminology
-
-\- stable version structure
-
-\- workflow-oriented naming
-
-
+* operationally descriptive terminology
+* leadership-readable language
+* stable version structures
+* workflow-oriented naming
 
 Examples:
 
-
-
 ```text
-
 weekly-operational-summary.xlsx
 
 inventory-shortage-analysis.xlsx
@@ -585,93 +362,60 @@ inventory-shortage-analysis.xlsx
 vendor-fulfillment-dashboard.xlsx
 
 ticket-escalation-review.xlsx
-
 ```
-
-
 
 Avoid:
 
-
-
 ```text
-
 report-final-v2.xlsx
 
 dashboard-new.xlsx
 
 analysis-temp.xlsx
-
 ```
 
+Reporting names should clearly communicate:
 
+* reporting purpose
+* operational focus
+* intended audience
 
-\---
+---
 
+# Workflow Artifact Naming Standards
 
+Workflow artifacts should use:
 
-\# Workflow Diagram Naming Standards
-
-
-
-Workflow diagrams should use:
-
-
-
-\- workflow-centered naming
-
-\- operational process terminology
-
-\- lifecycle-oriented naming
-
-
+* workflow-centered terminology
+* lifecycle-oriented naming
+* operational process language
 
 Examples:
 
-
-
 ```text
-
 ticket-escalation-workflow.drawio
 
 inventory-replenishment-lifecycle.png
 
 vendor-delay-escalation-flow.png
-
 ```
 
+Workflow names should clearly communicate:
 
+* workflow purpose
+* operational sequence
+* escalation relationships
+* process ownership
 
-Workflow naming should clearly communicate:
+---
 
+# Executive Reporting Terminology Standards
 
+Executive reporting should maintain consistent leadership-oriented terminology.
 
-\- workflow purpose
-
-\- operational sequence
-
-\- escalation relationships
-
-
-
-\---
-
-
-
-\# KPI \& Executive Reporting Naming Standards
-
-
-
-Executive reporting sections should maintain consistent leadership-oriented naming.
-
-
-
-Preferred reporting section examples:
-
-
+Preferred section examples:
 
 ```text
-
 Operational Summary
 
 KPI Highlights
@@ -683,250 +427,146 @@ Escalation Trends
 Operational Recommendations
 
 Leadership Considerations
-
 ```
 
+Consistent terminology improves:
 
+* executive readability
+* reporting cohesion
+* operational interpretation
+* leadership communication
 
-Avoid inconsistent section naming drift across reporting workbooks.
+Avoid inconsistent section naming across reporting artifacts.
 
+---
 
+# Analytical Integration Standards
 
-Consistent reporting terminology improves:
+Naming conventions should support:
 
-
-
-\- executive readability
-
-\- reporting cohesion
-
-\- operational interpretation
-
-\- leadership communication consistency
-
-
-
-\---
-
-
-
-\# SQL \& Power BI Readiness Standards
-
-
-
-Naming conventions should support future:
-
-
-
-\- SQL integration
-
-\- Power BI modeling
-
-\- relational analysis
-
-\- dashboard scalability
-
-\- enterprise KPI aggregation
-
-
+* relational consistency
+* analytical interoperability
+* cross-system visibility
+* reporting consistency
+* enterprise integration
 
 Naming should prioritize:
 
-
-
-\- join readability
-
-\- relational clarity
-
-\- stable field references
-
-\- model consistency
-
-
+* business readability
+* relational clarity
+* stable references
+* governance consistency
 
 Examples:
 
-
-
 ```text
+vendor_id
 
-vendor\_id
+location_id
 
-location\_id
-
-related\_ticket\_id
-
+related_ticket_id
 ```
-
-
 
 Preferred over:
 
-
-
 ```text
-
 vendorNumber
 
 loc
 
 ticketRef
-
 ```
 
+Consistent naming improves:
 
+* operational traceability
+* reporting quality
+* subsystem interoperability
+* enterprise maintainability
 
-\---
+---
 
+# Naming Governance Principles
 
+## Naming Drift Prevention Principle
 
-\# Naming Drift Prevention Rules
+Future ecosystem expansion should avoid:
 
-
-
-Future subsystem expansion should avoid:
-
-
-
-\- duplicate naming concepts
-
-\- inconsistent abbreviations
-
-\- mixed formatting styles
-
-\- synonym drift
-
-\- subsystem-local naming improvisation
-
-
+* duplicate naming concepts
+* inconsistent abbreviations
+* mixed formatting styles
+* synonym drift
+* subsystem-local naming improvisation
 
 Avoid:
 
-
-
 ```text
-
 vendorNum
 
 vendorID
 
-supplier\_id
+supplier_id
 
-supp\_id
-
+supp_id
 ```
-
-
 
 Preferred:
 
-
-
 ```text
-
-vendor\_id
-
+vendor_id
 ```
-
-
 
 Only one canonical naming structure should exist for shared operational concepts.
 
+---
 
-
-\---
-
-
-
-\# Governance Enforcement Rule
-
-
+## Governance Enforcement Principle
 
 Naming consistency is considered:
 
-
-
-\# enterprise architecture governance
-
-
+# enterprise governance
 
 NOT:
 
+# cosmetic formatting preference
 
+All future subsystems, reporting artifacts, datasets, workflows, and analytical models should follow approved naming standards unless formally updated through governance review.
 
-\# cosmetic formatting preference.
+---
 
-
-
-All future subsystems, reporting artifacts, datasets, workflows, and analytical models should follow these naming standards unless formally updated through approved governance revisions.
-
-
-
-\---
-
-
-
-\# Future Expansion Governance
-
-
+## Expansion Alignment Principle
 
 Future subsystem expansion should:
 
+* inherit enterprise naming standards
+* preserve subsystem consistency
+* align with shared identifier standards
+* support cross-system integration
+* maintain reporting cohesion
 
+Naming standards should scale with the ecosystem rather than fragment as new operational domains are introduced.
 
-\- inherit enterprise naming standards
+---
 
-\- preserve subsystem consistency
+# Governance Alignment
 
-\- align with shared identifier standards
+These standards align with:
 
-\- support relational integration
+* Project Governance Standards
+* Remediation Standards
+* Operational Severity Framework
+* Enterprise System Map
+* Operational Intelligence Lifecycle
 
-\- maintain executive reporting cohesion
+Naming standards should remain consistent with all approved governance and architectural standards throughout the ecosystem.
 
+---
 
+# Summary
 
-Future governance documents should continue reinforcing:
+The Naming Convention Standards establish the enterprise naming framework used throughout the Northstar Health Operations ecosystem.
 
+By standardizing repository naming, subsystem naming, folder naming, dataset naming, field naming, identifier conventions, workflow naming, and reporting terminology, the ecosystem maintains consistency, readability, interoperability, and long-term architectural stability across all operational domains.
 
-
-\- operational readability
-
-\- enterprise consistency
-
-\- scalable architecture
-
-\- governance-first ecosystem expansion
-
-
-
-\---
-
-
-
-\# Portfolio Significance
-
-
-
-These naming standards demonstrate:
-
-
-
-\- enterprise governance thinking
-
-\- scalable architecture planning
-
-\- operational consistency management
-
-\- SQL readiness awareness
-
-\- Power BI integration planning
-
-\- subsystem coordination maturity
-
-\- long-term ecosystem maintainability
-
-
-
-This governance layer strengthens the Northstar Health Operations ecosystem by establishing stable enterprise-wide naming consistency across all operational domains.
+Naming consistency is treated as an enterprise governance responsibility that supports operational clarity, subsystem maintainability, cross-system integration, and sustainable ecosystem growth.
 
