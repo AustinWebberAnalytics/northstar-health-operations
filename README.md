@@ -1,6 +1,6 @@
 # 👋 Welcome to Northstar
 
-## A Living Business Operations Enterprise Simulation
+## A Business Operations Enterprise Simulation
 
 ---
 
