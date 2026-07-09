@@ -67,6 +67,14 @@ These repositories represent the operational capabilities currently simulated wi
 
 ---
 
+## Continue Your Tour
+
+🏛 Learn how the enterprise is organized.
+
+➡️ [Enterprise Reference Guide](organizational-architecture/enterprise-reference-guide.md)
+
+---
+
 ## 🚧 What's Coming Next
 
 Northstar continues to evolve as the enterprise grows.
@@ -81,14 +89,6 @@ Current initiatives include:
 * 🟡 Enterprise Scenario Library
 
 Each new capability is designed to make the enterprise feel more realistic while creating new opportunities to investigate problems, analyze data, and make operational decisions.
-
----
-
-## Continue Your Tour
-
-🏛 Learn how the enterprise is organized.
-
-➡️ [Enterprise Reference Guide](organizational-architecture/enterprise-reference-guide.md)
 
 ---
 
