@@ -1,296 +1,114 @@
-# Welcome to Northstar
-
-
+# 👋 Welcome to Northstar
 
 ## A Living Business Operations Enterprise Simulation
 
-
-
 ---
-
-
 
 > **Northstar was built to feel like a company someone could walk into on Monday morning.**
 
+Hi, I'm Austin.
 
+Thank you for taking the time to explore Northstar.
 
-Welcome.
+Before you begin opening folders and reading documentation, I'd like to explain why this project exists.
 
+When I began pursuing a career in Business Operations, I kept running into the same problem: the roles I wanted required experience working inside complex organizations, but there aren't many places to safely develop that experience before someone hires you.
 
+So I decided to build the environment I wished I'd had.
 
-You're not looking at a collection of independent projects.
+Northstar isn't a fictional company created for storytelling.
 
+It's a realistic enterprise simulation designed to help me practice the work of Business Operations the same way pilots use flight simulators or engineers use development environments.
 
+Every report, workflow, dataset, process, and business scenario exists within the context of the same organization.
 
-You're stepping into a living enterprise.
-
-
-
-Northstar Health Operations is a simulated organization designed to recreate the kinds of operational challenges, decisions, and systems that Business Operations professionals navigate every day. Rather than demonstrating individual technical skills in isolation, Northstar brings them together inside a single, interconnected enterprise where every report, workflow, dataset, and business scenario exists within the same organizational context.
-
-
-
-The objective is simple:
-
-
-
-**Create a realistic environment where Business Operations can be practiced—not just studied.**
-
-
-
----
-
-
-
-# Why Northstar Exists
-
-
-
-Northstar began with a simple question:
-
-
-
-> *How do you gain years of Business Operations experience before someone gives you the opportunity to work in Business Operations?*
-
-
-
-Traditional portfolios demonstrate completed work.
-
-
-
-Northstar is different.
-
-
-
-It is an evolving enterprise simulation where realistic business events generate meaningful work:
-
-
-
-- Investigating operational problems
-
-- Writing SQL to answer business questions
-
-- Building executive reports
-
-- Improving business processes
-
-- Reconciling conflicting operational priorities
-
-- Evaluating enterprise performance
-
-- Supporting executive decision-making
-
-
-
-The goal isn't simply to build artifacts.
-
-
+The goal isn't simply to build projects.
 
 The goal is to build judgment.
 
+---
 
+# 🎯 Project Vision
+
+Northstar exists to become a realistic Business Operations environment where systems thinking, operational analysis, SQL, reporting, process improvement, and executive decision-making can be practiced through realistic enterprise scenarios.
+
+Rather than demonstrating isolated technical skills, Northstar demonstrates how those skills work together inside a functioning organization.
 
 ---
 
+# 🧭 Start Your Tour
 
+If this is your first visit, I recommend exploring Northstar in the following order.
 
-# The Vision
+## 🏛 Enterprise Architecture
 
+Learn how the enterprise is designed and how the different operational systems fit together.
 
-
-Northstar is designed to become a realistic Business Operations laboratory.
-
-
-
-As the enterprise grows, new systems, data, and scenarios will continuously create opportunities to investigate problems, analyze information, recommend solutions, and improve how the organization operates.
-
-
-
-The long-term vision is a living enterprise where decisions produce measurable downstream effects across interconnected operational systems.
-
-
-
-In other words...
-
-
-
-A workplace that exists for learning.
-
-
+➡️ **Start here:** [`organizational-architecture/`](../organizational-architecture/)
 
 ---
 
+## 📊 Executive Briefings
 
+See how operational activity is translated into executive-level reporting and decision support.
 
-# What You'll Find Inside
-
-
-
-Northstar is organized around the operational systems that enable enterprise execution.
-
-
-
-Current areas of development include:
-
-
-
-- Executive Briefings
-
-- Vendor Performance
-
-- Inventory Operations
-
-- Workforce Coordination
-
-- Ticketing Systems
-
-- Organizational Architecture
-
-- Enterprise Governance
-
-- Operational Intelligence
-
-
-
-Future enterprise capabilities will expand into additional planning and decision-support domains as the organization evolves.
-
-
+➡️ **Explore:** [`executive-briefings/`](../executive-briefings/)
 
 ---
 
+## 📦 Operational Systems
 
+These repositories represent the operational capabilities currently simulated within Northstar.
 
-# How To Explore Northstar
-
-
-
-If you're visiting for the first time, I recommend exploring in this order.
-
-
-
-## 1. Understand the Enterprise
-
-
-
-Learn what Northstar is, why it exists, and how the organization is structured.
-
-
-
-## 2. Explore the Operational Systems
-
-
-
-See how individual enterprise capabilities contribute to organizational execution.
-
-
-
-## 3. Review Executive Reporting
-
-
-
-Understand how operational activity becomes leadership visibility.
-
-
-
-## 4. Investigate the Data
-
-
-
-Explore the datasets, relational models, and SQL investigations that support business decisions.
-
-
-
-## 5. Experience Business Scenarios
-
-
-
-See how realistic operational events propagate throughout the enterprise and how Business Operations responds.
-
-
+* 📋 [`ticketing-system/`](../ticketing-system/)
+* 📦 [`inventory-operations/`](../inventory-operations/)
+* 🚚 [`vendor-performance/`](../vendor-performance/)
+* 👥 [`workforce-coordination/`](../workforce-coordination/)
 
 ---
 
+## 🚧 What's Coming Next
 
+Northstar continues to evolve as the enterprise grows.
 
-# Current Enterprise Status
+Current initiatives include:
 
+* 🟡 Commercial Planning
+* 🟡 Financial Planning
+* 🟡 Enterprise Information Architecture
+* 🟡 Enterprise SQL Platform
+* 🟡 Enterprise Event Engine
+* 🟡 Enterprise Scenario Library
 
-
-Northstar is under active development.
-
-
-
-The enterprise architecture, governance standards, operational systems, and reporting ecosystem continue to mature through realistic scenarios and continuous improvement.
-
-
-
-This repository intentionally evolves the same way a real organization does:
-
-
-
-One decision at a time.
-
-
-
-One improvement at a time.
-
-
+Each new capability is designed to make the enterprise feel more realistic while creating new opportunities to investigate problems, analyze data, and make operational decisions.
 
 ---
 
+# 💡 Design Philosophy
 
+Every addition to Northstar is evaluated using three questions.
 
-# Guiding Principles
+* Does it make the enterprise feel more believable?
+* Does it create meaningful Business Operations learning opportunities?
+* Does it strengthen the relationships between enterprise systems?
 
-
-
-Everything added to Northstar must satisfy three questions.
-
-
-
-**Does it make the enterprise feel more real?**
-
-
-
-**Does it create meaningful Business Operations learning opportunities?**
-
-
-
-**Does it strengthen the connections between enterprise systems?**
-
-
-
-If the answer isn't yes to at least one of those questions, it probably doesn't belong.
-
-
+If the answer isn't "yes" to at least one of those questions, it probably doesn't belong.
 
 ---
 
-
-
-# Current Enterprise Objective
-
-
+# 🎯 Current Enterprise Objective
 
 > **Build a living enterprise that feels authentic enough to work in, interconnected enough to learn from, and rigorous enough to develop the judgment of a Business Operations professional.**
 
-
-
 ---
 
+# 🤝 Thanks for Visiting
 
+Whether you're a recruiter, hiring manager, fellow Business Operations professional, or simply curious about enterprise systems, I appreciate you taking the time to explore Northstar.
 
-Thank you for visiting Northstar.
+The enterprise continues to evolve one decision, one improvement, and one scenario at a time.
 
+I hope you enjoy exploring it as much as I've enjoyed building it.
 
-
-Whether you're a recruiter, hiring manager, fellow Business Operations professional, or simply curious about enterprise systems, I hope this project demonstrates not only technical capability, but also a genuine passion for understanding how organizations work.
-
-
-
-This is only the beginning.
-
-
-
-Welcome aboard.
+**Welcome aboard.**
 
