@@ -1,129 +1,122 @@
-# Northstar Health Operations
+# 👋 Welcome to Northstar
 
-## Enterprise Operational Intelligence Ecosystem
-
-Northstar Health Operations is a governance-first operational intelligence ecosystem designed to simulate how enterprise organizations manage information, coordinate operations, monitor performance, and support decision-making across interconnected business functions.
-
-Rather than presenting isolated analytics projects, Northstar models a unified operational environment where multiple domains interact through shared processes, datasets, reporting standards, and governance frameworks.
+## A Living Business Operations Enterprise Simulation
 
 ---
 
-# Purpose
+> **Northstar was built to feel like a company someone could walk into on Monday morning.**
 
-The project was created to demonstrate enterprise systems thinking through the design of a scalable operational ecosystem.
+Hi, I'm Austin.
 
-Northstar emphasizes:
+Thank you for taking the time to explore Northstar.
 
-* Operational intelligence
-* Process improvement
-* Systems thinking
-* Data governance
-* Reporting and analytics
-* Cross-functional coordination
-* Enterprise architecture
+Before you begin opening folders and reading documentation, I'd like to explain why this project exists.
 
-The focus is not on individual dashboards or isolated analyses, but on how operational systems are designed, connected, governed, and improved over time.
+When I began pursuing a career in Business Operations, I kept running into the same problem: the roles I wanted required experience working inside complex organizations, but there aren't many places to safely develop that experience before someone hires you.
 
----
+So I decided to build the environment I wished I'd had.
 
-# Ecosystem Structure
+Northstar isn't a fictional company created for storytelling.
 
-The repository is organized into operational domains that represent distinct areas of responsibility within a larger enterprise environment.
+It's a realistic enterprise simulation designed to help me practice the work of Business Operations the same way pilots use flight simulators or engineers use development environments.
 
-Current domains include:
+Every report, workflow, dataset, process, and business scenario exists within the context of the same organization.
 
-* Inventory Operations
-* Ticketing System
-* Vendor Performance
-* Workforce Coordination
+The goal isn't simply to build projects.
 
-Each domain contains its own datasets, documentation, reporting artifacts, workflows, and process improvement initiatives while remaining connected to the broader ecosystem.
+The goal is to build judgment.
 
 ---
 
-# Organizational Architecture
+# 🎯 Project Vision
 
-The ecosystem is supported by a dedicated organizational architecture layer that defines:
+Northstar exists to become a realistic Business Operations environment where systems thinking, operational analysis, SQL, reporting, process improvement, and executive decision-making can be practiced through realistic enterprise scenarios.
 
-* Governance standards
-* Naming conventions
-* System design
-* Shared identifiers
-* Standardization reviews
-
-These artifacts provide the foundation for consistency, scalability, and long-term maintainability.
+Rather than demonstrating isolated technical skills, Northstar demonstrates how those skills work together inside a functioning organization.
 
 ---
 
-# Reporting Philosophy
+# 🧭 Start Your Tour
 
-Northstar reporting is designed to resemble operational reporting environments used by enterprise organizations.
+If this is your first visit, I recommend exploring Northstar in the following order.
 
-Reporting emphasizes:
+## 🏛 Enterprise Architecture
 
-* Clear KPI visibility
-* Operational observations
-* Executive readability
-* Consistent reporting standards
-* Actionable insights
+Learn how the enterprise is designed and how the different operational systems fit together.
 
-The objective is to communicate operational conditions clearly rather than maximize technical complexity.
+➡️ **Start here:** [`organizational-architecture/`](../organizational-architecture/)
 
 ---
 
-# Current Focus
+## 📊 Executive Briefings
 
-The repository is currently undergoing a repository-wide standardization initiative focused on:
+See how operational activity is translated into executive-level reporting and decision support.
 
-* Governance consolidation
-* Documentation consistency
-* Reporting standardization
-* Information architecture improvements
-* Ecosystem-wide remediation
-
-This effort ensures that all operational domains follow a common set of architectural, reporting, and communication standards.
+➡️ **Explore:** [`executive-briefings/`](../executive-briefings/)
 
 ---
 
-# Recommended Starting Points
+## 📦 Operational Systems
 
-Readers interested in understanding the ecosystem should begin with:
+These repositories represent the operational capabilities currently simulated within Northstar.
 
-### Organizational Architecture
-
-Provides governance standards, system design artifacts, and ecosystem-level documentation.
-
-### Workforce Coordination
-
-Current reference implementation for reporting, documentation, and subsystem organization standards.
-
-### Inventory Operations
-
-Demonstrates operational analytics, inventory management workflows, and reporting practices.
+* 📋 [`ticketing-system/`](../ticketing-system/)
+* 📦 [`inventory-operations/`](../inventory-operations/)
+* 🚚 [`vendor-performance/`](../vendor-performance/)
+* 👥 [`workforce-coordination/`](../workforce-coordination/)
 
 ---
 
-# Long-Term Vision
+## 🚧 What's Coming Next
 
-Northstar is designed to evolve as a scalable operational intelligence ecosystem capable of supporting increasingly sophisticated reporting, governance, workflow coordination, and analytical capabilities.
+Northstar continues to evolve as the enterprise grows.
 
-The long-term objective is to demonstrate how enterprise operational systems can be structured, governed, and improved through disciplined architecture, standardized reporting, and systems-oriented thinking.
+Current initiatives include:
+
+* 🟡 Commercial Planning
+* 🟡 Financial Planning
+* 🟡 Enterprise Information Architecture
+* 🟡 Enterprise SQL Platform
+* 🟡 Enterprise Event Engine
+* 🟡 Enterprise Scenario Library
+
+Each new capability is designed to make the enterprise feel more realistic while creating new opportunities to investigate problems, analyze data, and make operational decisions.
 
 ---
 
-# Portfolio Significance
+## Continue Your Tour
 
-Northstar demonstrates:
+🏛 Learn how the enterprise is organized.
 
-* Enterprise systems thinking
-* Operational analytics
-* Data governance
-* Process improvement
-* Cross-functional coordination
-* Reporting and KPI development
-* Documentation design
-* Organizational architecture
-* Scalable ecosystem planning
+➡️ [Enterprise Reference Guide](organizational-architecture/enterprise-reference-guide.md)
 
-The project is intended to reflect the operational reasoning, governance discipline, and systems-level thinking commonly required within modern enterprise environments.
+---
+
+# 💡 Design Philosophy
+
+Every addition to Northstar is evaluated using three questions.
+
+* Does it make the enterprise feel more believable?
+* Does it create meaningful Business Operations learning opportunities?
+* Does it strengthen the relationships between enterprise systems?
+
+If the answer isn't "yes" to at least one of those questions, it probably doesn't belong.
+
+---
+
+# 🎯 Current Enterprise Objective
+
+> **Build a living enterprise that feels authentic enough to work in, interconnected enough to learn from, and rigorous enough to develop the judgment of a Business Operations professional.**
+
+---
+
+# 🤝 Thanks for Visiting
+
+Whether you're a recruiter, hiring manager, fellow Business Operations professional, or simply curious about enterprise systems, I appreciate you taking the time to explore Northstar.
+
+The enterprise continues to evolve one decision, one improvement, and one scenario at a time.
+
+I hope you enjoy exploring it as much as I've enjoyed building it.
+
+**Welcome aboard.**
 

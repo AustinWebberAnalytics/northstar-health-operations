@@ -130,3 +130,11 @@ Standardization, evaluation, and remediation activities.
 
 
 
+## Related Enterprise Resources
+
+For a repository-wide overview of Northstar, see the:
+
+➡️ [Enterprise Reference Guide](enterprise-reference-guide.md)
+
+
+
