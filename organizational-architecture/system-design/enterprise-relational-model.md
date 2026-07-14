@@ -92,27 +92,27 @@ Those responsibilities belong to downstream engineering artifacts.
 
 Enterprise Philosophy
 
-&#x20;       │
+       │
 
-&#x20;       ▼
+       ▼
 
 Enterprise System Map
 
-&#x20;       │
+       │
 
-&#x20;       ▼
+       ▼
 
 Enterprise Object Model
 
-&#x20;       │
+       │
 
-&#x20;       ▼
+       ▼
 
 Enterprise Relational Model
 
-&#x20;       │
+       │
 
-&#x20;       ▼
+       ▼
 
 SQL Foundation
 
@@ -274,11 +274,11 @@ The approved relationship grammar is:
 
 Subject Object
 
-&#x20;       │
+       │
 
 Relationship Verb
 
-&#x20;       │
+       │
 
 Target Object
 
@@ -294,11 +294,11 @@ For example:
 
 Shipment
 
-&#x20;       │
+       │
 
 delivers to
 
-&#x20;       │
+       │
 
 Location
 
@@ -374,11 +374,11 @@ Examples include:
 
 Vendor
 
-&#x20;       │
+       │
 
 supplies
 
-&#x20;       │
+       │
 
 Inventory Item
 
@@ -622,27 +622,27 @@ Unlike the Enterprise Object Model, which classifies business entities, the Ente
 
 Enterprise Foundation Objects
 
-&#x20;       │
+       │
 
-&#x20;       ▼
+       ▼
 
 Operational Work Objects
 
-&#x20;       │
+       │
 
-&#x20;       ▼
+       ▼
 
 Movement Objects
 
-&#x20;       │
+       │
 
-&#x20;       ▼
+       ▼
 
 Operational State Objects
 
-&#x20;       │
+       │
 
-&#x20;       ▼
+       ▼
 
 Assessment Objects
 
@@ -714,49 +714,49 @@ Unlike the Enterprise Object Model, which identifies participating business enti
 
 Vendor
 
-&#x20;   │
+   │
 
 supplies
 
-&#x20;   │
+   │
 
 Inventory Item
 
-&#x20;   ▲
+   ▲
 
-&#x20;   │
+   │
 
 carries
 
-&#x20;   │
+   │
 
 Shipment
 
-&#x20;   │
+   │
 
 delivers to
 
-&#x20;   │
+   │
 
 Location
 
-&#x20;   ▲
+   ▲
 
-&#x20;   │
+   │
 
 exists at
 
-&#x20;   │
+   │
 
 Location Inventory
 
-&#x20;   ▲
+   ▲
 
-&#x20;   │
+   │
 
 changes
 
-&#x20;   │
+   │
 
 Shipment
 
@@ -764,11 +764,11 @@ Shipment
 
 Replenishment
 
-&#x20;   │
+   │
 
 requests restoration of
 
-&#x20;   │
+   │
 
 Inventory Item
 
@@ -776,11 +776,11 @@ Inventory Item
 
 Replenishment
 
-&#x20;   │
+   │
 
 targets
 
-&#x20;   │
+   │
 
 Location
 
@@ -788,11 +788,11 @@ Location
 
 Shipment
 
-&#x20;   │
+   │
 
 fulfills
 
-&#x20;   │
+   │
 
 Replenishment
 
@@ -1648,43 +1648,43 @@ The canonical behavioral progression is:
 
 Vendor
 
-&#x20;       │
+       │
 
 supplies
 
-&#x20;       ▼
+       ▼
 
 Inventory Item
 
-&#x20;       │
+       │
 
 requested through
 
-&#x20;       ▼
+       ▼
 
 Replenishment
 
-&#x20;       │
+       │
 
 fulfilled by
 
-&#x20;       ▼
+       ▼
 
 Shipment
 
-&#x20;       │
+       │
 
 delivers to
 
-&#x20;       ▼
+       ▼
 
 Location
 
-&#x20;       │
+       │
 
 represented by
 
-&#x20;       ▼
+       ▼
 
 Location Inventory
 
@@ -1736,11 +1736,11 @@ Operational Coordination provides the enterprise's operational control layer.
 
 Assignment
 
-&#x20;       │
+       │
 
 allocates work to
 
-&#x20;       ▼
+       ▼
 
 Employee
 
@@ -1748,11 +1748,11 @@ Employee
 
 Assignment
 
-&#x20;       │
+       │
 
 allocates responsibility for
 
-&#x20;       ▼
+       ▼
 
 Operational Work Object
 
@@ -1760,11 +1760,11 @@ Operational Work Object
 
 Ticket
 
-&#x20;       │
+       │
 
 is owned by
 
-&#x20;       ▼
+       ▼
 
 Employee
 
@@ -1772,11 +1772,11 @@ Employee
 
 Ticket
 
-&#x20;       │
+       │
 
 occurs at
 
-&#x20;       ▼
+       ▼
 
 Location
 
@@ -1784,11 +1784,11 @@ Location
 
 Inventory Discrepancy
 
-&#x20;       │
+       │
 
 is coordinated through
 
-&#x20;       ▼
+       ▼
 
 Ticket
 
@@ -1796,11 +1796,11 @@ Ticket
 
 Shortage
 
-&#x20;       │
+       │
 
 is coordinated through
 
-&#x20;       ▼
+       ▼
 
 Ticket
 
@@ -1808,11 +1808,11 @@ Ticket
 
 Shipment
 
-&#x20;       │
+       │
 
 is coordinated through
 
-&#x20;       ▼
+       ▼
 
 Ticket
 
@@ -1820,11 +1820,11 @@ Ticket
 
 Replenishment
 
-&#x20;       │
+       │
 
 is coordinated through
 
-&#x20;       ▼
+       ▼
 
 Ticket
 
@@ -1832,11 +1832,11 @@ Ticket
 
 SLA Event
 
-&#x20;       │
+       │
 
 is coordinated through
 
-&#x20;       ▼
+       ▼
 
 Ticket
 
@@ -1844,11 +1844,11 @@ Ticket
 
 Corrective Action
 
-&#x20;       │
+       │
 
 is coordinated through
 
-&#x20;       ▼
+       ▼
 
 Ticket
 
@@ -2718,11 +2718,11 @@ These relationships provide the enterprise with the operational context necessar
 
 Coverage Schedule
 
-&#x20;       │
+       │
 
 schedules
 
-&#x20;       ▼
+       ▼
 
 Employee
 
@@ -2730,11 +2730,11 @@ Employee
 
 Coverage Schedule
 
-&#x20;       │
+       │
 
 constrains
 
-&#x20;       ▼
+       ▼
 
 Assignment
 
@@ -2742,11 +2742,11 @@ Assignment
 
 Assignment
 
-&#x20;       │
+       │
 
 contributes to
 
-&#x20;       ▼
+       ▼
 
 Workload Record
 
@@ -2754,11 +2754,11 @@ Workload Record
 
 Workload Record
 
-&#x20;       │
+       │
 
 measures workload of
 
-&#x20;       ▼
+       ▼
 
 Employee
 
@@ -2766,11 +2766,11 @@ Employee
 
 Corrective Action
 
-&#x20;       │
+       │
 
 is assigned to
 
-&#x20;       ▼
+       ▼
 
 Employee
 
@@ -3170,29 +3170,29 @@ The canonical behavioral progression is:
 
 Coverage Schedule
 
-&#x20;       │
+       │
 
 schedules
 
-&#x20;       ▼
+       ▼
 
 Employee
 
-&#x20;       ▲
+       ▲
 
-&#x20;       │
+       │
 
 receives work through
 
-&#x20;       │
+       │
 
 Assignment
 
-&#x20;       │
+       │
 
 contributes to
 
-&#x20;       ▼
+       ▼
 
 Workload Record
 
@@ -3240,11 +3240,11 @@ Operational State is descriptive rather than procedural.
 
 Location Inventory
 
-&#x20;       │
+       │
 
 represents stock of
 
-&#x20;       ▼
+       ▼
 
 Inventory Item
 
@@ -3252,11 +3252,11 @@ Inventory Item
 
 Location Inventory
 
-&#x20;       │
+       │
 
 exists at
 
-&#x20;       ▼
+       ▼
 
 Location
 
@@ -3264,11 +3264,11 @@ Location
 
 Shipment
 
-&#x20;       │
+       │
 
 changes
 
-&#x20;       ▼
+       ▼
 
 Location Inventory
 
@@ -3276,11 +3276,11 @@ Location Inventory
 
 Inventory Discrepancy
 
-&#x20;       │
+       │
 
 changes or challenges
 
-&#x20;       ▼
+       ▼
 
 Location Inventory
 
@@ -3288,11 +3288,11 @@ Location Inventory
 
 Inventory Discrepancy
 
-&#x20;       │
+       │
 
 affects
 
-&#x20;       ▼
+       ▼
 
 Inventory Item
 
@@ -3300,11 +3300,11 @@ Inventory Item
 
 Inventory Discrepancy
 
-&#x20;       │
+       │
 
 occurs at
 
-&#x20;       ▼
+       ▼
 
 Location
 
@@ -3312,11 +3312,11 @@ Location
 
 Shortage
 
-&#x20;       │
+       │
 
 describes risk within
 
-&#x20;       ▼
+       ▼
 
 Location Inventory
 
@@ -3324,11 +3324,11 @@ Location Inventory
 
 Shortage
 
-&#x20;       │
+       │
 
 affects
 
-&#x20;       ▼
+       ▼
 
 Inventory Item
 
@@ -3336,11 +3336,11 @@ Inventory Item
 
 Shortage
 
-&#x20;       │
+       │
 
 occurs at
 
-&#x20;       ▼
+       ▼
 
 Location
 
@@ -3348,11 +3348,11 @@ Location
 
 Replenishment
 
-&#x20;       │
+       │
 
 responds to
 
-&#x20;       ▼
+       ▼
 
 Shortage
 
@@ -4060,11 +4060,11 @@ Assessment Relationships provide the enterprise with measurable understanding of
 
 Fulfillment Event
 
-&#x20;       │
+       │
 
 evaluates
 
-&#x20;       ▼
+       ▼
 
 Shipment
 
@@ -4072,11 +4072,11 @@ Shipment
 
 Fulfillment Event
 
-&#x20;       │
+       │
 
 evaluates performance of
 
-&#x20;       ▼
+       ▼
 
 Vendor
 
@@ -4084,11 +4084,11 @@ Vendor
 
 SLA Event
 
-&#x20;       │
+       │
 
 evaluates
 
-&#x20;       ▼
+       ▼
 
 Fulfillment Event
 
@@ -4096,11 +4096,11 @@ Fulfillment Event
 
 SLA Event
 
-&#x20;       │
+       │
 
 evaluates
 
-&#x20;       ▼
+       ▼
 
 Shipment
 
@@ -4108,11 +4108,11 @@ Shipment
 
 SLA Event
 
-&#x20;       │
+       │
 
 evaluates compliance of
 
-&#x20;       ▼
+       ▼
 
 Vendor
 
@@ -4120,11 +4120,11 @@ Vendor
 
 Corrective Action
 
-&#x20;       │
+       │
 
 remediates
 
-&#x20;       ▼
+       ▼
 
 Vendor
 
@@ -4132,11 +4132,11 @@ Vendor
 
 Corrective Action
 
-&#x20;       │
+       │
 
 responds to
 
-&#x20;       ▼
+       ▼
 
 SLA Event
 
@@ -4144,11 +4144,11 @@ SLA Event
 
 Corrective Action
 
-&#x20;       │
+       │
 
 responds to
 
-&#x20;       ▼
+       ▼
 
 Fulfillment Event
 
@@ -4156,11 +4156,11 @@ Fulfillment Event
 
 Workforce Escalation
 
-&#x20;       │
+       │
 
 assesses risk affecting
 
-&#x20;       ▼
+       ▼
 
 Employee
 
@@ -4168,11 +4168,11 @@ Employee
 
 Workforce Escalation
 
-&#x20;       │
+       │
 
 is supported by
 
-&#x20;       ▼
+       ▼
 
 Workload Record
 
@@ -4180,11 +4180,11 @@ Workload Record
 
 Workforce Escalation
 
-&#x20;       │
+       │
 
 is supported by
 
-&#x20;       ▼
+       ▼
 
 Coverage Schedule
 
@@ -4192,11 +4192,11 @@ Coverage Schedule
 
 Workforce Escalation
 
-&#x20;       │
+       │
 
 may generate
 
-&#x20;       ▼
+       ▼
 
 Ticket
 
