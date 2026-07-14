@@ -1,7 +1,5 @@
 # Enterprise Object Model
 
-**Writing Layer:** Layer 2 – Operational / Architectural
-
 ---
 
 # Purpose
