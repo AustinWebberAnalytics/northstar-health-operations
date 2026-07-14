@@ -1,12 +1,12 @@
-\# Enterprise Relational Model
+# Enterprise Relational Model
 
 
 
-\---
+---
 
 
 
-\# Purpose
+# Purpose
 
 
 
@@ -14,7 +14,7 @@ The Enterprise Relational Model defines the canonical business relationships bet
 
 
 
-While the Enterprise Object Model defines \*\*what exists\*\* within Northstar, the Enterprise Relational Model defines \*\*how those enterprise objects interact\*\*.
+While the Enterprise Object Model defines **what exists** within Northstar, the Enterprise Relational Model defines **how those enterprise objects interact**.
 
 
 
@@ -26,11 +26,11 @@ This document establishes the enterprise's canonical relationship grammar before
 
 
 
-\---
+---
 
 
 
-\# Relationship to Enterprise Architecture
+# Relationship to Enterprise Architecture
 
 
 
@@ -46,33 +46,33 @@ This document should be read alongside the following architectural artifacts:
 
 
 
-\- \*\*Enterprise System Map\*\* — Defines enterprise domains and subsystem boundaries.
+- **Enterprise System Map** — Defines enterprise domains and subsystem boundaries.
 
-\- \*\*Enterprise Object Model\*\* — Defines the canonical enterprise objects participating in relationships.
+- **Enterprise Object Model** — Defines the canonical enterprise objects participating in relationships.
 
-\- \*\*Cross-System Identifier Dictionary\*\* — Defines canonical identifiers shared across enterprise domains.
-
-
-
-This document intentionally does \*\*not\*\* define:
+- **Cross-System Identifier Dictionary** — Defines canonical identifiers shared across enterprise domains.
 
 
 
-\- SQL schemas
+This document intentionally does **not** define:
 
-\- database tables
 
-\- foreign keys
 
-\- junction tables
+- SQL schemas
 
-\- normalization
+- database tables
 
-\- implementation-specific constraints
+- foreign keys
 
-\- reporting calculations
+- junction tables
 
-\- simulation logic
+- normalization
+
+- implementation-specific constraints
+
+- reporting calculations
+
+- simulation logic
 
 
 
@@ -80,11 +80,11 @@ Those responsibilities belong to downstream engineering artifacts.
 
 
 
-\---
+---
 
 
 
-\## Architectural Dependency
+## Architectural Dependency
 
 
 
@@ -124,11 +124,11 @@ The Enterprise Relational Model bridges conceptual enterprise architecture and f
 
 
 
-\---
+---
 
 
 
-\# Relationship Philosophy
+# Relationship Philosophy
 
 
 
@@ -144,15 +144,15 @@ They exist independently of:
 
 
 
-\- CSV datasets
+- CSV datasets
 
-\- database schemas
+- database schemas
 
-\- reporting tools
+- reporting tools
 
-\- SQL implementations
+- SQL implementations
 
-\- simulation engines
+- simulation engines
 
 
 
@@ -168,11 +168,11 @@ Future engineering artifacts should derive their implementation from the relatio
 
 
 
-\---
+---
 
 
 
-\## Relationship Definition
+## Relationship Definition
 
 
 
@@ -188,15 +188,15 @@ Relationships are behavioral rather than structural.
 
 
 
-\---
+---
 
 
 
-\# Relationship Governance Principles
+# Relationship Governance Principles
 
 
 
-\## Canonical Relationship Principle
+## Canonical Relationship Principle
 
 
 
@@ -208,11 +208,11 @@ Subsystems may maintain specialized operational perspectives without creating co
 
 
 
-\---
+---
 
 
 
-\## Relationship Independence Principle
+## Relationship Independence Principle
 
 
 
@@ -224,13 +224,13 @@ Relationships may be represented through:
 
 
 
-\- operational datasets
+- operational datasets
 
-\- relational databases
+- relational databases
 
-\- reporting systems
+- reporting systems
 
-\- simulation environments
+- simulation environments
 
 
 
@@ -238,11 +238,11 @@ None of these representations become the authoritative definition of the relatio
 
 
 
-\---
+---
 
 
 
-\## Behavioral Principle
+## Behavioral Principle
 
 
 
@@ -254,11 +254,11 @@ The Enterprise Relational Model defines how the enterprise operates, not how inf
 
 
 
-\---
+---
 
 
 
-\## Directional Relationship Principle
+## Directional Relationship Principle
 
 
 
@@ -314,11 +314,11 @@ This principle prevents duplicate relationship definitions while preserving cons
 
 
 
-\---
+---
 
 
 
-\## Relationship Ownership Principle
+## Relationship Ownership Principle
 
 
 
@@ -334,11 +334,11 @@ Objects retain their own authoritative domains while relationships establish how
 
 
 
-\---
+---
 
 
 
-\# Relationship Categories
+# Relationship Categories
 
 
 
@@ -350,11 +350,11 @@ These classifications organize enterprise behavior without introducing implement
 
 
 
-\---
+---
 
 
 
-\## Structural Relationships
+## Structural Relationships
 
 
 
@@ -386,11 +386,11 @@ Inventory Item
 
 
 
-\---
+---
 
 
 
-\## Operational Work Relationships
+## Operational Work Relationships
 
 
 
@@ -402,11 +402,11 @@ These relationships connect work with the enterprise resources responsible for p
 
 
 
-\---
+---
 
 
 
-\## Movement Relationships
+## Movement Relationships
 
 
 
@@ -418,11 +418,11 @@ These relationships explain how inventory moves throughout enterprise operations
 
 
 
-\---
+---
 
 
 
-\## Operational State Relationships
+## Operational State Relationships
 
 
 
@@ -434,11 +434,11 @@ They describe inventory availability, workforce capacity, shortages, discrepanci
 
 
 
-\---
+---
 
 
 
-\## Assessment Relationships
+## Assessment Relationships
 
 
 
@@ -450,11 +450,11 @@ These relationships interpret operational evidence to support supplier evaluatio
 
 
 
-\---
+---
 
 
 
-\# Relationship Maturity
+# Relationship Maturity
 
 
 
@@ -466,11 +466,11 @@ Northstar classifies relationships according to their current level of implement
 
 
 
-\---
+---
 
 
 
-\## Established Relationship
+## Established Relationship
 
 
 
@@ -482,11 +482,11 @@ These relationships possess sufficient architectural maturity to support current
 
 
 
-\---
+---
 
 
 
-\## Transitional Relationship
+## Transitional Relationship
 
 
 
@@ -498,11 +498,11 @@ These relationships are recognized as part of the enterprise but require additio
 
 
 
-\---
+---
 
 
 
-\## Planned Foundation Relationship
+## Planned Foundation Relationship
 
 
 
@@ -514,11 +514,11 @@ These relationships provide architectural direction without introducing prematur
 
 
 
-\---
+---
 
 
 
-\# Cardinality and Participation
+# Cardinality and Participation
 
 
 
@@ -530,17 +530,17 @@ The Enterprise Relational Model records two complementary concepts:
 
 
 
-\- Cardinality
+- Cardinality
 
-\- Participation
-
-
-
-\---
+- Participation
 
 
 
-\## Cardinality
+---
+
+
+
+## Cardinality
 
 
 
@@ -570,11 +570,11 @@ These definitions describe business behavior rather than database implementation
 
 
 
-\---
+---
 
 
 
-\## Participation
+## Participation
 
 
 
@@ -602,11 +602,11 @@ Participation should never be interpreted as database nullability.
 
 
 
-\---
+---
 
 
 
-\# Enterprise Relationship Overview
+# Enterprise Relationship Overview
 
 
 
@@ -678,11 +678,11 @@ The sections that follow define the canonical relationships governing each of th
 
 
 
-\---
+---
 
 
 
-\# Inventory and Supply Relationships
+# Inventory and Supply Relationships
 
 
 
@@ -702,11 +702,11 @@ Unlike the Enterprise Object Model, which identifies participating business enti
 
 
 
-\---
+---
 
 
 
-\## Relationship Cluster Overview
+## Relationship Cluster Overview
 
 
 
@@ -800,23 +800,23 @@ Replenishment
 
 
 
-\---
+---
 
 
 
-\# Canonical Relationships
+# Canonical Relationships
 
 
 
-\---
+---
 
 
 
-\## Vendor → supplies → Inventory Item
+## Vendor → supplies → Inventory Item
 
 
 
-\### Business Meaning
+### Business Meaning
 
 
 
@@ -828,7 +828,7 @@ This relationship establishes the enterprise's external supply capability.
 
 
 
-\### Relationship Category
+### Relationship Category
 
 
 
@@ -836,15 +836,15 @@ Structural
 
 
 
-\### Cardinality
+### Cardinality
 
 
 
-Many-to-Many \*(conceptual)\*
+Many-to-Many *(conceptual)*
 
 
 
-\### Participation
+### Participation
 
 
 
@@ -856,7 +856,7 @@ Inventory Item — Conditional
 
 
 
-\### Relationship Maturity
+### Relationship Maturity
 
 
 
@@ -864,7 +864,7 @@ Transitional
 
 
 
-\### Authoritative Domain
+### Authoritative Domain
 
 
 
@@ -872,13 +872,13 @@ Cross-domain
 
 
 
-\- Vendor Performance
+- Vendor Performance
 
-\- Inventory Operations
+- Inventory Operations
 
 
 
-\### Current Repository Representation
+### Current Repository Representation
 
 
 
@@ -886,7 +886,7 @@ Current datasets support a preferred Vendor relationship for each Inventory Item
 
 
 
-\### Known Architectural Limitation
+### Known Architectural Limitation
 
 
 
@@ -898,15 +898,15 @@ Future enterprise evolution should allow multiple qualified Vendors for an Inven
 
 
 
-\---
+---
 
 
 
-\## Shipment → is fulfilled by → Vendor
+## Shipment → is fulfilled by → Vendor
 
 
 
-\### Business Meaning
+### Business Meaning
 
 
 
@@ -922,7 +922,7 @@ The Vendor supplies the movement.
 
 
 
-\### Relationship Category
+### Relationship Category
 
 
 
@@ -930,7 +930,7 @@ Movement
 
 
 
-\### Cardinality
+### Cardinality
 
 
 
@@ -938,7 +938,7 @@ Many-to-One
 
 
 
-\### Participation
+### Participation
 
 
 
@@ -950,7 +950,7 @@ Vendor — Optional
 
 
 
-\### Relationship Maturity
+### Relationship Maturity
 
 
 
@@ -958,7 +958,7 @@ Established
 
 
 
-\### Authoritative Domain
+### Authoritative Domain
 
 
 
@@ -966,15 +966,15 @@ Enterprise
 
 
 
-\### Current Repository Representation
+### Current Repository Representation
 
 
 
-\- vendor-shipments.csv
+- vendor-shipments.csv
 
 
 
-\### Known Architectural Limitation
+### Known Architectural Limitation
 
 
 
@@ -982,15 +982,15 @@ Shipment identity currently remains distributed across operational datasets rath
 
 
 
-\---
+---
 
 
 
-\## Shipment → carries → Inventory Item
+## Shipment → carries → Inventory Item
 
 
 
-\### Business Meaning
+### Business Meaning
 
 
 
@@ -1002,7 +1002,7 @@ This relationship establishes the operational connection between physical moveme
 
 
 
-\### Relationship Category
+### Relationship Category
 
 
 
@@ -1010,15 +1010,15 @@ Movement
 
 
 
-\### Cardinality
+### Cardinality
 
 
 
-Many-to-Many \*(provisional)\*
+Many-to-Many *(provisional)*
 
 
 
-\### Participation
+### Participation
 
 
 
@@ -1030,7 +1030,7 @@ Inventory Item — Optional
 
 
 
-\### Relationship Maturity
+### Relationship Maturity
 
 
 
@@ -1038,7 +1038,7 @@ Transitional
 
 
 
-\### Authoritative Domain
+### Authoritative Domain
 
 
 
@@ -1046,7 +1046,7 @@ Enterprise
 
 
 
-\### Current Repository Representation
+### Current Repository Representation
 
 
 
@@ -1054,7 +1054,7 @@ Current shipment records associate one Inventory Item with each Shipment record.
 
 
 
-\### Known Architectural Limitation
+### Known Architectural Limitation
 
 
 
@@ -1066,15 +1066,15 @@ Future implementation may support multiple Inventory Items within a single Shipm
 
 
 
-\---
+---
 
 
 
-\## Shipment → delivers to → Location
+## Shipment → delivers to → Location
 
 
 
-\### Business Meaning
+### Business Meaning
 
 
 
@@ -1086,7 +1086,7 @@ Movement concludes when inventory reaches its operational destination.
 
 
 
-\### Relationship Category
+### Relationship Category
 
 
 
@@ -1094,7 +1094,7 @@ Movement
 
 
 
-\### Cardinality
+### Cardinality
 
 
 
@@ -1102,7 +1102,7 @@ Many-to-One
 
 
 
-\### Participation
+### Participation
 
 
 
@@ -1114,7 +1114,7 @@ Location — Optional
 
 
 
-\### Relationship Maturity
+### Relationship Maturity
 
 
 
@@ -1122,7 +1122,7 @@ Established
 
 
 
-\### Authoritative Domain
+### Authoritative Domain
 
 
 
@@ -1130,15 +1130,15 @@ Enterprise
 
 
 
-\### Current Repository Representation
+### Current Repository Representation
 
 
 
-\- vendor-shipments.csv
+- vendor-shipments.csv
 
 
 
-\### Known Architectural Limitation
+### Known Architectural Limitation
 
 
 
@@ -1150,15 +1150,15 @@ Future enterprise expansion may introduce more complex routing without changing 
 
 
 
-\---
+---
 
 
 
-\## Replenishment → requests restoration of → Inventory Item
+## Replenishment → requests restoration of → Inventory Item
 
 
 
-\### Business Meaning
+### Business Meaning
 
 
 
@@ -1170,7 +1170,7 @@ Unlike Shipment, which represents physical movement, Replenishment represents op
 
 
 
-\### Relationship Category
+### Relationship Category
 
 
 
@@ -1178,7 +1178,7 @@ Movement
 
 
 
-\### Cardinality
+### Cardinality
 
 
 
@@ -1186,7 +1186,7 @@ Many-to-One
 
 
 
-\### Participation
+### Participation
 
 
 
@@ -1198,7 +1198,7 @@ Inventory Item — Optional
 
 
 
-\### Relationship Maturity
+### Relationship Maturity
 
 
 
@@ -1206,7 +1206,7 @@ Established
 
 
 
-\### Authoritative Domain
+### Authoritative Domain
 
 
 
@@ -1214,23 +1214,23 @@ Inventory Operations
 
 
 
-\### Current Repository Representation
+### Current Repository Representation
 
 
 
-\- replenishment-events.csv
+- replenishment-events.csv
 
 
 
-\---
+---
 
 
 
-\## Replenishment → targets → Location
+## Replenishment → targets → Location
 
 
 
-\### Business Meaning
+### Business Meaning
 
 
 
@@ -1238,7 +1238,7 @@ A Replenishment identifies the enterprise Location requiring inventory restorati
 
 
 
-\### Relationship Category
+### Relationship Category
 
 
 
@@ -1246,7 +1246,7 @@ Movement
 
 
 
-\### Cardinality
+### Cardinality
 
 
 
@@ -1254,7 +1254,7 @@ Many-to-One
 
 
 
-\### Participation
+### Participation
 
 
 
@@ -1266,7 +1266,7 @@ Location — Optional
 
 
 
-\### Relationship Maturity
+### Relationship Maturity
 
 
 
@@ -1274,7 +1274,7 @@ Established
 
 
 
-\### Authoritative Domain
+### Authoritative Domain
 
 
 
@@ -1282,23 +1282,23 @@ Inventory Operations
 
 
 
-\### Current Repository Representation
+### Current Repository Representation
 
 
 
-\- replenishment-events.csv
+- replenishment-events.csv
 
 
 
-\---
+---
 
 
 
-\## Replenishment → sources from → Vendor
+## Replenishment → sources from → Vendor
 
 
 
-\### Business Meaning
+### Business Meaning
 
 
 
@@ -1310,7 +1310,7 @@ Internal inventory transfers may not require a Vendor.
 
 
 
-\### Relationship Category
+### Relationship Category
 
 
 
@@ -1318,7 +1318,7 @@ Movement
 
 
 
-\### Cardinality
+### Cardinality
 
 
 
@@ -1326,7 +1326,7 @@ Many-to-One
 
 
 
-\### Participation
+### Participation
 
 
 
@@ -1338,7 +1338,7 @@ Vendor — Optional
 
 
 
-\### Relationship Maturity
+### Relationship Maturity
 
 
 
@@ -1346,7 +1346,7 @@ Established
 
 
 
-\### Authoritative Domain
+### Authoritative Domain
 
 
 
@@ -1354,7 +1354,7 @@ Inventory Operations
 
 
 
-\### Current Repository Representation
+### Current Repository Representation
 
 
 
@@ -1362,7 +1362,7 @@ Current replenishment records identify Vendor relationships when external procur
 
 
 
-\### Known Architectural Limitation
+### Known Architectural Limitation
 
 
 
@@ -1374,15 +1374,15 @@ Participation therefore remains conditional.
 
 
 
-\---
+---
 
 
 
-\## Shipment → fulfills → Replenishment
+## Shipment → fulfills → Replenishment
 
 
 
-\### Business Meaning
+### Business Meaning
 
 
 
@@ -1394,7 +1394,7 @@ The two enterprise objects describe different portions of the same operational l
 
 
 
-\### Relationship Category
+### Relationship Category
 
 
 
@@ -1402,7 +1402,7 @@ Movement
 
 
 
-\### Cardinality
+### Cardinality
 
 
 
@@ -1410,7 +1410,7 @@ Many-to-Many
 
 
 
-\### Participation
+### Participation
 
 
 
@@ -1422,7 +1422,7 @@ Replenishment — Optional
 
 
 
-\### Relationship Maturity
+### Relationship Maturity
 
 
 
@@ -1430,7 +1430,7 @@ Planned Foundation
 
 
 
-\### Authoritative Domain
+### Authoritative Domain
 
 
 
@@ -1438,13 +1438,13 @@ Cross-domain
 
 
 
-\- Enterprise
+- Enterprise
 
-\- Inventory Operations
+- Inventory Operations
 
 
 
-\### Current Repository Representation
+### Current Repository Representation
 
 
 
@@ -1452,7 +1452,7 @@ No canonical identifier currently connects Shipments to the Replenishment reques
 
 
 
-\### Known Architectural Limitation
+### Known Architectural Limitation
 
 
 
@@ -1464,15 +1464,15 @@ Future implementation should preserve complete traceability from operational inv
 
 
 
-\---
+---
 
 
 
-\## Location Inventory → represents stock of → Inventory Item
+## Location Inventory → represents stock of → Inventory Item
 
 
 
-\### Business Meaning
+### Business Meaning
 
 
 
@@ -1484,7 +1484,7 @@ This relationship defines the enterprise's canonical inventory condition.
 
 
 
-\### Relationship Category
+### Relationship Category
 
 
 
@@ -1492,7 +1492,7 @@ Operational State
 
 
 
-\### Cardinality
+### Cardinality
 
 
 
@@ -1500,7 +1500,7 @@ Many-to-One
 
 
 
-\### Participation
+### Participation
 
 
 
@@ -1512,7 +1512,7 @@ Inventory Item — Optional
 
 
 
-\### Relationship Maturity
+### Relationship Maturity
 
 
 
@@ -1520,7 +1520,7 @@ Established
 
 
 
-\### Authoritative Domain
+### Authoritative Domain
 
 
 
@@ -1528,15 +1528,15 @@ Inventory Operations
 
 
 
-\### Current Repository Representation
+### Current Repository Representation
 
 
 
-\- location-inventory.csv
+- location-inventory.csv
 
 
 
-\### Known Architectural Limitation
+### Known Architectural Limitation
 
 
 
@@ -1544,15 +1544,15 @@ Location Inventory represents current enterprise state rather than historical in
 
 
 
-\---
+---
 
 
 
-\## Location Inventory → exists at → Location
+## Location Inventory → exists at → Location
 
 
 
-\### Business Meaning
+### Business Meaning
 
 
 
@@ -1564,7 +1564,7 @@ Together with Inventory Item, this relationship establishes the enterprise inven
 
 
 
-\### Relationship Category
+### Relationship Category
 
 
 
@@ -1572,7 +1572,7 @@ Operational State
 
 
 
-\### Cardinality
+### Cardinality
 
 
 
@@ -1580,7 +1580,7 @@ Many-to-One
 
 
 
-\### Participation
+### Participation
 
 
 
@@ -1592,7 +1592,7 @@ Location — Optional
 
 
 
-\### Relationship Maturity
+### Relationship Maturity
 
 
 
@@ -1600,7 +1600,7 @@ Established
 
 
 
-\### Authoritative Domain
+### Authoritative Domain
 
 
 
@@ -1608,15 +1608,15 @@ Inventory Operations
 
 
 
-\### Current Repository Representation
+### Current Repository Representation
 
 
 
-\- location-inventory.csv
+- location-inventory.csv
 
 
 
-\### Known Architectural Limitation
+### Known Architectural Limitation
 
 
 
@@ -1628,11 +1628,11 @@ Future enterprise implementation should introduce a dedicated Location registry 
 
 
 
-\---
+---
 
 
 
-\# Inventory and Supply Cluster Summary
+# Inventory and Supply Cluster Summary
 
 
 
@@ -1700,11 +1700,11 @@ Future relational implementation should preserve this lifecycle while allowing o
 
 
 
-\---
+---
 
 
 
-\# Operational Coordination Relationships
+# Operational Coordination Relationships
 
 
 
@@ -1724,11 +1724,11 @@ Operational Coordination provides the enterprise's operational control layer.
 
 
 
-\---
+---
 
 
 
-\## Relationship Cluster Overview
+## Relationship Cluster Overview
 
 
 
@@ -1856,23 +1856,23 @@ Ticket
 
 
 
-\---
+---
 
 
 
-\# Canonical Relationships
+# Canonical Relationships
 
 
 
-\---
+---
 
 
 
-\## Assignment → allocates work to → Employee
+## Assignment → allocates work to → Employee
 
 
 
-\### Business Meaning
+### Business Meaning
 
 
 
@@ -1884,7 +1884,7 @@ Assignments define who performs enterprise work while preserving Assignment as t
 
 
 
-\### Relationship Category
+### Relationship Category
 
 
 
@@ -1892,7 +1892,7 @@ Operational Work
 
 
 
-\### Cardinality
+### Cardinality
 
 
 
@@ -1900,7 +1900,7 @@ Many-to-One
 
 
 
-\### Participation
+### Participation
 
 
 
@@ -1912,7 +1912,7 @@ Employee — Optional
 
 
 
-\### Relationship Maturity
+### Relationship Maturity
 
 
 
@@ -1920,7 +1920,7 @@ Established
 
 
 
-\### Authoritative Domain
+### Authoritative Domain
 
 
 
@@ -1928,15 +1928,15 @@ Workforce Coordination
 
 
 
-\### Current Repository Representation
+### Current Repository Representation
 
 
 
-\- workforce-assignments.csv
+- workforce-assignments.csv
 
 
 
-\### Known Architectural Limitation
+### Known Architectural Limitation
 
 
 
@@ -1948,15 +1948,15 @@ Future implementation should strengthen traceability between Assignments and the
 
 
 
-\---
+---
 
 
 
-\## Assignment → allocates responsibility for → Operational Work Object
+## Assignment → allocates responsibility for → Operational Work Object
 
 
 
-\### Business Meaning
+### Business Meaning
 
 
 
@@ -1972,7 +1972,7 @@ Operational Work Object is a relational role rather than a new enterprise object
 
 
 
-\### Relationship Category
+### Relationship Category
 
 
 
@@ -1980,7 +1980,7 @@ Operational Work
 
 
 
-\### Cardinality
+### Cardinality
 
 
 
@@ -1988,7 +1988,7 @@ Many-to-Many
 
 
 
-\### Participation
+### Participation
 
 
 
@@ -2000,7 +2000,7 @@ Operational Work Object — Conceptually Required
 
 
 
-\### Relationship Maturity
+### Relationship Maturity
 
 
 
@@ -2008,7 +2008,7 @@ Planned Foundation
 
 
 
-\### Authoritative Domain
+### Authoritative Domain
 
 
 
@@ -2016,7 +2016,7 @@ Workforce Coordination
 
 
 
-\### Current Repository Representation
+### Current Repository Representation
 
 
 
@@ -2024,7 +2024,7 @@ Current Assignment records describe work categories rather than consistently ref
 
 
 
-\### Known Architectural Limitation
+### Known Architectural Limitation
 
 
 
@@ -2036,15 +2036,15 @@ Future implementation should strengthen this relationship without introducing co
 
 
 
-\---
+---
 
 
 
-\## Ticket → occurs at → Location
+## Ticket → occurs at → Location
 
 
 
-\### Business Meaning
+### Business Meaning
 
 
 
@@ -2056,7 +2056,7 @@ Location provides the operational context in which the work exists.
 
 
 
-\### Relationship Category
+### Relationship Category
 
 
 
@@ -2064,7 +2064,7 @@ Operational Work
 
 
 
-\### Cardinality
+### Cardinality
 
 
 
@@ -2072,7 +2072,7 @@ Many-to-One
 
 
 
-\### Participation
+### Participation
 
 
 
@@ -2084,7 +2084,7 @@ Location — Optional
 
 
 
-\### Relationship Maturity
+### Relationship Maturity
 
 
 
@@ -2092,7 +2092,7 @@ Transitional
 
 
 
-\### Authoritative Domain
+### Authoritative Domain
 
 
 
@@ -2100,7 +2100,7 @@ Ticketing System
 
 
 
-\### Current Repository Representation
+### Current Repository Representation
 
 
 
@@ -2108,7 +2108,7 @@ Ticket records currently identify Locations through descriptive operational valu
 
 
 
-\### Known Architectural Limitation
+### Known Architectural Limitation
 
 
 
@@ -2116,15 +2116,15 @@ Future implementation should replace descriptive Location references with canoni
 
 
 
-\---
+---
 
 
 
-\## Ticket → is owned by → Employee
+## Ticket → is owned by → Employee
 
 
 
-\### Business Meaning
+### Business Meaning
 
 
 
@@ -2136,7 +2136,7 @@ Ticket ownership establishes accountability rather than workforce planning.
 
 
 
-\### Relationship Category
+### Relationship Category
 
 
 
@@ -2144,7 +2144,7 @@ Operational Work
 
 
 
-\### Cardinality
+### Cardinality
 
 
 
@@ -2152,7 +2152,7 @@ Many-to-One
 
 
 
-\### Participation
+### Participation
 
 
 
@@ -2164,7 +2164,7 @@ Employee — Optional
 
 
 
-\### Relationship Maturity
+### Relationship Maturity
 
 
 
@@ -2172,7 +2172,7 @@ Transitional
 
 
 
-\### Authoritative Domain
+### Authoritative Domain
 
 
 
@@ -2180,7 +2180,7 @@ Ticketing System
 
 
 
-\### Current Repository Representation
+### Current Repository Representation
 
 
 
@@ -2188,7 +2188,7 @@ Ticket ownership currently relies upon descriptive employee names.
 
 
 
-\### Known Architectural Limitation
+### Known Architectural Limitation
 
 
 
@@ -2200,15 +2200,15 @@ Ticket ownership and Assignment represent different enterprise concepts and shou
 
 
 
-\---
+---
 
 
 
-\## Inventory Discrepancy → is coordinated through → Ticket
+## Inventory Discrepancy → is coordinated through → Ticket
 
 
 
-\### Business Meaning
+### Business Meaning
 
 
 
@@ -2220,7 +2220,7 @@ The Ticket manages the work without becoming the authoritative owner of the disc
 
 
 
-\### Relationship Category
+### Relationship Category
 
 
 
@@ -2228,7 +2228,7 @@ Operational Work
 
 
 
-\### Cardinality
+### Cardinality
 
 
 
@@ -2236,7 +2236,7 @@ Many-to-One
 
 
 
-\### Participation
+### Participation
 
 
 
@@ -2248,7 +2248,7 @@ Ticket — Optional
 
 
 
-\### Relationship Maturity
+### Relationship Maturity
 
 
 
@@ -2256,7 +2256,7 @@ Established
 
 
 
-\### Authoritative Domain
+### Authoritative Domain
 
 
 
@@ -2268,23 +2268,23 @@ Inventory Operations and Ticketing System
 
 
 
-\### Current Repository Representation
+### Current Repository Representation
 
 
 
-\- related\_ticket\_id
+- related_ticket_id
 
 
 
-\---
+---
 
 
 
-\## Shortage → is coordinated through → Ticket
+## Shortage → is coordinated through → Ticket
 
 
 
-\### Business Meaning
+### Business Meaning
 
 
 
@@ -2292,7 +2292,7 @@ Operational response to a Shortage may be coordinated through a Ticket.
 
 
 
-\### Relationship Category
+### Relationship Category
 
 
 
@@ -2300,7 +2300,7 @@ Operational Work
 
 
 
-\### Cardinality
+### Cardinality
 
 
 
@@ -2308,7 +2308,7 @@ Many-to-One
 
 
 
-\### Participation
+### Participation
 
 
 
@@ -2320,7 +2320,7 @@ Ticket — Optional
 
 
 
-\### Relationship Maturity
+### Relationship Maturity
 
 
 
@@ -2328,7 +2328,7 @@ Established
 
 
 
-\### Authoritative Domain
+### Authoritative Domain
 
 
 
@@ -2340,23 +2340,23 @@ Inventory Operations and Ticketing System
 
 
 
-\### Current Repository Representation
+### Current Repository Representation
 
 
 
-\- related\_ticket\_id
+- related_ticket_id
 
 
 
-\---
+---
 
 
 
-\## Replenishment → is coordinated through → Ticket
+## Replenishment → is coordinated through → Ticket
 
 
 
-\### Business Meaning
+### Business Meaning
 
 
 
@@ -2364,7 +2364,7 @@ A Ticket may coordinate the operational activities necessary to complete a Reple
 
 
 
-\### Relationship Category
+### Relationship Category
 
 
 
@@ -2372,7 +2372,7 @@ Operational Work
 
 
 
-\### Cardinality
+### Cardinality
 
 
 
@@ -2380,7 +2380,7 @@ Many-to-One
 
 
 
-\### Participation
+### Participation
 
 
 
@@ -2392,7 +2392,7 @@ Ticket — Optional
 
 
 
-\### Relationship Maturity
+### Relationship Maturity
 
 
 
@@ -2400,7 +2400,7 @@ Established
 
 
 
-\### Authoritative Domain
+### Authoritative Domain
 
 
 
@@ -2412,23 +2412,23 @@ Inventory Operations and Ticketing System
 
 
 
-\### Current Repository Representation
+### Current Repository Representation
 
 
 
-\- related\_ticket\_id
+- related_ticket_id
 
 
 
-\---
+---
 
 
 
-\## Shipment → is coordinated through → Ticket
+## Shipment → is coordinated through → Ticket
 
 
 
-\### Business Meaning
+### Business Meaning
 
 
 
@@ -2436,7 +2436,7 @@ Shipment-related operational activities may be coordinated through a Ticket when
 
 
 
-\### Relationship Category
+### Relationship Category
 
 
 
@@ -2444,7 +2444,7 @@ Operational Work
 
 
 
-\### Cardinality
+### Cardinality
 
 
 
@@ -2452,7 +2452,7 @@ Many-to-One
 
 
 
-\### Participation
+### Participation
 
 
 
@@ -2464,7 +2464,7 @@ Ticket — Optional
 
 
 
-\### Relationship Maturity
+### Relationship Maturity
 
 
 
@@ -2472,7 +2472,7 @@ Established
 
 
 
-\### Authoritative Domain
+### Authoritative Domain
 
 
 
@@ -2484,23 +2484,23 @@ Enterprise and Ticketing System
 
 
 
-\### Current Repository Representation
+### Current Repository Representation
 
 
 
-\- related\_ticket\_id
+- related_ticket_id
 
 
 
-\---
+---
 
 
 
-\## SLA Event → is coordinated through → Ticket
+## SLA Event → is coordinated through → Ticket
 
 
 
-\### Business Meaning
+### Business Meaning
 
 
 
@@ -2508,7 +2508,7 @@ Operational work resulting from supplier compliance monitoring may be coordinate
 
 
 
-\### Relationship Category
+### Relationship Category
 
 
 
@@ -2516,7 +2516,7 @@ Operational Work
 
 
 
-\### Cardinality
+### Cardinality
 
 
 
@@ -2524,7 +2524,7 @@ Many-to-One
 
 
 
-\### Participation
+### Participation
 
 
 
@@ -2536,7 +2536,7 @@ Ticket — Optional
 
 
 
-\### Relationship Maturity
+### Relationship Maturity
 
 
 
@@ -2544,7 +2544,7 @@ Established
 
 
 
-\### Authoritative Domain
+### Authoritative Domain
 
 
 
@@ -2556,23 +2556,23 @@ Vendor Performance and Ticketing System
 
 
 
-\### Current Repository Representation
+### Current Repository Representation
 
 
 
-\- related\_ticket\_id
+- related_ticket_id
 
 
 
-\---
+---
 
 
 
-\## Corrective Action → is coordinated through → Ticket
+## Corrective Action → is coordinated through → Ticket
 
 
 
-\### Business Meaning
+### Business Meaning
 
 
 
@@ -2584,7 +2584,7 @@ The Ticket organizes enterprise work while the Corrective Action remains the aut
 
 
 
-\### Relationship Category
+### Relationship Category
 
 
 
@@ -2592,7 +2592,7 @@ Operational Work
 
 
 
-\### Cardinality
+### Cardinality
 
 
 
@@ -2600,7 +2600,7 @@ Many-to-One
 
 
 
-\### Participation
+### Participation
 
 
 
@@ -2612,7 +2612,7 @@ Ticket — Optional
 
 
 
-\### Relationship Maturity
+### Relationship Maturity
 
 
 
@@ -2620,7 +2620,7 @@ Established
 
 
 
-\### Authoritative Domain
+### Authoritative Domain
 
 
 
@@ -2632,19 +2632,19 @@ Vendor Performance and Ticketing System
 
 
 
-\### Current Repository Representation
+### Current Repository Representation
 
 
 
-\- related\_ticket\_id
+- related_ticket_id
 
 
 
-\---
+---
 
 
 
-\# Operational Coordination Architectural Rule
+# Operational Coordination Architectural Rule
 
 
 
@@ -2652,7 +2652,7 @@ Operational Coordination relationships organize enterprise work.
 
 
 
-They do \*\*not\*\* redefine ownership of enterprise objects.
+They do **not** redefine ownership of enterprise objects.
 
 
 
@@ -2660,17 +2660,17 @@ A Ticket may coordinate:
 
 
 
-\- Inventory Discrepancies
+- Inventory Discrepancies
 
-\- Shortages
+- Shortages
 
-\- Shipments
+- Shipments
 
-\- Replenishments
+- Replenishments
 
-\- SLA Events
+- SLA Events
 
-\- Corrective Actions
+- Corrective Actions
 
 
 
@@ -2686,11 +2686,11 @@ This separation preserves clear enterprise ownership boundaries while allowing w
 
 
 
-\---
+---
 
 
 
-\# Workforce Capacity Relationships
+# Workforce Capacity Relationships
 
 
 
@@ -2706,11 +2706,11 @@ These relationships provide the enterprise with the operational context necessar
 
 
 
-\---
+---
 
 
 
-\## Relationship Cluster Overview
+## Relationship Cluster Overview
 
 
 
@@ -2778,23 +2778,23 @@ Employee
 
 
 
-\---
+---
 
 
 
-\# Canonical Relationships
+# Canonical Relationships
 
 
 
-\---
+---
 
 
 
-\## Coverage Schedule → schedules → Employee
+## Coverage Schedule → schedules → Employee
 
 
 
-\### Business Meaning
+### Business Meaning
 
 
 
@@ -2806,7 +2806,7 @@ Coverage establishes expected workforce capacity before work is assigned.
 
 
 
-\### Relationship Category
+### Relationship Category
 
 
 
@@ -2814,7 +2814,7 @@ Operational State
 
 
 
-\### Cardinality
+### Cardinality
 
 
 
@@ -2822,7 +2822,7 @@ Many-to-One
 
 
 
-\### Participation
+### Participation
 
 
 
@@ -2834,7 +2834,7 @@ Employee — Optional
 
 
 
-\### Relationship Maturity
+### Relationship Maturity
 
 
 
@@ -2842,7 +2842,7 @@ Established
 
 
 
-\### Authoritative Domain
+### Authoritative Domain
 
 
 
@@ -2850,23 +2850,23 @@ Workforce Coordination
 
 
 
-\### Current Repository Representation
+### Current Repository Representation
 
 
 
-\- workforce-coverage-schedule.csv
+- workforce-coverage-schedule.csv
 
 
 
-\---
+---
 
 
 
-\## Coverage Schedule → constrains → Assignment
+## Coverage Schedule → constrains → Assignment
 
 
 
-\### Business Meaning
+### Business Meaning
 
 
 
@@ -2874,7 +2874,7 @@ Workforce availability constrains the Assignments that may be performed during a
 
 
 
-\### Relationship Category
+### Relationship Category
 
 
 
@@ -2882,7 +2882,7 @@ Operational State
 
 
 
-\### Cardinality
+### Cardinality
 
 
 
@@ -2890,7 +2890,7 @@ Many-to-Many
 
 
 
-\### Participation
+### Participation
 
 
 
@@ -2902,7 +2902,7 @@ Assignment — Optional
 
 
 
-\### Relationship Maturity
+### Relationship Maturity
 
 
 
@@ -2910,7 +2910,7 @@ Planned Foundation
 
 
 
-\### Authoritative Domain
+### Authoritative Domain
 
 
 
@@ -2918,7 +2918,7 @@ Workforce Coordination
 
 
 
-\### Current Repository Representation
+### Current Repository Representation
 
 
 
@@ -2926,7 +2926,7 @@ Currently inferred rather than directly represented.
 
 
 
-\### Known Architectural Limitation
+### Known Architectural Limitation
 
 
 
@@ -2934,15 +2934,15 @@ Coverage and Assignment remain operationally related but are not yet linked thro
 
 
 
-\---
+---
 
 
 
-\## Assignment → contributes to → Workload Record
+## Assignment → contributes to → Workload Record
 
 
 
-\### Business Meaning
+### Business Meaning
 
 
 
@@ -2950,7 +2950,7 @@ Assignments generate operational activity that contributes to measured workforce
 
 
 
-\### Relationship Category
+### Relationship Category
 
 
 
@@ -2958,7 +2958,7 @@ Operational State
 
 
 
-\### Cardinality
+### Cardinality
 
 
 
@@ -2966,7 +2966,7 @@ Many-to-Many
 
 
 
-\### Participation
+### Participation
 
 
 
@@ -2978,7 +2978,7 @@ Workload Record — Conceptually Required
 
 
 
-\### Relationship Maturity
+### Relationship Maturity
 
 
 
@@ -2986,7 +2986,7 @@ Planned Foundation
 
 
 
-\### Authoritative Domain
+### Authoritative Domain
 
 
 
@@ -2994,7 +2994,7 @@ Workforce Coordination
 
 
 
-\### Current Repository Representation
+### Current Repository Representation
 
 
 
@@ -3002,15 +3002,15 @@ Current Workload Records summarize completed work without tracing activity back 
 
 
 
-\---
+---
 
 
 
-\## Workload Record → measures workload of → Employee
+## Workload Record → measures workload of → Employee
 
 
 
-\### Business Meaning
+### Business Meaning
 
 
 
@@ -3018,7 +3018,7 @@ Workload Records summarize the operational utilization of an Employee over a rep
 
 
 
-\### Relationship Category
+### Relationship Category
 
 
 
@@ -3026,7 +3026,7 @@ Operational State
 
 
 
-\### Cardinality
+### Cardinality
 
 
 
@@ -3034,7 +3034,7 @@ Many-to-One
 
 
 
-\### Participation
+### Participation
 
 
 
@@ -3046,7 +3046,7 @@ Employee — Optional
 
 
 
-\### Relationship Maturity
+### Relationship Maturity
 
 
 
@@ -3054,7 +3054,7 @@ Established
 
 
 
-\### Authoritative Domain
+### Authoritative Domain
 
 
 
@@ -3062,23 +3062,23 @@ Workforce Coordination
 
 
 
-\### Current Repository Representation
+### Current Repository Representation
 
 
 
-\- workforce-workload-distribution.csv
+- workforce-workload-distribution.csv
 
 
 
-\---
+---
 
 
 
-\## Corrective Action → is assigned to → Employee
+## Corrective Action → is assigned to → Employee
 
 
 
-\### Business Meaning
+### Business Meaning
 
 
 
@@ -3090,7 +3090,7 @@ This relationship establishes operational accountability for vendor remediation.
 
 
 
-\### Relationship Category
+### Relationship Category
 
 
 
@@ -3098,7 +3098,7 @@ Operational Work
 
 
 
-\### Cardinality
+### Cardinality
 
 
 
@@ -3106,7 +3106,7 @@ Many-to-One
 
 
 
-\### Participation
+### Participation
 
 
 
@@ -3118,7 +3118,7 @@ Employee — Optional
 
 
 
-\### Relationship Maturity
+### Relationship Maturity
 
 
 
@@ -3126,7 +3126,7 @@ Transitional
 
 
 
-\### Authoritative Domain
+### Authoritative Domain
 
 
 
@@ -3134,7 +3134,7 @@ Vendor Performance
 
 
 
-\### Current Repository Representation
+### Current Repository Representation
 
 
 
@@ -3142,7 +3142,7 @@ Current records use descriptive owner information.
 
 
 
-\### Known Architectural Limitation
+### Known Architectural Limitation
 
 
 
@@ -3150,11 +3150,11 @@ Future implementation should reference canonical Employee identifiers while pres
 
 
 
-\---
+---
 
 
 
-\# Workforce Capacity Cluster Summary
+# Workforce Capacity Cluster Summary
 
 
 
@@ -3204,11 +3204,11 @@ Together, these relationships describe how workforce capacity is planned, utiliz
 
 
 
-\---
+---
 
 
 
-\# Enterprise State Relationships
+# Enterprise State Relationships
 
 
 
@@ -3228,11 +3228,11 @@ Operational State is descriptive rather than procedural.
 
 
 
-\---
+---
 
 
 
-\## Relationship Cluster Overview
+## Relationship Cluster Overview
 
 
 
@@ -3360,23 +3360,23 @@ Shortage
 
 
 
-\---
+---
 
 
 
-\# Canonical Relationships
+# Canonical Relationships
 
 
 
-\---
+---
 
 
 
-\## Shipment → changes → Location Inventory
+## Shipment → changes → Location Inventory
 
 
 
-\### Business Meaning
+### Business Meaning
 
 
 
@@ -3396,7 +3396,7 @@ The relationship describes how operational movement produces enterprise state.
 
 
 
-\### Relationship Category
+### Relationship Category
 
 
 
@@ -3404,7 +3404,7 @@ Movement → Operational State
 
 
 
-\### Cardinality
+### Cardinality
 
 
 
@@ -3412,7 +3412,7 @@ Many-to-Many over time
 
 
 
-\### Participation
+### Participation
 
 
 
@@ -3424,7 +3424,7 @@ Location Inventory — Optional
 
 
 
-\### Relationship Maturity
+### Relationship Maturity
 
 
 
@@ -3432,7 +3432,7 @@ Transitional
 
 
 
-\### Authoritative Domain
+### Authoritative Domain
 
 
 
@@ -3444,7 +3444,7 @@ Enterprise and Inventory Operations
 
 
 
-\### Current Repository Representation
+### Current Repository Representation
 
 
 
@@ -3452,7 +3452,7 @@ Current inventory state may be inferred from Shipment activity but historical st
 
 
 
-\### Known Architectural Limitation
+### Known Architectural Limitation
 
 
 
@@ -3464,15 +3464,15 @@ Future implementation may introduce transaction history without changing this ca
 
 
 
-\---
+---
 
 
 
-\## Inventory Discrepancy → affects → Inventory Item
+## Inventory Discrepancy → affects → Inventory Item
 
 
 
-\### Business Meaning
+### Business Meaning
 
 
 
@@ -3484,7 +3484,7 @@ The relationship establishes the enterprise object affected by the discrepancy.
 
 
 
-\### Relationship Category
+### Relationship Category
 
 
 
@@ -3492,7 +3492,7 @@ Operational State
 
 
 
-\### Cardinality
+### Cardinality
 
 
 
@@ -3500,7 +3500,7 @@ Many-to-One
 
 
 
-\### Participation
+### Participation
 
 
 
@@ -3512,7 +3512,7 @@ Inventory Item — Optional
 
 
 
-\### Relationship Maturity
+### Relationship Maturity
 
 
 
@@ -3520,7 +3520,7 @@ Established
 
 
 
-\### Authoritative Domain
+### Authoritative Domain
 
 
 
@@ -3528,23 +3528,23 @@ Inventory Operations
 
 
 
-\### Current Repository Representation
+### Current Repository Representation
 
 
 
-\- inventory-discrepancies.csv
+- inventory-discrepancies.csv
 
 
 
-\---
+---
 
 
 
-\## Inventory Discrepancy → occurs at → Location
+## Inventory Discrepancy → occurs at → Location
 
 
 
-\### Business Meaning
+### Business Meaning
 
 
 
@@ -3556,7 +3556,7 @@ Location provides the operational context in which the variance exists.
 
 
 
-\### Relationship Category
+### Relationship Category
 
 
 
@@ -3564,7 +3564,7 @@ Operational State
 
 
 
-\### Cardinality
+### Cardinality
 
 
 
@@ -3572,7 +3572,7 @@ Many-to-One
 
 
 
-\### Participation
+### Participation
 
 
 
@@ -3584,7 +3584,7 @@ Location — Optional
 
 
 
-\### Relationship Maturity
+### Relationship Maturity
 
 
 
@@ -3592,7 +3592,7 @@ Established
 
 
 
-\### Authoritative Domain
+### Authoritative Domain
 
 
 
@@ -3600,23 +3600,23 @@ Inventory Operations
 
 
 
-\### Current Repository Representation
+### Current Repository Representation
 
 
 
-\- inventory-discrepancies.csv
+- inventory-discrepancies.csv
 
 
 
-\---
+---
 
 
 
-\## Inventory Discrepancy → changes or challenges → Location Inventory
+## Inventory Discrepancy → changes or challenges → Location Inventory
 
 
 
-\### Business Meaning
+### Business Meaning
 
 
 
@@ -3628,7 +3628,7 @@ This relationship connects operational variance directly to enterprise inventory
 
 
 
-\### Relationship Category
+### Relationship Category
 
 
 
@@ -3636,7 +3636,7 @@ Operational State
 
 
 
-\### Cardinality
+### Cardinality
 
 
 
@@ -3644,7 +3644,7 @@ Many-to-One
 
 
 
-\### Participation
+### Participation
 
 
 
@@ -3656,7 +3656,7 @@ Location Inventory — Conceptually Required
 
 
 
-\### Relationship Maturity
+### Relationship Maturity
 
 
 
@@ -3664,7 +3664,7 @@ Transitional
 
 
 
-\### Authoritative Domain
+### Authoritative Domain
 
 
 
@@ -3672,7 +3672,7 @@ Inventory Operations
 
 
 
-\### Current Repository Representation
+### Current Repository Representation
 
 
 
@@ -3680,7 +3680,7 @@ Currently inferred through shared Inventory Item and Location relationships.
 
 
 
-\### Known Architectural Limitation
+### Known Architectural Limitation
 
 
 
@@ -3688,15 +3688,15 @@ Future implementation should strengthen direct traceability between discrepancie
 
 
 
-\---
+---
 
 
 
-\## Shortage → affects → Inventory Item
+## Shortage → affects → Inventory Item
 
 
 
-\### Business Meaning
+### Business Meaning
 
 
 
@@ -3704,7 +3704,7 @@ A Shortage represents insufficient availability of an Inventory Item.
 
 
 
-\### Relationship Category
+### Relationship Category
 
 
 
@@ -3712,7 +3712,7 @@ Operational State
 
 
 
-\### Cardinality
+### Cardinality
 
 
 
@@ -3720,7 +3720,7 @@ Many-to-One
 
 
 
-\### Participation
+### Participation
 
 
 
@@ -3732,7 +3732,7 @@ Inventory Item — Optional
 
 
 
-\### Relationship Maturity
+### Relationship Maturity
 
 
 
@@ -3740,7 +3740,7 @@ Established
 
 
 
-\### Authoritative Domain
+### Authoritative Domain
 
 
 
@@ -3748,23 +3748,23 @@ Inventory Operations
 
 
 
-\### Current Repository Representation
+### Current Repository Representation
 
 
 
-\- shortage-events.csv
+- shortage-events.csv
 
 
 
-\---
+---
 
 
 
-\## Shortage → occurs at → Location
+## Shortage → occurs at → Location
 
 
 
-\### Business Meaning
+### Business Meaning
 
 
 
@@ -3772,7 +3772,7 @@ A Shortage affects enterprise operations at one Location.
 
 
 
-\### Relationship Category
+### Relationship Category
 
 
 
@@ -3780,7 +3780,7 @@ Operational State
 
 
 
-\### Cardinality
+### Cardinality
 
 
 
@@ -3788,7 +3788,7 @@ Many-to-One
 
 
 
-\### Participation
+### Participation
 
 
 
@@ -3800,7 +3800,7 @@ Location — Optional
 
 
 
-\### Relationship Maturity
+### Relationship Maturity
 
 
 
@@ -3808,7 +3808,7 @@ Established
 
 
 
-\### Authoritative Domain
+### Authoritative Domain
 
 
 
@@ -3816,23 +3816,23 @@ Inventory Operations
 
 
 
-\### Current Repository Representation
+### Current Repository Representation
 
 
 
-\- shortage-events.csv
+- shortage-events.csv
 
 
 
-\---
+---
 
 
 
-\## Shortage → describes risk within → Location Inventory
+## Shortage → describes risk within → Location Inventory
 
 
 
-\### Business Meaning
+### Business Meaning
 
 
 
@@ -3844,7 +3844,7 @@ Unlike Inventory Discrepancy, which questions inventory accuracy, a Shortage ref
 
 
 
-\### Relationship Category
+### Relationship Category
 
 
 
@@ -3852,7 +3852,7 @@ Operational State
 
 
 
-\### Cardinality
+### Cardinality
 
 
 
@@ -3860,7 +3860,7 @@ Many-to-One
 
 
 
-\### Participation
+### Participation
 
 
 
@@ -3872,7 +3872,7 @@ Location Inventory — Conceptually Required
 
 
 
-\### Relationship Maturity
+### Relationship Maturity
 
 
 
@@ -3880,7 +3880,7 @@ Transitional
 
 
 
-\### Authoritative Domain
+### Authoritative Domain
 
 
 
@@ -3888,7 +3888,7 @@ Inventory Operations
 
 
 
-\### Current Repository Representation
+### Current Repository Representation
 
 
 
@@ -3896,7 +3896,7 @@ Currently inferred through Inventory Item and Location relationships.
 
 
 
-\### Known Architectural Limitation
+### Known Architectural Limitation
 
 
 
@@ -3904,15 +3904,15 @@ The repository does not yet directly associate Shortage records with canonical L
 
 
 
-\---
+---
 
 
 
-\## Replenishment → responds to → Shortage
+## Replenishment → responds to → Shortage
 
 
 
-\### Business Meaning
+### Business Meaning
 
 
 
@@ -3924,7 +3924,7 @@ The relationship connects enterprise demand with enterprise recovery.
 
 
 
-\### Relationship Category
+### Relationship Category
 
 
 
@@ -3932,7 +3932,7 @@ Operational State → Movement
 
 
 
-\### Cardinality
+### Cardinality
 
 
 
@@ -3940,7 +3940,7 @@ Many-to-Many
 
 
 
-\### Participation
+### Participation
 
 
 
@@ -3952,7 +3952,7 @@ Shortage — Optional
 
 
 
-\### Relationship Maturity
+### Relationship Maturity
 
 
 
@@ -3960,7 +3960,7 @@ Transitional
 
 
 
-\### Authoritative Domain
+### Authoritative Domain
 
 
 
@@ -3968,7 +3968,7 @@ Inventory Operations
 
 
 
-\### Current Repository Representation
+### Current Repository Representation
 
 
 
@@ -3976,7 +3976,7 @@ Current repository behavior supports conceptual rather than explicit relationshi
 
 
 
-\### Known Architectural Limitation
+### Known Architectural Limitation
 
 
 
@@ -3992,11 +3992,11 @@ Future implementation should preserve this flexibility.
 
 
 
-\---
+---
 
 
 
-\# Enterprise State Architectural Rule
+# Enterprise State Architectural Rule
 
 
 
@@ -4028,11 +4028,11 @@ Maintaining this distinction enables future support for enterprise snapshots, hi
 
 
 
-\---
+---
 
 
 
-\# Performance Assessment Relationships
+# Performance Assessment Relationships
 
 
 
@@ -4048,11 +4048,11 @@ Assessment Relationships provide the enterprise with measurable understanding of
 
 
 
-\---
+---
 
 
 
-\## Relationship Cluster Overview
+## Relationship Cluster Overview
 
 
 
@@ -4204,23 +4204,23 @@ Ticket
 
 
 
-\---
+---
 
 
 
-\# Canonical Relationships
+# Canonical Relationships
 
 
 
-\---
+---
 
 
 
-\## Fulfillment Event → evaluates → Shipment
+## Fulfillment Event → evaluates → Shipment
 
 
 
-\### Business Meaning
+### Business Meaning
 
 
 
@@ -4236,7 +4236,7 @@ Fulfillment evaluates that evidence.
 
 
 
-\### Relationship Category
+### Relationship Category
 
 
 
@@ -4244,7 +4244,7 @@ Assessment
 
 
 
-\### Cardinality
+### Cardinality
 
 
 
@@ -4252,7 +4252,7 @@ Many-to-One
 
 
 
-\### Participation
+### Participation
 
 
 
@@ -4264,7 +4264,7 @@ Shipment — Required
 
 
 
-\### Relationship Maturity
+### Relationship Maturity
 
 
 
@@ -4272,7 +4272,7 @@ Established
 
 
 
-\### Authoritative Domain
+### Authoritative Domain
 
 
 
@@ -4280,23 +4280,23 @@ Vendor Performance
 
 
 
-\### Current Repository Representation
+### Current Repository Representation
 
 
 
-\- vendor-fulfillment-events.csv
+- vendor-fulfillment-events.csv
 
 
 
-\---
+---
 
 
 
-\## Fulfillment Event → evaluates performance of → Vendor
+## Fulfillment Event → evaluates performance of → Vendor
 
 
 
-\### Business Meaning
+### Business Meaning
 
 
 
@@ -4304,7 +4304,7 @@ Vendor performance is assessed through observed fulfillment outcomes.
 
 
 
-\### Relationship Category
+### Relationship Category
 
 
 
@@ -4312,7 +4312,7 @@ Assessment
 
 
 
-\### Cardinality
+### Cardinality
 
 
 
@@ -4320,7 +4320,7 @@ Many-to-One
 
 
 
-\### Participation
+### Participation
 
 
 
@@ -4332,7 +4332,7 @@ Vendor — Required
 
 
 
-\### Relationship Maturity
+### Relationship Maturity
 
 
 
@@ -4340,7 +4340,7 @@ Established
 
 
 
-\### Authoritative Domain
+### Authoritative Domain
 
 
 
@@ -4348,15 +4348,15 @@ Vendor Performance
 
 
 
-\---
+---
 
 
 
-\## SLA Event → evaluates → Fulfillment Event
+## SLA Event → evaluates → Fulfillment Event
 
 
 
-\### Business Meaning
+### Business Meaning
 
 
 
@@ -4364,7 +4364,7 @@ An SLA Event evaluates whether observed fulfillment satisfied defined service ex
 
 
 
-\### Relationship Category
+### Relationship Category
 
 
 
@@ -4372,7 +4372,7 @@ Assessment
 
 
 
-\### Cardinality
+### Cardinality
 
 
 
@@ -4380,7 +4380,7 @@ Many-to-One
 
 
 
-\### Participation
+### Participation
 
 
 
@@ -4392,7 +4392,7 @@ Fulfillment Event — Required
 
 
 
-\### Relationship Maturity
+### Relationship Maturity
 
 
 
@@ -4400,7 +4400,7 @@ Established
 
 
 
-\### Authoritative Domain
+### Authoritative Domain
 
 
 
@@ -4408,15 +4408,15 @@ Vendor Performance
 
 
 
-\---
+---
 
 
 
-\## SLA Event → evaluates → Shipment
+## SLA Event → evaluates → Shipment
 
 
 
-\### Business Meaning
+### Business Meaning
 
 
 
@@ -4424,7 +4424,7 @@ SLA Events maintain direct traceability to Shipment performance while evaluating
 
 
 
-\### Relationship Category
+### Relationship Category
 
 
 
@@ -4432,7 +4432,7 @@ Assessment
 
 
 
-\### Cardinality
+### Cardinality
 
 
 
@@ -4440,7 +4440,7 @@ Many-to-One
 
 
 
-\### Participation
+### Participation
 
 
 
@@ -4452,7 +4452,7 @@ Shipment — Required
 
 
 
-\### Relationship Maturity
+### Relationship Maturity
 
 
 
@@ -4460,7 +4460,7 @@ Established
 
 
 
-\### Authoritative Domain
+### Authoritative Domain
 
 
 
@@ -4468,15 +4468,15 @@ Vendor Performance
 
 
 
-\---
+---
 
 
 
-\## SLA Event → evaluates compliance of → Vendor
+## SLA Event → evaluates compliance of → Vendor
 
 
 
-\### Business Meaning
+### Business Meaning
 
 
 
@@ -4484,7 +4484,7 @@ Vendor compliance is measured through service-level evaluation.
 
 
 
-\### Relationship Category
+### Relationship Category
 
 
 
@@ -4492,7 +4492,7 @@ Assessment
 
 
 
-\### Cardinality
+### Cardinality
 
 
 
@@ -4500,7 +4500,7 @@ Many-to-One
 
 
 
-\### Participation
+### Participation
 
 
 
@@ -4512,7 +4512,7 @@ Vendor — Required
 
 
 
-\### Relationship Maturity
+### Relationship Maturity
 
 
 
@@ -4520,7 +4520,7 @@ Established
 
 
 
-\### Authoritative Domain
+### Authoritative Domain
 
 
 
@@ -4528,15 +4528,15 @@ Vendor Performance
 
 
 
-\---
+---
 
 
 
-\## Corrective Action → remediates → Vendor
+## Corrective Action → remediates → Vendor
 
 
 
-\### Business Meaning
+### Business Meaning
 
 
 
@@ -4544,7 +4544,7 @@ Corrective Actions represent structured remediation intended to improve Vendor p
 
 
 
-\### Relationship Category
+### Relationship Category
 
 
 
@@ -4552,7 +4552,7 @@ Operational Work
 
 
 
-\### Cardinality
+### Cardinality
 
 
 
@@ -4560,7 +4560,7 @@ Many-to-One
 
 
 
-\### Participation
+### Participation
 
 
 
@@ -4572,7 +4572,7 @@ Vendor — Required
 
 
 
-\### Relationship Maturity
+### Relationship Maturity
 
 
 
@@ -4580,7 +4580,7 @@ Established
 
 
 
-\### Authoritative Domain
+### Authoritative Domain
 
 
 
@@ -4588,15 +4588,15 @@ Vendor Performance
 
 
 
-\---
+---
 
 
 
-\## Corrective Action → responds to → SLA Event
+## Corrective Action → responds to → SLA Event
 
 
 
-\### Business Meaning
+### Business Meaning
 
 
 
@@ -4604,7 +4604,7 @@ Corrective Action documents formal organizational response to identified service
 
 
 
-\### Relationship Category
+### Relationship Category
 
 
 
@@ -4612,15 +4612,15 @@ Assessment → Operational Work
 
 
 
-\### Cardinality
+### Cardinality
 
 
 
-Many-to-One \*(current implementation)\*
+Many-to-One *(current implementation)*
 
 
 
-\### Participation
+### Participation
 
 
 
@@ -4632,7 +4632,7 @@ SLA Event — Optional
 
 
 
-\### Relationship Maturity
+### Relationship Maturity
 
 
 
@@ -4640,7 +4640,7 @@ Established
 
 
 
-\### Authoritative Domain
+### Authoritative Domain
 
 
 
@@ -4648,15 +4648,15 @@ Vendor Performance
 
 
 
-\---
+---
 
 
 
-\## Corrective Action → responds to → Fulfillment Event
+## Corrective Action → responds to → Fulfillment Event
 
 
 
-\### Business Meaning
+### Business Meaning
 
 
 
@@ -4664,7 +4664,7 @@ Corrective Action may also respond directly to poor fulfillment performance.
 
 
 
-\### Relationship Category
+### Relationship Category
 
 
 
@@ -4672,15 +4672,15 @@ Assessment → Operational Work
 
 
 
-\### Cardinality
+### Cardinality
 
 
 
-Many-to-One \*(current implementation)\*
+Many-to-One *(current implementation)*
 
 
 
-\### Participation
+### Participation
 
 
 
@@ -4692,7 +4692,7 @@ Fulfillment Event — Optional
 
 
 
-\### Relationship Maturity
+### Relationship Maturity
 
 
 
@@ -4700,7 +4700,7 @@ Established
 
 
 
-\### Authoritative Domain
+### Authoritative Domain
 
 
 
@@ -4708,15 +4708,15 @@ Vendor Performance
 
 
 
-\---
+---
 
 
 
-\## Workforce Escalation → assesses risk affecting → Employee
+## Workforce Escalation → assesses risk affecting → Employee
 
 
 
-\### Business Meaning
+### Business Meaning
 
 
 
@@ -4724,7 +4724,7 @@ Workforce Escalation identifies operational workforce conditions requiring manag
 
 
 
-\### Relationship Category
+### Relationship Category
 
 
 
@@ -4732,7 +4732,7 @@ Assessment
 
 
 
-\### Cardinality
+### Cardinality
 
 
 
@@ -4740,7 +4740,7 @@ Many-to-Many
 
 
 
-\### Participation
+### Participation
 
 
 
@@ -4752,7 +4752,7 @@ Employee — Optional
 
 
 
-\### Relationship Maturity
+### Relationship Maturity
 
 
 
@@ -4760,7 +4760,7 @@ Planned Foundation
 
 
 
-\### Authoritative Domain
+### Authoritative Domain
 
 
 
@@ -4768,7 +4768,7 @@ Workforce Coordination
 
 
 
-\### Current Repository Representation
+### Current Repository Representation
 
 
 
@@ -4776,7 +4776,7 @@ Current workforce escalations primarily rely on descriptive operational context.
 
 
 
-\### Known Architectural Limitation
+### Known Architectural Limitation
 
 
 
@@ -4784,15 +4784,15 @@ Future enterprise evolution may broaden Workforce Escalation beyond individual E
 
 
 
-\---
+---
 
 
 
-\## Workforce Escalation → is supported by → Workload Record
+## Workforce Escalation → is supported by → Workload Record
 
 
 
-\### Business Meaning
+### Business Meaning
 
 
 
@@ -4800,7 +4800,7 @@ Measured workload provides evidence supporting workforce assessment.
 
 
 
-\### Relationship Category
+### Relationship Category
 
 
 
@@ -4808,7 +4808,7 @@ Assessment
 
 
 
-\### Cardinality
+### Cardinality
 
 
 
@@ -4816,7 +4816,7 @@ Many-to-Many
 
 
 
-\### Participation
+### Participation
 
 
 
@@ -4828,7 +4828,7 @@ Workload Record — Optional
 
 
 
-\### Relationship Maturity
+### Relationship Maturity
 
 
 
@@ -4836,7 +4836,7 @@ Planned Foundation
 
 
 
-\### Authoritative Domain
+### Authoritative Domain
 
 
 
@@ -4844,15 +4844,15 @@ Workforce Coordination
 
 
 
-\---
+---
 
 
 
-\## Workforce Escalation → is supported by → Coverage Schedule
+## Workforce Escalation → is supported by → Coverage Schedule
 
 
 
-\### Business Meaning
+### Business Meaning
 
 
 
@@ -4860,7 +4860,7 @@ Planned staffing availability provides additional evidence supporting workforce 
 
 
 
-\### Relationship Category
+### Relationship Category
 
 
 
@@ -4868,7 +4868,7 @@ Assessment
 
 
 
-\### Cardinality
+### Cardinality
 
 
 
@@ -4876,7 +4876,7 @@ Many-to-Many
 
 
 
-\### Participation
+### Participation
 
 
 
@@ -4888,7 +4888,7 @@ Coverage Schedule — Optional
 
 
 
-\### Relationship Maturity
+### Relationship Maturity
 
 
 
@@ -4896,7 +4896,7 @@ Planned Foundation
 
 
 
-\### Authoritative Domain
+### Authoritative Domain
 
 
 
@@ -4904,15 +4904,15 @@ Workforce Coordination
 
 
 
-\---
+---
 
 
 
-\## Workforce Escalation → may generate → Ticket
+## Workforce Escalation → may generate → Ticket
 
 
 
-\### Business Meaning
+### Business Meaning
 
 
 
@@ -4920,7 +4920,7 @@ Operational workforce concerns may require coordinated enterprise response throu
 
 
 
-\### Relationship Category
+### Relationship Category
 
 
 
@@ -4928,7 +4928,7 @@ Assessment → Operational Work
 
 
 
-\### Cardinality
+### Cardinality
 
 
 
@@ -4936,7 +4936,7 @@ Many-to-Many
 
 
 
-\### Participation
+### Participation
 
 
 
@@ -4948,7 +4948,7 @@ Ticket — Optional
 
 
 
-\### Relationship Maturity
+### Relationship Maturity
 
 
 
@@ -4956,7 +4956,7 @@ Planned Foundation
 
 
 
-\### Authoritative Domain
+### Authoritative Domain
 
 
 
@@ -4968,11 +4968,11 @@ Workforce Coordination and Ticketing System
 
 
 
-\---
+---
 
 
 
-\# Canonical Relationship Matrix
+# Canonical Relationship Matrix
 
 
 
@@ -4984,19 +4984,19 @@ Every canonical relationship shall possess:
 
 
 
-\- one approved subject object,
+- one approved subject object,
 
-\- one approved relationship definition,
+- one approved relationship definition,
 
-\- one approved target object,
+- one approved target object,
 
-\- conceptual cardinality,
+- conceptual cardinality,
 
-\- participation rules,
+- participation rules,
 
-\- relationship maturity,
+- relationship maturity,
 
-\- and an identified authoritative domain.
+- and an identified authoritative domain.
 
 
 
@@ -5004,11 +5004,11 @@ Future implementation artifacts—including SQL schemas, analytical models, simu
 
 
 
-\---
+---
 
 
 
-\# Known Architectural Limitations
+# Known Architectural Limitations
 
 
 
@@ -5020,29 +5020,29 @@ These include:
 
 
 
-\- Shipment currently behaves operationally as one Inventory Item per Shipment record, while the conceptual enterprise relationship remains provisionally many-to-many.
+- Shipment currently behaves operationally as one Inventory Item per Shipment record, while the conceptual enterprise relationship remains provisionally many-to-many.
 
-\- Location functions as an enterprise-authoritative object but lacks a dedicated enterprise registry.
+- Location functions as an enterprise-authoritative object but lacks a dedicated enterprise registry.
 
-\- Shipment identity remains distributed across operational datasets.
+- Shipment identity remains distributed across operational datasets.
 
-\- Workforce Assignments remain weakly connected to specific operational work.
+- Workforce Assignments remain weakly connected to specific operational work.
 
-\- Ticket ownership and Location references continue to rely partly on descriptive values.
+- Ticket ownership and Location references continue to rely partly on descriptive values.
 
-\- Current inventory records preserve enterprise state but not complete historical state transitions.
+- Current inventory records preserve enterprise state but not complete historical state transitions.
 
-\- Workforce Escalation currently lacks governed organizational targets beyond conditional Employee relationships.
+- Workforce Escalation currently lacks governed organizational targets beyond conditional Employee relationships.
 
-\- Relationship history, temporal behavior, and implementation attributes remain intentionally outside the scope of this conceptual model.
-
-
-
-\---
+- Relationship history, temporal behavior, and implementation attributes remain intentionally outside the scope of this conceptual model.
 
 
 
-\# Future Expansion Boundary
+---
+
+
+
+# Future Expansion Boundary
 
 
 
@@ -5054,25 +5054,25 @@ Future enterprise evolution may introduce relationships involving:
 
 
 
-\- Customer
+- Customer
 
-\- Contract
+- Contract
 
-\- Service Commitment
+- Service Commitment
 
-\- Enterprise Event
+- Enterprise Event
 
-\- Enterprise Decision
+- Enterprise Decision
 
-\- Enterprise Snapshot
+- Enterprise Snapshot
 
-\- Scenario Branch
+- Scenario Branch
 
-\- Budget
+- Budget
 
-\- Cost Center
+- Cost Center
 
-\- Operational Cost
+- Operational Cost
 
 
 
@@ -5080,11 +5080,11 @@ These concepts remain outside the current model and shall not be introduced unti
 
 
 
-\---
+---
 
 
 
-\# Summary
+# Summary
 
 
 
@@ -5096,15 +5096,15 @@ Together with the Enterprise System Map and Enterprise Object Model, this docume
 
 
 
-The Enterprise System Map defines \*\*where enterprise capabilities reside\*\*.
+The Enterprise System Map defines **where enterprise capabilities reside**.
 
 
 
-The Enterprise Object Model defines \*\*what enterprise objects exist\*\*.
+The Enterprise Object Model defines **what enterprise objects exist**.
 
 
 
-The Enterprise Relational Model defines \*\*how those enterprise objects interact\*\*.
+The Enterprise Relational Model defines **how those enterprise objects interact**.
 
 
 
