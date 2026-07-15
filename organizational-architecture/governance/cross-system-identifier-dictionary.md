@@ -84,8 +84,16 @@ Identifiers serve as the connective layer between operational domains while pres
 |replenishment_id|Unique replenishment workflow identifier|REPL-1002|
 |shortage_id|Unique shortage event identifier|SHORT-1001|
 |discrepancy_id|Unique discrepancy identifier|DISC-1001|
+|assignment_id|Unique workforce assignment identifier|ASSIGN-001|
+|corrective_action_id|Unique vendor corrective action identifier|CA-1001|
+|location_inventory_id|Unique location-level stock position identifier|LOCINV-1001|
+|coverage_schedule_id|Unique workforce coverage schedule identifier|SCHED-001|
+|workload_record_id|Unique employee workload measurement identifier|WORK-001|
+|fulfillment_event_id|Unique vendor fulfillment assessment identifier|VF-1001|
+|sla_event_id|Unique SLA evaluation identifier|SLA-1001|
+|escalation_id|Unique workforce escalation identifier|WF-ESC-001|
 
-These identifiers represent the primary relational language used throughout the ecosystem.
+These identifiers represent the primary relational language used throughout the ecosystem. The final 8 were approved via the Enterprise Identifier Governance Review; all others were previously governed.
 
 ---
 
@@ -337,6 +345,230 @@ Inventory Operations
 
 ---
 
+## assignment_id
+
+### Purpose
+
+Uniquely identifies a workforce assignment record.
+
+### Format
+
+```text
+ASSIGN-###
+```
+
+### Example
+
+```text
+ASSIGN-001
+```
+
+### Ownership
+
+Workforce Coordination
+
+### Governance Note
+
+Approved via Enterprise Identifier Governance Review. No approved business candidate key exists for Assignment — see Enterprise Logical Model.
+
+---
+
+## corrective_action_id
+
+### Purpose
+
+Uniquely identifies a vendor corrective action record.
+
+### Format
+
+```text
+CA-####
+```
+
+### Example
+
+```text
+CA-1001
+```
+
+### Ownership
+
+Vendor Performance
+
+### Governance Note
+
+Approved via Enterprise Identifier Governance Review. Surrogate-key-only by design — a Corrective Action may reference an SLA Event, a Fulfillment Event, both, or neither.
+
+---
+
+## location_inventory_id
+
+### Purpose
+
+Uniquely identifies a location-level stock position for a given inventory item.
+
+### Format
+
+```text
+LOCINV-####
+```
+
+### Example
+
+```text
+LOCINV-1001
+```
+
+### Ownership
+
+Inventory Operations
+
+### Governance Note
+
+Approved via Enterprise Identifier Governance Review — already the governed physical field name; elevated to canonical cross-system status. Business candidate key: `location_id` + `item_id`.
+
+---
+
+## coverage_schedule_id
+
+### Purpose
+
+Uniquely identifies a workforce coverage schedule record.
+
+### Format
+
+```text
+SCHED-###
+```
+
+### Example
+
+```text
+SCHED-001
+```
+
+### Ownership
+
+Workforce Coordination
+
+### Governance Note
+
+Approved via Enterprise Identifier Governance Review as a rename of the legacy field `schedule_id`, for enterprise-name consistency. `schedule_id` is documented as a legacy source-field alias for migration purposes and should not be treated as a competing identifier. No approved business candidate key exists — see Enterprise Logical Model.
+
+---
+
+## workload_record_id
+
+### Purpose
+
+Uniquely identifies an employee workload measurement for a reporting period.
+
+### Format
+
+```text
+WORK-###
+```
+
+### Example
+
+```text
+WORK-001
+```
+
+### Ownership
+
+Workforce Coordination
+
+### Governance Note
+
+Approved via Enterprise Identifier Governance Review as a rename of the legacy field `workload_id`, for enterprise-name consistency. `workload_id` is documented as a legacy source-field alias. Business candidate key: `employee_id` + `reporting_period`.
+
+---
+
+## fulfillment_event_id
+
+### Purpose
+
+Uniquely identifies a vendor fulfillment assessment event.
+
+### Format
+
+```text
+VF-####
+```
+
+### Example
+
+```text
+VF-1001
+```
+
+### Ownership
+
+Vendor Performance
+
+### Governance Note
+
+Approved via Enterprise Identifier Governance Review. No approved business candidate key exists — see Enterprise Logical Model.
+
+---
+
+## sla_event_id
+
+### Purpose
+
+Uniquely identifies an SLA evaluation event.
+
+### Format
+
+```text
+SLA-####
+```
+
+### Example
+
+```text
+SLA-1001
+```
+
+### Ownership
+
+Vendor Performance
+
+### Governance Note
+
+Approved via Enterprise Identifier Governance Review. `sla_category` is approved as a Domain-Authoritative attribute but not yet part of a business candidate key, pending a business decision on SLA re-evaluation behavior.
+
+---
+
+## escalation_id
+
+### Purpose
+
+Uniquely identifies a workforce escalation record.
+
+### Format
+
+```text
+WF-ESC-###
+```
+
+### Example
+
+```text
+WF-ESC-001
+```
+
+### Ownership
+
+Workforce Coordination
+
+### Governance Note
+
+Approved via Enterprise Identifier Governance Review. No rename proposed — the attribute name already matches current data. No approved business candidate key exists; escalations are not consistently employee-specific.
+
+---
+
 # Relationship Standards
 
 Subsystems should establish relationships through shared identifiers rather than duplicated descriptive text.
@@ -463,11 +695,12 @@ Examples may include:
 
 |Identifier|Purpose|
 |-|-|
-|schedule_id|Scheduling records|
 |department_id|Department reporting|
 |process_id|Process improvement records|
 |scorecard_id|Vendor scorecards|
 |audit_id|Governance review records|
+
+`schedule_id` has been removed from this placeholder list — it is superseded by the now-governed `coverage_schedule_id` (see Shared Identifier Standards, above), per the Enterprise Identifier Governance Review. Retaining both would violate the Single Identifier Principle below.
 
 Future identifiers should:
 
@@ -553,6 +786,10 @@ This document aligns with:
 * Operational Severity Framework
 * Enterprise System Map
 * Operational Intelligence Lifecycle
+* Enterprise Object Model
+* Enterprise Relational Model
+* Enterprise Logical Model
+* Enterprise Identifier Governance Review
 
 Shared identifiers should remain consistent with all approved governance and architecture standards.
 
@@ -566,3 +803,4 @@ By standardizing shared identifiers, relationship structures, ownership responsi
 
 Shared identifiers are treated as enterprise governance assets that support operational visibility, subsystem integration, and sustainable ecosystem growth.
 
+This revision incorporates the 8 identifiers approved by the Enterprise Identifier Governance Review, completing identifier coverage for all 17 objects in the Enterprise Logical Model's implementation scope.
