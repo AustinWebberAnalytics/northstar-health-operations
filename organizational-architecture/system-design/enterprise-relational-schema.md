@@ -7,16 +7,16 @@
 **Document Type:** Engineering Design Document
 **Knowledge Layer:** System Design
 **Authority Level:** Design Specification — Built and Reviewed Tier by Tier
-**Status:** Draft — Tiers 0–1 Populated, Tiers 2–5 Not Yet Started
+**Status:** Draft — Tiers 0–4 Locked, Tier 5 Not Yet Started
 **Depends On:** Enterprise Logical Model, Enterprise Identifier Governance Review, Enterprise Relational Foundation (all approved)
 
 ---
 
 # Purpose
 
-This document derives a schema specification — entities, attributes, logical types, keys, and logical constraints — from the already-approved Enterprise Logical Model, Cross-System Identifier Dictionary, Enterprise Relational Model, and current repository data. It is not SQL. It is the platform-independent blueprint that a `CREATE TABLE` statement, for any engine, would be generated from — including its constraints, which are stated as business rules here and only become SQL syntax at implementation.
+This document derives a schema specification — entities, attributes, logical types, keys, and logical constraints — from the already-approved Enterprise Logical Model, Cross-System Identifier Dictionary, Enterprise Relational Model, and current repository data. It is not SQL. It is the platform-independent blueprint from which target-platform DDL can be derived, including constraints that are stated as business rules here and translated into SQL syntax during implementation.
 
-Nothing in this document is invented. Every field is traceable to one of three sources, tagged explicitly per decision:
+No decision in this document is untraceable. Every field, type, key, constraint, and migration decision is grounded in approved governance, repository evidence, or an explicitly labeled engineering assumption:
 
 * **[Governance]** — required by the Enterprise Logical Model, Identifier Dictionary, or Identifier Governance Review. Not open for reinterpretation here.
 * **[Repository]** — observed directly in current CSV data (value formats, enumerations, row counts). Informs confidence; flagged with sample size since Northstar's datasets are small.
@@ -39,13 +39,13 @@ Nothing in this document is invented. Every field is traceable to one of three s
 |Tier|Entities|Status|
 |-|-|-|
 |Tier 0|Location, Employee, Vendor|**Locked**|
-|Tier 1|Inventory Item, Ticket, Assignment, Coverage Schedule, Workload Record|**Populated below**|
-|Tier 2|Shipment, Replenishment, Location Inventory, Workforce Escalation, Assignment Ticket|Not started|
-|Tier 3|Inventory Discrepancy, Shortage, Fulfillment Event, Shipment Replenishment Fulfillment|Not started|
-|Tier 4|SLA Event, Replenishment Shortage Response|Not started|
+|Tier 1|Inventory Item, Ticket, Assignment, Coverage Schedule, Workload Record|**Locked**|
+|Tier 2|Shipment, Replenishment, Location Inventory, Workforce Escalation, Assignment Ticket|**Locked**|
+|Tier 3|Inventory Discrepancy, Shortage, Fulfillment Event, Shipment Replenishment Allocation|**Locked**|
+|Tier 4|SLA Event, Replenishment Shortage Response|**Locked**|
 |Tier 5|Corrective Action, Assignment Corrective Action|Not started|
 
-Per agreed process: this document stops after Tier 1 for review. Tier 2 begins only after Tier 1 is locked.
+Per agreed process, Tiers 0–4 are locked. Tier 5 is the final derivation stage and will be reviewed independently before the Enterprise Relational Schema is approved as a complete document.
 
 ---
 
@@ -135,8 +135,6 @@ Per agreed process: this document stops after Tier 1 for review. Tier 2 begins o
 * **Deferred Logical Constraints:** `primary_service_category` and `support_level` enumerations were observed but are **not** given a permitted-values constraint here — 12 rows is a thinner basis for a category list this granular than for `vendor_type`/`risk_tier`. Recommend application-layer validation rather than a database constraint until the vendor roster grows. **[Assumption]**
 * **Migration Considerations:** Direct load from `vendor-master.csv`; no field renaming required.
 * **Future Expansion:** None flagged.
-
----
 
 ---
 
@@ -309,7 +307,376 @@ Per agreed process: this document stops after Tier 1 for review. Tier 2 begins o
 
 ---
 
+# Tier 2
+
+## Shipment
+
+* **Purpose:** Represents a vendor shipment event. **[Governance]**
+* **Object Model Classification:** Movement Object
+* **Canonical Identifier:** `shipment_id` — `TEXT`, format `SHIP-####` **[Governance — Identifier Dictionary]**
+* **Foreign Keys:** `vendor_id` → Vendor.`vendor_id`; `item_id` → Inventory Item.`item_id`; `location_id` → Location.`location_id`; `related_ticket_id` → Ticket.`ticket_id` (optional)
+* **Dependencies:** Vendor, Inventory Item, Location (Tier 0–1, all required); Ticket (Tier 1, optional — required only when `related_ticket_id` is populated)
+
+|Attribute|Logical Type|Nullable|Source|
+|-|-|-|-|
+|`shipment_id`|`TEXT`|No (PK)|[Governance]|
+|`vendor_id`|`TEXT`|No|[Governance — Enterprise-Shared, FK]|
+|`item_id`|`TEXT`|No|[Governance — Enterprise-Shared, FK]. Retains the one-item-per-shipment scope decision — see Deferred Logical Constraints.|
+|`location_id`|`TEXT`|No|[Governance — Enterprise-Shared, FK]|
+|`related_ticket_id`|`TEXT`|Yes|[Governance — Enterprise-Shared, FK, optional]. Observed populated in 3 of 6 current rows. **[Repository, n=6]**|
+|`delivery_status`|`TEXT`|No|[Governance — Enterprise-Shared]. See Logical Constraints.|
+|`ordered_quantity`|`INTEGER`|No|[Governance — Domain-Authoritative]|
+|`received_quantity`|`INTEGER`|Yes|[Governance — Domain-Authoritative]. Blank in current data corresponds to shipments not yet received. **[Repository, n=6]**|
+|`order_date`|`DATE`|No|[Governance — Domain-Authoritative]|
+|`expected_delivery_date`|`DATE`|No|[Governance — Domain-Authoritative]|
+|`actual_delivery_date`|`DATE`|Yes|[Governance — Domain-Authoritative]. Blank corresponds to shipments not yet delivered. **[Repository, n=6]**|
+|`fulfillment_accuracy_flag`|`BOOLEAN`|Yes|[Governance — Descriptive-or-Derived, computed]. Blank where accuracy can't yet be assessed (shipment not received). **[Repository, n=6]**|
+|`delay_flag`|`BOOLEAN`|No|[Governance — Descriptive-or-Derived, computed]|
+
+* **Business Candidate Keys:** None approved. **[Governance — Enterprise Logical Model]**
+* **Logical Constraints:**
+
+  * **Identity.** Uniqueness Rule: `shipment_id` unique across all records.
+  * **Delivery Status.** Permitted Values: `Delayed`, `Partial`, `Pending`, `Received`. Repository Evidence: 6/6 rows. Implementation Note: provisional — 6 rows is a thin sample even by this document's own standard; treat this enumeration as more tentative than Tier 0/1's constraints.
+* **Deferred Logical Constraints:** `item_id` remains single-valued per shipment. Verified against current data: 0 of 6 `shipment_id` values carry more than one `item_id`. This is the same scope decision already recorded in the Enterprise Logical Model — restated here rather than re-derived, since the underlying evidence hasn't changed. A `Shipment Line` associative entity remains not introduced.
+* **Migration Considerations:** Direct load from `vendor-shipments.csv`, requires Vendor, Inventory Item, Location (all loaded) and, where populated, Ticket.
+* **Future Expansion:** None flagged.
+
+---
+
+## Replenishment
+
+* **Purpose:** Represents a replenishment workflow event. **[Governance]**
+* **Object Model Classification:** Movement Object
+* **Canonical Identifier:** `replenishment_id` — `TEXT`, format `REPL-####` **[Governance — Identifier Dictionary]**
+* **Foreign Keys:** `item_id` → Inventory Item.`item_id`; `location_id` → Location.`location_id`; `vendor_id` → Vendor.`vendor_id` (optional); `related_ticket_id` → Ticket.`ticket_id` (optional)
+* **Dependencies:** Inventory Item, Location (Tier 0–1, required); Vendor (Tier 0, optional); Ticket (Tier 1, optional)
+
+|Attribute|Logical Type|Nullable|Source|
+|-|-|-|-|
+|`replenishment_id`|`TEXT`|No (PK)|[Governance]|
+|`item_id`|`TEXT`|No|[Governance — Enterprise-Shared, FK]|
+|`location_id`|`TEXT`|No|[Governance — Enterprise-Shared, FK]|
+|`vendor_id`|`TEXT`|Conditional|[Governance — Enterprise-Shared FK; conditional nullability is a repository-supported engineering decision, not prior governance, n=5]|
+|`related_ticket_id`|`TEXT`|Yes|[Governance — Enterprise-Shared, FK, optional]|
+|`replenishment_type`|`TEXT`|No|[Governance — Domain-Authoritative]. See Logical Constraints.|
+|`replenishment_status`|`TEXT`|No|[Governance — Enterprise-Shared]. See Logical Constraints.|
+|`requested_quantity`|`INTEGER`|No|[Governance — Domain-Authoritative]|
+|`approved_quantity`|`INTEGER`|Yes|[Governance — Domain-Authoritative]|
+|`request_date`|`DATE`|No|[Governance — Domain-Authoritative]|
+|`expected_arrival_date`|`DATE`|Yes|[Governance — Domain-Authoritative]|
+|`received_date`|`DATE`|Yes|[Governance — Domain-Authoritative]|
+
+* **Business Candidate Keys:** None approved. **[Governance — Enterprise Logical Model]**
+* **Logical Constraints:**
+
+  * **Identity.** Uniqueness Rule: `replenishment_id` unique across all records.
+  * **Replenishment Type.** Permitted Values: `Internal Transfer`, `Vendor Reorder`. Repository Evidence: 5/5 rows.
+  * **Replenishment Status.** Permitted Values: `Approved`, `Delayed`, `In Transit`, `Received`. Repository Evidence: 5/5 rows. Implementation Note: 5 rows is a very thin sample; treat as more tentative than any prior tier.
+  * **Vendor Presence Rule.** Proposed rule: `vendor_id` is null for `Internal Transfer` and required for `Vendor Reorder`. This rule is supported by the meaning of the two replenishment types and by all five current records, but it was not previously established by governance. Confirm with the business before enforcing it as a hard database constraint. Implementation Note: not expressible as a simple `NOT NULL` regardless — a cross-field conditional rule, candidate for application-layer validation or a two-column `CHECK` at SQL Implementation.
+* **Deferred Logical Constraints:** None beyond the caveats above.
+* **Migration Considerations:** Direct load from `replenishment-events.csv`; requires Inventory Item, Location, and — where populated — Vendor and Ticket.
+* **Future Expansion:** None flagged.
+
+---
+
+## Location Inventory
+
+* **Purpose:** Represents the current stock position of one inventory item at one location. **[Governance]**
+* **Object Model Classification:** Operational State Object
+* **Canonical Identifier:** `location_inventory_id` — `TEXT`, format `LOCINV-####` **[Governance — Identifier Governance Review; already the governed physical field name, elevated to canonical cross-system status]**
+* **Foreign Keys:** `item_id` → Inventory Item.`item_id`; `location_id` → Location.`location_id`
+* **Dependencies:** Inventory Item, Location (Tier 0–1)
+
+|Attribute|Logical Type|Nullable|Source|
+|-|-|-|-|
+|`location_inventory_id`|`TEXT`|No (PK)|[Governance]|
+|`item_id`|`TEXT`|No|[Governance — Enterprise-Shared, FK]|
+|`location_id`|`TEXT`|No|[Governance — Enterprise-Shared, FK]|
+|`current_stock`|`INTEGER`|No|[Governance — Enterprise-Shared]|
+|`stock_status`|`TEXT`|No|[Governance — Enterprise-Shared]. See Logical Constraints.|
+|`reorder_point`|`INTEGER`|Yes|[Governance — Domain-Authoritative]|
+|`target_stock_level`|`INTEGER`|Yes|[Governance — Domain-Authoritative]|
+|`safety_stock_level`|`INTEGER`|Yes|[Governance — Domain-Authoritative]|
+|`last_count_date`|`DATE`|Yes|[Governance — Domain-Authoritative]|
+
+* **Business Candidate Keys:** `location_id` + `item_id` — business-justified: the enterprise recognizes exactly one active stock position per item per location. **[Governance — Enterprise Logical Model]**
+* **Logical Constraints:**
+
+  * **Identity.** Uniqueness Rule: `location_inventory_id` unique across all records.
+  * **Business Key.** Uniqueness Rule: (`location_id`, `item_id`) must be unique. Implementation Note: governance-backed independent of sample size, same treatment as Workload Record's business key in Tier 1 — enforce as a `UNIQUE` constraint regardless of the current 8-row sample.
+  * **Stock Status.** Permitted Values: `Critical Low`, `Low Stock`, `Normal`, `Overstocked`, `Stockout`. Repository Evidence: 8/8 rows. Implementation Note: provisional, standard caveat.
+* **Deferred Logical Constraints:** None beyond the caveat above.
+* **Migration Considerations:** Direct load from `location-inventory.csv`; requires Inventory Item and Location loaded first.
+* **Future Expansion:** None flagged. The deferred Shipment→Location Inventory analytical/historical relationship (transaction history) remains explicitly out of scope, per Enterprise Relational Foundation.
+
+---
+
+## Workforce Escalation
+
+* **Purpose:** Represents a workforce escalation record. **[Governance]**
+* **Object Model Classification:** Assessment Object
+* **Canonical Identifier:** `escalation_id` — `TEXT`, format `WF-ESC-###` **[Governance — Identifier Governance Review; no rename — attribute name already matched current data]**
+* **Foreign Keys:** `related_ticket_id` → Ticket.`ticket_id` (optional) — **new column, not present in current data; see Migration Considerations**
+* **Dependencies:** Ticket (Tier 1, optional — only once `related_ticket_id` is added)
+
+|Attribute|Logical Type|Nullable|Source|
+|-|-|-|-|
+|`escalation_id`|`TEXT`|No (PK)|[Governance]|
+|`related_ticket_id`|`TEXT`|Yes|[Governance — Enterprise-Shared, FK, optional]. **Does not exist in current repository data** — this column is new implementation scope, not a migrated field. **[Governance — Enterprise Logical Model, Relationships Implemented Through an Existing Object]**|
+|`department`|`TEXT`|No|[Governance — Domain-Authoritative, organizational semantics pending reconciliation]. Observed: `Operations`, `Vendor Management`. **[Repository, n=10]**|
+|`escalation_type`|`TEXT`|No|[Governance — Domain-Authoritative]. See Logical Constraints.|
+|`severity_level`|`TEXT`|No|[Governance — Domain-Authoritative]. Observed: `Critical`, `High`, `Low`, `Moderate`. **[Repository, n=10]**|
+|`current_status`|`TEXT`|No|[Governance — Enterprise-Shared]. See Logical Constraints.|
+|`escalation_date`|`DATE`|No|[Governance — Domain-Authoritative]|
+|`affected_team`|`TEXT`|Yes|[Governance — Domain-Authoritative, organizational semantics pending reconciliation]. Observed: `Coverage Support`, `Escalation Support`, `Inventory Support`, `Service Response`, `Vendor Operations`. **[Repository, n=10]**|
+|`root_cause`|`TEXT`|Yes|[Governance — Domain-Authoritative]. 10 distinct values across 10 rows — effectively free text at current volume, not proposed as an enumeration. **[Repository, n=10]**|
+|`resolution_owner`|`TEXT`|Yes|[Governance — Domain-Authoritative]. Observed: `Inventory Manager`, `Operations Manager`, `Vendor Manager`, `Workforce Coordinator` — role titles, not `employee_id` values; no employee-level FK exists for this entity yet, per Enterprise Logical Model. **[Repository, n=10]**|
+|`business_impact`|`TEXT`|Yes|[Governance — Descriptive-or-Derived, narrative]|
+
+* **Business Candidate Keys:** None approved. The architecture explicitly allows escalations not tied to one employee. **[Governance — Enterprise Logical Model]**
+* **Logical Constraints:**
+
+  * **Identity.** Uniqueness Rule: `escalation_id` unique across all records.
+  * **Escalation Type.** Permitted Values: `Capacity Constraint`, `Coverage Gap`, `Cross-Team Support Request`, `Escalation Queue Backlog`, `Staffing Shortage`, `Workload Imbalance`. Repository Evidence: 10/10 rows.
+  * **Current Status.** Permitted Values: `In Progress`, `Monitoring`, `Open`, `Resolved`. Repository Evidence: 10/10 rows.
+* **Deferred Logical Constraints:** `root_cause` and `resolution_owner` are not proposed as enumerations — `root_cause` shows no repetition at all in the current sample (10 distinct values in 10 rows), and `resolution_owner` looks role-based rather than a governed reference list.
+* **Migration Considerations:** Direct load from `workforce-escalations.csv`, with `related_ticket_id` added as a new nullable column with no source data to populate it initially — it starts empty and is populated going forward, not backfilled from history that doesn't exist.
+* **Future Expansion:** `employee_id` remains unrepresented per the Enterprise Logical Model's deferred Workforce Escalation↔Employee relationship. Not added here.
+
+---
+
+## Assignment Ticket
+
+* **Purpose:** Associative entity resolving Assignment's many-to-many relationship to Ticket, one of two typed relationship entities replacing a rejected polymorphic design. **[Governance — Enterprise Logical Model, Associative Entity Resolution]**
+* **Object Model Classification:** Not applicable — a logical relationship entity, not a canonical enterprise object. **[Governance]**
+* **Canonical Identifier:** Not applicable — this is a relationship entity, not a canonical enterprise object. **[Governance]**
+* **Foreign Keys:** `assignment_id` → Assignment.`assignment_id`; `ticket_id` → Ticket.`ticket_id`
+* **Dependencies:** Assignment, Ticket (both Tier 1, both required)
+
+|Attribute|Logical Type|Nullable|Source|
+|-|-|-|-|
+|`assignment_id`|`TEXT`|No (PK, part 1)|[Governance — Enterprise Logical Model]|
+|`ticket_id`|`TEXT`|No (PK, part 2)|[Governance — Enterprise Logical Model]|
+
+* **Business Candidate Key:** (`assignment_id`, `ticket_id`) — the minimal business-meaningful combination that uniquely identifies the relationship.
+* **Primary-Key Strategy:** The business candidate key is implemented directly as the composite primary key; no surrogate identifier is introduced, since this associative entity has no independent lifecycle or relationship-level attributes beyond the pairing itself. **[Governance — see the associative-entity exception now recorded in Enterprise Relational Foundation's Key Strategy]**
+* **Logical Constraints:**
+
+  * **Identity.** Uniqueness Rule: (`assignment_id`, `ticket_id`) must be unique — no duplicate pairing.
+* **Deferred Logical Constraints:** None.
+* **Migration Considerations:** No current source data — this table has no representation in `workforce-assignments.csv` today. Populated only going forward, once Assignment-to-Ticket linkage is actively tracked. This is new implementation scope, not a migration.
+* **Future Expansion:** None flagged.
+
+---
+
+# Tier 3
+
+## Inventory Discrepancy
+
+* **Purpose:** Represents a discrepancy between expected and counted inventory. **[Governance]**
+* **Object Model Classification:** Operational State Object
+* **Canonical Identifier:** `discrepancy_id` — `TEXT`, format `DISC-#####` **[Governance — Identifier Dictionary]**
+* **Foreign Keys:** `item_id` → Inventory Item.`item_id`; `location_id` → Location.`location_id`; `related_ticket_id` → Ticket.`ticket_id` (optional)
+* **Dependencies:** Inventory Item, Location (Tier 0–1, required); Ticket (Tier 1, optional)
+
+|Attribute|Logical Type|Nullable|Source|
+|-|-|-|-|
+|`discrepancy_id`|`TEXT`|No (PK)|[Governance]|
+|`item_id`|`TEXT`|No|[Governance — Enterprise-Shared, FK]|
+|`location_id`|`TEXT`|No|[Governance — Enterprise-Shared, FK]|
+|`related_ticket_id`|`TEXT`|Yes|[Governance — Enterprise-Shared, FK, optional]. Observed populated in 4 of 5 current rows. **[Repository, n=5]**|
+|`investigation_status`|`TEXT`|No|[Governance — Enterprise-Shared]. See Logical Constraints.|
+|`expected_quantity`, `counted_quantity`|`INTEGER`|No|[Governance — Domain-Authoritative]|
+|`variance_quantity`|`INTEGER` (signed)|No|[Governance — Domain-Authoritative]. **Repository-supported type detail:** observed values include negatives (e.g., `-15`) alongside positives (`20`) — this is a signed quantity (counted minus expected), not an unsigned count. **[Repository, n=5]**|
+|`discrepancy_type`|`TEXT`|No|[Governance — Domain-Authoritative]. See Logical Constraints.|
+|`discovered_date`|`DATE`|No|[Governance — Domain-Authoritative]|
+|`resolved_date`|`DATE`|Yes|[Governance — Domain-Authoritative]. Blank corresponds to unresolved records. **[Repository, n=5]**|
+
+* **Business Candidate Keys:** None approved. **[Governance — Enterprise Logical Model]**
+* **Logical Constraints:**
+
+  * **Identity.** Uniqueness Rule: `discrepancy_id` unique across all records.
+  * **Discrepancy Type.** Permitted Values: `Count Variance`, `Damaged Inventory`, `Missing Inventory`, `Receiving Error`, `System Entry Error`. Repository Evidence: 5/5 rows. Implementation Note: provisional, thin-sample caveat applies (5 rows).
+  * **Investigation Status.** Permitted Values: `Escalated`, `Investigating`, `Mitigating`, `Open`, `Resolved`. Repository Evidence: 5/5 rows.
+  * **Variance Calculation Rule.** `variance_quantity = counted_quantity - expected_quantity`. Repository Evidence: verified against all 5 current rows individually, exact match in every case (e.g., `DISC-1003`: `160 - 140 = 20`, matches recorded variance). Implementation Note: whether this becomes a generated/computed column, a stored value with validation, or a migration-time derivation is a SQL Implementation decision, not made here.
+* **Deferred Logical Constraints:** None beyond the caveats above.
+* **Migration Considerations:** Direct load from `inventory-discrepancies.csv`; requires Inventory Item, Location and, where populated, Ticket.
+* **Future Expansion:** None flagged.
+
+---
+
+## Shortage
+
+* **Purpose:** Represents a detected inventory shortage. **[Governance]**
+* **Object Model Classification:** Operational State Object
+* **Canonical Identifier:** `shortage_id` — `TEXT`, format `SHORT-#####` **[Governance — Identifier Dictionary]**
+* **Foreign Keys:** `item_id` → Inventory Item.`item_id`; `location_id` → Location.`location_id`; `related_ticket_id` → Ticket.`ticket_id` (optional)
+* **Dependencies:** Inventory Item, Location (Tier 0–1, required); Ticket (Tier 1, optional)
+
+|Attribute|Logical Type|Nullable|Source|
+|-|-|-|-|
+|`shortage_id`|`TEXT`|No (PK)|[Governance]|
+|`item_id`|`TEXT`|No|[Governance — Enterprise-Shared, FK]|
+|`location_id`|`TEXT`|No|[Governance — Enterprise-Shared, FK]|
+|`related_ticket_id`|`TEXT`|Yes|[Governance — Enterprise-Shared, FK, optional]. Observed populated in 3 of 5 current rows. **[Repository, n=5]**|
+|`shortage_severity`|`TEXT`|No|[Governance — Enterprise-Shared]. See Logical Constraints.|
+|`resolution_status`|`TEXT`|No|[Governance — Enterprise-Shared]. See Logical Constraints.|
+|`escalation_flag`|`BOOLEAN`|No|[Governance — Enterprise-Shared]|
+|`shortage_detected_date`|`DATE`|No|[Governance — Domain-Authoritative]|
+|`estimated_days_of_stockout`|`INTEGER`|Yes|[Governance — Domain-Authoritative]. Observed range 1–4 in current data — a quantity, not a category; no enumeration proposed. **[Repository, n=5]**|
+|`operational_impact`|`TEXT`|Yes|[Governance — Domain-Authoritative *as tagged in the Enterprise Logical Model*]. **Repository observation worth flagging:** all 5 current values are distinct, full narrative sentences (e.g., "Gauze inventory temporarily below recommended safety threshold"), not structured category values. This reads closer to Descriptive-or-Derived than Domain-Authoritative in practice — noted as a tension between the Logical Model's tag and what the data actually looks like, not resolved here. Type and nullability are unaffected either way (unconstrained `TEXT`); the tag affects how the physical schema phase should treat it (e.g., whether it's a candidate for future structuring into fields, vs. permanently narrative). **[Repository, n=5]**|
+
+* **Business Candidate Keys:** None approved. **[Governance — Enterprise Logical Model]**
+* **Logical Constraints:**
+
+  * **Identity.** Uniqueness Rule: `shortage_id` unique across all records.
+  * **Shortage Severity.** Permitted Values: `Critical`, `High`, `Low`, `Moderate`. Repository Evidence: 5/5 rows.
+  * **Resolution Status.** Permitted Values: `Escalated`, `Mitigating`, `Monitoring`, `Open`, `Resolved`. Repository Evidence: 5/5 rows.
+* **Deferred Logical Constraints:** `operational_impact` is not given a permitted-values constraint — see the provenance note above; it's narrative, not categorical, in the current data.
+* **Migration Considerations:** Direct load from `shortage-events.csv`; requires Inventory Item, Location and, where populated, Ticket.
+* **Future Expansion:** None flagged.
+
+---
+
+## Fulfillment Event
+
+* **Purpose:** Represents a vendor fulfillment assessment for a shipment. **[Governance]**
+* **Object Model Classification:** Assessment Object
+* **Canonical Identifier:** `fulfillment_event_id` — `TEXT`, format `VF-####` **[Governance — Identifier Governance Review]**
+* **Foreign Keys:** `vendor_id` → Vendor.`vendor_id`; `shipment_id` → Shipment.`shipment_id`; `item_id` → Inventory Item.`item_id`; `location_id` → Location.`location_id`; `related_ticket_id` → Ticket.`ticket_id` (optional)
+* **Dependencies:** Vendor, Inventory Item, Location (Tier 0–1, required); Shipment (Tier 2, required); Ticket (Tier 1, optional)
+
+|Attribute|Logical Type|Nullable|Source|
+|-|-|-|-|
+|`fulfillment_event_id`|`TEXT`|No (PK)|[Governance]|
+|`vendor_id`, `shipment_id`, `item_id`, `location_id`|`TEXT`|No|[Governance — Enterprise-Shared, FK]|
+|`related_ticket_id`|`TEXT`|Yes|[Governance — Enterprise-Shared, FK, optional]. Observed populated in 3 of 6 current rows. **[Repository, n=6]**|
+|`fulfillment_status`|`TEXT`|No|[Governance — Enterprise-Shared]. See Logical Constraints.|
+|`delivery_status`|`TEXT`|No|[Governance — Enterprise-Shared]. See Logical Constraints — **flagged discrepancy with Shipment.delivery_status below.**|
+|`order_date`, `expected_delivery_date`|`DATE`|No|[Governance — Domain-Authoritative]|
+|`actual_delivery_date`|`DATE`|Yes|[Governance — Domain-Authoritative]. Blank for undelivered shipments. **[Repository, n=6]**|
+|`expected_quantity`|`INTEGER`|No|[Governance — Domain-Authoritative]|
+|`received_quantity`|`INTEGER`|No|[Governance — Domain-Authoritative]. Note: `0` appears as a real value (not blank) for at least one pending shipment — distinct from Shipment's own `received_quantity`, which uses blank for the same state. **[Repository, n=6]**|
+|`fulfillment_accuracy_flag`, `delay_flag`, `partial_fulfillment_flag`, `emergency_fulfillment_flag`, `escalation_required_flag`|`BOOLEAN`|No|[Governance — Descriptive-or-Derived for accuracy/delay/partial flags (computed); Enterprise-Shared for `escalation_required_flag`]|
+|`delay_days`|`INTEGER`|No|[Governance — Descriptive-or-Derived, computed]|
+|`operational_impact_level`|`TEXT`|No|[Governance — Domain-Authoritative]. See Logical Constraints.|
+|`notes`|`TEXT`|Yes|[Governance — Descriptive-or-Derived, narrative]|
+
+* **Business Candidate Keys:** None approved. **[Governance — Enterprise Logical Model]**
+* **Logical Constraints:**
+
+  * **Identity.** Uniqueness Rule: `fulfillment_event_id` unique across all records.
+  * **Fulfillment Status.** Permitted Values: `Complete`, `Partial`, `Pending`. Repository Evidence: 6/6 rows.
+  * **Delivery Status.** Permitted Values observed here: `Delayed`, `Delivered`, `Pending`. Repository Evidence: 6/6 rows.
+  * **Operational Impact Level.** Permitted Values: `High`, `Low`, `Moderate`. Repository Evidence: 6/6 rows.
+  * **Emergency Fulfillment Flag.** Only `FALSE` observed in all 6 current rows. Note: still modeled as boolean, not as a fixed value — this reflects the current scenario data, not a business rule that the flag can never be true.
+* **Deferred Logical Constraints:** None beyond the caveats above.
+* **Open Question — `delivery_status` vocabulary mismatch:** Shipment's `delivery_status` (Tier 2) observed values are `Delayed`, `Partial`, `Pending`, `Received`. Fulfillment Event's `delivery_status` observed values are `Delayed`, `Delivered`, `Pending` — no `Partial` or `Received`, but a `Delivered` value Shipment never uses, despite both entities sharing the same `shipment_id` for overlapping records. This could be two legitimately different vocabularies for two different questions (Shipment's own delivery state vs. the vendor-assessment view of it), or an unreconciled inconsistency between two datasets describing the same underlying event. Not resolved here — flagged for a decision before SQL Implementation, since it affects whether these should be two independent CHECK enumerations or a single shared one.
+* **Migration Considerations:** Direct load from `vendor-fulfillment-events.csv`; requires Vendor, Inventory Item, Location (Tier 0–1) and Shipment (Tier 2) loaded first — this is the first Tier 3 entity with a Tier 2 dependency, consistent with its position in the build order.
+* **Future Expansion:** None flagged.
+
+---
+
+## Shipment Replenishment Allocation
+
+**Naming note — approved.** Originally specified in the Enterprise Logical Model as `Shipment Replenishment Fulfillment`. Renamed to `Shipment Replenishment Allocation`, per approval: its defining attribute is a portion of a Shipment's quantity allocated toward satisfying a specific Replenishment request. "Fulfillment" in this repository already carries a distinct, established meaning through Fulfillment Event (a vendor-performance assessment of whether a shipment met its own order — accuracy, timing, completeness). This associative entity represents a different concept — apportioning shipped quantity across replenishment demand. The attribute itself is renamed for the same reason: `fulfilled_quantity` → `allocated_quantity`. All references in the Enterprise Logical Model and Enterprise Relational Foundation have been updated to match.
+
+* **Purpose:** Associative entity resolving Shipment's many-to-many relationship to Replenishment, recording the quantity a given shipment allocates toward a given replenishment request. **[Governance — Enterprise Logical Model, Associative Entity Resolution]**
+* **Object Model Classification:** Not applicable — a logical relationship entity, not a canonical enterprise object. **[Governance]**
+* **Canonical Identifier:** Not applicable — relationship entity. **[Governance, per the associative-entity exception in Enterprise Relational Foundation]**
+* **Foreign Keys:** `shipment_id` → Shipment.`shipment_id`; `replenishment_id` → Replenishment.`replenishment_id`
+* **Dependencies:** Shipment, Replenishment (both Tier 2, both required)
+
+|Attribute|Logical Type|Nullable|Source|
+|-|-|-|-|
+|`shipment_id`|`TEXT`|No (PK, part 1)|[Governance — Enterprise Logical Model]|
+|`replenishment_id`|`TEXT`|No (PK, part 2)|[Governance — Enterprise Logical Model]|
+|`allocated_quantity`|`INTEGER`|No|[Governance — Enterprise Logical Model: "logical requirement, not a physical-schema deferral," now named `allocated_quantity`.] Its type is an engineering decision — `INTEGER` chosen to match the quantity types already used throughout Shipment and Replenishment. **[Assumption]**|
+
+* **Business Candidate Key:** (`shipment_id`, `replenishment_id`) — assumes one shipment allocates to a given replenishment as a single recorded quantity, not multiple partial allocations over time. This matches the Logical Model's own decision not to add an `allocation_date` attribute absent business evidence for needing relationship-level timing. **[Assumption, consistent with a decision already made in the Enterprise Logical Model]**
+* **Primary-Key Strategy:** The business candidate key is implemented directly as the composite primary key, per the associative-entity exception in Enterprise Relational Foundation — this row represents the complete current relationship between the pair, so the FK combination is sufficient even though it carries a relationship-level attribute (`allocated_quantity`). A surrogate would only become necessary if multiple allocation records per pair, temporal history, or an independent lifecycle needed representing.
+* **Logical Constraints:**
+
+  * **Identity.** Uniqueness Rule: (`shipment_id`, `replenishment_id`) must be unique.
+  * **Allocation Rules.** The original per-row bound proposed here was incorrect for a many-to-many relationship — individual rows could each pass while their combined total still over-allocates either parent. Replaced with aggregate rules:
+
+    * `allocated_quantity` must be greater than zero.
+    * `SUM(allocated_quantity)` across all allocations for a given `shipment_id` must not exceed the quantity that shipment has available to allocate.
+    * `SUM(allocated_quantity)` across all allocations for a given `replenishment_id` must not exceed the quantity authorized for that replenishment. **Recommendation:** use Replenishment's `approved_quantity` as this ceiling, once an approval exists, rather than `requested_quantity` — a request is not yet an authorization.
+    * **Explicitly unresolved business decision:** whether allocation is permitted before `approved_quantity` (Replenishment) or `received_quantity` (Shipment) is even known. Not decided here — flagged for a business decision before SQL Implementation.
+    * Implementation Note: none of these are single-table `CHECK` constraints — all three span multiple rows or multiple tables. Candidates for application-layer validation or aggregate triggers at SQL Implementation, not decided here. **[Assumption — genuinely new proposals, not derived from governance]**
+* **Deferred Logical Constraints:** None beyond the rule above.
+* **Migration Considerations:** No current source data — this table has no representation in any existing dataset. Populated only going forward, same treatment as Assignment Ticket in Tier 2.
+* **Future Expansion:** None flagged.
+
+---
+
+# Tier 4
+
+## SLA Event
+
+* **Purpose:** Represents an SLA evaluation event for a vendor shipment. **[Governance]**
+* **Object Model Classification:** Assessment Object
+* **Canonical Identifier:** `sla_event_id` — `TEXT`, format `SLA-####` **[Governance — Identifier Governance Review]**
+* **Foreign Keys:** `vendor_id` → Vendor.`vendor_id`; `shipment_id` → Shipment.`shipment_id`; `fulfillment_event_id` → Fulfillment Event.`fulfillment_event_id`; `related_ticket_id` → Ticket.`ticket_id` (optional)
+* **Dependencies:** Vendor (Tier 0); Shipment (Tier 2); Fulfillment Event (Tier 3); Ticket (Tier 1, optional)
+
+|Attribute|Logical Type|Nullable|Source|
+|-|-|-|-|
+|`sla_event_id`|`TEXT`|No (PK)|[Governance]|
+|`vendor_id`, `shipment_id`, `fulfillment_event_id`|`TEXT`|No|[Governance — Enterprise-Shared, FK]|
+|`related_ticket_id`|`TEXT`|Yes|[Governance — Enterprise-Shared, FK, optional]. Observed populated in 3 of 6 current rows. **[Repository, n=6]**|
+|`sla_category`|`TEXT`|No|[Governance — Domain-Authoritative]. See Logical Constraints.|
+|`sla_status`|`TEXT`|No|[Governance — Enterprise-Shared]. See Logical Constraints.|
+|`sla_breach_flag`, `escalation_required_flag`, `corrective_action_required_flag`|`BOOLEAN`|No|[Governance — Enterprise-Shared]|
+|`sla_target_hours`|`INTEGER`|No|[Governance — Domain-Authoritative]. Observed: `48`, `72`. **[Repository, n=6]**|
+|`actual_response_hours`|`DECIMAL`|No|[Governance — Domain-Authoritative]. Current values happen to be whole hours (`48`, `72`, `96`), but elapsed response time may contain fractional hours. **[Repository, n=6; logical type is an engineering decision]**|
+|`operational_impact_level`|`TEXT`|No|[Governance — Domain-Authoritative]. Observed: `High`, `Low`, `Moderate`. **[Repository, n=6]**|
+|`review_date`|`DATE`|No|[Governance — Domain-Authoritative]|
+|`notes`|`TEXT`|Yes|[Governance — Descriptive-or-Derived, narrative]|
+
+* **Business Candidate Key:** None approved. `sla_category` is a real, data-grounded attribute, not invented, but its use in a candidate key was already deferred pending a business decision on whether a Shipment may receive one evaluation per category, repeated evaluations, or revised assessments — a decision this Tier does not reopen. **[Governance — Enterprise Logical Model]**
+* **Logical Constraints:**
+
+  * **Identity.** Uniqueness Rule: `sla_event_id` unique across all records.
+  * **SLA Category.** Permitted Values: `Delivery SLA`, `Fulfillment SLA`, `Operational Support SLA`. Repository Evidence: 6/6 rows.
+  * **SLA Status.** Permitted Values: `Breached`, `Met`, `Monitoring`. Repository Evidence: 6/6 rows.
+  * **Fulfillment Reference Consistency.** The `vendor_id` and `shipment_id` recorded on an SLA Event must match the `vendor_id` and `shipment_id` of its referenced Fulfillment Event — the three FKs must not be allowed to disagree. Implementation Note: a cross-table integrity rule requiring validation logic or trigger-based enforcement at SQL Implementation. **[Assumption — required to prevent contradictory governed references, not previously specified]**
+* **Deferred Logical Constraints:** No candidate key involving `sla_category` — see above. **Validation note, not a proposal:** the current 6 rows show 6 distinct `shipment_id` values, meaning every shipment in this sample has exactly one SLA evaluation — the data simply doesn't yet contain a case that would test whether `(shipment_id, sla_category)` could collide. This confirms there's no basis to revisit the earlier deferral, not a reason to approve it.
+* **Migration Considerations:** Direct load from `vendor-sla-tracking.csv`; requires Vendor, Shipment, Fulfillment Event (Tiers 0–3) and, where populated, Ticket.
+* **Future Expansion:** None flagged.
+
+---
+
+## Replenishment Shortage Response
+
+**Design decision — settled.** The many-to-many language in the Relational Model ("multiple Replenishments may address one Shortage... one Replenishment may mitigate several related Shortages") establishes relationship cardinality, not quantitative apportionment. Unlike `Shipment Replenishment Allocation`, the Logical Model does not identify a quantity attribute as a logical requirement here, no source data exists to ground one, and Shortage has no demand-quantity attribute (`shortage_quantity`, `required_quantity`, or equivalent) against which any applied amount could be validated — Shortage tracks severity and estimated stockout duration, not a quantity to resolve. Adding a quantity attribute now would be false precision: a plausible-sounding number with no defined meaning (ordered? approved? shipped? received? operationally credited?) and no way to bound it. This entity remains a pure associative entity.
+
+* **Purpose:** Associative entity resolving Replenishment's many-to-many relationship to Shortage. **[Governance — Enterprise Logical Model, Associative Entity Resolution]**
+* **Object Model Classification:** Not applicable — a logical relationship entity, not a canonical enterprise object.
+* **Canonical Identifier:** Not applicable — relationship entity. **[Governance, per the associative-entity exception in Enterprise Relational Foundation]**
+* **Foreign Keys:** `replenishment_id` → Replenishment.`replenishment_id`; `shortage_id` → Shortage.`shortage_id`
+* **Dependencies:** Replenishment (Tier 2), Shortage (Tier 3) — both required
+
+|Attribute|Logical Type|Nullable|Source|
+|-|-|-|-|
+|`replenishment_id`|`TEXT`|No (PK, part 1)|[Governance — Enterprise Logical Model]|
+|`shortage_id`|`TEXT`|No (PK, part 2)|[Governance — Enterprise Logical Model]|
+
+* **Business Candidate Key:** (`replenishment_id`, `shortage_id`).
+* **Primary-Key Strategy:** The business candidate key is implemented directly as the composite primary key, per the associative-entity exception in Enterprise Relational Foundation.
+* **Logical Constraints:**
+
+  * **Identity.** Uniqueness Rule: (`replenishment_id`, `shortage_id`) must be unique.
+  * **Response Compatibility.** A Replenishment Shortage Response may link records only when Replenishment.`item_id` equals Shortage.`item_id` and Replenishment.`location_id` equals Shortage.`location_id` — a response should not connect operationally unrelated records. Implementation Note: a cross-table integrity rule requiring validation logic or trigger-based enforcement at SQL Implementation. **[Assumption — derived from the operational meaning of responding to a shortage, not previously specified]**
+* **Deferred Logical Constraints:** None.
+* **Migration Considerations:** No current source data — new implementation scope, same treatment as the other three associative entities.
+* **Future Expansion:** Quantitative attribution (an `applied_quantity`-style attribute) may be introduced in the future, but only once the business governs: a measurable shortage demand quantity, the meaning of quantity credited from a replenishment against that demand, and whether multiple response events per pair or temporal history need representing. Not proposed here.
+
+---
+
 # Next Steps
 
-Tier 1 is complete and ready for review. Per the agreed process, Tier 2 (Shipment, Replenishment, Location Inventory, Workforce Escalation, Assignment Ticket) does not begin until Tier 1 is locked.
+Tiers 0–4 are locked. Tier 5 (Corrective Action, Assignment Corrective Action) is the final tier — Corrective Action is the entity that most tests this document's discipline, since it optionally references both SLA Event and Fulfillment Event and was the original example used to justify keeping tier numbers rather than taxonomy names for structural ordering.
 
