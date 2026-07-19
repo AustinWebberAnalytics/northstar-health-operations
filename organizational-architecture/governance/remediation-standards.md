@@ -18,8 +18,7 @@ These standards apply to all subsystem reviews regardless of subsystem age, repo
 
 
 
-\---
-
+---
 **Primary Audience:** Northstar architects, maintainers, reviewers, and contributors conducting subsystem or repository remediation
 
 **Writing Layer:** Layer 3 — Governance
@@ -32,10 +31,7 @@ These standards apply to all subsystem reviews regardless of subsystem age, repo
 
 **Status:** Approved — Locked
 
-\---
-
-
-
+---
 # Remediation Philosophy
 
 
@@ -65,10 +61,7 @@ The objective is to ensure each subsystem accurately reflects operational realit
 
 
 
-\---
-
-
-
+---
 # Core Remediation Principles
 
 
@@ -90,10 +83,7 @@ Subsystem remediation should reinforce governance standards rather than create s
 
 
 
-\---
-
-
-
+---
 # Remediation Sequence
 
 
@@ -178,10 +168,7 @@ Each phase should be completed before progressing to the next.
 
 
 
-\---
-
-
-
+---
 # Phase 1 — Audit
 
 
@@ -208,10 +195,7 @@ The purpose of the audit is discovery rather than correction.
 
 
 
-\---
-
-
-
+---
 # Phase 2 — Ownership Review
 
 
@@ -279,10 +263,7 @@ Ownership should be resolved before remediation work begins.
 
 
 
-\---
-
-
-
+---
 # Phase 3 — Dataset Validation
 
 
@@ -363,10 +344,7 @@ Remediation should never introduce assumptions that conflict with authoritative 
 
 
 
-\---
-
-
-
+---
 # Phase 4 — Architectural Review
 
 
@@ -393,10 +371,7 @@ The objective is to confirm architectural consistency across the ecosystem.
 
 
 
-\---
-
-
-
+---
 # Phase 5 — Remediation Planning
 
 
@@ -422,10 +397,7 @@ Planning should occur before implementation whenever practical.
 
 
 
-\---
-
-
-
+---
 # Phase 6 — Artifact Modernization
 
 
@@ -456,10 +428,7 @@ Content improvements should remain subordinate to architectural correctness.
 
 
 
-\---
-
-
-
+---
 # Phase 7 — Validation
 
 
@@ -485,10 +454,7 @@ Remediation is not complete until validation has occurred.
 
 
 
-\---
-
-
-
+---
 # Phase 8 — Integrity Review
 
 
@@ -514,10 +480,7 @@ The integrity review serves as the final quality-control checkpoint.
 
 
 
-\---
-
-
-
+---
 # Phase 9 — Closure
 
 
@@ -542,10 +505,7 @@ Future improvements may still occur through normal lifecycle management.
 
 
 
-\---
-
-
-
+---
 # Governance Discovery Capture
 
 
@@ -571,10 +531,7 @@ Governance discoveries should be captured before remediation concludes whenever 
 
 
 
-\---
-
-
-
+---
 # Artifact Preservation Standards
 
 
@@ -598,10 +555,7 @@ The objective is to preserve ecosystem evolution while preventing artifact churn
 
 
 
-\---
-
-
-
+---
 # Remediation Outcomes
 
 
@@ -674,10 +628,7 @@ Each outcome should be supported by documented rationale.
 
 
 
-\---
-
-
-
+---
 # Summary
 
 

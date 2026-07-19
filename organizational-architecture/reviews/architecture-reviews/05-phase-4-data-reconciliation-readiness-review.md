@@ -2,31 +2,28 @@
 
 ## Northstar Health Operations
 
-\---
-
+---
 **Primary Audience:** Northstar architects, data engineers, subsystem maintainers, and reviewers preparing for SQL implementation
 
 **Writing Layer:** Layer 2 — Operational / Architectural
 
 **Architectural Purpose:** Records source-data conditions that affect migration and foreign-key enforcement without reopening the approved enterprise architecture.
 
-\---
-
+---
 # Purpose
 
 This review validates whether current repository datasets can satisfy the approved relational design without transformation, exception handling, or source correction.
 
 The findings do not block Tier 5 schema derivation. They do block strict SQL referential-integrity enforcement until the documented issues are resolved.
 
-\---
-
+---
 # Validation Findings
 
 ## Employee Identity and Ticket Ownership
 
-The workforce roster contains 15 employees and includes both `employee\_id` and `employee\_name`.
+The workforce roster contains 15 employees and includes both `employee_id` and `employee_name`.
 
-The ticket dataset contains 15 records. Only 3 tickets map by exact `assigned\_owner` name to the workforce roster, all through the name `Jordan Lee`.
+The ticket dataset contains 15 records. Only 3 tickets map by exact `assigned_owner` name to the workforce roster, all through the name `Jordan Lee`.
 
 Four distinct ticket-owner names do not appear in the current roster:
 
@@ -35,7 +32,7 @@ Four distinct ticket-owner names do not appear in the current roster:
 * Samantha Ortiz
 * Taylor Brooks
 
-**Readiness decision:** create Ticket `employee\_id` as nullable during migration. Do not enforce `NOT NULL` or strict ownership completeness until the roster or ticket source is reconciled.
+**Readiness decision:** create Ticket `employee_id` as nullable during migration. Do not enforce `NOT NULL` or strict ownership completeness until the roster or ticket source is reconciled.
 
 ## Ticket Location Reconciliation
 
@@ -52,7 +49,7 @@ The ticket dataset contains four distinct free-text location names. They have cl
 
 ## Orphaned Ticket References
 
-Three current `related\_ticket\_id` values do not exist in `tickets-v1.csv`:
+Three current `related_ticket_id` values do not exist in `tickets-v1.csv`:
 
 |Missing Ticket|Referencing dataset|
 |-|-|
@@ -70,14 +67,14 @@ Three current `related\_ticket\_id` values do not exist in `tickets-v1.csv`:
 
 ## Corrective Action Ownership
 
-Current Corrective Action `assigned\_owner` values are organizational functions:
+Current Corrective Action `assigned_owner` values are organizational functions:
 
 * Vendor Management
 * Supply Chain Operations
 * Operational Support
 * Inventory Leadership
 
-**Readiness decision:** preserve `assigned\_owner` as text. Do not infer an Employee relationship or generate `employee\_id` values from these fields.
+**Readiness decision:** preserve `assigned_owner` as text. Do not infer an Employee relationship or generate `employee_id` values from these fields.
 
 ## Fulfillment and Shipment Consistency
 
@@ -89,21 +86,19 @@ Shipment and Fulfillment Event also use different delivery-status vocabularies.
 
 **Readiness decision:** enforce Vendor, Inventory Item, and Location consistency. Defer date, quantity, and status equivalence until SQL Implementation defines authoritative source and translation rules.
 
-\---
-
+---
 # Readiness Classification
 
 |Work Area|Status|
 |-|-|
-|Tier 5 schema derivation|Ready after final repository ZIP validation|
+|Tier 5 schema derivation|Ready — final repository ZIP validation completed|
 |Platform-neutral schema completion|Ready|
 |SQL DDL implementation|Not yet authorized|
 |Strict Ticket FK enforcement|Blocked by orphaned references and owner reconciliation|
 |Ticket source load|Requires encoding normalization|
 |Corrective Action Employee relationship|Not approved|
 
-\---
-
+---
 # Required Pre-SQL Actions
 
 1. Choose the target platform.

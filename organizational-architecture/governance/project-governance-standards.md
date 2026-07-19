@@ -2,8 +2,7 @@
 
 ## Northstar Health Operations
 
-\---
-
+---
 **Primary Audience:** Northstar architects, maintainers, reviewers, and contributors responsible for controlled ecosystem evolution
 
 **Writing Layer:** Layer 3 — Governance
@@ -16,8 +15,7 @@
 
 **Status:** Approved — Locked
 
-\---
-
+---
 # Purpose
 
 This document defines the enterprise governance standards used throughout the Northstar Health Operations ecosystem.
@@ -35,8 +33,7 @@ The purpose of these standards is to:
 
 This document serves as the primary governance authority for the Northstar Health Operations ecosystem.
 
-\---
-
+---
 # Governance Philosophy
 
 Northstar Health Operations follows a:
@@ -65,8 +62,7 @@ The objective of governance is not to maximize documentation.
 
 The objective is to ensure the ecosystem evolves in a controlled, consistent, and sustainable manner.
 
-\---
-
+---
 # Core Governance Principles
 
 ## Data Authority Principle
@@ -77,8 +73,7 @@ Schemas, workflows, frameworks, analysis artifacts, observations, reporting outp
 
 When discrepancies occur, datasets take precedence unless a formal dataset correction has been approved.
 
-\---
-
+---
 ## Validation Hierarchy Principle
 
 Documentation validation should follow the hierarchy below:
@@ -121,8 +116,7 @@ Executive Reporting
 
 Validation should begin at the dataset level and proceed downward through the hierarchy.
 
-\---
-
+---
 ## Documentation Ownership Principle
 
 Each document should maintain a clearly defined ownership layer.
@@ -142,8 +136,7 @@ Examples:
 
 Documentation overlap should be minimized whenever practical.
 
-\---
-
+---
 ## Ownership Before Modernization Principle
 
 When reviewing artifacts, ownership should be evaluated before modernization.
@@ -168,8 +161,7 @@ Modernization
 
 Artifacts assigned to the wrong ownership layer should be reclassified before content revisions are considered.
 
-\---
-
+---
 ## Governance Reclassification Principle
 
 Governance reviews should evaluate both content quality and ownership accuracy.
@@ -190,8 +182,7 @@ Reevaluate
 
 rather than immediately rewriting the artifact.
 
-\---
-
+---
 ## Current-State Documentation Principle
 
 Operational documentation should describe current operational reality.
@@ -205,8 +196,7 @@ Examples to avoid include:
 * Future Reporting Opportunities
 * Future Analytical Opportunities
 
-\---
-
+---
 ## Operational Documentation Principle
 
 Operational documentation should describe:
@@ -218,7 +208,25 @@ Operational documentation should describe:
 
 Documentation should not contain portfolio marketing language, self-promotional content, or resume-positioning narratives.
 
-\---
+---
+
+## Document Preface Formatting Standard
+
+Every active document created or materially revised must identify its intended audience, writing layer, and architectural purpose near the beginning of the file.
+
+Use this exact spacing pattern:
+
+```markdown
+**Primary Audience:** ...
+
+**Writing Layer:** ...
+
+**Architectural Purpose:** ...
+```
+
+A blank line is required between each field so GitHub renders the preface as three distinct paragraphs. Additional metadata fields, when present, must follow the same one-blank-line spacing. Do not compress these fields into consecutive lines.
+
+---
 
 ## Documentation Modernization Principle
 
@@ -231,8 +239,7 @@ Modernization efforts should prioritize:
 
 Modernization should not alter operational meaning, dataset structure, workflow logic, or KPI definitions without validation against authoritative sources.
 
-\---
-
+---
 # Ecosystem Lifecycle Governance
 
 Northstar Health Operations evolves through a structured governance lifecycle.
@@ -267,8 +274,7 @@ This lifecycle supports:
 
 Expansion should occur only after governance validation has been completed.
 
-\---
-
+---
 # Enterprise Architecture Governance
 
 The ecosystem follows a:
@@ -285,8 +291,7 @@ Subsystems should:
 * follow standardized architecture
 * support enterprise integration
 
-\---
-
+---
 # Standardized Subsystem Architecture
 
 All operational subsystems should follow the standard internal structure:
@@ -305,8 +310,7 @@ subsystem/
 
 This structure provides consistency while preserving subsystem autonomy.
 
-\---
-
+---
 # Markdown Placement Standards
 
 Markdown files should reside in the operational layer they support.
@@ -335,8 +339,7 @@ documentation/
 
 If it governs a specific operational layer, it belongs within that layer.
 
-\---
-
+---
 # Operational Intelligence Governance
 
 ## Analysis Layer Architecture Principle
@@ -365,8 +368,7 @@ Executive Reporting
 
 Each layer maintains a distinct purpose and should not absorb responsibilities owned by another layer.
 
-\---
-
+---
 ## Reporting-to-Observation Traceability Principle
 
 Observations should be derived from validated reporting outputs.
@@ -391,8 +393,7 @@ Observations
 
 Observations should be supported by documented evidence and validated reporting outputs.
 
-\---
-
+---
 ## Single Active Source Principle
 
 Each subsystem should maintain a single active version of major reporting artifacts.
@@ -405,8 +406,7 @@ Examples include:
 
 Historical versions should be archived rather than maintained as parallel active artifacts.
 
-\---
-
+---
 ## Artifact Preservation Principle
 
 Governance improvements should not automatically trigger artifact replacement.
@@ -417,8 +417,7 @@ Version progression should remain visible when substantial revisions occur.
 
 The objective is to preserve ecosystem evolution while avoiding unnecessary artifact churn.
 
-\---
-
+---
 # Process Improvement Governance
 
 The process-improvement layer exists to govern:
@@ -435,7 +434,7 @@ Process-improvement artifacts should focus on improvement governance rather than
 Recommended naming convention:
 
 ```text
-\[subsystem]-improvement-framework.md
+[subsystem]-improvement-framework.md
 ```
 
 Examples:
@@ -454,8 +453,7 @@ Workflow artifacts remain responsible for execution.
 
 Improvement frameworks remain responsible for improvement governance.
 
-\---
-
+---
 # Data Governance Standards
 
 ## CSV Philosophy
@@ -473,8 +471,7 @@ CSV files should prioritize:
 
 CSV datasets represent the authoritative operational record layer.
 
-\---
-
+---
 ## XLSX Philosophy
 
 XLSX workbooks serve as:
@@ -491,8 +488,7 @@ Workbooks may contain:
 
 Workbooks should not serve as authoritative operational datasets.
 
-\---
-
+---
 ## Schema Governance Standards
 
 Each operational dataset should maintain a dedicated schema document.
@@ -500,7 +496,7 @@ Each operational dataset should maintain a dedicated schema document.
 Recommended format:
 
 ```text
-\[dataset-name]-schema.md
+[dataset-name]-schema.md
 ```
 
 Examples:
@@ -526,19 +522,18 @@ Schema documents should define:
 
 Schema documents should remain colocated with the datasets they govern.
 
-\---
-
+---
 ## Shared Identifier Standards
 
 Subsystems should use shared identifiers whenever operationally appropriate.
 
 Examples include:
 
-* related\_ticket\_id
-* vendor\_id
-* item\_id
-* location\_id
-* employee\_id
+* related_ticket_id
+* vendor_id
+* item_id
+* location_id
+* employee_id
 
 Shared identifiers support:
 
@@ -547,8 +542,7 @@ Shared identifiers support:
 * reporting consistency
 * enterprise integration
 
-\---
-
+---
 # Reporting Governance Standards
 
 Executive reporting artifacts should maintain:
@@ -563,8 +557,7 @@ Reporting should prioritize:
 * visual consistency
 * presentation readiness
 
-\---
-
+---
 ## Executive Summary Standards
 
 Executive summaries should generally include:
@@ -578,8 +571,7 @@ Executive summaries should generally include:
 
 Executive summaries should remain concise, scan-friendly, and leadership-oriented.
 
-\---
-
+---
 # Remediation Governance
 
 Subsystem remediation should follow the standards established within:
@@ -598,16 +590,14 @@ Integrity reviews should verify:
 * reporting consistency
 * architectural completeness
 
-\---
-
+---
 # GitHub Governance Standards
 
 GitHub functions as:
 
 # the ecosystem version-control layer
 
-\---
-
+---
 ## Commit Governance Principles
 
 Commits should occur:
@@ -618,8 +608,7 @@ Commits should occur:
 * after reporting cycles
 * before major architectural transitions
 
-\---
-
+---
 ## Push Governance Principles
 
 Operational workflow should generally follow:
@@ -650,8 +639,7 @@ This process helps prevent:
 * structural confusion
 * governance inconsistency
 
-\---
-
+---
 # Expansion Governance Standards
 
 New subsystem construction should occur only after:
@@ -671,8 +659,7 @@ Expansion should prioritize:
 
 Expansion should strengthen the ecosystem rather than increase complexity without operational justification.
 
-\---
-
+---
 # Governance Discovery Standards
 
 Governance discoveries identified during remediation should be documented when they occur.
@@ -688,8 +675,7 @@ Documenting discoveries helps prevent:
 
 Governance evolution should remain traceable over time.
 
-\---
-
+---
 # Source-of-Truth Governance Rule
 
 The newest approved governance and architecture documents override:
@@ -709,8 +695,7 @@ Future project sessions should prioritize:
 
 over historical project assumptions.
 
-\---
-
+---
 # Summary
 
 The Project Governance Standards establish the enterprise governance framework used throughout the Northstar Health Operations ecosystem.

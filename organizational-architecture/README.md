@@ -109,7 +109,7 @@ The conceptual architecture and identifier baseline are approved.
 
 The Enterprise Relational Foundation is approved and locked. Enterprise Relational Schema Tiers 0–4 are locked. Tier 5—Corrective Action and Assignment Corrective Action—is the final schema-derivation tier.
 
-Tier 5 begins only after the reconciled repository ZIP passes a final full-repository validation checkpoint.
+The reconciled repository ZIP has passed the final full-repository validation checkpoint. Tier 5 is authorized to begin under the locked architecture baseline.
 
 ---
 

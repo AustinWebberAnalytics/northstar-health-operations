@@ -85,7 +85,7 @@ The Enterprise Relational Foundation is approved and locked. Enterprise Relation
 - Corrective Action
 - Assignment Corrective Action
 
-Tier 5 begins only after the reconciled repository ZIP passes a final full-repository validation checkpoint.
+The reconciled repository ZIP has passed the final full-repository validation checkpoint. Tier 5 is authorized to begin under the locked architecture baseline.
 
 SQL implementation has not started. Platform-specific DDL, migrations, triggers, and enforcement logic belong to the phase after the complete schema is approved.
 

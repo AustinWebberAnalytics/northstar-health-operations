@@ -2,16 +2,14 @@
 
 ## Northstar Health Operations
 
-\---
-
+---
 **Primary Audience:** Northstar architects, maintainers, and reviewers tracing enterprise-architecture decisions
 
 **Writing Layer:** Layer 1 — Reader-Facing
 
 **Architectural Purpose:** Indexes the reviews that formed, validated, and later reconciled the enterprise architecture.
 
-\---
-
+---
 # Review Sequence
 
 1. [Phase 3 Enterprise Model Reconciliation](01-phase-3-enterprise-model-reconciliation.md)

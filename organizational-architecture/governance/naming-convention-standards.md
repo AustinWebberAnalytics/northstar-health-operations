@@ -2,8 +2,7 @@
 
 ## Northstar Health Operations
 
-\---
-
+---
 **Primary Audience:** Northstar architects, subsystem maintainers, data engineers, and contributors naming repository artifacts
 
 **Writing Layer:** Layer 3 — Governance
@@ -16,8 +15,7 @@
 
 **Status:** Approved — Locked
 
-\---
-
+---
 # Purpose
 
 This document defines the enterprise naming standards used throughout the Northstar Health Operations ecosystem.
@@ -35,8 +33,7 @@ The purpose of these standards is to:
 
 This document serves as the authoritative naming governance reference for the Northstar Health Operations ecosystem.
 
-\---
-
+---
 # Naming Philosophy
 
 Northstar Health Operations prioritizes:
@@ -64,8 +61,7 @@ The objective of naming governance is not to create rigid formatting rules.
 
 The objective is to create a shared language that supports operational understanding across all enterprise domains.
 
-\---
-
+---
 # Enterprise Naming Model
 
 The ecosystem applies naming standards across multiple governance layers.
@@ -104,9 +100,8 @@ Workflow Artifact
 
 Each layer serves a distinct operational purpose and should maintain naming consistency with the layers surrounding it.
 
-\---
-
-# Repository \& Subsystem Naming Standards
+---
+# Repository & Subsystem Naming Standards
 
 Repository and subsystem names should use:
 
@@ -148,8 +143,7 @@ Subsystem names should clearly communicate:
 * organizational role
 * enterprise function
 
-\---
-
+---
 # Standardized Subsystem Architecture Naming
 
 All operational subsystems should maintain standardized internal folder naming.
@@ -204,8 +198,7 @@ process-improvement/
 
 Subsystem-specific folder naming variations should not be introduced without governance approval.
 
-\---
-
+---
 # Dataset Naming Standards
 
 Dataset filenames should use:
@@ -243,7 +236,7 @@ ticketsNEW.csv
 
 vendorReport.xlsx
 
-inventory\_export\_final.csv
+inventory_export_final.csv
 ```
 
 Dataset names should clearly communicate:
@@ -253,30 +246,29 @@ Dataset names should clearly communicate:
 * workflow context
 * analytical use case
 
-\---
-
+---
 # Field Naming Standards
 
 All field names should use:
 
 ```text
-snake\_case
+snake_case
 ```
 
 Examples:
 
 ```text
-vendor\_id
+vendor_id
 
-related\_ticket\_id
+related_ticket_id
 
-shipment\_delay\_hours
+shipment_delay_hours
 
-resolution\_timestamp
+resolution_timestamp
 
-escalation\_flag
+escalation_flag
 
-inventory\_status
+inventory_status
 ```
 
 Avoid:
@@ -291,8 +283,7 @@ shipmentDelay
 ResolutionHours
 ```
 
-\---
-
+---
 # Field Naming Governance Principles
 
 Field names should:
@@ -312,8 +303,7 @@ Avoid:
 
 Field naming should prioritize long-term consistency over short-term convenience.
 
-\---
-
+---
 # Shared Identifier Standards
 
 Shared identifiers serve as enterprise assets and should remain consistent across operational domains.
@@ -355,8 +345,7 @@ Shared identifiers should:
 
 Shared identifiers are governed as enterprise assets rather than subsystem-specific implementations.
 
-\---
-
+---
 # Reporting Artifact Naming Standards
 
 Reporting artifacts should use:
@@ -394,8 +383,7 @@ Reporting names should clearly communicate:
 * operational focus
 * intended audience
 
-\---
-
+---
 # Workflow Artifact Naming Standards
 
 Workflow artifacts should use:
@@ -421,8 +409,7 @@ Workflow names should clearly communicate:
 * escalation relationships
 * process ownership
 
-\---
-
+---
 # Executive Reporting Terminology Standards
 
 Executive reporting should maintain consistent leadership-oriented terminology.
@@ -452,8 +439,7 @@ Consistent terminology improves:
 
 Avoid inconsistent section naming across reporting artifacts.
 
-\---
-
+---
 # Analytical Integration Standards
 
 Naming conventions should support:
@@ -474,11 +460,11 @@ Naming should prioritize:
 Examples:
 
 ```text
-vendor\_id
+vendor_id
 
-location\_id
+location_id
 
-related\_ticket\_id
+related_ticket_id
 ```
 
 Preferred over:
@@ -498,8 +484,7 @@ Consistent naming improves:
 * subsystem interoperability
 * enterprise maintainability
 
-\---
-
+---
 # Naming Governance Principles
 
 ## Naming Drift Prevention Principle
@@ -519,21 +504,20 @@ vendorNum
 
 vendorID
 
-supplier\_id
+supplier_id
 
-supp\_id
+supp_id
 ```
 
 Preferred:
 
 ```text
-vendor\_id
+vendor_id
 ```
 
 Only one canonical naming structure should exist for shared operational concepts.
 
-\---
-
+---
 ## Governance Enforcement Principle
 
 Naming consistency is considered:
@@ -546,8 +530,7 @@ NOT:
 
 All future subsystems, reporting artifacts, datasets, workflows, and analytical models should follow approved naming standards unless formally updated through governance review.
 
-\---
-
+---
 ## Expansion Alignment Principle
 
 Future subsystem expansion should:
@@ -560,8 +543,7 @@ Future subsystem expansion should:
 
 Naming standards should scale with the ecosystem rather than fragment as new operational domains are introduced.
 
-\---
-
+---
 # Governance Alignment
 
 These standards align with:
@@ -574,8 +556,7 @@ These standards align with:
 
 Naming standards should remain consistent with all approved governance and architectural standards throughout the ecosystem.
 
-\---
-
+---
 # Summary
 
 The Naming Convention Standards establish the enterprise naming framework used throughout the Northstar Health Operations ecosystem.

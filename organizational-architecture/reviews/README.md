@@ -2,16 +2,14 @@
 
 ## Northstar Health Operations
 
-\---
-
+---
 **Primary Audience:** Northstar architects, maintainers, reviewers, and contributors tracing how major decisions were reached
 
 **Writing Layer:** Layer 1 — Reader-Facing
 
 **Architectural Purpose:** Separates historical review evidence from the current authoritative Governance and System Design baselines.
 
-\---
-
+---
 # Review Areas
 
 ## [Architecture Reviews](architecture-reviews/README.md)
@@ -22,8 +20,7 @@ Documents Phase 3 architecture formation and Phase 4 reconciliation before SQL i
 
 Documents repository standardization, governance-gap analysis, subsystem remediation, and historical reference-implementation work.
 
-\---
-
+---
 # Authority Boundary
 
 Reviews explain findings, decisions, and validation history.

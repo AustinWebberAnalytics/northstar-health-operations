@@ -2,16 +2,14 @@
 
 ## Northstar Health Operations
 
-\---
-
+---
 **Primary Audience:** Northstar architects, maintainers, data engineers, and reviewers validating the pre-SQL architecture baseline
 
 **Writing Layer:** Layer 2 — Operational / Architectural
 
 **Architectural Purpose:** Records the repository-wide reconciliation performed across Governance, System Design, relational design, navigation, and source-data evidence before Tier 5 schema derivation.
 
-\---
-
+---
 # Purpose
 
 This review reconciles the active Organizational Architecture baseline after Enterprise Relational Schema Tier 4.
@@ -20,8 +18,7 @@ The review was required because several downstream artifacts had advanced while 
 
 The objective was not to redesign Northstar. It was to make every active architecture layer describe the same approved enterprise.
 
-\---
-
+---
 # Scope
 
 The reconciliation covered:
@@ -38,17 +35,16 @@ The reconciliation covered:
 
 Historical Phase 2 and Phase 3 reviews were preserved as review evidence rather than rewritten as current authority.
 
-\---
-
+---
 # Major Decisions Reconciled
 
 ## Identifier Formats
 
 Repository evidence corrected three documentation-only format errors:
 
-* `employee\_id`: `EMP-###`
-* `shortage\_id`: `SHORT-####`
-* `discrepancy\_id`: `DISC-####`
+* `employee_id`: `EMP-###`
+* `shortage_id`: `SHORT-####`
+* `discrepancy_id`: `DISC-####`
 
 No data-value migration is required.
 
@@ -67,7 +63,7 @@ Unsupported direct relationships were removed, including:
 * Inventory Discrepancy to Employee
 * Coverage Schedule to Workload Record
 * Assignment to Workforce Escalation
-* Corrective Action to Employee through `assigned\_owner`
+* Corrective Action to Employee through `assigned_owner`
 
 Missing governed Fulfillment Event relationships were added for:
 
@@ -77,13 +73,13 @@ Missing governed Fulfillment Event relationships were added for:
 
 ## Corrective Action Ownership
 
-Current `assigned\_owner` values are organizational functions or teams. They do not identify employees.
+Current `assigned_owner` values are organizational functions or teams. They do not identify employees.
 
 Corrective Action therefore retains organizational ownership text and does not receive an Employee foreign key from this field.
 
 ## Employee Name Preservation
 
-`employee\_name` was restored as a Domain-Authoritative Employee attribute because Ticket owner reconciliation depends on matching free-text names to canonical employee identities.
+`employee_name` was restored as a Domain-Authoritative Employee attribute because Ticket owner reconciliation depends on matching free-text names to canonical employee identities.
 
 ## Fulfillment Reference Integrity
 
@@ -93,18 +89,16 @@ The reconciled architecture requires those references to agree with the referenc
 
 ## Replenishment Shortage Response
 
-The relationship remains a pure associative entity. No `applied\_quantity` attribute is introduced without a governed shortage-demand quantity and a defined crediting rule.
+The relationship remains a pure associative entity. No `applied_quantity` attribute is introduced without a governed shortage-demand quantity and a defined crediting rule.
 
-\---
-
+---
 # Documentation Reconciliation
 
 The Organizational Architecture README, Governance README, System Design README, Reviews README, Architecture Reviews README, Enterprise Reference Guide, and Enterprise Operations Brief were rewritten as current navigable entry points.
 
-The empty Enterprise Operations Brief was restored, and the escaped Markdown in the Phase 3 Foundation Validation review was repaired without changing its historical conclusions.
+The empty Enterprise Operations Brief was restored, and escaped Markdown artifacts were normalized across the active Organizational Architecture documents without changing their architectural meaning. The required document-preface spacing was also codified so Primary Audience, Writing Layer, and Architectural Purpose render as distinct GitHub paragraphs.
 
-\---
-
+---
 # Outcome
 
 The active Governance, Object, Relational, Logical, Foundation, and Tier 0–4 Schema artifacts now describe one consistent baseline.

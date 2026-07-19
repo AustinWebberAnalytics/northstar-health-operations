@@ -2,16 +2,14 @@
 
 ## Northstar Health Operations
 
-\---
-
+---
 **Primary Audience:** Portfolio reviewers, hiring managers, collaborators, and technical readers seeking the organizational context behind the repository
 
 **Writing Layer:** Layer 1 — Reader-Facing
 
 **Architectural Purpose:** Defines the simulated organization, its operational responsibilities, core systems, and the business context that grounds Northstar architecture and analytics.
 
-\---
-
+---
 # Organization Overview
 
 Northstar Health Operations is a fictional regional healthcare-operations and supply-coordination organization created as an enterprise portfolio environment.
@@ -20,8 +18,7 @@ It supports outpatient clinics, specialty care locations, and distribution opera
 
 The organization is intentionally designed with realistic cross-functional dependencies. A delayed shipment can create a shortage. A shortage can create a ticket. A ticket can require workforce coordination. The resulting activity can affect vendor evaluation, SLA performance, corrective action, and executive reporting.
 
-\---
-
+---
 # Core Operational Functions
 
 Northstar coordinates:
@@ -35,8 +32,7 @@ Northstar coordinates:
 * KPI reporting and executive communication
 * workflow analysis and process improvement
 
-\---
-
+---
 # Primary Operational Domains
 
 ## Ticketing System
@@ -55,8 +51,7 @@ Tracks vendors, shipments, fulfillment outcomes, SLA evaluations, and corrective
 
 Tracks employees, assignments, coverage schedules, workload records, and workforce escalations.
 
-\---
-
+---
 # Enterprise Operating Model
 
 Northstar separates operational ownership from enterprise governance.
@@ -77,8 +72,7 @@ Operational Analysis and Reporting
 Management and Executive Decision Support
 ```
 
-\---
-
+---
 # Core Enterprise Systems
 
 * **Ticketing and Incident Management** — operational work coordination
@@ -88,8 +82,7 @@ Management and Executive Decision Support
 * **Reporting and KPI Management** — operational and executive visibility
 * **Governance and Validation** — standards, identifier control, reconciliation, and auditability
 
-\---
-
+---
 # Current Architecture State
 
 Northstar currently governs 17 enterprise objects and 4 required associative entities.
@@ -98,8 +91,7 @@ The conceptual architecture, identifier governance, and relational engineering f
 
 SQL implementation begins only after the complete schema is reviewed and approved.
 
-\---
-
+---
 # Portfolio Purpose
 
 Northstar demonstrates how operational analysis depends on more than writing queries or building dashboards.
