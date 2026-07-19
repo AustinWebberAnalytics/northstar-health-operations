@@ -34,7 +34,7 @@ This document establishes the foundation-level engineering decisions that bound 
 
 - database philosophy (single vs. multiple databases, key strategy, history strategy)
 - schema/namespace organization
-- dependency-ordered build sequence for all 17 entities and 4 associative entities
+- dependency-informed build sequence for all 17 entities and 4 associative entities
 - foreign key philosophy
 - constraint philosophy
 - migration philosophy (CSV → database)
@@ -101,7 +101,7 @@ This is a proposal, not a final decision — flagged as such per the note above.
 
 # Implementation Order (Dependency-First)
 
-Derived directly from the foreign-key relationships already established across the Object Model, Relational Model, and Logical Model — not a new analysis, a topological ordering of what's already approved.
+Derived directly from the foreign-key relationships already established across the Object Model, Relational Model, and Logical Model — a dependency-informed implementation sequence of what's already approved.
 
 **Tier 0 — No dependencies**
 Location, Employee, Vendor
@@ -118,10 +118,10 @@ Inventory Discrepancy (→ Inventory Item, Location), Shortage (→ Inventory It
 **Tier 4 — Depend on Tier 0–3**
 SLA Event (→ Vendor, Shipment, Fulfillment Event), Replenishment Shortage Response (→ Replenishment, Shortage)
 
-**Tier 5 — Depend on Tier 0–4**
-Corrective Action (→ Vendor, SLA Event *optional*, Fulfillment Event *optional*, Ticket *optional*), Assignment Corrective Action (→ Assignment, Corrective Action)
+**Tier 5 — Depend on Tier 0–4, with an ordered terminal step**
+Corrective Action (→ Vendor, SLA Event *optional*, Fulfillment Event *optional*, Ticket *optional*), followed by Assignment Corrective Action (→ Assignment, Corrective Action)
 
-Tables are built in tier order. Within a tier, order doesn't matter — no two entities in the same tier depend on each other.
+Tables are built in tier order. Within Tiers 0–4, order does not matter because no entity depends on another entity in the same tier. Tier 5 is the sole ordered exception: Corrective Action must be created before Assignment Corrective Action because the associative entity references it.
 
 ---
 
@@ -206,6 +206,6 @@ Schema changes after initial implementation go through the same design → revie
 
 # Summary
 
-This document defines the engineering philosophy for realizing the approved enterprise architecture as a relational database: one database, surrogate primary keys with business keys as constraints where approved, current-state only (no history modeling), domain-grouped schema organization (platform-dependent), a dependency-ordered six-tier build sequence derived from already-approved relationships, foreign-key and constraint philosophies with one explicit staged exception for Ticket's free-text fields, and a migration pipeline that generalizes the Ticket-specific sequence already documented in the Enterprise Logical Model.
+This document defines the engineering philosophy for realizing the approved enterprise architecture as a relational database: one database, surrogate primary keys with business keys as constraints where approved, current-state only (no history modeling), domain-grouped schema organization (platform-dependent), a dependency-informed six-tier build sequence with one explicit ordered exception in Tier 5, foreign-key and constraint philosophies with one explicit staged exception for Ticket's free-text fields, and a migration pipeline that generalizes the Ticket-specific sequence already documented in the Enterprise Logical Model.
 
 No table has been created. Platform-neutral logical types are defined in Enterprise Relational Schema; platform-specific physical types, DDL, migration scripts, and enforcement mechanisms begin in SQL Implementation after the remaining platform and deletion-policy decisions are approved.

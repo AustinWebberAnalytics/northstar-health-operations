@@ -13,7 +13,7 @@
 
 **Authority Level:** Design Specification
 
-**Status:** Draft — Tiers 0–4 Locked, Tier 5 Not Yet Started
+**Status:** Draft — Tiers 0–5 Locked, Final Approval Review Pending
 
 **Depends On:** Enterprise Logical Model, Enterprise Identifier Governance Review, Cross-System Identifier Dictionary, Enterprise Relational Model, and Enterprise Relational Foundation
 
@@ -36,6 +36,7 @@ No decision in this document is untraceable. Every field, type, key, constraint,
 * **Logical constraints are stated as business rules, not SQL syntax.** A permitted-values list and its evidence are recorded; whether it becomes a `CHECK` constraint, an application-layer validation, or something else is an implementation note, not a decision made here.
 * **Per-entity template:** Purpose, Object Model Classification, Canonical Identifier, Foreign Keys, **Dependencies**, Business Candidate Keys, Attributes (Logical Type), Logical Constraints, Deferred Logical Constraints, Migration Considerations, Future Expansion.
 * **Dependencies** (added starting Tier 1; not retrofitted to Tier 0) identifies the prerequisite entities that must exist before this table can be built. It is independent of the Foreign Keys list — Dependencies reflects only this entity's own foreign keys, not entities that reference it through an associative entity. Tier 0 entities have no Dependencies section since "None" is already implied by Foreign Keys: None at that tier.
+* **Terminal-tier ordering exception:** Tier 5 is ordered internally. Corrective Action must be built before Assignment Corrective Action because the associative entity references Corrective Action. This is the only same-tier dependency in the current implementation sequence.
 
 ---
 # Build Status
@@ -47,9 +48,9 @@ No decision in this document is untraceable. Every field, type, key, constraint,
 |Tier 2|Shipment, Replenishment, Location Inventory, Workforce Escalation, Assignment Ticket|**Locked**|
 |Tier 3|Inventory Discrepancy, Shortage, Fulfillment Event, Shipment Replenishment Allocation|**Locked**|
 |Tier 4|SLA Event, Replenishment Shortage Response|**Locked**|
-|Tier 5|Corrective Action, Assignment Corrective Action|Not started|
+|Tier 5|Corrective Action, Assignment Corrective Action|**Locked**|
 
-Per agreed process, Tiers 0–4 are locked. Tier 5 is the final derivation stage and will be reviewed independently before the Enterprise Relational Schema is approved as a complete document.
+Per agreed process, Tiers 0–5 are locked. The Enterprise Relational Schema now requires a final repository-integrated approval review before SQL Implementation begins.
 
 ---
 # Tier 0 — Foundation
@@ -667,20 +668,86 @@ Per agreed process, Tiers 0–4 are locked. Tier 5 is the final derivation stage
 * **Future Expansion:** Quantitative attribution (an `applied_quantity`-style attribute) may be introduced in the future, but only once the business governs: a measurable shortage demand quantity, the meaning of quantity credited from a replenishment against that demand, and whether multiple response events per pair or temporal history need representing. Not proposed here.
 
 ---
+
+# Tier 5
+
+## Corrective Action
+
+* **Purpose:** Represents a vendor corrective action opened in response to SLA breaches, fulfillment failures, or direct vendor issues. **[Governance]**
+* **Object Model Classification:** Operational Work Object
+* **Canonical Identifier:** `corrective_action_id` — `TEXT`, format `CA-####` **[Governance — Identifier Governance Review]**
+* **Foreign Keys:** `vendor_id` → Vendor.`vendor_id` (required); `sla_event_id` → SLA Event.`sla_event_id` (optional); `fulfillment_event_id` → Fulfillment Event.`fulfillment_event_id` (optional); `related_ticket_id` → Ticket.`ticket_id` (optional)
+* **Dependencies:** Vendor (Tier 0, required); SLA Event (Tier 4, optional); Fulfillment Event (Tier 3, optional); Ticket (Tier 1, optional) — the deepest dependency chain of any entity in this schema, consistent with Corrective Action being the reason dependency-order tiers were kept distinct from Object Model taxonomy in the first place.
+
+| Attribute | Logical Type | Nullable | Source |
+|---|---|---|---|
+| `corrective_action_id` | `TEXT` | No (PK) | [Governance] |
+| `vendor_id` | `TEXT` | No | [Governance — Enterprise-Shared, FK, required] |
+| `sla_event_id` | `TEXT` | Yes | [Governance — Enterprise-Shared, FK, optional]. Populated in 5 of 5 current rows — see Deferred Logical Constraints; this is a small-sample coincidence, not evidence to tighten the approved optionality. |
+| `fulfillment_event_id` | `TEXT` | Yes | [Governance — Enterprise-Shared, FK, optional]. Same caveat as above — 5 of 5 populated in current data. |
+| `related_ticket_id` | `TEXT` | Yes | [Governance — Enterprise-Shared, FK, optional]. Observed populated in 3 of 5 current rows. **[Repository, n=5]** |
+| `corrective_action_type` | `TEXT` | No | [Governance — Domain-Authoritative]. See Logical Constraints — not proposed as an enumeration. |
+| `corrective_action_status` | `TEXT` | No | [Governance — Enterprise-Shared]. See Logical Constraints. |
+| `corrective_action_severity` | `TEXT` | No | [Governance — Domain-Authoritative]. See Logical Constraints. |
+| `trigger_reason` | `TEXT` | No | [Governance — Domain-Authoritative]. **Provenance tension worth flagging, same pattern as Shortage's `operational_impact` in Tier 3:** all 5 current values are distinct, full narrative sentences, not structured categories. Tag and type are unaffected (still unconstrained `TEXT`), but this reads closer to Descriptive-or-Derived in practice. **[Repository, n=5]** |
+| `assigned_owner` | `TEXT` | No | [Governance — Domain-Authoritative; organizational role/team text, explicitly **not** an Employee reference, per the Logical Model's Ownership Boundary]. See Logical Constraints. |
+| `remediation_plan_summary` | `TEXT` | No | [Governance — Domain-Authoritative — explicitly classified as such in an earlier approved decision, unlike `trigger_reason` above; narrative content but not flagged as a tension] |
+| `monitoring_start_date` | `DATE` | No | [Governance — Domain-Authoritative]. Populated 5/5 in current data; no evidence of a lifecycle state where this is legitimately absent, unlike Shipment's `actual_delivery_date` pattern. **[Repository, n=5]** |
+| `reassessment_date` | `DATE` | Yes | [Governance — Domain-Authoritative]. The subsystem source schema defines this field as optional and explicitly permits it to remain blank for newly opened corrective action cases. Current repository data happens to populate all 5 rows, but that does not override the governed lifecycle state. |
+| `recovery_status` | `TEXT` | No | [Governance — Domain-Authoritative]. See Logical Constraints. |
+| `escalation_required_flag`, `corrective_action_closed_flag` | `BOOLEAN` | No | [Governance — Enterprise-Shared, per the reconciled Enterprise Logical Model] |
+| `notes` | `TEXT` | Yes | [Governance — Descriptive-or-Derived, narrative]. Consistent with `notes` treatment on every other entity in this schema — nullable regardless of current sample completeness. |
+
+* **Business Candidate Key:** None approved. A Corrective Action may respond to an SLA Event, a Fulfillment Event, both, repeated findings, or a Vendor issue directly — no single source relationship is exclusive. **[Governance — Enterprise Logical Model]**
+* **Logical Constraints:**
+
+  * **Identity.** Uniqueness Rule: `corrective_action_id` unique across all records.
+  * **Corrective Action Type Vocabulary.** Observed Values: `SLA Recovery`, `Fulfillment Stabilization`, `Operational Recovery`, `Continuity Risk Review`, `Escalation Reduction`. Repository Evidence: 5/5 rows, with all five values distinct. Implementation Note: record this as a provisional observed vocabulary only; do not enforce it as a hard database constraint until the business confirms the list is exhaustive.
+  * **Corrective Action Status.** Permitted Values: `Escalated Review`, `Monitoring`, `Resolved`. Repository Evidence: 5/5 rows (`Monitoring` ×2, `Resolved` ×2, `Escalated Review` ×1). Implementation Note: provisional, standard small-sample caveat — thinner than most prior tiers' enumerations.
+  * **Corrective Action Severity.** Permitted Values observed: `Action Required`, `Advisory`, `Escalated Review`, `Monitoring`. Repository Evidence: 5/5 rows, 4 distinct values — almost no repetition. Flagged as more tentative than Status above; treat as a weaker candidate for a hard constraint.
+  * **Recovery Status.** Permitted Values observed: `Improving`, `Monitoring`, `Stable`, `Unresolved`. Repository Evidence: 5/5 rows, 4 distinct values (`Stable` ×2). Same thin-sample caveat as Severity.
+  * **Assigned Owner.** Permitted Values observed: `Vendor Management`, `Supply Chain Operations`, `Operational Support`, `Inventory Leadership`. Repository Evidence: 5/5 rows. These are organizational-function labels, not a governed reference table — treat as a provisional controlled vocabulary, not a confirmed-exhaustive list.
+  * **SLA Event Vendor Consistency.** When `sla_event_id` is populated, Corrective Action's `vendor_id` must match the referenced SLA Event's `vendor_id`. Verified directly against all 5 current rows — 5/5 match. Implementation Note: cross-table integrity rule; mechanism (trigger vs. application validation) deferred to SQL Implementation. **[Assumption — required to prevent contradictory governed references]**
+  * **Fulfillment Event Vendor Consistency.** When `fulfillment_event_id` is populated, Corrective Action's `vendor_id` must match the referenced Fulfillment Event's `vendor_id`. Verified against all 5 current rows — 5/5 match. Same implementation note as above. **[Assumption]**
+  * **SLA–Fulfillment Event Consistency.** When both `sla_event_id` and `fulfillment_event_id` are populated, the referenced SLA Event's own `fulfillment_event_id` must equal Corrective Action's `fulfillment_event_id` — the two source references must agree with each other, not just each independently agree with Vendor. Verified against all 5 current rows — 5/5 match. Same implementation note. **[Assumption]**
+  * **Ticket Reference Consistency.** When both referenced source events carry non-null `related_ticket_id` values, the SLA Event and Fulfillment Event ticket references must agree with each other. When Corrective Action.`related_ticket_id` is populated, it must match every non-null ticket reference carried by its referenced SLA Event and Fulfillment Event. Repository Evidence: all 5 current SLA/Fulfillment source-event pairs agree, and all 3 Corrective Actions with populated ticket references match both linked source events. Implementation Note: cross-table integrity rule; mechanism deferred to SQL Implementation. **[Assumption]**
+* **Deferred Logical Constraints:**
+  * **Source-reference presence.** No rule requires at least one of `sla_event_id` or `fulfillment_event_id` to be populated. The approved architecture allows a Vendor issue to create a Corrective Action directly with neither source reference. The current 5-row sample populates both fields on every row, but that observation does not justify tightening the approved optionality.
+  * **Closed-status correlation.** In all 5 current rows, `corrective_action_status = 'Resolved'` corresponds to `corrective_action_closed_flag = TRUE`, while every other observed status corresponds to `FALSE`. This remains an observed lifecycle pattern rather than a governed rule because the sample is too small to establish all valid status/closure combinations.
+* **Migration Considerations:** Direct load from `vendor-corrective-actions.csv`; requires Vendor (Tier 0) and, where populated, SLA Event (Tier 4), Fulfillment Event (Tier 3), and Ticket (Tier 1) all already loaded — this entity cannot be loaded until every other tier in this schema is in place.
+* **Future Expansion:** If `assigned_owner` values are ever formalized into a governed organizational-function reference table (paralleling the Department/Team reconciliation already flagged elsewhere in this schema), `assigned_owner` could become a foreign key at that point. Not proposed here. `assigned_owner` must not be migrated to `employee_id` under any circumstances without a separately governed employee-level field — this is a hard boundary carried forward from the Enterprise Logical Model, not a future option.
+
+---
+
+## Assignment Corrective Action
+
+* **Purpose:** Associative entity resolving Assignment's many-to-many relationship to Corrective Action — the second of two typed associative entities replacing the rejected polymorphic Assignment-to-work-object design. **[Governance — Enterprise Logical Model, Associative Entity Resolution]**
+* **Object Model Classification:** Not applicable — a logical relationship entity, not a canonical enterprise object.
+* **Canonical Identifier:** Not applicable — relationship entity. **[Governance, per the associative-entity exception in Enterprise Relational Foundation]**
+* **Foreign Keys:** `assignment_id` → Assignment.`assignment_id` (required); `corrective_action_id` → Corrective Action.`corrective_action_id` (required)
+* **Dependencies:** Assignment (Tier 1); Corrective Action (Tier 5, required). Under the approved terminal-tier ordering exception, Corrective Action must be built before Assignment Corrective Action.
+
+| Attribute | Logical Type | Nullable | Source |
+|---|---|---|---|
+| `assignment_id` | `TEXT` | No (PK, part 1) | [Governance — Enterprise Logical Model] |
+| `corrective_action_id` | `TEXT` | No (PK, part 2) | [Governance — Enterprise Logical Model] |
+
+* **Business Candidate Key:** (`assignment_id`, `corrective_action_id`).
+* **Primary-Key Strategy:** The business candidate key is implemented directly as the composite primary key, per the associative-entity exception in Enterprise Relational Foundation. No surrogate identifier is introduced — there is no source data, and therefore no evidence, for any relationship-level attribute or independent lifecycle that would justify one. This mirrors the settled Replenishment Shortage Response decision in Tier 4: absence of evidence is not a reason to invent structure.
+* **Logical Constraints:**
+
+  * **Identity.** Uniqueness Rule: (`assignment_id`, `corrective_action_id`) must be unique — no duplicate pairing.
+* **Deferred Logical Constraints:** None.
+* **Migration Considerations:** No current source data — this table has no representation in any existing dataset. Populated only going forward, same treatment as the other three associative entities in this schema.
+* **Future Expansion:** None flagged beyond what's already noted under Assignment's own Future Expansion in Tier 1 (a future third work-object type would receive its own typed associative entity, not a change to this one).
+
+---
+
 # Next Steps
 
-Tiers 0–4 are locked. Organizational Architecture reconciliation has aligned the upstream Object, Relational, Logical, Identifier, and Foundation artifacts required for Tier 5.
+Tiers 0–5 are locked. Tier 5 was independently reviewed against the reconciled Enterprise Logical Model, Enterprise Relational Foundation, subsystem source schema, and current `vendor-corrective-actions.csv` data.
 
-The reconciled repository ZIP has passed the final full-repository validation checkpoint. Proceed to Tier 5 derivation:
+The complete Enterprise Relational Schema remains in Draft status pending one final repository-integrated approval review. That review must confirm the corrected Tier 5 content and the Enterprise Relational Foundation's terminal-tier ordering exception are committed together.
 
-* Corrective Action
-* Assignment Corrective Action
-
-Tier 5 must use the reconciled Corrective Action definition, including:
-
-* `escalation_required_flag`
-* `corrective_action_closed_flag`
-* organizational `assigned_owner` text that is not an Employee foreign key
-* optional `sla_event_id`, `fulfillment_event_id`, and `related_ticket_id`
-* Assignment linkage through Assignment Corrective Action
+SQL Implementation has not begun and is not authorized by this document.
 
