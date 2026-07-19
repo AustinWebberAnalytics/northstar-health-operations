@@ -5,7 +5,9 @@
 ---
 
 **Primary Audience:** Northstar architects, subsystem maintainers, data engineers, and reviewers responsible for cross-system integrity
+
 **Writing Layer:** Layer 3 — Governance
+
 **Architectural Purpose:** Establishes the authoritative enterprise identifier names, formats, ownership, relationship usage, and migration aliases used across all Northstar subsystems.
 
 ---

@@ -2,17 +2,21 @@
 
 ## Northstar Health Operations
 
----
+\---
 
 **Primary Audience:** Operational analysts, Northstar architects, subsystem maintainers, and reviewers tracing analytical lineage
+
 **Writing Layer:** Layer 2 — Operational / Architectural
+
 **Architectural Purpose:** Defines how operational records move through validation, interpretation, reporting, executive communication, and decision support.
 
 **Document Type:** Architecture Reference
+
 **Authority Level:** Approved Enterprise Architecture
+
 **Status:** Approved — Locked
 
----
+\---
 
 # Purpose
 
@@ -31,7 +35,7 @@ The purpose of this lifecycle model is to:
 
 This document serves as the primary reference for understanding how operational intelligence is transformed from operational records into enterprise-level decision support throughout the Northstar Health Operations ecosystem.
 
----
+\---
 
 # Operational Intelligence Philosophy
 
@@ -55,7 +59,7 @@ The lifecycle is designed to support:
 * operational continuity planning
 * enterprise decision support
 
----
+\---
 
 # Operational Intelligence Lifecycle
 
@@ -87,7 +91,7 @@ Strategic Response
 
 Each stage builds upon the outputs of the preceding stage.
 
----
+\---
 
 # Lifecycle Overview
 
@@ -102,7 +106,7 @@ Each stage builds upon the outputs of the preceding stage.
 
 This progression creates a traceable path from operational activity to enterprise-level operational reasoning.
 
----
+\---
 
 # Stage 1 — Operational Data
 
@@ -123,7 +127,7 @@ This stage captures:
 
 Operational Data serves as the authoritative source of truth for all downstream intelligence activities.
 
----
+\---
 
 ## Primary Artifact Types
 
@@ -137,7 +141,7 @@ Dataset schemas
 Relational models
 ```
 
----
+\---
 
 ## Operational Role
 
@@ -147,7 +151,7 @@ This stage serves as:
 
 All subsequent intelligence activities must remain traceable to operational records maintained within this layer.
 
----
+\---
 
 # Stage 2 — Operational Intelligence
 
@@ -167,7 +171,7 @@ This stage is responsible for identifying:
 
 The objective is to convert operational records into structured analytical findings.
 
----
+\---
 
 ## Operational Intelligence Architecture
 
@@ -195,7 +199,7 @@ Executive Reporting
 
 This architecture is standardized across operational subsystems.
 
----
+\---
 
 ## Primary Artifact Types
 
@@ -213,7 +217,7 @@ Observation documents
 Executive reporting workbooks
 ```
 
----
+\---
 
 ## Operational Role
 
@@ -223,7 +227,7 @@ This stage serves as:
 
 It transforms operational records into structured intelligence suitable for interpretation and leadership visibility.
 
----
+\---
 
 # Stage 3 — Operational Interpretation
 
@@ -246,7 +250,7 @@ The objective is to answer:
 
 rather than simply describing analytical outputs.
 
----
+\---
 
 ## Operational Functions
 
@@ -259,7 +263,7 @@ Examples include:
 * continuity assessment
 * escalation significance evaluation
 
----
+\---
 
 ## Operational Role
 
@@ -269,7 +273,7 @@ This stage serves as:
 
 It bridges analytical findings and enterprise decision-making.
 
----
+\---
 
 # Stage 4 — Executive Aggregation
 
@@ -287,7 +291,7 @@ This stage focuses on:
 
 The objective is to provide leadership with a coherent view of organizational performance.
 
----
+\---
 
 ## Primary Sources
 
@@ -300,7 +304,7 @@ Executive Aggregation incorporates information from:
 
 Additional enterprise domains may be incorporated as the ecosystem expands.
 
----
+\---
 
 ## Operational Role
 
@@ -310,7 +314,7 @@ This stage serves as:
 
 It transforms subsystem-level visibility into enterprise-level awareness.
 
----
+\---
 
 # Stage 5 — Scenario Simulation
 
@@ -329,7 +333,7 @@ This stage may explore:
 
 The objective is to evaluate operational behavior under simulated conditions.
 
----
+\---
 
 ## Primary Artifact Types
 
@@ -343,7 +347,7 @@ Disruption simulations
 Cross-system event models
 ```
 
----
+\---
 
 ## Operational Role
 
@@ -353,7 +357,7 @@ This stage serves as:
 
 It extends intelligence beyond current conditions into potential future operating environments.
 
----
+\---
 
 # Stage 6 — Strategic Response
 
@@ -372,7 +376,7 @@ This stage focuses on:
 
 The objective is to evaluate how leadership may respond to identified operational conditions.
 
----
+\---
 
 ## Operational Functions
 
@@ -384,7 +388,7 @@ Examples include:
 * recovery strategy development
 * resource deployment planning
 
----
+\---
 
 ## Operational Role
 
@@ -394,7 +398,7 @@ This stage serves as:
 
 It converts operational understanding into potential courses of action.
 
----
+\---
 
 # Intelligence Flow Model
 
@@ -426,7 +430,7 @@ Strategic Decision Support
 
 Each stage increases organizational understanding while maintaining traceability to operational evidence.
 
----
+\---
 
 # Analytical Lineage Principles
 
@@ -464,7 +468,7 @@ Strategic Response
 
 This ensures operational conclusions remain explainable, evidence-based, and governance-aligned.
 
----
+\---
 
 # Governance Relationship
 
@@ -483,7 +487,7 @@ Governance artifacts provide:
 
 Governance exists above the lifecycle and influences all lifecycle stages equally.
 
----
+\---
 
 # Cross-System Intelligence Relationships
 
@@ -527,7 +531,7 @@ Leadership Awareness
 
 These relationships support enterprise-level operational realism and organizational awareness.
 
----
+\---
 
 # Lifecycle Expansion
 
@@ -543,7 +547,7 @@ Future expansion should:
 
 Expansion should strengthen the intelligence lifecycle rather than create competing analytical pathways.
 
----
+\---
 
 # Governance Alignment
 
@@ -559,7 +563,7 @@ This lifecycle aligns with established Northstar standards including:
 
 All lifecycle activities should remain consistent with established governance requirements.
 
----
+\---
 
 # Summary
 

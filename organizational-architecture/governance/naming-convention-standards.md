@@ -2,17 +2,21 @@
 
 ## Northstar Health Operations
 
----
+\---
 
 **Primary Audience:** Northstar architects, subsystem maintainers, data engineers, and contributors naming repository artifacts
+
 **Writing Layer:** Layer 3 — Governance
+
 **Architectural Purpose:** Defines the authoritative naming rules for folders, files, datasets, fields, identifiers, and shared enterprise concepts.
 
 **Document Type:** Governance Standard
+
 **Authority Level:** Approved Governance Standard
+
 **Status:** Approved — Locked
 
----
+\---
 
 # Purpose
 
@@ -31,7 +35,7 @@ The purpose of these standards is to:
 
 This document serves as the authoritative naming governance reference for the Northstar Health Operations ecosystem.
 
----
+\---
 
 # Naming Philosophy
 
@@ -60,7 +64,7 @@ The objective of naming governance is not to create rigid formatting rules.
 
 The objective is to create a shared language that supports operational understanding across all enterprise domains.
 
----
+\---
 
 # Enterprise Naming Model
 
@@ -100,9 +104,9 @@ Workflow Artifact
 
 Each layer serves a distinct operational purpose and should maintain naming consistency with the layers surrounding it.
 
----
+\---
 
-# Repository & Subsystem Naming Standards
+# Repository \& Subsystem Naming Standards
 
 Repository and subsystem names should use:
 
@@ -144,7 +148,7 @@ Subsystem names should clearly communicate:
 * organizational role
 * enterprise function
 
----
+\---
 
 # Standardized Subsystem Architecture Naming
 
@@ -200,7 +204,7 @@ process-improvement/
 
 Subsystem-specific folder naming variations should not be introduced without governance approval.
 
----
+\---
 
 # Dataset Naming Standards
 
@@ -239,7 +243,7 @@ ticketsNEW.csv
 
 vendorReport.xlsx
 
-inventory_export_final.csv
+inventory\_export\_final.csv
 ```
 
 Dataset names should clearly communicate:
@@ -249,30 +253,30 @@ Dataset names should clearly communicate:
 * workflow context
 * analytical use case
 
----
+\---
 
 # Field Naming Standards
 
 All field names should use:
 
 ```text
-snake_case
+snake\_case
 ```
 
 Examples:
 
 ```text
-vendor_id
+vendor\_id
 
-related_ticket_id
+related\_ticket\_id
 
-shipment_delay_hours
+shipment\_delay\_hours
 
-resolution_timestamp
+resolution\_timestamp
 
-escalation_flag
+escalation\_flag
 
-inventory_status
+inventory\_status
 ```
 
 Avoid:
@@ -287,7 +291,7 @@ shipmentDelay
 ResolutionHours
 ```
 
----
+\---
 
 # Field Naming Governance Principles
 
@@ -308,7 +312,7 @@ Avoid:
 
 Field naming should prioritize long-term consistency over short-term convenience.
 
----
+\---
 
 # Shared Identifier Standards
 
@@ -351,7 +355,7 @@ Shared identifiers should:
 
 Shared identifiers are governed as enterprise assets rather than subsystem-specific implementations.
 
----
+\---
 
 # Reporting Artifact Naming Standards
 
@@ -390,7 +394,7 @@ Reporting names should clearly communicate:
 * operational focus
 * intended audience
 
----
+\---
 
 # Workflow Artifact Naming Standards
 
@@ -417,7 +421,7 @@ Workflow names should clearly communicate:
 * escalation relationships
 * process ownership
 
----
+\---
 
 # Executive Reporting Terminology Standards
 
@@ -448,7 +452,7 @@ Consistent terminology improves:
 
 Avoid inconsistent section naming across reporting artifacts.
 
----
+\---
 
 # Analytical Integration Standards
 
@@ -470,11 +474,11 @@ Naming should prioritize:
 Examples:
 
 ```text
-vendor_id
+vendor\_id
 
-location_id
+location\_id
 
-related_ticket_id
+related\_ticket\_id
 ```
 
 Preferred over:
@@ -494,7 +498,7 @@ Consistent naming improves:
 * subsystem interoperability
 * enterprise maintainability
 
----
+\---
 
 # Naming Governance Principles
 
@@ -515,20 +519,20 @@ vendorNum
 
 vendorID
 
-supplier_id
+supplier\_id
 
-supp_id
+supp\_id
 ```
 
 Preferred:
 
 ```text
-vendor_id
+vendor\_id
 ```
 
 Only one canonical naming structure should exist for shared operational concepts.
 
----
+\---
 
 ## Governance Enforcement Principle
 
@@ -542,7 +546,7 @@ NOT:
 
 All future subsystems, reporting artifacts, datasets, workflows, and analytical models should follow approved naming standards unless formally updated through governance review.
 
----
+\---
 
 ## Expansion Alignment Principle
 
@@ -556,7 +560,7 @@ Future subsystem expansion should:
 
 Naming standards should scale with the ecosystem rather than fragment as new operational domains are introduced.
 
----
+\---
 
 # Governance Alignment
 
@@ -570,7 +574,7 @@ These standards align with:
 
 Naming standards should remain consistent with all approved governance and architectural standards throughout the ecosystem.
 
----
+\---
 
 # Summary
 

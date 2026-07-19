@@ -18,17 +18,21 @@ These standards apply to all subsystem reviews regardless of subsystem age, repo
 
 
 
----
+\---
 
 **Primary Audience:** Northstar architects, maintainers, reviewers, and contributors conducting subsystem or repository remediation
+
 **Writing Layer:** Layer 3 — Governance
+
 **Architectural Purpose:** Defines the standardized method for identifying, assigning, validating, and closing remediation work across the ecosystem.
 
 **Document Type:** Governance Standard
+
 **Authority Level:** Approved Governance Standard
+
 **Status:** Approved — Locked
 
----
+\---
 
 
 
@@ -45,15 +49,10 @@ Remediation efforts should prioritize:
 
 
 * Accuracy
-
 * Consistency
-
 * Governance alignment
-
 * Architectural clarity
-
 * Operational realism
-
 * Long-term maintainability
 
 
@@ -66,7 +65,7 @@ The objective is to ensure each subsystem accurately reflects operational realit
 
 
 
----
+\---
 
 
 
@@ -79,15 +78,10 @@ All remediation efforts should follow the governance standards established withi
 
 
 * Data Authority Principle
-
 * Validation Hierarchy Principle
-
 * Documentation Ownership Principle
-
 * Ownership Before Modernization Principle
-
 * Documentation Modernization Principle
-
 * Operational Documentation Principle
 
 
@@ -96,7 +90,7 @@ Subsystem remediation should reinforce governance standards rather than create s
 
 
 
----
+\---
 
 
 
@@ -184,7 +178,7 @@ Each phase should be completed before progressing to the next.
 
 
 
----
+\---
 
 
 
@@ -201,17 +195,11 @@ Objectives:
 
 
 * Identify active artifacts
-
 * Identify archived artifacts
-
 * Identify governance drift
-
 * Identify documentation drift
-
 * Identify dataset drift
-
 * Identify naming inconsistencies
-
 * Identify ownership conflicts
 
 
@@ -220,7 +208,7 @@ The purpose of the audit is discovery rather than correction.
 
 
 
----
+\---
 
 
 
@@ -237,11 +225,8 @@ Questions to evaluate:
 
 
 * Does the artifact belong in its current layer?
-
 * Does another artifact already own this responsibility?
-
 * Does the artifact maintain a unique purpose?
-
 * Does the artifact support current architecture?
 
 
@@ -294,7 +279,7 @@ Ownership should be resolved before remediation work begins.
 
 
 
----
+\---
 
 
 
@@ -378,7 +363,7 @@ Remediation should never introduce assumptions that conflict with authoritative 
 
 
 
----
+\---
 
 
 
@@ -395,17 +380,11 @@ Review areas include:
 
 
 * Artifact placement
-
 * Documentation layering
-
 * Framework ownership
-
 * Workflow ownership
-
 * Reporting structure
-
 * Process improvement structure
-
 * Cross-system relationships
 
 
@@ -414,7 +393,7 @@ The objective is to confirm architectural consistency across the ecosystem.
 
 
 
----
+\---
 
 
 
@@ -431,15 +410,10 @@ Worklists may include:
 
 
 * Required corrections
-
 * Recommended improvements
-
 * Governance discoveries
-
 * Naming updates
-
 * Ownership changes
-
 * Archival candidates
 
 
@@ -448,7 +422,7 @@ Planning should occur before implementation whenever practical.
 
 
 
----
+\---
 
 
 
@@ -461,11 +435,8 @@ Modernization should prioritize:
 
 
 * Accuracy
-
 * Readability
-
 * Consistency
-
 * Governance alignment
 
 
@@ -475,11 +446,8 @@ Modernization should not:
 
 
 * Alter dataset structure
-
 * Alter operational meaning
-
 * Introduce unsupported assumptions
-
 * Create duplicate ownership
 
 
@@ -488,7 +456,7 @@ Content improvements should remain subordinate to architectural correctness.
 
 
 
----
+\---
 
 
 
@@ -505,15 +473,10 @@ Validation should confirm:
 
 
 * Dataset alignment
-
 * Governance compliance
-
 * Naming consistency
-
 * Ownership consistency
-
 * Architectural alignment
-
 * Reporting consistency
 
 
@@ -522,7 +485,7 @@ Remediation is not complete until validation has occurred.
 
 
 
----
+\---
 
 
 
@@ -539,15 +502,10 @@ Integrity reviews evaluate:
 
 
 * Documentation completeness
-
 * Reporting consistency
-
 * Cross-system consistency
-
 * Architectural completeness
-
 * Governance compliance
-
 * Remaining remediation requirements
 
 
@@ -556,7 +514,7 @@ The integrity review serves as the final quality-control checkpoint.
 
 
 
----
+\---
 
 
 
@@ -569,13 +527,9 @@ A subsystem may be considered remediated when:
 
 
 * Active artifacts have been reviewed
-
 * Ownership conflicts have been resolved
-
 * Dataset alignment has been verified
-
 * Governance compliance has been confirmed
-
 * Integrity review has been completed
 
 
@@ -588,7 +542,7 @@ Future improvements may still occur through normal lifecycle management.
 
 
 
----
+\---
 
 
 
@@ -605,15 +559,10 @@ Discoveries may include:
 
 
 * New governance principles
-
 * Architectural standards
-
 * Naming convention refinements
-
 * Reporting standards
-
 * Process improvement standards
-
 * Validation methodology improvements
 
 
@@ -622,7 +571,7 @@ Governance discoveries should be captured before remediation concludes whenever 
 
 
 
----
+\---
 
 
 
@@ -639,11 +588,8 @@ When an artifact remains operationally valid:
 
 
 * Preserve the artifact when practical
-
 * Archive superseded versions
-
 * Maintain version progression visibility
-
 * Avoid unnecessary replacement
 
 
@@ -652,7 +598,7 @@ The objective is to preserve ecosystem evolution while preventing artifact churn
 
 
 
----
+\---
 
 
 
@@ -728,7 +674,7 @@ Each outcome should be supported by documented rationale.
 
 
 
----
+\---
 
 
 
@@ -741,6 +687,4 @@ The Architectural Remediation Standards establish the enterprise methodology use
 
 
 By standardizing remediation activities, the ecosystem maintains architectural consistency, governance alignment, operational accuracy, and long-term scalability across all current and future subsystem domains.
-
-
 

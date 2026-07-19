@@ -6,9 +6,7 @@
 
 **Primary Audience:** Portfolio reviewers, Northstar architects, subsystem maintainers, data engineers, and future contributors
 
-
 **Writing Layer:** Layer 1 — Reader-Facing
-
 
 **Architectural Purpose:** Serves as the front door to the governance, system-design, and review artifacts that define how Northstar is structured, controlled, and implemented.
 

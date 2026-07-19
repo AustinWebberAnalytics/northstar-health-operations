@@ -9,11 +9,15 @@
 ---
 
 **Primary Audience:** Portfolio reviewers, Northstar architects, subsystem maintainers, and technical reviewers
+
 **Writing Layer:** Layer 3 — Governance
+
 **Architectural Purpose:** Defines the authoritative enterprise domains, subsystem boundaries, shared capabilities, and cross-domain operating structure.
 
 **Document Type:** Enterprise Architecture Reference
+
 **Authority Level:** Approved Enterprise Architecture
+
 **Status:** Approved — Locked
 
 ---

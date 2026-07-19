@@ -5,12 +5,17 @@
 ---
 
 **Primary Audience:** Northstar architects, data engineers, subsystem maintainers, and reviewers translating approved architecture into implementation-ready logical design
+
 **Writing Layer:** Layer 2 — Operational / Architectural
+
 **Architectural Purpose:** Defines logical entities, attributes, canonical identifiers, business candidate keys, integrity rules, and relationship implementation patterns for the 17 governed enterprise objects and 4 required associative entities.
 
 **Document Type:** Logical Data Model
+
 **Authority Level:** Approved Engineering Design
+
 **Status:** Approved — Locked
+
 **Depends On:** Enterprise Object Model and Enterprise Relational Model
 
 ---

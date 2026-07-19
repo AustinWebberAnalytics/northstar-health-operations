@@ -5,12 +5,17 @@
 ---
 
 **Primary Audience:** Northstar architects, subsystem maintainers, data engineers, and reviewers responsible for enterprise object governance
+
 **Writing Layer:** Layer 3 — Governance
+
 **Architectural Purpose:** Defines the canonical business objects in the current Northstar implementation scope, including their ownership, identity, repository representation, and governed relationship boundaries.
 
 **Document Type:** Enterprise Architecture Reference
+
 **Authority Level:** Approved Enterprise Architecture
+
 **Status:** Approved — Locked
+
 **Depends On:** Enterprise System Map
 
 ---

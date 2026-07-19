@@ -2,13 +2,15 @@
 
 ## Northstar Health Operations
 
----
+\---
 
 **Primary Audience:** Northstar architects, maintainers, reviewers, and contributors responsible for repository-wide consistency
+
 **Writing Layer:** Layer 1 — Reader-Facing
+
 **Architectural Purpose:** Provides the navigable index to the standards and decision records that govern Northstar naming, identity, severity, remediation, and controlled evolution.
 
----
+\---
 
 # Purpose
 
@@ -16,7 +18,7 @@ Governance defines the rules Northstar follows.
 
 These artifacts control repository structure, naming, cross-system identity, remediation, and change management. They are not suggestions or examples. Approved governance documents are authoritative within their stated scope.
 
----
+\---
 
 # Authoritative Governance Artifacts
 
@@ -44,7 +46,7 @@ Defines the common severity language used to evaluate operational conditions acr
 
 Defines how findings are classified, assigned, validated, and closed.
 
----
+\---
 
 # Authority Rule
 
@@ -52,8 +54,9 @@ Governance outranks architecture examples, subsystem conventions, implementation
 
 When a governed name or identifier changes, affected architecture and implementation artifacts must be reconciled before the new baseline is locked.
 
----
+\---
 
 # Archive
 
 The [archive](archive/) preserves superseded governance material for historical traceability. Archived documents do not define the current operating standard.
+

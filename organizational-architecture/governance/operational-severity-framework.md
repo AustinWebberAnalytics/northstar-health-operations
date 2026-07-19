@@ -2,17 +2,21 @@
 
 ## Northstar Health Operations
 
----
+\---
 
 **Primary Audience:** Northstar architects, operational analysts, subsystem maintainers, and reviewers applying severity language
+
 **Writing Layer:** Layer 3 — Governance
+
 **Architectural Purpose:** Defines the authoritative enterprise severity framework used across operational domains, escalation, reporting, and leadership communication.
 
 **Document Type:** Governance Standard
+
 **Authority Level:** Approved Governance Standard
+
 **Status:** Approved — Locked
 
----
+\---
 
 # Purpose
 
@@ -31,7 +35,7 @@ The purpose of this framework is to:
 
 This framework serves as the authoritative reference for operational severity interpretation across all current and future operational subsystems.
 
----
+\---
 
 # Operational Severity Philosophy
 
@@ -60,7 +64,7 @@ Operational severity exists to support:
 * operational stabilization efforts
 * enterprise decision-making
 
----
+\---
 
 # Severity Classification Structure
 
@@ -80,7 +84,7 @@ Severity classifications should remain:
 
 rather than excessively technical.
 
----
+\---
 
 # Severity 1 — Critical Operational Disruption
 
@@ -119,7 +123,7 @@ Severity 1 conditions should typically involve:
 * remediation oversight
 * continuous monitoring
 
----
+\---
 
 # Severity 2 — Major Operational Impact
 
@@ -156,7 +160,7 @@ Severity 2 conditions should typically involve:
 * active prioritization
 * scheduled reassessment
 
----
+\---
 
 # Severity 3 — Moderate Operational Impact
 
@@ -191,7 +195,7 @@ Severity 3 conditions should typically involve:
 * standard prioritization
 * monitoring and reassessment
 
----
+\---
 
 # Severity 4 — Minor Operational Impact
 
@@ -225,7 +229,7 @@ Severity 4 conditions should typically involve:
 * standard tracking
 * localized resolution
 
----
+\---
 
 # Severity 5 — Informational / Low Impact
 
@@ -259,7 +263,7 @@ Severity 5 conditions should typically involve:
 * passive observation
 * low-priority review
 
----
+\---
 
 # Severity vs Priority Distinction
 
@@ -283,7 +287,7 @@ Maintaining this distinction improves:
 * prioritization accuracy
 * leadership communication
 
----
+\---
 
 # Severity Classification Inputs
 
@@ -306,7 +310,7 @@ Severity interpretation should prioritize:
 
 rather than technical classification alone.
 
----
+\---
 
 # Leadership Visibility Standards
 
@@ -327,7 +331,7 @@ Visibility expectations may vary based on:
 * organizational sensitivity
 * escalation concentration
 
----
+\---
 
 # Cross-System Severity Relationships
 
@@ -349,7 +353,7 @@ This supports:
 
 across subsystem boundaries.
 
----
+\---
 
 # Severity Governance Principles
 
@@ -364,7 +368,7 @@ Severity classifications should:
 
 Severity classifications should evolve only when operational justification clearly exists.
 
----
+\---
 
 # Governance Alignment
 
@@ -380,7 +384,7 @@ This framework aligns with established Northstar governance standards, including
 
 Severity interpretation should remain consistent regardless of operational domain.
 
----
+\---
 
 # Future Expansion Standards
 
@@ -401,7 +405,7 @@ Enterprise-wide severity consistency improves:
 * escalation standardization
 * cross-system coordination
 
----
+\---
 
 # Summary
 

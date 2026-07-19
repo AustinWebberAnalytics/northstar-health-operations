@@ -5,12 +5,17 @@
 ---
 
 **Primary Audience:** Northstar architects, data engineers, subsystem maintainers, and reviewers responsible for relational implementation discipline
+
 **Writing Layer:** Layer 2 — Operational / Architectural
+
 **Architectural Purpose:** Establishes the engineering principles, dependency order, key strategy, foreign-key philosophy, constraint philosophy, migration approach, and platform boundary governing downstream relational design.
 
 **Document Type:** Engineering Design Document
+
 **Authority Level:** Approved Engineering Design
+
 **Status:** Approved — Locked
+
 **Depends On:** Enterprise Object Model, Enterprise Relational Model, Enterprise Logical Model, Enterprise Identifier Governance Review, and Cross-System Identifier Dictionary
 
 ---

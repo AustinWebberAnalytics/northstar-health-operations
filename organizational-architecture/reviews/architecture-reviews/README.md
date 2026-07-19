@@ -2,13 +2,15 @@
 
 ## Northstar Health Operations
 
----
+\---
 
 **Primary Audience:** Northstar architects, maintainers, and reviewers tracing enterprise-architecture decisions
+
 **Writing Layer:** Layer 1 — Reader-Facing
+
 **Architectural Purpose:** Indexes the reviews that formed, validated, and later reconciled the enterprise architecture.
 
----
+\---
 
 # Review Sequence
 
@@ -19,3 +21,4 @@
 5. [Phase 4 Data Reconciliation Readiness Review](05-phase-4-data-reconciliation-readiness-review.md)
 
 The Enterprise Identifier Governance Review was promoted from this review folder into [Governance](../../governance/enterprise-identifier-governance-review.md) because it is an active authoritative decision record rather than historical review evidence.
+

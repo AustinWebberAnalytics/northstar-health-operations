@@ -5,12 +5,17 @@
 ---
 
 **Primary Audience:** Northstar architects, governance reviewers, subsystem maintainers, and data engineers responsible for enterprise identity and cross-system integrity
+
 **Writing Layer:** Layer 3 — Governance
+
 **Architectural Purpose:** Records the authoritative rationale for approving canonical enterprise identifiers, governing identifier renames, and correcting identifier formats when repository evidence conflicts with prior documentation.
 
 **Document Type:** Governance Decision Record
+
 **Authority Level:** Approved Governance Decision
+
 **Status:** Approved — Locked
+
 **Depends On:** Enterprise Object Model, Enterprise Relational Model, Enterprise Logical Model, Cross-System Identifier Dictionary, and Naming Convention Standards
 
 ---

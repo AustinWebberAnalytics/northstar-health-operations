@@ -5,7 +5,9 @@
 ---
 
 **Primary Audience:** Portfolio reviewers, hiring managers, collaborators, and technical readers seeking a concise repository orientation
+
 **Writing Layer:** Layer 1 — Reader-Facing
+
 **Architectural Purpose:** Provides a concise map of the Northstar ecosystem, its operating domains, governance structure, architecture sequence, and current development stage.
 
 ---

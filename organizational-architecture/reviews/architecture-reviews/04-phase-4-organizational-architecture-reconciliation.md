@@ -2,13 +2,15 @@
 
 ## Northstar Health Operations
 
----
+\---
 
 **Primary Audience:** Northstar architects, maintainers, data engineers, and reviewers validating the pre-SQL architecture baseline
+
 **Writing Layer:** Layer 2 — Operational / Architectural
+
 **Architectural Purpose:** Records the repository-wide reconciliation performed across Governance, System Design, relational design, navigation, and source-data evidence before Tier 5 schema derivation.
 
----
+\---
 
 # Purpose
 
@@ -18,25 +20,25 @@ The review was required because several downstream artifacts had advanced while 
 
 The objective was not to redesign Northstar. It was to make every active architecture layer describe the same approved enterprise.
 
----
+\---
 
 # Scope
 
 The reconciliation covered:
 
-- Cross-System Identifier Dictionary
-- Enterprise Identifier Governance Review
-- Enterprise Object Model
-- Enterprise Relational Model
-- Enterprise Logical Model
-- Enterprise Relational Foundation
-- Enterprise Relational Schema through Tier 4
-- Organizational Architecture navigation and reference documentation
-- current repository datasets needed to validate object, identifier, relationship, and attribute claims
+* Cross-System Identifier Dictionary
+* Enterprise Identifier Governance Review
+* Enterprise Object Model
+* Enterprise Relational Model
+* Enterprise Logical Model
+* Enterprise Relational Foundation
+* Enterprise Relational Schema through Tier 4
+* Organizational Architecture navigation and reference documentation
+* current repository datasets needed to validate object, identifier, relationship, and attribute claims
 
 Historical Phase 2 and Phase 3 reviews were preserved as review evidence rather than rewritten as current authority.
 
----
+\---
 
 # Major Decisions Reconciled
 
@@ -44,9 +46,9 @@ Historical Phase 2 and Phase 3 reviews were preserved as review evidence rather 
 
 Repository evidence corrected three documentation-only format errors:
 
-- `employee_id`: `EMP-###`
-- `shortage_id`: `SHORT-####`
-- `discrepancy_id`: `DISC-####`
+* `employee\_id`: `EMP-###`
+* `shortage\_id`: `SHORT-####`
+* `discrepancy\_id`: `DISC-####`
 
 No data-value migration is required.
 
@@ -60,28 +62,28 @@ The Object Model and Relational Model were aligned to the approved logical and s
 
 Unsupported direct relationships were removed, including:
 
-- Shipment to Shortage
-- Location Inventory to Replenishment
-- Inventory Discrepancy to Employee
-- Coverage Schedule to Workload Record
-- Assignment to Workforce Escalation
-- Corrective Action to Employee through `assigned_owner`
+* Shipment to Shortage
+* Location Inventory to Replenishment
+* Inventory Discrepancy to Employee
+* Coverage Schedule to Workload Record
+* Assignment to Workforce Escalation
+* Corrective Action to Employee through `assigned\_owner`
 
 Missing governed Fulfillment Event relationships were added for:
 
-- Inventory Item
-- Location
-- Ticket
+* Inventory Item
+* Location
+* Ticket
 
 ## Corrective Action Ownership
 
-Current `assigned_owner` values are organizational functions or teams. They do not identify employees.
+Current `assigned\_owner` values are organizational functions or teams. They do not identify employees.
 
 Corrective Action therefore retains organizational ownership text and does not receive an Employee foreign key from this field.
 
 ## Employee Name Preservation
 
-`employee_name` was restored as a Domain-Authoritative Employee attribute because Ticket owner reconciliation depends on matching free-text names to canonical employee identities.
+`employee\_name` was restored as a Domain-Authoritative Employee attribute because Ticket owner reconciliation depends on matching free-text names to canonical employee identities.
 
 ## Fulfillment Reference Integrity
 
@@ -91,9 +93,9 @@ The reconciled architecture requires those references to agree with the referenc
 
 ## Replenishment Shortage Response
 
-The relationship remains a pure associative entity. No `applied_quantity` attribute is introduced without a governed shortage-demand quantity and a defined crediting rule.
+The relationship remains a pure associative entity. No `applied\_quantity` attribute is introduced without a governed shortage-demand quantity and a defined crediting rule.
 
----
+\---
 
 # Documentation Reconciliation
 
@@ -101,7 +103,7 @@ The Organizational Architecture README, Governance README, System Design README,
 
 The empty Enterprise Operations Brief was restored, and the escaped Markdown in the Phase 3 Foundation Validation review was repaired without changing its historical conclusions.
 
----
+\---
 
 # Outcome
 
@@ -110,3 +112,4 @@ The active Governance, Object, Relational, Logical, Foundation, and Tier 0–4 S
 No unresolved architecture decision blocks Tier 5 derivation.
 
 Migration and SQL-enforcement prerequisites remain documented separately and must not be mistaken for permission to bypass reconciliation during implementation.
+
