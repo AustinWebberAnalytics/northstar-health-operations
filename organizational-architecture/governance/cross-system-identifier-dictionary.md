@@ -4,6 +4,12 @@
 
 ---
 
+**Primary Audience:** Northstar architects, subsystem maintainers, data engineers, and reviewers responsible for cross-system integrity  
+**Writing Layer:** Layer 3 — Governance  
+**Architectural Purpose:** Establishes the authoritative enterprise identifier names, formats, ownership, relationship usage, and migration aliases used across all Northstar subsystems.
+
+---
+
 # Purpose
 
 This document defines the shared identifiers, relationship standards, entity references, and cross-system integration rules used throughout the Northstar Health Operations ecosystem.
@@ -79,7 +85,7 @@ Identifiers serve as the connective layer between operational domains while pres
 |item_id|Unique inventory item identifier|ITEM-1003|
 |location_id|Unique operational location identifier|LOC-DURHAM-07|
 |vendor_id|Unique vendor identifier|VEND-003|
-|employee_id|Unique workforce identifier|EMP-1001|
+|employee_id|Unique workforce identifier|EMP-001|
 |shipment_id|Unique shipment identifier|SHIP-1002|
 |replenishment_id|Unique replenishment workflow identifier|REPL-1002|
 |shortage_id|Unique shortage event identifier|SHORT-1001|
@@ -234,14 +240,18 @@ Uniquely identifies workforce personnel.
 ### Format
 
 ```text
-EMP-####
+EMP-###
 ```
 
 ### Example
 
 ```text
-EMP-1001
+EMP-001
 ```
+
+### Governance Note
+
+Current workforce datasets consistently use three-digit employee sequences (`EMP-001` through `EMP-015`). The prior `EMP-####` / `EMP-1001` documentation pattern was not supported by repository data and is retired rather than treated as an alternate format.
 
 ### Ownership
 
@@ -306,7 +316,7 @@ Uniquely identifies shortage events.
 ### Format
 
 ```text
-SHORT-#####
+SHORT-####
 ```
 
 ### Example
@@ -314,6 +324,10 @@ SHORT-#####
 ```text
 SHORT-1001
 ```
+
+### Governance Note
+
+Current shortage data uses four-digit numeric sequences. The prior five-placeholder format was a documentation error and is retired rather than treated as an alternate format.
 
 ### Ownership
 
@@ -330,7 +344,7 @@ Uniquely identifies discrepancy records.
 ### Format
 
 ```text
-DISC-#####
+DISC-####
 ```
 
 ### Example
@@ -338,6 +352,10 @@ DISC-#####
 ```text
 DISC-1001
 ```
+
+### Governance Note
+
+Current discrepancy data uses four-digit numeric sequences. The prior five-placeholder format was a documentation error and is retired rather than treated as an alternate format.
 
 ### Ownership
 
@@ -566,6 +584,19 @@ Workforce Coordination
 ### Governance Note
 
 Approved via Enterprise Identifier Governance Review. No rename proposed — the attribute name already matches current data. No approved business candidate key exists; escalations are not consistently employee-specific.
+
+---
+
+# Approved Legacy Source-Field Aliases
+
+The following source-field names remain valid only as migration aliases. They are not competing enterprise identifiers.
+
+|Legacy Source Field|Governed Enterprise Identifier|Migration Treatment|
+|-|-|-|
+|`schedule_id`|`coverage_schedule_id`|Rename during transformation; preserve the original name only in source-mapping documentation.|
+|`workload_id`|`workload_record_id`|Rename during transformation; preserve the original name only in source-mapping documentation.|
+
+No subsystem should introduce new files, schemas, or relational columns using these legacy field names after migration.
 
 ---
 
@@ -803,4 +834,5 @@ By standardizing shared identifiers, relationship structures, ownership responsi
 
 Shared identifiers are treated as enterprise governance assets that support operational visibility, subsystem integration, and sustainable ecosystem growth.
 
-This revision incorporates the 8 identifiers approved by the Enterprise Identifier Governance Review, completing identifier coverage for all 17 objects in the Enterprise Logical Model's implementation scope.
+This revision incorporates the 8 identifiers approved by the Enterprise Identifier Governance Review, completing identifier coverage for all 17 objects in the Enterprise Logical Model's implementation scope. It also reconciles the `employee_id`, `shortage_id`, and `discrepancy_id` format specifications to the authoritative repository datasets and records the approved migration aliases for Coverage Schedule and Workload Record.
+
