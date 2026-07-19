@@ -17,6 +17,7 @@
 3. [Phase 3 Foundation Validation](03-phase-3-foundation-validation.md)
 4. [Phase 4 Organizational Architecture Reconciliation](04-phase-4-organizational-architecture-reconciliation.md)
 5. [Phase 4 Data Reconciliation Readiness Review](05-phase-4-data-reconciliation-readiness-review.md)
+6. [Phase 4 Enterprise Relational Schema Approval Review](06-phase-4-enterprise-relational-schema-approval-review.md)
 
 The Enterprise Identifier Governance Review was promoted from this review folder into [Governance](../../governance/enterprise-identifier-governance-review.md) because it is an active authoritative decision record rather than historical review evidence.
 

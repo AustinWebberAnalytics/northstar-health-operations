@@ -105,11 +105,11 @@ For a shorter repository-wide orientation, use the [Enterprise Reference Guide](
 
 # Current State
 
-The conceptual architecture and identifier baseline are approved.
+The conceptual architecture, identifier baseline, Enterprise Relational Foundation, and complete Enterprise Relational Schema are approved and locked.
 
-The Enterprise Relational Foundation is approved and locked. Enterprise Relational Schema Tiers 0–4 are locked. Tier 5—Corrective Action and Assignment Corrective Action—is the final schema-derivation tier.
+All six dependency tiers—Tier 0 through Tier 5—are complete. The approved schema governs 17 canonical enterprise objects and 4 associative entities.
 
-The reconciled repository ZIP has passed the final full-repository validation checkpoint. Tier 5 is authorized to begin under the locked architecture baseline.
+SQL implementation has not started. The next controlled step is target-platform and implementation-planning review, followed by governed DDL and migration work.
 
 ---
 

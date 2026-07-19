@@ -78,16 +78,11 @@ Each layer has a distinct responsibility. Downstream documents implement upstrea
 
 # Current Development State
 
-The conceptual architecture and identifier baseline are approved.
+The conceptual architecture, identifier baseline, Enterprise Relational Foundation, and complete Enterprise Relational Schema are approved and locked.
 
-The Enterprise Relational Foundation is approved and locked. Enterprise Relational Schema Tiers 0–4 are locked. The final schema tier contains:
+All six dependency tiers are complete. The schema governs 17 canonical enterprise objects and 4 associative entities, including Corrective Action and Assignment Corrective Action in the ordered terminal tier.
 
-- Corrective Action
-- Assignment Corrective Action
-
-The reconciled repository ZIP has passed the final full-repository validation checkpoint. Tier 5 is authorized to begin under the locked architecture baseline.
-
-SQL implementation has not started. Platform-specific DDL, migrations, triggers, and enforcement logic belong to the phase after the complete schema is approved.
+SQL implementation has not started. Target-platform selection and implementation planning are the next controlled activities before platform-specific DDL, migrations, triggers, and enforcement logic begin.
 
 ---
 

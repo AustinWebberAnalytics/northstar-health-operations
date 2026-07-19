@@ -45,7 +45,7 @@ Defines database philosophy, key strategy, dependency tiers, constraint philosop
 
 ## 7. [Enterprise Relational Schema](enterprise-relational-schema.md)
 
-Defines the platform-neutral schema specification. Tiers 0–4 are locked. Final repository validation is complete, and Tier 5 is the authorized final derivation tier.
+Defines the approved platform-neutral schema specification. Tiers 0–5 are complete and locked, including the ordered terminal dependency between Corrective Action and Assignment Corrective Action.
 
 ## 8. [Operational Intelligence Lifecycle](operational-intelligence-lifecycle.md)
 
@@ -56,7 +56,7 @@ Explains how operational data moves from source activity through validation, ana
 
 No SQL DDL has been approved yet.
 
-Platform-specific types, table creation, migrations, triggers, and enforcement mechanisms begin only after the complete Enterprise Relational Schema is reviewed and approved.
+The Enterprise Relational Schema is approved and locked. Target-platform selection and implementation planning must now establish the physical type mappings, namespace strategy, deletion policy, migration sequence, and enforcement mechanisms before DDL is created.
 
 ---
 # Archive

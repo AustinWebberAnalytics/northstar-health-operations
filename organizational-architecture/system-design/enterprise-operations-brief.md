@@ -87,9 +87,9 @@ Management and Executive Decision Support
 
 Northstar currently governs 17 enterprise objects and 4 required associative entities.
 
-The conceptual architecture, identifier governance, and relational engineering foundation are approved. Enterprise Relational Schema Tiers 0–4 are locked. The final schema tier contains Corrective Action and Assignment Corrective Action.
+The conceptual architecture, identifier governance, relational engineering foundation, and complete Enterprise Relational Schema are approved and locked. All six dependency tiers are complete.
 
-SQL implementation begins only after the complete schema is reviewed and approved.
+SQL implementation has not started. The next controlled step is target-platform and implementation-planning review before any platform-specific DDL or migration work begins.
 
 ---
 # Portfolio Purpose

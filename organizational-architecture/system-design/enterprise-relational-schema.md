@@ -13,7 +13,7 @@
 
 **Authority Level:** Design Specification
 
-**Status:** Draft — Tiers 0–5 Locked, Final Approval Review Pending
+**Status:** Approved — Locked
 
 **Depends On:** Enterprise Logical Model, Enterprise Identifier Governance Review, Cross-System Identifier Dictionary, Enterprise Relational Model, and Enterprise Relational Foundation
 
@@ -50,7 +50,7 @@ No decision in this document is untraceable. Every field, type, key, constraint,
 |Tier 4|SLA Event, Replenishment Shortage Response|**Locked**|
 |Tier 5|Corrective Action, Assignment Corrective Action|**Locked**|
 
-Per agreed process, Tiers 0–5 are locked. The Enterprise Relational Schema now requires a final repository-integrated approval review before SQL Implementation begins.
+Tiers 0–5 are locked. This document is the approved platform-neutral schema baseline for SQL implementation planning.
 
 ---
 # Tier 0 — Foundation
@@ -745,9 +745,20 @@ Per agreed process, Tiers 0–5 are locked. The Enterprise Relational Schema now
 
 # Next Steps
 
-Tiers 0–5 are locked. Tier 5 was independently reviewed against the reconciled Enterprise Logical Model, Enterprise Relational Foundation, subsystem source schema, and current `vendor-corrective-actions.csv` data.
+The Enterprise Relational Schema is approved and locked.
 
-The complete Enterprise Relational Schema remains in Draft status pending one final repository-integrated approval review. That review must confirm the corrected Tier 5 content and the Enterprise Relational Foundation's terminal-tier ordering exception are committed together.
+The next controlled initiative is target-platform and SQL implementation planning. Platform-specific DDL, migrations, indexes, triggers, generated expressions, and enforcement mechanisms remain outside this document.
 
-SQL Implementation has not begun and is not authorized by this document.
+Before strict referential integrity is enabled, implementation planning must address the already-documented migration and enforcement conditions:
+
+* Ticket location and owner reconciliation
+* orphaned Ticket references
+* `tickets-v1.csv` encoding normalization
+* target-platform selection
+* foreign-key deletion policy
+* cross-table consistency mechanisms
+* Shipment and Fulfillment Event source-of-truth translation rules
+* allocation timing rules when approved or received quantities are not yet known
+
+SQL Implementation has not begun. Any change to this locked schema requires governed change control across every affected architecture layer.
 
