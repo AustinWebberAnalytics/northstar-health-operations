@@ -4,8 +4,8 @@
 
 ---
 
-**Primary Audience:** Northstar architects, subsystem maintainers, data engineers, and reviewers responsible for cross-system integrity  
-**Writing Layer:** Layer 3 — Governance  
+**Primary Audience:** Northstar architects, subsystem maintainers, data engineers, and reviewers responsible for cross-system integrity
+**Writing Layer:** Layer 3 — Governance
 **Architectural Purpose:** Establishes the authoritative enterprise identifier names, formats, ownership, relationship usage, and migration aliases used across all Northstar subsystems.
 
 ---
@@ -591,10 +591,10 @@ Approved via Enterprise Identifier Governance Review. No rename proposed — the
 
 The following source-field names remain valid only as migration aliases. They are not competing enterprise identifiers.
 
-|Legacy Source Field|Governed Enterprise Identifier|Migration Treatment|
-|-|-|-|
-|`schedule_id`|`coverage_schedule_id`|Rename during transformation; preserve the original name only in source-mapping documentation.|
-|`workload_id`|`workload_record_id`|Rename during transformation; preserve the original name only in source-mapping documentation.|
+| Legacy Source Field | Governed Enterprise Identifier | Migration Treatment |
+|---|---|---|
+| `schedule_id` | `coverage_schedule_id` | Rename during transformation; preserve the original name only in source-mapping documentation. |
+| `workload_id` | `workload_record_id` | Rename during transformation; preserve the original name only in source-mapping documentation. |
 
 No subsystem should introduce new files, schemas, or relational columns using these legacy field names after migration.
 
@@ -835,4 +835,3 @@ By standardizing shared identifiers, relationship structures, ownership responsi
 Shared identifiers are treated as enterprise governance assets that support operational visibility, subsystem integration, and sustainable ecosystem growth.
 
 This revision incorporates the 8 identifiers approved by the Enterprise Identifier Governance Review, completing identifier coverage for all 17 objects in the Enterprise Logical Model's implementation scope. It also reconciles the `employee_id`, `shortage_id`, and `discrepancy_id` format specifications to the authoritative repository datasets and records the approved migration aliases for Coverage Schedule and Workload Record.
-

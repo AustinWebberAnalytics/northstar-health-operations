@@ -6,6 +6,12 @@
 
 ---
 
+**Primary Audience:** Northstar architects, maintainers, and reviewers tracing Phase 3 relationship decisions
+**Writing Layer:** Layer 2 — Operational / Architectural
+**Architectural Purpose:** Records the Phase 3 reconciliation that established canonical enterprise relationships and relational readiness.
+
+---
+
 
 
 ## Review Metadata

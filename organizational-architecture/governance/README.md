@@ -1,186 +1,59 @@
 # Governance
 
-
-
-## Purpose
-
-
-
-The Governance domain defines the standards, rules, and consistency requirements used throughout the Northstar ecosystem.
-
-
-
-It exists to ensure that all subsystems follow a common framework for organization, documentation, reporting, naming, and long-term maintenance.
-
-
+## Northstar Health Operations
 
 ---
 
-
-
-## What This Area Contains
-
-
-
-### Governance Standards
-
-
-
-Defines repository-wide governance principles and operational standards.
-
-
-
-These standards establish how the ecosystem should evolve, scale, and remain consistent over time.
-
-
+**Primary Audience:** Northstar architects, maintainers, reviewers, and contributors responsible for repository-wide consistency
+**Writing Layer:** Layer 1 — Reader-Facing
+**Architectural Purpose:** Provides the navigable index to the standards and decision records that govern Northstar naming, identity, severity, remediation, and controlled evolution.
 
 ---
 
+# Purpose
 
+Governance defines the rules Northstar follows.
 
-### Naming Standards
-
-
-
-Defines naming conventions used across folders, files, datasets, fields, and reporting artifacts.
-
-
-
-Consistent naming improves readability, navigation, and maintainability.
-
-
+These artifacts control repository structure, naming, cross-system identity, remediation, and change management. They are not suggestions or examples. Approved governance documents are authoritative within their stated scope.
 
 ---
 
+# Authoritative Governance Artifacts
 
+## [Project Governance Standards](project-governance-standards.md)
 
-### Shared Identifier Standards
+Defines repository authority, change control, validation expectations, and governance discipline.
 
+## [Naming Convention Standards](naming-convention-standards.md)
 
+Defines governed naming for folders, files, datasets, fields, identifiers, and reporting artifacts.
 
-Defines common identifiers and relationships used across subsystems.
+## [Cross-System Identifier Dictionary](cross-system-identifier-dictionary.md)
 
+Defines current canonical identifier names, formats, examples, ownership, relationship use, and migration aliases.
 
+## [Enterprise Identifier Governance Review](enterprise-identifier-governance-review.md)
 
-These standards support cross-system consistency and operational traceability.
+Records why canonical identifiers were approved, renamed, or corrected. This decision record and the identifier dictionary must remain synchronized.
 
+## [Operational Severity Framework](operational-severity-framework.md)
 
+Defines the common severity language used to evaluate operational conditions across domains.
 
----
+## [Remediation Standards](remediation-standards.md)
 
-
-
-## Why It Exists
-
-
-
-As the repository expanded across multiple operational domains, governance became necessary to prevent inconsistency, duplication, and structural drift.
-
-
-
-This area provides the standards that allow individual subsystems to remain independent while operating within a unified ecosystem.
-
-
+Defines how findings are classified, assigned, validated, and closed.
 
 ---
 
+# Authority Rule
 
+Governance outranks architecture examples, subsystem conventions, implementation shortcuts, and historical reviews.
 
-## Governance Philosophy
-
-
-
-Northstar prioritizes:
-
-
-
-* Consistency
-
-* Readability
-
-* Scalability
-
-* Maintainability
-
-* Controlled evolution
-
-
-
-Governance standards are intended to support growth without sacrificing quality or organizational clarity.
-
-
+When a governed name or identifier changes, affected architecture and implementation artifacts must be reconciled before the new baseline is locked.
 
 ---
 
+# Archive
 
-
-## Core Principle
-
-
-
-Governance should reflect how the repository actually operates.
-
-
-
-Standards should be practical, enforceable, and continuously refined through implementation experience.
-
-
-
----
-
-
-
-## Relationship to Other Areas
-
-
-
-### System Design
-
-
-
-Defines how the ecosystem is structured.
-
-
-
-### Governance
-
-
-
-Defines the standards the ecosystem follows.
-
-
-
-### Phase II Reviews
-
-
-
-Evaluates existing standards and identifies opportunities for improvement.
-
-
-
----
-
-
-
-## Intended Audience
-
-
-
-This area is primarily intended for:
-
-
-
-* Repository maintainers
-
-* Future architects
-
-* System designers
-
-* Governance contributors
-
-
-
-Readers seeking to understand repository standards should begin here.
-
-
-
+The [archive](archive/) preserves superseded governance material for historical traceability. Archived documents do not define the current operating standard.

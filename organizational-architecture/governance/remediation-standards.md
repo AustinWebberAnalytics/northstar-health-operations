@@ -20,6 +20,16 @@ These standards apply to all subsystem reviews regardless of subsystem age, repo
 
 ---
 
+**Primary Audience:** Northstar architects, maintainers, reviewers, and contributors conducting subsystem or repository remediation
+**Writing Layer:** Layer 3 — Governance
+**Architectural Purpose:** Defines the standardized method for identifying, assigning, validating, and closing remediation work across the ecosystem.
+
+**Document Type:** Governance Standard
+**Authority Level:** Approved Governance Standard
+**Status:** Approved — Locked
+
+---
+
 
 
 # Remediation Philosophy

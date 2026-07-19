@@ -4,6 +4,16 @@
 
 ---
 
+**Primary Audience:** Northstar architects, subsystem maintainers, data engineers, and contributors naming repository artifacts
+**Writing Layer:** Layer 3 — Governance
+**Architectural Purpose:** Defines the authoritative naming rules for folders, files, datasets, fields, identifiers, and shared enterprise concepts.
+
+**Document Type:** Governance Standard
+**Authority Level:** Approved Governance Standard
+**Status:** Approved — Locked
+
+---
+
 # Purpose
 
 This document defines the enterprise naming standards used throughout the Northstar Health Operations ecosystem.

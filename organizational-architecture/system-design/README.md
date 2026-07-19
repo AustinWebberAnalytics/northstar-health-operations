@@ -1,196 +1,67 @@
 # System Design
 
-
-
-## Purpose
-
-
-
-The System Design domain defines how the Northstar ecosystem is structured and how its operational domains work together.
-
-
-
-It provides the architectural foundation that connects individual subsystems into a unified operational intelligence ecosystem.
-
-
+## Northstar Health Operations
 
 ---
 
-
-
-## What This Area Contains
-
-
-
-### Enterprise System Design
-
-
-
-Defines the major operational domains within the ecosystem and how they relate to one another.
-
-
-
-Examples include system maps, domain definitions, and ecosystem-level architectural models.
-
-
+**Primary Audience:** Portfolio reviewers, Northstar architects, data engineers, subsystem maintainers, and technical reviewers
+**Writing Layer:** Layer 1 — Reader-Facing
+**Architectural Purpose:** Provides the navigable index to the current enterprise architecture and relational-design baseline.
 
 ---
 
+# Purpose
 
+System Design explains how Northstar is organized as one operational enterprise.
 
-### Operational Intelligence Design
-
-
-
-Defines how information moves through the ecosystem and how operational data is transformed into actionable insights.
-
-
-
-Examples include lifecycle models and operational intelligence frameworks.
-
-
+The documents in this folder move from organizational context to conceptual architecture, then into logical and relational design. Their order matters.
 
 ---
 
+# Architecture Sequence
 
+## 1. [Enterprise Operations Brief](enterprise-operations-brief.md)
 
-### Architectural Planning
+Explains the simulated organization, its operating functions, and the purpose of the portfolio environment.
 
+## 2. [Enterprise System Map](enterprise-system-map.md)
 
+Defines enterprise domains, subsystem boundaries, and the major operational capabilities represented in the repository.
 
-Documents major design decisions that influence repository structure, scalability, and long-term evolution.
+## 3. [Enterprise Object Model](enterprise-object-model.md)
 
+Defines the 17 canonical business objects, their ownership, identity, classification, and governed relationship boundaries.
 
+## 4. [Enterprise Relational Model](enterprise-relational-model.md)
 
-These artifacts help ensure future growth remains aligned with the overall system vision.
+Defines the authoritative business relationships between the governed objects.
 
+## 5. [Enterprise Logical Model](enterprise-logical-model.md)
 
+Defines logical attributes, canonical identifiers, business candidate keys, integrity rules, and associative-entity requirements.
 
----
+## 6. [Enterprise Relational Foundation](enterprise-relational-foundation.md)
 
+Defines database philosophy, key strategy, dependency tiers, constraint philosophy, migration approach, and platform boundaries.
 
+## 7. [Enterprise Relational Schema](enterprise-relational-schema.md)
 
-## Why It Exists
+Defines the platform-neutral schema specification. Tiers 0–4 are locked. Tier 5 is the final derivation tier.
 
+## 8. [Operational Intelligence Lifecycle](operational-intelligence-lifecycle.md)
 
-
-As the repository expanded beyond individual projects, a system-level view became necessary.
-
-
-
-Without a shared design framework, subsystems could evolve independently and lose alignment with the broader ecosystem.
-
-
-
-This area provides the structure that keeps individual operational domains connected and working toward a common objective.
-
-
-
----
-
-
-
-## System Design Philosophy
-
-
-
-Northstar is designed as an integrated operational intelligence ecosystem.
-
-
-
-Each subsystem represents a distinct operational domain, but all domains contribute to a larger system that supports:
-
-
-
-* Operational visibility
-
-* Decision support
-
-* Process improvement
-
-* Organizational coordination
-
-
-
-The value of the ecosystem comes not only from individual subsystems, but from how those subsystems connect and interact.
-
-
+Explains how operational data moves from source activity through validation, analysis, reporting, and decision support.
 
 ---
 
+# Current Engineering Boundary
 
+No SQL DDL has been approved yet.
 
-## Core Principle
-
-
-
-Design should support clarity, scalability, and maintainability.
-
-
-
-Architectural decisions should make the system easier to understand, easier to navigate, and easier to expand.
-
-
-
-Complexity should only be introduced when it solves a demonstrated problem.
-
-
+Platform-specific types, table creation, migrations, triggers, and enforcement mechanisms begin only after the complete Enterprise Relational Schema is reviewed and approved.
 
 ---
 
+# Archive
 
-
-## Relationship to Other Areas
-
-
-
-### Governance
-
-
-
-Defines the standards the ecosystem follows.
-
-
-
-### System Design
-
-
-
-Defines how the ecosystem is structured.
-
-
-
-### Phase II Reviews
-
-
-
-Evaluates the ecosystem and guides future improvements.
-
-
-
----
-
-
-
-## Intended Audience
-
-
-
-This area is primarily intended for:
-
-
-
-* Repository maintainers
-
-* Future architects
-
-* System designers
-
-* Technical reviewers
-
-
-
-Readers seeking to understand how the Northstar ecosystem is organized should begin here.
-
-
-
+The [archive](archive/) preserves superseded architecture briefs. Archived material is historical context, not the current baseline.

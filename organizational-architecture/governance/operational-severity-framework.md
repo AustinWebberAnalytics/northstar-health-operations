@@ -4,6 +4,16 @@
 
 ---
 
+**Primary Audience:** Northstar architects, operational analysts, subsystem maintainers, and reviewers applying severity language
+**Writing Layer:** Layer 3 — Governance
+**Architectural Purpose:** Defines the authoritative enterprise severity framework used across operational domains, escalation, reporting, and leadership communication.
+
+**Document Type:** Governance Standard
+**Authority Level:** Approved Governance Standard
+**Status:** Approved — Locked
+
+---
+
 # Purpose
 
 This document defines the enterprise operational severity framework used throughout the Northstar Health Operations ecosystem.

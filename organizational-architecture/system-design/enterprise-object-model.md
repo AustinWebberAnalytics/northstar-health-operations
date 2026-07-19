@@ -1,41 +1,54 @@
 # Enterprise Object Model
 
+## Northstar Health Operations
+
+---
+
+**Primary Audience:** Northstar architects, subsystem maintainers, data engineers, and reviewers responsible for enterprise object governance
+**Writing Layer:** Layer 3 — Governance
+**Architectural Purpose:** Defines the canonical business objects in the current Northstar implementation scope, including their ownership, identity, repository representation, and governed relationship boundaries.
+
+**Document Type:** Enterprise Architecture Reference
+**Authority Level:** Approved Enterprise Architecture
+**Status:** Approved — Locked
+**Depends On:** Enterprise System Map
+
 ---
 
 # Purpose
 
 The Enterprise Object Model defines the canonical business objects that exist within the Northstar enterprise.
 
-An enterprise object represents a distinct business entity possessing an identifiable business purpose, canonical identity, lifecycle, and set of enterprise relationships.
+An enterprise object represents a distinct business entity with an identifiable business purpose, canonical identity, lifecycle, authoritative domain, and governed enterprise relationships.
 
-Objects exist independently of implementation technology and serve as the conceptual foundation for future relational modeling, enterprise reporting, operational intelligence, enterprise simulation, and decision support.
+This document establishes a common enterprise vocabulary by defining **what exists** within Northstar before downstream artifacts define **how those objects relate, how their attributes are organized, or how they are implemented**.
 
-This document establishes a common enterprise vocabulary by defining **what exists** within Northstar before defining **how those objects interact or are implemented**.
+The model is implementation-independent, but it is no longer a future-state concept. It is the approved object baseline from which the Enterprise Relational Model, Enterprise Logical Model, Enterprise Relational Foundation, Enterprise Relational Schema, and SQL Implementation derive.
 
 ---
 
 # Relationship to Enterprise Architecture
 
-The Enterprise Object Model is one of Northstar's foundational architecture documents.
+This document should be read alongside:
 
-Its responsibility is to define the enterprise's canonical business entities.
-
-This document should be read alongside the following architectural artifacts:
-
-- **Enterprise System Map** — Defines enterprise domains and subsystem boundaries.
-- **Enterprise Relational Model** *(future)* — Defines relationships between enterprise objects.
-- **Cross-System Identifier Dictionary** — Defines canonical identifiers shared across operational domains.
+- **Enterprise System Map** — defines enterprise domains and subsystem boundaries
+- **Enterprise Relational Model** — defines canonical relationships between the governed objects
+- **Enterprise Logical Model** — defines logical attributes, keys, and relationship implementation patterns
+- **Cross-System Identifier Dictionary** — defines canonical identifiers, formats, ownership, and migration aliases
+- **Enterprise Identifier Governance Review** — records the authoritative rationale for identifier approvals and corrections
+- **Enterprise Relational Foundation** — defines the engineering rules that bound relational design
+- **Enterprise Relational Schema** — defines the platform-neutral schema specification
 
 This document intentionally does **not** define:
 
-- database schemas
-- SQL implementation
-- foreign keys
-- field specifications
-- reporting logic
+- logical or physical data types
+- SQL syntax, tables, or DDL
+- indexes or platform-specific behavior
+- detailed foreign-key implementation
+- reporting calculations
 - simulation mechanics
 
-Those responsibilities belong to downstream engineering artifacts.
+Those responsibilities belong to downstream artifacts.
 
 ---
 
@@ -48,16 +61,28 @@ Enterprise Philosophy
 Enterprise System Map
         │
         ▼
-Enterprise Object Model
+Enterprise Object Model   ← this document
         │
         ▼
 Enterprise Relational Model
         │
         ▼
-SQL Foundation
+Enterprise Logical Model
+        │
+        ▼
+Enterprise Identifier Governance Review
+        │
+        ▼
+Enterprise Relational Foundation
+        │
+        ▼
+Enterprise Relational Schema
+        │
+        ▼
+SQL Implementation
 ```
 
-The Enterprise Object Model bridges enterprise architecture and implementation by defining the canonical business entities upon which all future engineering work is built.
+The Enterprise Object Model is authoritative for object existence, business purpose, classification, ownership, canonical identity, and relationship boundaries. Downstream artifacts may implement these objects but may not redefine them without governance review.
 
 ---
 
@@ -71,7 +96,7 @@ Objects are never introduced because they are common database entities or standa
 
 Every object included within this model represents a business concept that already exists within the Northstar enterprise and participates in meaningful operational activity.
 
-Future relational models, SQL schemas, reporting frameworks, enterprise simulations, and analytical systems should all derive from the objects defined within this document.
+The Enterprise Relational Model, Enterprise Logical Model, Enterprise Relational Foundation, Enterprise Relational Schema, SQL implementation, reporting frameworks, simulations, and analytical systems must derive from the objects defined within this document.
 
 ---
 
@@ -226,13 +251,13 @@ location_id
 
 ### Primary Enterprise Relationships
 
-- Inventory Item
 - Location Inventory
 - Shipment
 - Replenishment
 - Shortage
 - Inventory Discrepancy
 - Ticket
+- Fulfillment Event
 
 ### Repository Representation
 
@@ -242,9 +267,7 @@ A dedicated enterprise location registry has not yet been established.
 
 ### Known Architectural Limitations
 
-Location functions as a shared enterprise object but currently lacks a single authoritative repository source.
-
-Formal enterprise governance should be established during Enterprise Relational Model development.
+Location is governed as a first-class enterprise object but still lacks a dedicated source-of-truth registry. The relational implementation therefore begins with a minimal identifier-only entity populated from distinct governed references across operational datasets. Descriptive location attributes remain future scope until a canonical registry is established.
 
 ---
 
@@ -275,8 +298,8 @@ employee_id
 - Assignment
 - Coverage Schedule
 - Workload Record
-- Workforce Escalation
-- Ticket *(planned enterprise relationship)*
+- Ticket *(planned through staged owner reconciliation)*
+- Workforce Escalation *(deferred)*
 
 ### Repository Representation
 
@@ -288,9 +311,7 @@ employee_id
 
 ### Known Architectural Limitations
 
-Employee identity is not yet consistently referenced across operational domains outside Workforce Coordination.
-
-Future relational modeling should replace descriptive employee references with canonical enterprise identifiers.
+Employee identity is authoritative within Workforce Coordination, but Ticket ownership is still represented by free-text names in the current ticket dataset. The approved relational design stages `employee_id` as nullable until `assigned_owner` values are mapped to `employee_name` and unresolved owners are corrected. Workforce Escalation remains department/team-grained and does not yet carry `employee_id`.
 
 ---
 
@@ -319,11 +340,11 @@ vendor_id
 ### Primary Enterprise Relationships
 
 - Shipment
-- Inventory Item
+- Inventory Item *(preferred-sourcing role only)*
+- Replenishment
 - Fulfillment Event
 - SLA Event
 - Corrective Action
-- Replenishment
 
 ### Repository Representation
 
@@ -335,9 +356,7 @@ vendor_id
 
 ### Known Architectural Limitations
 
-Vendor lifecycle is currently represented through operational status and performance indicators rather than a dedicated enterprise lifecycle.
-
-Support for multiple qualified vendors per Inventory Item has not yet been modeled.
+Vendor lifecycle is represented through operational status and performance indicators rather than a separate lifecycle object. Inventory Item currently supports one preferred vendor reference; the broader multi-vendor sourcing relationship remains deferred until it becomes an operational requirement.
 
 ---
 
@@ -365,12 +384,13 @@ item_id
 
 ### Primary Enterprise Relationships
 
-- Vendor
+- Vendor *(preferred-sourcing role only)*
 - Shipment
 - Replenishment
 - Location Inventory
 - Inventory Discrepancy
 - Shortage
+- Fulfillment Event
 
 ### Repository Representation
 
@@ -382,9 +402,7 @@ item_id
 
 ### Known Architectural Limitations
 
-Inventory Items currently identify preferred sourcing but do not yet support multiple qualified supplier relationships.
-
-Future enterprise expansion may introduce relationships to demand planning, financial planning, and commercial planning.
+Inventory Item currently identifies one preferred vendor and does not yet model multiple qualified suppliers. Shipment is also scoped to one item per current record. Both boundaries are explicit current-scope decisions and require governance review before expansion.
 
 ---
 
@@ -433,12 +451,15 @@ ticket_id
 ### Primary Enterprise Relationships
 
 - Location
-- Employee *(planned enterprise relationship)*
+- Employee *(planned through staged owner reconciliation)*
 - Inventory Discrepancy
 - Shortage
 - Replenishment
 - Shipment
+- Fulfillment Event
+- SLA Event
 - Corrective Action
+- Workforce Escalation
 
 ### Repository Representation
 
@@ -446,9 +467,7 @@ ticket_id
 
 ### Known Architectural Limitations
 
-Current ticket ownership frequently relies upon descriptive operational fields rather than canonical enterprise identifiers.
-
-The Ticket object coordinates enterprise work but should never become the authoritative owner of operational information belonging to other enterprise objects.
+Current Ticket location and owner values are free text. Canonical `location_id` and `employee_id` references are introduced through a governed reconciliation sequence and must not be enforced until existing values are mapped and exceptions are resolved. Ticket coordinates work but does not become authoritative for facts owned by other enterprise objects.
 
 ---
 
@@ -479,10 +498,10 @@ assignment_id
 ### Primary Enterprise Relationships
 
 - Employee
-- Ticket *(planned enterprise relationship)*
-- Coverage Schedule
-- Workload Record
-- Workforce Escalation
+- Ticket *(through Assignment Ticket)*
+- Corrective Action *(through Assignment Corrective Action)*
+- Coverage Schedule *(deferred)*
+- Workload Record *(analytical/historical)*
 
 ### Repository Representation
 
@@ -490,9 +509,7 @@ assignment_id
 
 ### Known Architectural Limitations
 
-Assignments currently classify work at a broad operational level but do not consistently reference the enterprise object responsible for generating that work.
-
-Future relational modeling should strengthen relationships between Assignments and enterprise operational objects while preserving Assignment as a workforce coordination object.
+Assignment currently classifies responsibility at a broad operational level and does not carry a polymorphic work-target reference. Typed associative entities connect Assignment to Ticket and Corrective Action. Coverage linkage remains deferred, and workload traceability requires future event-level activity data rather than a direct current-state join.
 
 ---
 
@@ -526,7 +543,7 @@ corrective_action_id
 - SLA Event
 - Fulfillment Event
 - Ticket
-- Employee *(planned enterprise relationship)*
+- Assignment *(through Assignment Corrective Action)*
 
 ### Repository Representation
 
@@ -534,9 +551,7 @@ corrective_action_id
 
 ### Known Architectural Limitations
 
-Corrective Actions currently identify responsible parties through descriptive operational fields rather than canonical employee identifiers.
-
-Relationships to Tickets and Assignments remain conceptual and should be formalized during Enterprise Relational Model development.
+Corrective Action currently records `assigned_owner` as organizational ownership text such as a team or functional group, not as an Employee reference. No Employee relationship is approved from that field. Employee-level responsibility would require a separately governed `employee_id` attribute and migration evidence.
 
 ---
 
@@ -577,9 +592,7 @@ Movement Object
 
 Enterprise
 
-Current identifier governance aligns with Vendor Performance until a canonical enterprise Shipment model is established.
-
-Operational responsibility is currently shared across multiple enterprise domains.
+Shipment is governed as an enterprise-shared movement object. Vendor Performance remains the authoritative source for the current shipment dataset, while Inventory Operations and Ticketing consume the canonical identity through governed relationships.
 
 ### Canonical Identity
 
@@ -588,12 +601,11 @@ shipment_id
 ### Primary Enterprise Relationships
 
 - Vendor
-- Inventory Item
+- Inventory Item *(single-item current scope)*
 - Location
-- Replenishment
+- Replenishment *(through Shipment Replenishment Allocation)*
 - Fulfillment Event
 - SLA Event
-- Shortage
 - Ticket
 
 ### Repository Representation
@@ -605,9 +617,7 @@ Shipment information is also referenced indirectly throughout Inventory Operatio
 
 ### Known Architectural Limitations
 
-Shipment currently exists through multiple subsystem perspectives rather than as a single canonical enterprise representation.
-
-Future relational modeling should establish Shipment as a canonical enterprise object while allowing operational domains to maintain specialized perspectives without duplicating enterprise identity.
+Shipment is established as the canonical movement object even though related datasets preserve specialized operational perspectives. Current data supports one item per shipment record. Historical inventory-state changes remain outside the current-state relational scope, and no direct Shipment-to-Shortage relationship is governed.
 
 ---
 
@@ -641,9 +651,9 @@ replenishment_id
 
 - Inventory Item
 - Location
-- Vendor
-- Shipment
-- Shortage
+- Vendor *(conditional by replenishment type)*
+- Shipment *(through Shipment Replenishment Allocation)*
+- Shortage *(through Replenishment Shortage Response)*
 - Ticket
 
 ### Repository Representation
@@ -652,9 +662,7 @@ replenishment_id
 
 ### Known Architectural Limitations
 
-Current replenishment records do not consistently reference the Shipment or Shipments responsible for satisfying a replenishment request.
-
-Future relational modeling should strengthen the relationship between operational replenishment requests and physical inventory movement while preserving their distinct enterprise responsibilities.
+The approved relational design resolves Shipment and Shortage relationships through typed associative entities. Replenishment does not yet preserve temporal response history beyond its current-state workflow attributes.
 
 ---
 
@@ -673,8 +681,8 @@ Changes to Operational State Objects are typically caused by enterprise work or 
 | Location Inventory | Inventory Operations | location_inventory_id |
 | Inventory Discrepancy | Inventory Operations | discrepancy_id |
 | Shortage | Inventory Operations | shortage_id |
-| Coverage Schedule | Workforce Coordination | schedule_id |
-| Workload Record | Workforce Coordination | workload_id |
+| Coverage Schedule | Workforce Coordination | coverage_schedule_id |
+| Workload Record | Workforce Coordination | workload_record_id |
 
 ---
 
@@ -706,8 +714,7 @@ location_inventory_id
 
 - Location
 - Inventory Item
-- Shipment
-- Replenishment
+- Shipment *(analytical/historical — deferred)*
 - Inventory Discrepancy
 - Shortage
 
@@ -717,9 +724,7 @@ location_inventory_id
 
 ### Known Architectural Limitations
 
-Current inventory records represent operational state but do not preserve historical inventory evolution.
-
-Future enterprise state management should capture inventory state transitions while preserving current operational reporting.
+Location Inventory represents current stock state and does not preserve inventory transaction history. Shipment-driven state transitions require a future event/history model. No direct current-state Replenishment relationship is governed.
 
 ---
 
@@ -751,8 +756,8 @@ discrepancy_id
 
 - Inventory Item
 - Location
+- Location Inventory
 - Ticket
-- Employee *(planned enterprise relationship)*
 
 ### Repository Representation
 
@@ -760,9 +765,7 @@ discrepancy_id
 
 ### Known Architectural Limitations
 
-Inventory Discrepancies currently identify operational variance but do not formally model investigation history, inventory adjustment history, or root-cause lineage.
-
-These relationships should emerge through future relational modeling rather than direct object expansion.
+Inventory Discrepancy preserves the current investigation record but not full adjustment history or root-cause lineage. No Employee relationship is currently governed; employee accountability would require a distinct approved reference rather than inference from descriptive workflow fields.
 
 ---
 
@@ -794,8 +797,8 @@ shortage_id
 
 - Inventory Item
 - Location
-- Shipment
-- Replenishment
+- Location Inventory
+- Replenishment *(through Replenishment Shortage Response)*
 - Ticket
 
 ### Repository Representation
@@ -804,9 +807,7 @@ shortage_id
 
 ### Known Architectural Limitations
 
-Current Shortages identify operational conditions but do not formally preserve causal relationships between delayed shipments, demand variation, enterprise decisions, or external disruptions.
-
-Future enterprise simulation should derive these relationships through Enterprise Events rather than direct object ownership.
+Shortage records severity, stockout duration, operational impact, and resolution state but no governed shortage-demand quantity. Replenishment response is therefore modeled as a pure relationship rather than unsupported quantitative apportionment. No direct Shipment relationship is governed.
 
 ---
 
@@ -832,13 +833,13 @@ Workforce Coordination
 
 ### Canonical Identity
 
-schedule_id
+coverage_schedule_id
 
 ### Primary Enterprise Relationships
 
 - Employee
-- Assignment
-- Workload Record
+- Assignment *(deferred)*
+- Workforce Escalation *(deferred)*
 
 ### Repository Representation
 
@@ -846,9 +847,7 @@ schedule_id
 
 ### Known Architectural Limitations
 
-Coverage currently exists independently of enterprise Locations and operational queues.
-
-Future relational modeling should strengthen these operational relationships while preserving Coverage Schedule as an independent planning object.
+Coverage Schedule lacks governed start/end timestamps or a controlled Shift definition with explicit time boundaries. The no-overlap rule is structurally deferred because it cannot be evaluated until one of those foundations exists. No direct Workload Record or Location relationship is governed.
 
 ---
 
@@ -874,14 +873,13 @@ Workforce Coordination
 
 ### Canonical Identity
 
-workload_id
+workload_record_id
 
 ### Primary Enterprise Relationships
 
 - Employee
-- Assignment
-- Coverage Schedule
-- Workforce Escalation
+- Assignment *(analytical/historical)*
+- Workforce Escalation *(deferred)*
 
 ### Repository Representation
 
@@ -889,9 +887,7 @@ workload_id
 
 ### Known Architectural Limitations
 
-Current Workload Records summarize operational activity but cannot yet be fully derived from Assignment or Ticket relationships.
-
-Future relational modeling should improve workload traceability while preserving Workload Record as an enterprise state representation.
+Workload Record is a period-level summary rather than an activity ledger. Full traceability to Assignment requires future event-level activity data. No direct Coverage Schedule relationship is governed in the current model.
 
 ---
 
@@ -941,6 +937,7 @@ fulfillment_event_id
 - Shipment
 - Inventory Item
 - Location
+- Ticket
 - SLA Event
 - Corrective Action
 
@@ -950,9 +947,7 @@ fulfillment_event_id
 
 ### Known Architectural Limitations
 
-Current Fulfillment Events duplicate portions of Shipment information rather than evaluating a single canonical Shipment object.
-
-Future relational modeling should preserve Shipment as the enterprise movement object while allowing Fulfillment Events to remain enterprise assessments of shipment performance.
+Fulfillment Event intentionally assesses a referenced Shipment while repeating selected operational context needed by the vendor-performance domain. Cross-table consistency rules must prevent its Vendor, Inventory Item, and Location references from contradicting the referenced Shipment. Date, quantity, and delivery-status semantics still require explicit source-of-truth handling during SQL implementation.
 
 ---
 
@@ -985,8 +980,8 @@ sla_event_id
 - Vendor
 - Shipment
 - Fulfillment Event
-- Corrective Action
 - Ticket
+- Corrective Action
 
 ### Repository Representation
 
@@ -994,9 +989,7 @@ sla_event_id
 
 ### Known Architectural Limitations
 
-Service-level expectations currently exist primarily as operational attributes rather than governed enterprise objects.
-
-Future enterprise expansion may introduce formal Service Commitment objects while preserving SLA Events as enterprise assessments.
+SLA Event is governed as an assessment event, but `sla_category` is not approved as part of a business candidate key. The business has not yet defined whether assessments may repeat by category, be revised, or occur across multiple review periods.
 
 ---
 
@@ -1026,11 +1019,10 @@ escalation_id
 
 ### Primary Enterprise Relationships
 
-- Employee *(planned enterprise relationship)*
-- Assignment
-- Coverage Schedule
-- Workload Record
-- Ticket *(planned enterprise relationship)*
+- Ticket *(through the governed related_ticket_id pattern)*
+- Employee *(deferred)*
+- Coverage Schedule *(deferred)*
+- Workload Record *(deferred)*
 
 ### Repository Representation
 
@@ -1038,9 +1030,7 @@ escalation_id
 
 ### Known Architectural Limitations
 
-Current Workforce Escalations identify workforce concerns but do not consistently relate those concerns to governed enterprise objects.
-
-Future relational modeling should strengthen relationships to Employees, Assignments, Operational Work Objects, and enterprise Locations while preserving Workforce Escalation as an independent assessment object.
+Workforce Escalation remains department/team-grained in current data. The approved schema adds an optional `related_ticket_id` for future operational coordination, but no current source values exist to backfill it. Employee, Coverage Schedule, and Workload Record relationships remain deferred until their business grain and evidence requirements are governed.
 
 ---
 

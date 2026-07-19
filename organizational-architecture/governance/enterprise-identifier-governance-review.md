@@ -4,13 +4,13 @@
 
 ---
 
-**Primary Audience:** Northstar architects, governance reviewers, subsystem maintainers, and data engineers responsible for enterprise identity and cross-system integrity  
-**Writing Layer:** Layer 3 — Governance  
+**Primary Audience:** Northstar architects, governance reviewers, subsystem maintainers, and data engineers responsible for enterprise identity and cross-system integrity
+**Writing Layer:** Layer 3 — Governance
 **Architectural Purpose:** Records the authoritative rationale for approving canonical enterprise identifiers, governing identifier renames, and correcting identifier formats when repository evidence conflicts with prior documentation.
 
-**Document Type:** Governance Decision Record  
-**Authority Level:** Approved Governance Decision  
-**Status:** Approved — Locked  
+**Document Type:** Governance Decision Record
+**Authority Level:** Approved Governance Decision
+**Status:** Approved — Locked
 **Depends On:** Enterprise Object Model, Enterprise Relational Model, Enterprise Logical Model, Cross-System Identifier Dictionary, and Naming Convention Standards
 
 ---
@@ -207,26 +207,26 @@ This review does not reopen business-candidate-key decisions recorded in the Ent
 
 # Summary of Canonical Identifier Approvals
 
-|Identifier|Decision|Condition|
-|-|-|-|
-|`assignment_id`|Approved|None|
-|`corrective_action_id`|Approved|None|
-|`location_inventory_id`|Approved|Existing physical field elevated to canonical status|
-|`coverage_schedule_id`|Approved|Rename from `schedule_id`; legacy source-field alias retained for migration|
-|`workload_record_id`|Approved|Rename from `workload_id`; legacy source-field alias retained for migration|
-|`fulfillment_event_id`|Approved|None|
-|`sla_event_id`|Approved|None|
-|`escalation_id`|Approved|Existing attribute name retained|
+| Identifier | Decision | Condition |
+|---|---|---|
+| `assignment_id` | Approved | None |
+| `corrective_action_id` | Approved | None |
+| `location_inventory_id` | Approved | Existing physical field elevated to canonical status |
+| `coverage_schedule_id` | Approved | Rename from `schedule_id`; legacy source-field alias retained for migration |
+| `workload_record_id` | Approved | Rename from `workload_id`; legacy source-field alias retained for migration |
+| `fulfillment_event_id` | Approved | None |
+| `sla_event_id` | Approved | None |
+| `escalation_id` | Approved | Existing attribute name retained |
 
 ---
 
 # Summary of Format Reconciliation Decisions
 
-|Identifier|Retired Documentation Pattern|Governed Format|Data Migration Required|
-|-|-|-|-|
-|`employee_id`|`EMP-####`|`EMP-###`|No|
-|`shortage_id`|`SHORT-#####`|`SHORT-####`|No|
-|`discrepancy_id`|`DISC-#####`|`DISC-####`|No|
+| Identifier | Retired Documentation Pattern | Governed Format | Data Migration Required |
+|---|---|---|---|
+| `employee_id` | `EMP-####` | `EMP-###` | No |
+| `shortage_id` | `SHORT-#####` | `SHORT-####` | No |
+| `discrepancy_id` | `DISC-#####` | `DISC-####` | No |
 
 ---
 
@@ -257,4 +257,3 @@ This review does not reopen business-candidate-key decisions recorded in the Ent
 This governance review approves eight canonical identifiers introduced through the Enterprise Logical Model and records three later format corrections discovered during repository-wide Organizational Architecture reconciliation.
 
 All approved identifier formats are grounded in current repository evidence. Two identifiers carry governed source-field renames, while three previously documented formats were corrected without requiring data migration. Together with the Cross-System Identifier Dictionary, this document establishes the authoritative enterprise identity baseline for Northstar Health Operations.
-

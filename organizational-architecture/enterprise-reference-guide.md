@@ -1,113 +1,123 @@
 # Northstar Health Operations
 
-## Enterprise Operational Intelligence Ecosystem
-
-Northstar Health Operations is a governance-first operational intelligence ecosystem designed to simulate how enterprise organizations manage information, coordinate operations, monitor performance, and support decision-making across interconnected business functions.
-
-Rather than presenting isolated analytics projects, Northstar models a unified operational environment where multiple domains interact through shared processes, datasets, reporting standards, and governance frameworks.
+## Enterprise Reference Guide
 
 ---
 
-# Purpose
-
-The project was created to demonstrate enterprise systems thinking through the design of a scalable operational ecosystem.
-
-Northstar emphasizes:
-
-* Operational intelligence
-* Process improvement
-* Systems thinking
-* Data governance
-* Reporting and analytics
-* Cross-functional coordination
-* Enterprise architecture
-
-The focus is not on individual dashboards or isolated analyses, but on how operational systems are designed, connected, governed, and improved over time.
+**Primary Audience:** Portfolio reviewers, hiring managers, collaborators, and technical readers seeking a concise repository orientation
+**Writing Layer:** Layer 1 — Reader-Facing
+**Architectural Purpose:** Provides a concise map of the Northstar ecosystem, its operating domains, governance structure, architecture sequence, and current development stage.
 
 ---
 
-# Ecosystem Structure
+# What Northstar Is
 
-The repository is organized into operational domains that represent distinct areas of responsibility within a larger enterprise environment.
+Northstar Health Operations is a governance-first operational intelligence ecosystem built to simulate how a real organization coordinates work across connected business functions.
 
-Current domains include:
+The repository is not centered on one dashboard or one analysis. It models an enterprise environment where datasets, workflows, reporting, governance, and relational architecture must remain consistent as the system grows.
 
-* Inventory Operations
-* Ticketing System
-* Vendor Performance
-* Workforce Coordination
+Northstar was built to feel like a company someone could walk into on Monday morning.
 
-Each domain contains its own datasets, documentation, reporting artifacts, workflows, and process improvement initiatives while remaining connected to the broader ecosystem.
+---
+
+# Operational Domains
+
+The current ecosystem contains four primary operational domains:
+
+- **Ticketing System** — incident intake, ownership, prioritization, escalation, SLA tracking, and resolution
+- **Inventory Operations** — stock position, replenishment, shortages, discrepancies, and inventory continuity
+- **Vendor Performance** — shipments, fulfillment, SLA evaluation, corrective action, and supplier accountability
+- **Workforce Coordination** — employee capacity, assignments, schedules, workload, and workforce escalation
+
+Each domain maintains its own datasets, documentation, reporting, workflows, and improvement artifacts while participating in one governed enterprise architecture.
 
 ---
 
 # Organizational Architecture
 
-The ecosystem is supported by a dedicated organizational architecture layer that defines:
+The [Organizational Architecture](README.md) area governs how the ecosystem is structured and changed.
 
-* Governance standards
-* Naming conventions
-* System design
-* Shared identifiers
-* Standardization reviews
+It contains:
 
-These artifacts provide the foundation for consistency, scalability, and long-term maintainability.
+- repository-wide governance standards
+- naming and identifier rules
+- the enterprise system map
+- the enterprise object and relational models
+- the enterprise logical model
+- the relational engineering foundation
+- the platform-neutral relational schema
+- architecture reviews and validation records
+
+---
+
+# Architecture Sequence
+
+```text
+Enterprise System Map
+        ↓
+Enterprise Object Model
+        ↓
+Enterprise Relational Model
+        ↓
+Enterprise Logical Model
+        ↓
+Enterprise Identifier Governance Review
+        ↓
+Enterprise Relational Foundation
+        ↓
+Enterprise Relational Schema
+        ↓
+SQL Implementation
+```
+
+Each layer has a distinct responsibility. Downstream documents implement upstream decisions rather than redefining them.
+
+---
+
+# Current Development State
+
+The conceptual architecture and identifier baseline are approved.
+
+The Enterprise Relational Foundation is approved and locked. Enterprise Relational Schema Tiers 0–4 are locked. The final schema tier contains:
+
+- Corrective Action
+- Assignment Corrective Action
+
+Tier 5 begins only after the reconciled repository ZIP passes a final full-repository validation checkpoint.
+
+SQL implementation has not started. Platform-specific DDL, migrations, triggers, and enforcement logic belong to the phase after the complete schema is approved.
 
 ---
 
 # Reporting Philosophy
 
-Northstar reporting is designed to resemble operational reporting environments used by enterprise organizations.
+Northstar reporting prioritizes:
 
-Reporting emphasizes:
+- clear operational meaning
+- traceable source data
+- consistent KPI definitions
+- executive readability
+- practical decision support
+- explicit limits and assumptions
 
-* Clear KPI visibility
-* Operational observations
-* Executive readability
-* Consistent reporting standards
-* Actionable insights
-
-The objective is to communicate operational conditions clearly rather than maximize technical complexity.
-
----
-
-# Current Focus
-
-The repository is currently undergoing a repository-wide standardization initiative focused on:
-
-* Governance consolidation
-* Documentation consistency
-* Reporting standardization
-* Information architecture improvements
-* Ecosystem-wide remediation
-
-This effort ensures that all operational domains follow a common set of architectural, reporting, and communication standards.
+Reporting artifacts sit downstream of governance, architecture, datasets, and validation. A dashboard or report does not become the source of truth for the business facts it summarizes.
 
 ---
 
 # Recommended Starting Points
 
-Readers interested in understanding the ecosystem should begin with:
+For a quick orientation:
 
-### Organizational Architecture
+1. [Enterprise Operations Brief](system-design/enterprise-operations-brief.md)
+2. [Enterprise System Map](system-design/enterprise-system-map.md)
+3. [Enterprise Object Model](system-design/enterprise-object-model.md)
+4. [Enterprise Relational Schema](system-design/enterprise-relational-schema.md)
 
-Provides governance standards, system design artifacts, and ecosystem-level documentation.
+For repository standards:
 
-### Workforce Coordination
-
-Current reference implementation for reporting, documentation, and subsystem organization standards.
-
-### Inventory Operations
-
-Demonstrates operational analytics, inventory management workflows, and reporting practices.
-
----
-
-# Long-Term Vision
-
-Northstar is designed to evolve as a scalable operational intelligence ecosystem capable of supporting increasingly sophisticated reporting, governance, workflow coordination, and analytical capabilities.
-
-The long-term objective is to demonstrate how enterprise operational systems can be structured, governed, and improved through disciplined architecture, standardized reporting, and systems-oriented thinking.
+1. [Project Governance Standards](governance/project-governance-standards.md)
+2. [Naming Convention Standards](governance/naming-convention-standards.md)
+3. [Cross-System Identifier Dictionary](governance/cross-system-identifier-dictionary.md)
 
 ---
 
@@ -115,15 +125,13 @@ The long-term objective is to demonstrate how enterprise operational systems can
 
 Northstar demonstrates:
 
-* Enterprise systems thinking
-* Operational analytics
-* Data governance
-* Process improvement
-* Cross-functional coordination
-* Reporting and KPI development
-* Documentation design
-* Organizational architecture
-* Scalable ecosystem planning
-
-The project is intended to reflect the operational reasoning, governance discipline, and systems-level thinking commonly required within modern enterprise environments.
-
+- enterprise systems thinking
+- operational analytics
+- data governance
+- relational modeling
+- process improvement
+- cross-functional coordination
+- reporting and KPI development
+- documentation design
+- architecture reconciliation
+- disciplined change control

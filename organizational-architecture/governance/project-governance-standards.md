@@ -4,6 +4,16 @@
 
 ---
 
+**Primary Audience:** Northstar architects, maintainers, reviewers, and contributors responsible for controlled ecosystem evolution
+**Writing Layer:** Layer 3 — Governance
+**Architectural Purpose:** Defines the primary governance authority, change-control expectations, repository standards, and validation discipline for Northstar.
+
+**Document Type:** Governance Standard
+**Authority Level:** Primary Governance Authority
+**Status:** Approved — Locked
+
+---
+
 # Purpose
 
 This document defines the enterprise governance standards used throughout the Northstar Health Operations ecosystem.

@@ -4,6 +4,16 @@
 
 ---
 
+**Primary Audience:** Operational analysts, Northstar architects, subsystem maintainers, and reviewers tracing analytical lineage
+**Writing Layer:** Layer 2 — Operational / Architectural
+**Architectural Purpose:** Defines how operational records move through validation, interpretation, reporting, executive communication, and decision support.
+
+**Document Type:** Architecture Reference
+**Authority Level:** Approved Enterprise Architecture
+**Status:** Approved — Locked
+
+---
+
 # Purpose
 
 This document defines the operational intelligence lifecycle architecture used throughout the Northstar Health Operations ecosystem.
