@@ -77,6 +77,7 @@ Key artifacts include:
 - Enterprise Logical Model
 - Enterprise Relational Foundation
 - Enterprise Relational Schema
+- Enterprise Database Platform Decision
 - Operational Intelligence Lifecycle
 
 ## [Reviews](reviews/README.md)
@@ -98,6 +99,7 @@ Phase 2 material documents repository standardization and subsystem remediation.
 7. [Enterprise Identifier Governance Review](governance/enterprise-identifier-governance-review.md)
 8. [Enterprise Relational Foundation](system-design/enterprise-relational-foundation.md)
 9. [Enterprise Relational Schema](system-design/enterprise-relational-schema.md)
+10. [Enterprise Database Platform Decision](system-design/enterprise-database-platform-decision.md)
 
 For a shorter repository-wide orientation, use the [Enterprise Reference Guide](enterprise-reference-guide.md).
 
@@ -105,11 +107,11 @@ For a shorter repository-wide orientation, use the [Enterprise Reference Guide](
 
 # Current State
 
-The conceptual architecture, identifier baseline, Enterprise Relational Foundation, and complete Enterprise Relational Schema are approved and locked.
+The conceptual architecture, identifier baseline, Enterprise Relational Foundation, complete Enterprise Relational Schema, and Enterprise Database Platform Decision are approved and locked.
 
-All six dependency tiers—Tier 0 through Tier 5—are complete. The approved schema governs 17 canonical enterprise objects and 4 associative entities.
+All six dependency tiers are complete. PostgreSQL 18 is the approved implementation platform, using one database with six native schemas and universal restrictive deletion behavior.
 
-SQL implementation has not started. The next controlled step is target-platform and implementation-planning review, followed by governed DDL and migration work.
+SQL implementation has not started. The next controlled step is physical PostgreSQL schema design and DDL review.
 
 ---
 

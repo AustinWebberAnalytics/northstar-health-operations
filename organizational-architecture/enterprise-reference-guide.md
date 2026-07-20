@@ -48,6 +48,7 @@ It contains:
 - the enterprise logical model
 - the relational engineering foundation
 - the platform-neutral relational schema
+- the approved PostgreSQL platform decision
 - architecture reviews and validation records
 
 ---
@@ -69,6 +70,8 @@ Enterprise Relational Foundation
         ↓
 Enterprise Relational Schema
         ↓
+Enterprise Database Platform Decision
+        ↓
 SQL Implementation
 ```
 
@@ -78,11 +81,11 @@ Each layer has a distinct responsibility. Downstream documents implement upstrea
 
 # Current Development State
 
-The conceptual architecture, identifier baseline, Enterprise Relational Foundation, and complete Enterprise Relational Schema are approved and locked.
+The conceptual architecture, identifier baseline, Enterprise Relational Foundation, complete Enterprise Relational Schema, and Enterprise Database Platform Decision are approved and locked.
 
-All six dependency tiers are complete. The schema governs 17 canonical enterprise objects and 4 associative entities, including Corrective Action and Assignment Corrective Action in the ordered terminal tier.
+All six dependency tiers are complete. PostgreSQL 18 is the approved platform, using one database with six native schemas.
 
-SQL implementation has not started. Target-platform selection and implementation planning are the next controlled activities before platform-specific DDL, migrations, triggers, and enforcement logic begin.
+SQL implementation has not started. Physical PostgreSQL DDL, migration, trigger, index, and validation work is the next controlled initiative.
 
 ---
 
@@ -109,6 +112,7 @@ For a quick orientation:
 2. [Enterprise System Map](system-design/enterprise-system-map.md)
 3. [Enterprise Object Model](system-design/enterprise-object-model.md)
 4. [Enterprise Relational Schema](system-design/enterprise-relational-schema.md)
+5. [Enterprise Database Platform Decision](system-design/enterprise-database-platform-decision.md)
 
 For repository standards:
 

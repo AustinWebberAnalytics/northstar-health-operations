@@ -87,9 +87,9 @@ Management and Executive Decision Support
 
 Northstar currently governs 17 enterprise objects and 4 required associative entities.
 
-The conceptual architecture, identifier governance, relational engineering foundation, and complete Enterprise Relational Schema are approved and locked. All six dependency tiers are complete.
+The conceptual architecture, identifier governance, relational engineering foundation, complete Enterprise Relational Schema, and Enterprise Database Platform Decision are approved and locked. All six dependency tiers are complete.
 
-SQL implementation has not started. The next controlled step is target-platform and implementation-planning review before any platform-specific DDL or migration work begins.
+PostgreSQL 18 is the approved target platform. SQL implementation has not started. Physical DDL and migration design are the next controlled steps.
 
 ---
 # Portfolio Purpose

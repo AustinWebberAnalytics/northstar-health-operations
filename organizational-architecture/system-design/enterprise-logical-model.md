@@ -545,7 +545,7 @@ These are empirical spot-checks against current repository data. They inform con
 - **Fulfillment Event shipment consistency:** Fulfillment Event repeats Vendor, Inventory Item, and Location references from Shipment. These references must agree with the referenced Shipment even though the implementation mechanism is deferred to SQL Implementation.
 - **`Shipment Replenishment Allocation`** (originally `Shipment Replenishment Fulfillment`) and its `allocated_quantity` attribute (originally `fulfilled_quantity`) were renamed during Enterprise Relational Schema Tier 3 derivation, to avoid colliding with Fulfillment Event's distinct meaning. Approved and reflected throughout this document.
 
-The Enterprise Relational Schema has completed derivation and approval without reopening this locked logical baseline. SQL Implementation still requires resolution of migration and enforcement questions already documented in the approved schema, including Ticket owner/location reconciliation, orphaned Ticket references, platform choice, deletion policy, and selected cross-table integrity mechanisms.
+The Enterprise Relational Schema and Enterprise Database Platform Decision were approved without reopening this locked logical baseline. SQL Implementation still requires Ticket owner/location reconciliation, orphaned Ticket resolution, Shipment/Fulfillment translation decisions, allocation-timing decisions, and physical enforcement design.
 
 ---
 

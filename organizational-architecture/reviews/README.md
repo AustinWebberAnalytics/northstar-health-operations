@@ -14,7 +14,7 @@
 
 ## [Architecture Reviews](architecture-reviews/README.md)
 
-Documents Phase 3 architecture formation and Phase 4 reconciliation, data-readiness review, and final relational-schema approval before SQL implementation.
+Documents Phase 3 architecture formation and Phase 4 reconciliation, data-readiness review, relational-schema approval, and database-platform approval before SQL implementation.
 
 ## [Phase 2 Reviews](phase-2-reviews/README.md)
 

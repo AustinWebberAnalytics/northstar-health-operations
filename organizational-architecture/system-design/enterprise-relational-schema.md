@@ -31,7 +31,7 @@ No decision in this document is untraceable. Every field, type, key, constraint,
 ---
 # Conventions
 
-* **Logical types are platform-neutral** (`INTEGER`, `TEXT`, `DATE`, `TIMESTAMP`, `BOOLEAN`, `DECIMAL`), since platform choice (SQLite vs. PostgreSQL) remains an open decision per Enterprise Relational Foundation. Platform-specific type mapping is deferred to SQL Implementation.
+* **Logical types remain platform-neutral** (`INTEGER`, `TEXT`, `DATE`, `TIMESTAMP`, `BOOLEAN`, `DECIMAL`). PostgreSQL 18 and its physical type mapping are governed by the approved Enterprise Database Platform Decision; this document does not become platform-specific.
 * **Structural ordering follows dependency tiers** (Tier 0–5), as established in Enterprise Relational Foundation's Implementation Order. Tiers are not renamed to Object Model taxonomy labels — dependency order and taxonomy classification diverge starting at Tier 1 (Corrective Action, a Work object, depends on two Assessment-tier entities). Each entity records its taxonomy classification separately, as a labeled field, so that traceability isn't lost — it just doesn't drive structure.
 * **Logical constraints are stated as business rules, not SQL syntax.** A permitted-values list and its evidence are recorded; whether it becomes a `CHECK` constraint, an application-layer validation, or something else is an implementation note, not a decision made here.
 * **Per-entity template:** Purpose, Object Model Classification, Canonical Identifier, Foreign Keys, **Dependencies**, Business Candidate Keys, Attributes (Logical Type), Logical Constraints, Deferred Logical Constraints, Migration Considerations, Future Expansion.
@@ -747,15 +747,15 @@ Tiers 0–5 are locked. This document is the approved platform-neutral schema ba
 
 The Enterprise Relational Schema is approved and locked.
 
-The next controlled initiative is target-platform and SQL implementation planning. Platform-specific DDL, migrations, indexes, triggers, generated expressions, and enforcement mechanisms remain outside this document.
+The target platform is approved. The next controlled initiative is PostgreSQL physical-schema implementation. DDL, migrations, indexes, triggers, generated expressions, and enforcement mechanisms remain outside this locked platform-neutral document.
 
 Before strict referential integrity is enabled, implementation planning must address the already-documented migration and enforcement conditions:
 
 * Ticket location and owner reconciliation
 * orphaned Ticket references
 * `tickets-v1.csv` encoding normalization
-* target-platform selection
-* foreign-key deletion policy
+* approved PostgreSQL implementation environment
+* foreign-key rollout and validation sequencing
 * cross-table consistency mechanisms
 * Shipment and Fulfillment Event source-of-truth translation rules
 * allocation timing rules when approved or received quantities are not yet known

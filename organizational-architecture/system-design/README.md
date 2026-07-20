@@ -47,7 +47,11 @@ Defines database philosophy, key strategy, dependency tiers, constraint philosop
 
 Defines the approved platform-neutral schema specification. Tiers 0–5 are complete and locked, including the ordered terminal dependency between Corrective Action and Assignment Corrective Action.
 
-## 8. [Operational Intelligence Lifecycle](operational-intelligence-lifecycle.md)
+## 8. [Enterprise Database Platform Decision](enterprise-database-platform-decision.md)
+
+Approves PostgreSQL 18, native schema namespacing, physical type mapping, universal `ON DELETE RESTRICT`, enforcement boundaries, and the local implementation environment.
+
+## 9. [Operational Intelligence Lifecycle](operational-intelligence-lifecycle.md)
 
 Explains how operational data moves from source activity through validation, analysis, reporting, and decision support.
 
@@ -56,7 +60,9 @@ Explains how operational data moves from source activity through validation, ana
 
 No SQL DDL has been approved yet.
 
-The Enterprise Relational Schema is approved and locked. Target-platform selection and implementation planning must now establish the physical type mappings, namespace strategy, deletion policy, migration sequence, and enforcement mechanisms before DDL is created.
+The Enterprise Relational Schema and Enterprise Database Platform Decision are approved and locked. PostgreSQL 18, native domain schemas, physical type mapping, and universal `ON DELETE RESTRICT` now form the implementation baseline.
+
+The next controlled step is physical table DDL and migration design.
 
 ---
 # Archive

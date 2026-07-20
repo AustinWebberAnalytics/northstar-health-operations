@@ -57,13 +57,15 @@ This document establishes the foundation-level engineering decisions that bound 
 
 One enterprise database, not per-domain databases. The entire point of the Logical Model's associative entities (`AssignmentTicket`, `ShipmentReplenishmentAllocation`, etc.) is enforcing cross-domain foreign keys — Assignment and Ticket, Shipment and Replenishment. Splitting into per-domain databases would make every one of those relationships either unenforceable at the database level or dependent on application-layer joins across separate files/connections, which defeats the reason this modeling work was done.
 
-## Schema Namespacing — Flagged as a Platform-Dependent Decision
+## Schema Namespacing — Approved PostgreSQL Decision
 
-This is a real technical constraint, not a style preference: **PostgreSQL supports native schemas** (`CREATE SCHEMA vendor; CREATE TABLE vendor.shipment (...)`), which would cleanly support domain-grouped namespacing. **SQLite does not** — it has no native multi-schema support within a single database file (its `ATTACH DATABASE` mechanism attaches separate files, which reintroduces the cross-database-FK problem above).
+PostgreSQL 18 is the approved target platform.
 
-If SQLite is the target platform, domain grouping should be achieved through table-naming convention (e.g., `vendor_shipment`, `workforce_assignment`) rather than true schema namespacing. If PostgreSQL, native schemas are available and preferable.
+Northstar will use one database with native domain schemas: `core`, `workforce`, `vendor`, `inventory`, `ticketing`, and `relationships`.
 
-**This choice should be made explicitly before SQL Implementation, not implied by it.** The Enterprise Relational Schema is intentionally platform-neutral and does not require this decision to proceed. Recommendation: PostgreSQL if the platform choice is still open, given the cross-domain relational nature of this model is exactly what PostgreSQL's schema and constraint support handles more natively than SQLite. If SQLite is required for portability/simplicity reasons, table-prefix naming is the fallback, not a blocker.
+These schemas are namespaces inside one database. They do not divide Northstar into separate databases, and they preserve database-level enforcement of cross-domain foreign keys.
+
+Repository-controlled DDL, migrations, triggers, and validation queries must use schema-qualified object names. SQLite's table-prefix fallback is retired from the active implementation path but remains documented as the evaluated alternative in the Enterprise Database Platform Decision.
 
 ## Key Strategy: Surrogate Primary, Business Keys as Constraints
 
@@ -82,7 +84,7 @@ This phase implements current-state tables only. The two relationships the Logic
 
 ---
 
-# Schema Organization (Proposed)
+# Schema Organization (Approved)
 
 Grouping the 17 entities and 4 associative entities by authoritative domain, matching the Object Model's own classification rather than inventing a new grouping:
 
@@ -95,7 +97,7 @@ Grouping the 17 entities and 4 associative entities by authoritative domain, mat
 | **ticketing** | Ticket |
 | **relationships** | AssignmentTicket, AssignmentCorrectiveAction, ShipmentReplenishmentAllocation, ReplenishmentShortageResponse |
 
-This is a proposal, not a final decision — flagged as such per the note above. A `reporting` or `reference` schema is not proposed at this stage since nothing in the current 17-object scope requires one; adding an empty schema now would be speculative.
+This grouping is approved through the Enterprise Database Platform Decision. A persistent `reporting`, `reference`, or `staging` schema is not part of the canonical model at this stage. Temporary migration structures may be used without becoming governed enterprise objects.
 
 ---
 
@@ -131,7 +133,7 @@ Tables are built in tier order. Within Tiers 0–4, order does not matter becaus
 
 **Explicit exception — Ticket's `location_id` and `employee_id`:** the Logical Model already documented that `requesting_location` and `assigned_owner` are currently free text requiring a distinct migration workstream (profile → map → migrate → review exceptions → enforce). These two foreign keys are **not** enforced at initial table creation. They are added as nullable columns first, populated through the documented migration sequence, and only then constrained `NOT NULL` with an enforced `FOREIGN KEY`. This is a staged rollout for two specific columns, not a general exception to the FK philosophy.
 
-**On delete behavior:** `RESTRICT` by default across all foreign keys — an operational record referencing a Location, Employee, Vendor, etc. should block deletion of the referenced row rather than silently cascading. `CASCADE` is not proposed for any relationship in current scope; nothing in the 17-object model represents a genuine parent-owns-child deletion pattern. This is worth confirming rather than assuming, since it affects every table.
+**On delete behavior:** `RESTRICT` is approved across all 44 foreign-key relationships. No `CASCADE` exception is approved for associative entities because those rows preserve operational relationship evidence, and Shipment Replenishment Allocation also carries `allocated_quantity`. Parent deletion must not silently erase that context.
 
 ---
 
@@ -193,19 +195,21 @@ Schema changes after initial implementation go through the same design → revie
 - Stored procedures
 - Indexing/performance tuning beyond what declared constraints imply
 - Event/history modeling for the two relationships already deferred as analytical/historical
-- Actual column data types and `CREATE TABLE` statements — these belong to the next document, Enterprise Relational Schema
+- Platform-specific DDL, physical precision and scale, migrations, triggers, and indexes — these belong to SQL Implementation under the approved Enterprise Database Platform Decision
 
 ---
 
-# Open Decisions Before SQL Implementation
+# Decisions Resolved Before SQL Implementation
 
-1. **Platform choice (SQLite vs. PostgreSQL)** — directly determines whether Schema Organization is implemented as true schemas or table-prefix convention. Recommend deciding this before SQL Implementation begins — the Enterprise Relational Schema is intentionally being built platform-neutrally and does not require this decision to proceed.
-2. **`ON DELETE RESTRICT` as the universal default** — flagged above; confirm before it's applied across all 21 tables (17 entities + 4 associative entities).
+1. **Target platform:** PostgreSQL 18.
+2. **Namespace strategy:** one database with six native schemas.
+3. **Deletion policy:** `ON DELETE RESTRICT` across all 44 foreign-key relationships.
+4. **Timestamp mapping:** `TIMESTAMP WITHOUT TIME ZONE` for the initial implementation.
 
 ---
 
 # Summary
 
-This document defines the engineering philosophy for realizing the approved enterprise architecture as a relational database: one database, surrogate primary keys with business keys as constraints where approved, current-state only (no history modeling), domain-grouped schema organization (platform-dependent), a dependency-informed six-tier build sequence with one explicit ordered exception in Tier 5, foreign-key and constraint philosophies with one explicit staged exception for Ticket's free-text fields, and a migration pipeline that generalizes the Ticket-specific sequence already documented in the Enterprise Logical Model.
+This document defines the engineering philosophy for realizing the approved enterprise architecture as a PostgreSQL database: one database, native domain schemas, surrogate primary keys with approved business keys as constraints, current-state modeling, a dependency-informed six-tier build sequence with one explicit Tier 5 ordering exception, universal restrictive deletion behavior, staged Ticket reconciliation, and a governed migration pipeline.
 
-No table has been created. Platform-neutral logical types are defined in Enterprise Relational Schema; platform-specific physical types, DDL, migration scripts, and enforcement mechanisms begin in SQL Implementation after the remaining platform and deletion-policy decisions are approved.
+No table has been created. Platform-neutral logical types remain defined in the Enterprise Relational Schema. The approved Enterprise Database Platform Decision now authorizes PostgreSQL-specific implementation planning, but DDL, migration scripts, triggers, indexes, and validation code still require controlled review.
