@@ -1,0 +1,24 @@
+# Local environment secrets
+.env
+.env.*
+!.env.example
+
+# PostgreSQL runtime data
+postgres-data/
+pgdata/
+*.pid
+
+# Database backups and exports
+*.backup
+*.dump
+*.sql.gz
+
+# Generated execution output
+output/
+validation-output/
+migration-output/
+*.log
+
+# Local tool state
+.cache/
+.tmp/

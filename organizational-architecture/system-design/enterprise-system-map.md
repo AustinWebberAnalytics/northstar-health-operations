@@ -166,11 +166,11 @@ This approach promotes architectural stability while supporting long-term ecosys
 
 
 
-# Current Enterprise Domains
+# Current Enterprise Domains and Platform Layer
 
 
 
-The Northstar Health Operations ecosystem currently contains the following enterprise domains:
+The Northstar Health Operations ecosystem currently contains the following enterprise domains and shared technical platform:
 
 
 
@@ -196,6 +196,8 @@ northstar-health-operations/
 
 ├── executive-briefings/
 
+├── postgresql-platform/
+
 └── README.md
 
 ```
@@ -206,7 +208,7 @@ northstar-health-operations/
 
 
 
-# Enterprise Domain Definitions
+# Enterprise Domain and Platform Definitions
 
 
 
@@ -681,6 +683,82 @@ Aggregates information from:
 * vendor performance
 
 * workforce coordination
+
+
+
+---
+
+
+
+# 7. postgresql-platform/
+
+
+
+## Purpose
+
+
+
+Implements:
+
+
+
+* the approved PostgreSQL 18 environment
+
+* the governed enterprise relational schema
+
+* dependency-ordered database creation
+
+* controlled source-data migration
+
+* structural and relational validation
+
+* reproducible local database operations
+
+
+
+## Operational Role
+
+
+
+This platform serves as:
+
+
+
+# the shared enterprise data platform and relational integrity layer.
+
+
+
+## Platform Responsibilities
+
+
+
+Includes:
+
+
+
+* local environment configuration
+
+* authoritative desired-state database definition
+
+* Tier 0–5 implementation organization
+
+* controlled migration processes
+
+* repeatable validation
+
+* platform operating documentation
+
+
+
+## Architectural Boundary
+
+
+
+The PostgreSQL Platform supports all operational domains but is not an operational subsystem.
+
+
+
+It implements approved enterprise architecture and does not independently redefine business objects, relationships, identifiers, source data, or governance rules.
 
 
 
@@ -1276,11 +1354,10 @@ This diversity is considered a normal characteristic of enterprise operational e
 
 
 
-Northstar Health Operations is a subsystem-centered operational ecosystem designed to support realistic enterprise operations, operational intelligence development, governance-aligned growth, and long-term architectural maintainability.
+Northstar Health Operations is a subsystem-centered operational ecosystem supported by a shared PostgreSQL platform and designed to enable realistic enterprise operations, operational intelligence development, governance-aligned growth, and long-term architectural maintainability.
 
 
 
-Through standardized subsystem architecture, shared identifiers, operational intelligence frameworks, process improvement governance, and structured remediation practices, the ecosystem maintains consistency while supporting controlled expansion and evolving operational complexity.
-
+Through standardized subsystem architecture, shared identifiers, a governed enterprise data platform, operational intelligence frameworks, process improvement governance, and structured remediation practices, the ecosystem maintains consistency while supporting controlled expansion and evolving operational complexity.
 
 
