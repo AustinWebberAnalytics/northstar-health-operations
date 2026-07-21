@@ -14,7 +14,7 @@
 
 # Purpose
 
-This directory will contain repeatable checks that demonstrate whether the PostgreSQL implementation matches approved architecture and governed source data.
+This directory contains repeatable checks that demonstrate whether the PostgreSQL implementation matches approved architecture and governed source data.
 
 Validation reports failures. It must not silently repair data or alter the approved database definition.
 
@@ -37,6 +37,18 @@ Validation should be read-only wherever practical. Any check requiring temporary
 
 ---
 
+# Implemented Validation
+
+| File | Responsibility |
+|---|---|
+| `schema-namespaces/validate-schema-namespaces.sql` | Fails when an approved namespace is missing and reports all six namespace owners when validation succeeds. |
+
+The namespace validation reads `information_schema.schemata`. It does not create missing namespaces, transfer ownership, or otherwise repair the database.
+
+Execution commands and expected results are documented in [Schema Namespaces](../database-definition/schema-namespaces/README.md#validate-the-namespaces).
+
+---
+
 # Execution Boundary
 
 Validation runs at controlled checkpoints. Structural validation follows database creation, migration validation accompanies data loading, and end-to-end validation follows the completed migration.
@@ -47,4 +59,6 @@ Repository-controlled validation must return clear pass or fail results and iden
 
 # Current Boundary
 
-Issue #5 does not authorize validation SQL, test fixtures, or generated reports.
+Issue #7 introduces validation for the presence and ownership visibility of the six approved schema namespaces.
+
+No table, column, key, constraint, migration, data-quality, index, trigger, or cross-table integrity validation is implemented yet. Those checks remain governed by their respective implementation issues.

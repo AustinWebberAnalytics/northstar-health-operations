@@ -14,7 +14,7 @@
 
 # Purpose
 
-This directory will contain the SQL that defines the approved desired state of the Northstar PostgreSQL database.
+This directory contains the SQL that defines the approved desired state of the Northstar PostgreSQL database.
 
 The definition must remain traceable to the locked Enterprise Relational Schema and Enterprise Database Platform Decision. It may implement approved architecture but may not reinterpret it.
 
@@ -80,4 +80,6 @@ This directory does not own:
 
 # Current Boundary
 
-Issue #5 does not authorize SQL. No schema, table, constraint, function, trigger, or index file is created here yet.
+Issue #7 introduces the repository-controlled creation of the six approved schema namespaces under `schema-namespaces/`.
+
+No table, role, grant, constraint, function, trigger, view, index, data, or `search_path` change is authorized through the namespace implementation. Tier 0–5 table definitions and every later database object require their own governed issues.
