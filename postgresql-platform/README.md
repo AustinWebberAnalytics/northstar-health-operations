@@ -14,7 +14,7 @@
 
 **Authority Level:** Approved Implementation Boundary
 
-**Status:** Active Implementation — Through Issue #8 Tier 0 DDL
+**Status:** Active Implementation — Issue #9 Foundation Validation
 
 **Depends On:** Enterprise Database Platform Decision, Enterprise Relational Schema, Naming Convention Standards, and Project Governance Standards
 
@@ -59,6 +59,10 @@ postgresql-platform/
 │   └── README.md
 ├── validation/
 │   ├── README.md
+│   ├── implementation-foundation/
+│   │   ├── README.md
+│   │   ├── validate-implementation-foundation.sql
+│   │   └── implementation-foundation-validation.md [created after successful execution]
 │   ├── schema-namespaces/
 │   │   └── validate-schema-namespaces.sql
 │   └── tier-0/
@@ -168,9 +172,11 @@ The scoped [.gitignore](.gitignore) enforces these exclusions within this platfo
 
 # Current Implementation Boundary
 
-Issues #5–#8 establish the repository organization, the reproducible PostgreSQL 18 local environment, the controlled creation and validation of the six approved schema namespaces, and the three approved Tier 0 tables.
+Issues #5–#9 establish the repository organization, the reproducible PostgreSQL 18 local environment, the controlled creation and validation of the six approved schema namespaces, the three approved Tier 0 tables, and the repeatable implementation-foundation validation mechanism.
 
-The current executable boundary includes Docker Compose environment controls, namespace creation and validation SQL, Tier 0 table DDL, and Tier 0 structural validation. The Tier 0 definition is limited to `core.location`, `workforce.employee`, and `vendor.vendor`, their approved `NOT NULL` rules, and their primary keys.
+The current executable boundary includes Docker Compose environment controls, namespace creation and validation SQL, Tier 0 table DDL and structural validation, and the exact foundation-wide runtime and database-object inventory check. The Tier 0 definition is limited to `core.location`, `workforce.employee`, and `vendor.vendor`, their approved `NOT NULL` rules, and their primary keys.
+
+Issue #9 remains active until normal persistence, destructive local reset, clean recreation, repository-controlled rebuild, and final validation are completed and recorded in the separate evidence artifact.
 
 No Tier 1–5 table DDL, migration logic, foreign key, controlled-vocabulary `CHECK` constraint, trigger code, manually defined supporting index, cross-table integrity enforcement, data loading, or source-data correction is implemented yet.
 
