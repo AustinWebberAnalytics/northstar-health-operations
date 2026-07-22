@@ -80,6 +80,11 @@ This directory does not own:
 
 # Current Boundary
 
-Issue #7 introduces the repository-controlled creation of the six approved schema namespaces under `schema-namespaces/`.
+Issues #7 and #8 introduce the repository-controlled creation of the six approved schema namespaces and the three approved Tier 0 tables.
 
-No table, role, grant, constraint, function, trigger, view, index, data, or `search_path` change is authorized through the namespace implementation. Tier 0–5 table definitions and every later database object require their own governed issues.
+The current executable definition includes:
+
+* `schema-namespaces/create-schema-namespaces.sql`
+* `tier-0/create-tier-0-tables.sql`
+
+Tier 0 creates only `core.location`, `workforce.employee`, and `vendor.vendor`, their approved `NOT NULL` rules, and their primary keys. Tier 1–5 tables and every later database object require their own governed issues.

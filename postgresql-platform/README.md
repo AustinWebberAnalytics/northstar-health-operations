@@ -14,7 +14,7 @@
 
 **Authority Level:** Approved Implementation Boundary
 
-**Status:** Active Implementation — Through Issue #7 Schema Namespaces
+**Status:** Active Implementation — Through Issue #8 Tier 0 DDL
 
 **Depends On:** Enterprise Database Platform Decision, Enterprise Relational Schema, Naming Convention Standards, and Project Governance Standards
 
@@ -45,7 +45,9 @@ postgresql-platform/
 │   ├── schema-namespaces/
 │   │   ├── README.md
 │   │   └── create-schema-namespaces.sql
-│   ├── tier-0/                            [created with first approved artifact]
+│   ├── tier-0/
+│   │   ├── README.md
+│   │   └── create-tier-0-tables.sql
 │   ├── tier-1/                            [created with first approved artifact]
 │   ├── tier-2/                            [created with first approved artifact]
 │   ├── tier-3/                            [created with first approved artifact]
@@ -57,8 +59,10 @@ postgresql-platform/
 │   └── README.md
 ├── validation/
 │   ├── README.md
-│   └── schema-namespaces/
-│       └── validate-schema-namespaces.sql
+│   ├── schema-namespaces/
+│   │   └── validate-schema-namespaces.sql
+│   └── tier-0/
+│       └── validate-tier-0-tables.sql
 └── documentation/
     └── README.md
 ```
@@ -164,8 +168,10 @@ The scoped [.gitignore](.gitignore) enforces these exclusions within this platfo
 
 # Current Implementation Boundary
 
-Issues #5–#7 establish the repository organization, the reproducible PostgreSQL 18 local environment, and the controlled creation and validation of the six approved schema namespaces.
+Issues #5–#8 establish the repository organization, the reproducible PostgreSQL 18 local environment, the controlled creation and validation of the six approved schema namespaces, and the three approved Tier 0 tables.
 
-The current executable boundary includes Docker Compose environment controls, namespace creation SQL, and namespace validation SQL. No table DDL, migration logic, trigger code, supporting index, cross-table integrity enforcement, data loading, or source-data correction is implemented yet.
+The current executable boundary includes Docker Compose environment controls, namespace creation and validation SQL, Tier 0 table DDL, and Tier 0 structural validation. The Tier 0 definition is limited to `core.location`, `workforce.employee`, and `vendor.vendor`, their approved `NOT NULL` rules, and their primary keys.
+
+No Tier 1–5 table DDL, migration logic, foreign key, controlled-vocabulary `CHECK` constraint, trigger code, manually defined supporting index, cross-table integrity enforcement, data loading, or source-data correction is implemented yet.
 
 Each implementation category requires its own governed issue, review, validation, and approval before executable assets are added.

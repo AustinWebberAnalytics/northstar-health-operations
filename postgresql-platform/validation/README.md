@@ -42,10 +42,13 @@ Validation should be read-only wherever practical. Any check requiring temporary
 | File | Responsibility |
 |---|---|
 | `schema-namespaces/validate-schema-namespaces.sql` | Fails when an approved namespace is missing and reports all six namespace owners when validation succeeds. |
+| `tier-0/validate-tier-0-tables.sql` | Fails on any governed Tier 0 structural mismatch and reports all 23 validated columns, primary keys, and table owners when validation succeeds. |
 
 The namespace validation reads `information_schema.schemata`. It does not create missing namespaces, transfer ownership, or otherwise repair the database.
 
-Execution commands and expected results are documented in [Schema Namespaces](../database-definition/schema-namespaces/README.md#validate-the-namespaces).
+Tier 0 validation reads PostgreSQL metadata for exactly `core.location`, `workforce.employee`, and `vendor.vendor`. It does not use schema-wide table counts that would conflict with later approved tiers in the `workforce` and `vendor` schemas. PostgreSQL 18 `NOT NULL` constraints are verified through their distinct `pg_constraint` records, while ordinary `CHECK` constraints are rejected.
+
+Execution commands and expected results are documented in [Schema Namespaces](../database-definition/schema-namespaces/README.md#validate-the-namespaces) and [Tier 0 Tables](../database-definition/tier-0/README.md#validate-the-tier-0-tables).
 
 ---
 
@@ -59,6 +62,6 @@ Repository-controlled validation must return clear pass or fail results and iden
 
 # Current Boundary
 
-Issue #7 introduces validation for the presence and ownership visibility of the six approved schema namespaces.
+Issues #7 and #8 introduce validation for the approved schema namespaces and the complete Tier 0 table structure.
 
-No table, column, key, constraint, migration, data-quality, index, trigger, or cross-table integrity validation is implemented yet. Those checks remain governed by their respective implementation issues.
+Tier 0 validation covers the three approved tables, exactly 23 columns, column order, PostgreSQL types, nullability, defaults, identity and generated behavior, primary keys, prohibited constraints, supporting-index absence, and owner visibility. Migration, source-data quality, later-tier structures, relationships, triggers, and cross-table integrity remain governed by their respective implementation issues.
