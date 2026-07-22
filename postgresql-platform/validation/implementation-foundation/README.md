@@ -167,7 +167,12 @@ The setup uses a normal Git installation when one is available. Otherwise, it lo
         docker compose --project-name northstar-postgresql-platform --file $composeFile --env-file $environmentFile exec --no-TTY postgresql sh -c 'pg_isready --host=127.0.0.1 --username="$POSTGRES_USER" --dbname="$POSTGRES_DB"'
         Assert-NativeSuccess -ExitCode $LASTEXITCODE -Operation 'PostgreSQL readiness check'
 
-        docker compose --project-name northstar-postgresql-platform --file $composeFile --env-file $environmentFile exec --no-TTY postgresql sh -c 'PGPASSWORD="$POSTGRES_PASSWORD" psql --host=127.0.0.1 --username="$POSTGRES_USER" --dbname="$POSTGRES_DB" --command="SHOW server_version; SELECT current_database(), current_user;"'
+        $runtimeCheckSql = @(
+            'SHOW server_version;'
+            'SELECT current_database(), current_user;'
+        ) -join "`n"
+
+        $runtimeCheckSql | docker compose --project-name northstar-postgresql-platform --file $composeFile --env-file $environmentFile exec --no-TTY postgresql sh -c 'PGPASSWORD="$POSTGRES_PASSWORD" psql --host=127.0.0.1 --username="$POSTGRES_USER" --dbname="$POSTGRES_DB" --set=ON_ERROR_STOP=1'
         Assert-NativeSuccess -ExitCode $LASTEXITCODE -Operation 'PostgreSQL authenticated-connection check'
     }
 
