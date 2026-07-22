@@ -7,9 +7,9 @@
 -- System-object scoping: pg_catalog, information_schema, pg_toast, pg_temp_*,
 --                        and pg_toast_temp_* are PostgreSQL-managed namespaces and
 --                        are excluded from the user-defined object inventory.
--- Version validation: current_setting('server_version') reads the same clean
---                     server_version value exposed by SHOW server_version and
---                     avoids parsing PostgreSQL's platform-dependent version banner.
+-- Version validation: server_version_num is PostgreSQL's machine-readable
+--                     version value and is not affected by platform or package
+--                     suffixes in the human-readable server_version value.
 
 DO $validation$
 DECLARE
@@ -18,9 +18,10 @@ DECLARE
     table_has_rows BOOLEAN;
     nonempty_tables TEXT := NULL;
 BEGIN
-    IF current_setting('server_version') IS DISTINCT FROM '18.4' THEN
+    IF current_setting('server_version_num')::INTEGER IS DISTINCT FROM 180004 THEN
         RAISE EXCEPTION
-            'Implementation-foundation runtime validation failed. Expected PostgreSQL server_version 18.4; found %.',
+            'Implementation-foundation runtime validation failed. Expected PostgreSQL server_version_num 180004 (18.4); found % (%).',
+            current_setting('server_version_num'),
             current_setting('server_version');
     END IF;
 
@@ -298,7 +299,11 @@ END
 $validation$;
 
 SELECT
-    current_setting('server_version') AS server_version,
+    format(
+        '%s.%s',
+        current_setting('server_version_num')::INTEGER / 10000,
+        current_setting('server_version_num')::INTEGER % 10000
+    ) AS server_version,
     current_database() AS database_name,
     current_user AS authenticated_user,
     (
