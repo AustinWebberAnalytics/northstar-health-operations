@@ -20,7 +20,7 @@ The definition must remain traceable to the locked Enterprise Relational Schema 
 
 ---
 
-# Planned Structure
+# Governed Structure
 
 ```text
 database-definition/
@@ -36,7 +36,7 @@ database-definition/
 └── cross-table-integrity/
 ```
 
-Each leaf directory will be created with its first approved SQL artifact.
+Each later leaf directory will be created with its first approved SQL artifact.
 
 ---
 
@@ -80,11 +80,14 @@ This directory does not own:
 
 # Current Boundary
 
-Issues #7 and #8 introduce the repository-controlled creation of the six approved schema namespaces and the three approved Tier 0 tables.
+Issues #7 and #8 introduced the repository-controlled creation of the six approved schema namespaces and the three approved Tier 0 tables. Issue #29 extends the executable definition through the five approved Tier 1 tables.
 
 The current executable definition includes:
 
 * `schema-namespaces/create-schema-namespaces.sql`
 * `tier-0/create-tier-0-tables.sql`
+* `tier-1/create-tier-1-tables.sql`
 
-Tier 0 creates only `core.location`, `workforce.employee`, and `vendor.vendor`, their approved `NOT NULL` rules, and their primary keys. Tier 1–5 tables and every later database object require their own governed issues.
+The controlled executable order is namespaces → Tier 0 → Tier 1. Together, Tier 0 and Tier 1 create eight empty pre-migration tables with 81 columns.
+
+Tier 1 creates 58 columns, five primary keys, four immediately enforceable foreign keys to Tier 0, and one Workload Record business-key unique constraint. The two Ticket foreign keys remain deferred. Tier 2–5 tables and every later database object require their own governed issues.

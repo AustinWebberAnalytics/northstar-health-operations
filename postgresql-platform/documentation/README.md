@@ -14,7 +14,7 @@
 
 # Purpose
 
-This directory will contain detailed guidance for operating and reviewing the PostgreSQL platform.
+This directory contains platform-specific guidance and implementation traceability for operating and reviewing the PostgreSQL platform.
 
 The platform root README defines the implementation boundary. This directory will hold supporting instructions that would make the root orientation unnecessarily detailed.
 
@@ -22,7 +22,7 @@ The platform root README defines the implementation boundary. This directory wil
 
 # Approved Documentation Scope
 
-Future approved documents may cover:
+Approved documents may cover:
 
 * local setup prerequisites
 * environment configuration
@@ -39,4 +39,6 @@ Enterprise governance, logical design, relational design, and platform decisions
 
 # Current Boundary
 
-Issue #5 creates this documentation boundary only. Detailed runbooks will be added with the executable capabilities they describe.
+Issue #5 established this documentation boundary. Issue #28 added [Tier 1 PostgreSQL Implementation Contract](tier-1-postgresql-implementation-contract.md), which governs the physical types, constraint names, staged references, file responsibilities, validator boundaries, and documentation changes implemented through issues #29 and #30.
+
+Detailed runbooks will continue to be added with the executable capabilities they describe.

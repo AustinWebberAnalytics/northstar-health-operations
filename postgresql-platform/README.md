@@ -14,7 +14,7 @@
 
 **Authority Level:** Approved Implementation Boundary
 
-**Status:** Active Implementation — Issue #9 Foundation Validation
+**Status:** Implemented — Issue #29 Tier 1 Structural Boundary
 
 **Depends On:** Enterprise Database Platform Decision, Enterprise Relational Schema, Naming Convention Standards, and Project Governance Standards
 
@@ -48,7 +48,9 @@ postgresql-platform/
 │   ├── tier-0/
 │   │   ├── README.md
 │   │   └── create-tier-0-tables.sql
-│   ├── tier-1/                            [created with first approved artifact]
+│   ├── tier-1/
+│   │   ├── README.md
+│   │   └── create-tier-1-tables.sql
 │   ├── tier-2/                            [created with first approved artifact]
 │   ├── tier-3/                            [created with first approved artifact]
 │   ├── tier-4/                            [created with first approved artifact]
@@ -62,13 +64,16 @@ postgresql-platform/
 │   ├── implementation-foundation/
 │   │   ├── README.md
 │   │   ├── validate-implementation-foundation.sql
-│   │   └── implementation-foundation-validation.md [created after successful execution]
+│   │   └── implementation-foundation-validation.md
 │   ├── schema-namespaces/
 │   │   └── validate-schema-namespaces.sql
-│   └── tier-0/
-│       └── validate-tier-0-tables.sql
+│   ├── tier-0/
+│   │   └── validate-tier-0-tables.sql
+│   └── tier-1/
+│       └── validate-tier-1-tables.sql
 └── documentation/
-    └── README.md
+    ├── README.md
+    └── tier-1-postgresql-implementation-contract.md
 ```
 
 Empty leaf directories are not retained in Git. Each future leaf directory will be created with its first approved implementation artifact.
@@ -172,12 +177,14 @@ The scoped [.gitignore](.gitignore) enforces these exclusions within this platfo
 
 # Current Implementation Boundary
 
-Issues #5–#9 establish the repository organization, the reproducible PostgreSQL 18 local environment, the controlled creation and validation of the six approved schema namespaces, the three approved Tier 0 tables, and the repeatable implementation-foundation validation mechanism.
+Issues #5–#9 established the repository organization, the reproducible PostgreSQL 18 local environment, the six approved schema namespaces, the three approved Tier 0 tables, and the completed foundation-validation evidence.
 
-The current executable boundary includes Docker Compose environment controls, namespace creation and validation SQL, Tier 0 table DDL and structural validation, and the exact foundation-wide runtime and database-object inventory check. The Tier 0 definition is limited to `core.location`, `workforce.employee`, and `vendor.vendor`, their approved `NOT NULL` rules, and their primary keys.
+Issue #29 extends the executable boundary through Tier 1. The platform now defines and structurally validates eight empty pre-migration tables: the three Tier 0 tables and `inventory.inventory_item`, `ticketing.ticket`, `workforce.assignment`, `workforce.coverage_schedule`, and `workforce.workload_record`.
 
-Issue #9 remains active until normal persistence, destructive local reset, clean recreation, repository-controlled rebuild, and final validation are completed and recorded in the separate evidence artifact.
+The Tier 1 definition contains 58 columns, five primary keys, four immediately enforceable Tier 0 foreign keys, and one Workload Record business-key unique constraint. Ticket Location and Employee foreign keys remain deferred. No source data is loaded.
 
-No Tier 1–5 table DDL, migration logic, foreign key, controlled-vocabulary `CHECK` constraint, trigger code, manually defined supporting index, cross-table integrity enforcement, data loading, or source-data correction is implemented yet.
+The live cumulative validator accepts exactly the approved six-schema, eight-table pre-migration state. The issue #9 evidence file remains the unchanged historical record of the earlier three-table foundation checkpoint.
+
+No Tier 2–5 table DDL, migration logic, controlled-vocabulary `CHECK` constraint, trigger code, manually defined supporting index, cross-table integrity enforcement, data loading, or source-data correction is implemented yet.
 
 Each implementation category requires its own governed issue, review, validation, and approval before executable assets are added.

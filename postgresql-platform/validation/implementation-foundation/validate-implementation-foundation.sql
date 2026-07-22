@@ -1,8 +1,8 @@
 -- Northstar Health Operations
 -- Purpose: Confirm the exact PostgreSQL implementation-foundation runtime and
---          user-defined object inventory approved through issue #9.
+--          pre-migration user-defined object inventory approved through Tier 1.
 -- Authority: Enterprise Database Platform Decision, Enterprise Relational Schema,
---            and issue #9.
+--            Tier 1 PostgreSQL Implementation Contract, and issue #29.
 -- Boundary: Read-only foundation validation; no database state is modified.
 -- System-object scoping: pg_catalog, information_schema, pg_toast, pg_temp_*,
 --                        and pg_toast_temp_* are PostgreSQL-managed namespaces and
@@ -127,7 +127,12 @@ BEGIN
         VALUES
             (1, 'core', 'location', 'r'::"char"),
             (2, 'workforce', 'employee', 'r'::"char"),
-            (3, 'vendor', 'vendor', 'r'::"char")
+            (3, 'vendor', 'vendor', 'r'::"char"),
+            (4, 'inventory', 'inventory_item', 'r'::"char"),
+            (5, 'ticketing', 'ticket', 'r'::"char"),
+            (6, 'workforce', 'assignment', 'r'::"char"),
+            (7, 'workforce', 'coverage_schedule', 'r'::"char"),
+            (8, 'workforce', 'workload_record', 'r'::"char")
     ),
     actual_relations AS (
         SELECT
@@ -270,7 +275,12 @@ BEGIN
             VALUES
                 (1, 'core', 'location'),
                 (2, 'workforce', 'employee'),
-                (3, 'vendor', 'vendor')
+                (3, 'vendor', 'vendor'),
+                (4, 'inventory', 'inventory_item'),
+                (5, 'ticketing', 'ticket'),
+                (6, 'workforce', 'assignment'),
+                (7, 'workforce', 'coverage_schedule'),
+                (8, 'workforce', 'workload_record')
         ) AS target_tables(table_order, schema_name, table_name)
         ORDER BY target_tables.table_order
     LOOP
@@ -292,7 +302,7 @@ BEGIN
 
     IF nonempty_tables IS NOT NULL THEN
         RAISE EXCEPTION
-            'Implementation-foundation data-boundary validation failed. Tier 0 tables must be empty before migration; rows found in: %',
+            'Implementation-foundation data-boundary validation failed. Tier 0 and Tier 1 tables must be empty before migration; rows found in: %',
             nonempty_tables;
     END IF;
 END
@@ -327,7 +337,12 @@ SELECT
             VALUES
                 ('core', 'location'),
                 ('workforce', 'employee'),
-                ('vendor', 'vendor')
+                ('vendor', 'vendor'),
+                ('inventory', 'inventory_item'),
+                ('ticketing', 'ticket'),
+                ('workforce', 'assignment'),
+                ('workforce', 'coverage_schedule'),
+                ('workforce', 'workload_record')
         )
             AND relations.relkind = 'r'
     ) AS approved_table_count,
@@ -335,5 +350,10 @@ SELECT
         (SELECT count(*) FROM core.location)
         + (SELECT count(*) FROM workforce.employee)
         + (SELECT count(*) FROM vendor.vendor)
-    ) AS tier_0_row_count,
+        + (SELECT count(*) FROM inventory.inventory_item)
+        + (SELECT count(*) FROM ticketing.ticket)
+        + (SELECT count(*) FROM workforce.assignment)
+        + (SELECT count(*) FROM workforce.coverage_schedule)
+        + (SELECT count(*) FROM workforce.workload_record)
+    ) AS tier_0_1_row_count,
     'PASS' AS validation_result;
