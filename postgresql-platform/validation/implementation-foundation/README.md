@@ -508,7 +508,17 @@ docker compose --env-file .env down --volumes
 Confirm that `northstar-postgresql-data` is absent:
 
 ```bash
-if docker volume inspect northstar-postgresql-data >/dev/null 2>&1; then
+if ! docker info --format '{{.ServerVersion}}' >/dev/null; then
+    echo 'Docker daemon availability check failed.' >&2
+    exit 1
+fi
+
+if ! remaining_volumes="$(docker volume ls --quiet --filter name=northstar-postgresql-data)"; then
+    echo 'Post-reset named-volume inventory check failed.' >&2
+    exit 1
+fi
+
+if printf '%s\n' "$remaining_volumes" | grep --fixed-strings --line-regexp --quiet 'northstar-postgresql-data'; then
     echo 'The Northstar PostgreSQL data volume still exists.' >&2
     exit 1
 fi
