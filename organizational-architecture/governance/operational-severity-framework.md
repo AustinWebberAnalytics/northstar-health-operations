@@ -1,6 +1,6 @@
 # Operational Severity Framework
 
-## Northstar Health Operations
+## Northstar Enterprise
 
 ---
 **Primary Audience:** Northstar architects, operational analysts, subsystem maintainers, and reviewers applying severity language
@@ -18,7 +18,7 @@
 ---
 # Purpose
 
-This document defines the enterprise operational severity framework used throughout the Northstar Health Operations ecosystem.
+This document defines the enterprise operational severity framework used throughout the Northstar Enterprise ecosystem.
 
 The purpose of this framework is to:
 
@@ -64,7 +64,7 @@ Operational severity exists to support:
 ---
 # Severity Classification Structure
 
-Northstar Health Operations uses a standardized five-level operational severity model.
+Northstar Enterprise uses a standardized five-level operational severity model.
 
 |Severity Level|Classification|
 |-|-|
@@ -392,7 +392,7 @@ Enterprise-wide severity consistency improves:
 ---
 # Summary
 
-The Operational Severity Framework establishes a standardized enterprise-wide methodology for interpreting operational impact and continuity exposure throughout the Northstar Health Operations ecosystem.
+The Operational Severity Framework establishes a standardized enterprise-wide methodology for interpreting operational impact and continuity exposure throughout the Northstar Enterprise ecosystem.
 
 By maintaining a shared severity model across operational domains, the ecosystem supports consistent prioritization, escalation interpretation, leadership visibility, continuity awareness, and long-term governance alignment while preserving operational realism and cross-system consistency.
 

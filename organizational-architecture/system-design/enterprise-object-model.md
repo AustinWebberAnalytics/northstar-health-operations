@@ -1,6 +1,6 @@
 # Enterprise Object Model
 
-## Northstar Health Operations
+## Northstar Enterprise
 
 ---
 

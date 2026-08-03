@@ -1,6 +1,6 @@
 # Enterprise Relational Model
 
-## Northstar Health Operations
+## Northstar Enterprise
 
 ---
 

@@ -1,6 +1,6 @@
 # Phase 4 Enterprise Database Platform Decision Review
 
-## Northstar Health Operations
+## Northstar Enterprise
 
 ---
 

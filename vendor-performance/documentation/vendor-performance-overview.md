@@ -4,13 +4,13 @@
 
 The Vendor Performance subsystem provides operational visibility into supplier reliability, fulfillment performance, shipment stability, SLA adherence, corrective action activity, and vendor-related operational risk.
 
-The subsystem supports monitoring of external operational dependencies that directly affect inventory availability, replenishment continuity, operational coordination, and service performance across the Northstar Health Operations ecosystem.
+The subsystem supports monitoring of external operational dependencies that directly affect inventory availability, replenishment continuity, operational coordination, and service performance across the Northstar Enterprise ecosystem.
 
 ---
 
 # Operational Context
 
-Northstar Health Operations relies on external vendors to support:
+Northstar Enterprise relies on external vendors to support:
 
 * Inventory replenishment
 * Supply continuity
@@ -246,7 +246,7 @@ The subsystem is intended to evolve through controlled governance, validation, a
 
 # Operational Summary
 
-The Vendor Performance subsystem serves as the supplier performance and operational dependency monitoring domain within the Northstar Health Operations ecosystem.
+The Vendor Performance subsystem serves as the supplier performance and operational dependency monitoring domain within the Northstar Enterprise ecosystem.
 
 Through fulfillment analysis, SLA monitoring, corrective action tracking, risk evaluation, and operational reporting, the subsystem provides visibility into how external supplier performance influences organizational operations and service continuity.
 

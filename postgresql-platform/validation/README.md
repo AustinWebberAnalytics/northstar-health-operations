@@ -1,6 +1,6 @@
 # Validation
 
-## Northstar Health Operations
+## Northstar Enterprise
 
 ---
 

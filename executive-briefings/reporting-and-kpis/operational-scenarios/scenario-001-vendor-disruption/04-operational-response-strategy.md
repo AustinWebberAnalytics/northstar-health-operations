@@ -2,7 +2,7 @@
 
 
 
-## Northstar Health Operations
+## Northstar Enterprise
 
 
 
@@ -20,7 +20,7 @@ Vendor Disruption Operational Response Strategy
 
 
 
-This document defines the enterprise operational response strategy for the Vendor Disruption Scenario within Northstar Health Operations.
+This document defines the enterprise operational response strategy for the Vendor Disruption Scenario within Northstar Enterprise.
 
 
 
@@ -679,5 +679,5 @@ These observations support continued investment in:
 ---
 
 
-This artifact strengthens the Northstar Health Operations ecosystem by demonstrating realistic enterprise operational response coordination and leadership stabilization planning during elevated operational disruption conditions across Vendor Performance, Inventory Operations, Ticketing System, and Executive Briefings.
+This artifact strengthens the Northstar Enterprise ecosystem by demonstrating realistic enterprise operational response coordination and leadership stabilization planning during elevated operational disruption conditions across Vendor Performance, Inventory Operations, Ticketing System, and Executive Briefings.
 

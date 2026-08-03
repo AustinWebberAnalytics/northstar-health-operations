@@ -1,6 +1,6 @@
 # Architecture Reviews
 
-## Northstar Health Operations
+## Northstar Enterprise
 
 ---
 **Primary Audience:** Northstar architects, maintainers, and reviewers tracing enterprise-architecture decisions

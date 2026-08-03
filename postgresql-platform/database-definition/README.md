@@ -1,6 +1,6 @@
 # Database Definition
 
-## Northstar Health Operations
+## Northstar Enterprise
 
 ---
 

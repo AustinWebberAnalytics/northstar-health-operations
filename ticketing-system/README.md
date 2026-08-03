@@ -66,7 +66,7 @@ These areas support operational visibility, performance monitoring, and workflow
 
 ## Relationship to the Ecosystem
 
-The Ticketing System represents one operational domain within the broader Northstar Health Operations ecosystem.
+The Ticketing System represents one operational domain within the broader Northstar Enterprise ecosystem.
 
 Ticket activity may originate from or interact with multiple operational areas including inventory operations, vendor management, workforce coordination, data quality activities, and operational support functions.
 

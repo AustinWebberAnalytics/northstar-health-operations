@@ -1,14 +1,14 @@
-# 👋 Welcome to Northstar
+# 👋 Welcome to Northstar Enterprise
 
 ## A Business Operations Enterprise Simulation
 
 ---
 
-> **Northstar was built to feel like a company someone could walk into on Monday morning.**
+> **Northstar Enterprise was built to feel like a company someone could walk into on Monday morning.**
 
 Hi, I'm Austin.
 
-Thank you for taking the time to explore Northstar.
+Thank you for taking the time to explore Northstar Enterprise.
 
 Before you begin browsing the repository, I'd like to share why this project exists.
 

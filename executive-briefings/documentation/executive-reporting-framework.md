@@ -1,12 +1,12 @@
 # Executive Reporting Framework
 
-## Northstar Health Operations
+## Northstar Enterprise
 
 ---
 
 # Purpose
 
-This document defines the executive reporting framework used within the Executive Briefings subsystem of the Northstar Health Operations ecosystem.
+This document defines the executive reporting framework used within the Executive Briefings subsystem of the Northstar Enterprise ecosystem.
 
 The purpose of this framework is to:
 
@@ -244,7 +244,7 @@ Maintaining this separation preserves:
 
 # Governance Alignment
 
-Executive reporting operates under the governance-first architecture established within Northstar Health Operations.
+Executive reporting operates under the governance-first architecture established within Northstar Enterprise.
 
 The framework aligns with:
 
@@ -265,5 +265,5 @@ The Executive Reporting Framework establishes the reporting standards used withi
 
 By defining aggregation boundaries, prioritization standards, leadership communication principles, escalation interpretation standards, continuity-focused reporting practices, and enterprise KPI governance, the framework provides a consistent foundation for enterprise operational synthesis and leadership visibility.
 
-Executive reporting serves as the mechanism through which operational activity is transformed into organizational intelligence and leadership decision support across the Northstar Health Operations ecosystem.
+Executive reporting serves as the mechanism through which operational activity is transformed into organizational intelligence and leadership decision support across the Northstar Enterprise ecosystem.
 

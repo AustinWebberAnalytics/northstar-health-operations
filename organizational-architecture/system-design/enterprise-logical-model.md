@@ -1,6 +1,6 @@
 # Enterprise Logical Model
 
-## Northstar Health Operations
+## Northstar Enterprise
 
 ---
 

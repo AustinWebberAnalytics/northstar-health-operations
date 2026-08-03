@@ -1,4 +1,4 @@
--- Northstar Health Operations
+-- Northstar Enterprise
 -- Purpose: Create the five approved Tier 1 PostgreSQL tables.
 -- Authority: Tier 1 PostgreSQL Implementation Contract and issue #29.
 -- Boundary: Tier 1 tables, approved keys, and approved constraints only;

@@ -1,6 +1,6 @@
 # Naming Convention Standards
 
-## Northstar Health Operations
+## Northstar Enterprise
 
 ---
 **Primary Audience:** Northstar architects, subsystem maintainers, data engineers, and contributors naming repository artifacts
@@ -18,7 +18,7 @@
 ---
 # Purpose
 
-This document defines the enterprise naming standards used throughout the Northstar Health Operations ecosystem.
+This document defines the enterprise naming standards used throughout the Northstar Enterprise ecosystem.
 
 The purpose of these standards is to:
 
@@ -31,12 +31,12 @@ The purpose of these standards is to:
 * reinforce governance-first architecture
 * maintain long-term ecosystem maintainability
 
-This document serves as the authoritative naming governance reference for the Northstar Health Operations ecosystem.
+This document serves as the authoritative naming governance reference for the Northstar Enterprise ecosystem.
 
 ---
 # Naming Philosophy
 
-Northstar Health Operations prioritizes:
+Northstar Enterprise prioritizes:
 
 # operational clarity over naming creativity
 
@@ -99,6 +99,29 @@ Workflow Artifact
 ```
 
 Each layer serves a distinct operational purpose and should maintain naming consistency with the layers surrounding it.
+
+---
+# Project Identity Standards
+
+The canonical public and documentation name of the project is:
+
+```text
+Northstar Enterprise
+```
+
+`Northstar` is the approved short name after the canonical name has been established in a document or repository surface.
+
+The retired project display name must not be used in current or newly revised documentation.
+
+The existing GitHub repository identifier remains:
+
+```text
+AustinWebberAnalytics/northstar-health-operations
+```
+
+The repository identifier is a technical path, not the project display name. It may appear only where required for valid repository URLs, clone commands, issue references, commit references, or other technical locators until a separately governed repository rename is approved and completed.
+
+Healthcare operations, supply coordination, and related terminology may remain where they describe the enterprise's operating domain rather than its project identity.
 
 ---
 # Repository & Subsystem Naming Standards
@@ -559,9 +582,8 @@ Naming standards should remain consistent with all approved governance and archi
 ---
 # Summary
 
-The Naming Convention Standards establish the enterprise naming framework used throughout the Northstar Health Operations ecosystem.
+The Naming Convention Standards establish the enterprise naming framework used throughout the Northstar Enterprise ecosystem.
 
 By standardizing repository naming, subsystem naming, folder naming, dataset naming, field naming, identifier conventions, workflow naming, and reporting terminology, the ecosystem maintains consistency, readability, interoperability, and long-term architectural stability across all operational domains.
 
 Naming consistency is treated as an enterprise governance responsibility that supports operational clarity, subsystem maintainability, cross-system integration, and sustainable ecosystem growth.
-

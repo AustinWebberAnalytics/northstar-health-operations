@@ -2,7 +2,7 @@
 
 
 
-## Northstar Health Operations
+## Northstar Enterprise
 
 
 
@@ -14,7 +14,7 @@
 
 
 
-This document formally closes Phase 2 of the Northstar Health Operations ecosystem.
+This document formally closes Phase 2 of the Northstar Enterprise ecosystem.
 
 
 
@@ -808,7 +808,7 @@ Phase 3 shifts focus from building operational domains to extracting intelligenc
 
 
 
-Phase 2 transformed Northstar Health Operations from a collection of operational subsystems into a governed enterprise intelligence ecosystem.
+Phase 2 transformed Northstar Enterprise from a collection of operational subsystems into a governed enterprise intelligence ecosystem.
 
 
 

@@ -2,7 +2,7 @@
 
 
 
-## Northstar Health Operations
+## Northstar Enterprise
 
 
 
@@ -20,7 +20,7 @@ Simulated Enterprise Operational Disruption Event
 
 
 
-This document simulates a continuity-sensitive operational disruption event across the Northstar Health Operations ecosystem.
+This document simulates a continuity-sensitive operational disruption event across the Northstar Enterprise ecosystem.
 
 
 
@@ -58,7 +58,7 @@ This scenario focuses on:
 
 
 
-Northstar Health Operations experiences a major operational disruption following a sequence of high-impact supplier fulfillment failures involving a continuity-sensitive inventory category.
+Northstar Enterprise experiences a major operational disruption following a sequence of high-impact supplier fulfillment failures involving a continuity-sensitive inventory category.
 
 
 
@@ -804,5 +804,5 @@ The scenario demonstrates that the ecosystem is increasingly capable of supporti
 
 
 
-This artifact strengthens the Northstar Health Operations ecosystem by demonstrating realistic enterprise operational disruption behavior across Vendor Performance, Inventory Operations, Ticketing System, and Executive Briefings through integrated operational intelligence simulation and recovery coordination modeling.
+This artifact strengthens the Northstar Enterprise ecosystem by demonstrating realistic enterprise operational disruption behavior across Vendor Performance, Inventory Operations, Ticketing System, and Executive Briefings through integrated operational intelligence simulation and recovery coordination modeling.
 

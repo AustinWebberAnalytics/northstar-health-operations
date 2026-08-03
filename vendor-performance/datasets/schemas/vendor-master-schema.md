@@ -2,7 +2,7 @@
 
 
 
-\## Northstar Health Operations
+\## Northstar Enterprise
 
 
 
@@ -52,7 +52,7 @@ This schema serves as the primary reference for the vendor master dataset.
 
 
 
-The `vendor-master.csv` dataset contains one record per vendor used by Northstar Health Operations.
+The `vendor-master.csv` dataset contains one record per vendor used by Northstar Enterprise.
 
 
 
@@ -286,7 +286,7 @@ vendor\_type
 
 
 
-Uniquely identifies each vendor across the Northstar Health Operations ecosystem.
+Uniquely identifies each vendor across the Northstar Enterprise ecosystem.
 
 
 
@@ -486,7 +486,7 @@ Service categories should remain business-readable and operationally meaningful.
 
 
 
-Defines how the vendor supports Northstar Health Operations.
+Defines how the vendor supports Northstar Enterprise.
 
 
 
@@ -648,7 +648,7 @@ This field supports operational continuity planning and emergency replenishment 
 
 
 
-Indicates whether the vendor is currently active within Northstar Health Operations.
+Indicates whether the vendor is currently active within Northstar Enterprise.
 
 
 

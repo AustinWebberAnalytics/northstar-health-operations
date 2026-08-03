@@ -1,6 +1,6 @@
 # Phase 4 Organizational Architecture Reconciliation
 
-## Northstar Health Operations
+## Northstar Enterprise
 
 ---
 **Primary Audience:** Northstar architects, maintainers, data engineers, and reviewers validating the pre-SQL architecture baseline

@@ -1,4 +1,4 @@
--- Northstar Health Operations
+-- Northstar Enterprise
 -- Purpose: Create the three approved Tier 0 PostgreSQL tables.
 -- Authority: Enterprise Relational Schema and issue #8.
 -- Boundary: Tier 0 tables and primary keys only; no data or later-tier objects.

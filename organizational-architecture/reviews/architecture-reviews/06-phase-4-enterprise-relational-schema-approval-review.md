@@ -1,6 +1,6 @@
 # Phase 4 Enterprise Relational Schema Approval Review
 
-## Northstar Health Operations
+## Northstar Enterprise
 
 ---
 **Primary Audience:** Northstar architects, data engineers, subsystem maintainers, reviewers, and future implementation contributors

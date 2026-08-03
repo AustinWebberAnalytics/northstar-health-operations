@@ -1,6 +1,6 @@
 # Cross-System Identifier Dictionary
 
-## Northstar Health Operations
+## Northstar Enterprise
 
 ---
 
@@ -14,7 +14,7 @@
 
 # Purpose
 
-This document defines the shared identifiers, relationship standards, entity references, and cross-system integration rules used throughout the Northstar Health Operations ecosystem.
+This document defines the shared identifiers, relationship standards, entity references, and cross-system integration rules used throughout the Northstar Enterprise ecosystem.
 
 The purpose of this dictionary is to:
 
@@ -27,13 +27,13 @@ The purpose of this dictionary is to:
 * reinforce subsystem interoperability
 * support scalable ecosystem expansion
 
-This document serves as the authoritative identifier governance reference for the Northstar Health Operations ecosystem.
+This document serves as the authoritative identifier governance reference for the Northstar Enterprise ecosystem.
 
 ---
 
 # Identifier Philosophy
 
-Northstar Health Operations uses shared identifiers to connect operational activity across enterprise domains while preserving subsystem ownership and autonomy.
+Northstar Enterprise uses shared identifiers to connect operational activity across enterprise domains while preserving subsystem ownership and autonomy.
 
 Shared identifiers create a common operational language that enables separate operational domains to interact without sacrificing subsystem independence.
 
@@ -830,7 +830,7 @@ Shared identifiers should remain consistent with all approved governance and arc
 
 # Summary
 
-The Cross-System Identifier Dictionary establishes the enterprise identifier framework used throughout the Northstar Health Operations ecosystem.
+The Cross-System Identifier Dictionary establishes the enterprise identifier framework used throughout the Northstar Enterprise ecosystem.
 
 By standardizing shared identifiers, relationship structures, ownership responsibilities, and cross-system integration practices, the ecosystem maintains traceability, consistency, interoperability, and long-term architectural stability across all operational domains.
 

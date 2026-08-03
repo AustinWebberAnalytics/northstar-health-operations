@@ -14,7 +14,7 @@ The purpose of this workflow is to:
 * Support leadership reporting
 * Preserve workflow-centered operational intelligence
 
-This document serves as the primary workflow reference for vendor-related fulfillment escalation activity within the Northstar Health Operations ecosystem.
+This document serves as the primary workflow reference for vendor-related fulfillment escalation activity within the Northstar Enterprise ecosystem.
 
 ---
 
@@ -587,5 +587,5 @@ Workflow documentation should evolve systematically to maintain consistency, ope
 
 The Vendor Fulfillment Escalation Workflow establishes a standardized process for monitoring vendor fulfillment activity, evaluating operational impact, managing escalation decisions, coordinating recovery efforts, and supporting cross-system operational visibility.
 
-The workflow demonstrates how vendor performance influences inventory operations, ticketing activity, leadership awareness, and operational continuity throughout the Northstar Health Operations ecosystem.
+The workflow demonstrates how vendor performance influences inventory operations, ticketing activity, leadership awareness, and operational continuity throughout the Northstar Enterprise ecosystem.
 

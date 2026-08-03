@@ -12,7 +12,7 @@
 
 
 
-This document defines the structured dataset schema for the Northstar Health Operations Inventory \& Supply Operations subsystem.
+This document defines the structured dataset schema for the Northstar Enterprise Inventory \& Supply Operations subsystem.
 
 
 
@@ -102,7 +102,7 @@ one inventory item
 
 
 
-This dataset defines the master list of inventory items tracked by Northstar Health Operations.
+This dataset defines the master list of inventory items tracked by Northstar Enterprise.
 
 
 
@@ -674,7 +674,7 @@ This schema allows future analysis such as:
 
 
 
-These cross-system relationships are central to the long-term Northstar Health Operations ecosystem.
+These cross-system relationships are central to the long-term Northstar Enterprise ecosystem.
 
 
 

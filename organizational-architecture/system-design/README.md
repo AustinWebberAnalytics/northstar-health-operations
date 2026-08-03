@@ -1,6 +1,6 @@
 # System Design
 
-## Northstar Health Operations
+## Northstar Enterprise
 
 ---
 **Primary Audience:** Portfolio reviewers, Northstar architects, data engineers, subsystem maintainers, and technical reviewers

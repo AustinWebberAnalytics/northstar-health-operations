@@ -6,7 +6,7 @@ This document defines how analysis is executed within the Vendor Performance sub
 
 The purpose of this implementation layer is to establish a standardized approach for transforming operational data into analytical outputs, observations, and reporting artifacts.
 
-This document focuses on analytical execution rather than analytical objectives. It defines the datasets, relationships, analytical methods, and reporting processes used to evaluate vendor performance across the Northstar Health Operations ecosystem.
+This document focuses on analytical execution rather than analytical objectives. It defines the datasets, relationships, analytical methods, and reporting processes used to evaluate vendor performance across the Northstar Enterprise ecosystem.
 
 ---
 
@@ -311,5 +311,5 @@ Changes to analytical implementation methodology should be evaluated for consist
 
 The Vendor Analysis Implementation document defines the standardized methods used to execute analysis within the Vendor Performance subsystem.
 
-By establishing consistent data sources, analytical relationships, reporting methods, and observation development standards, the document supports repeatable operational analysis and reliable reporting across the Northstar Health Operations ecosystem.
+By establishing consistent data sources, analytical relationships, reporting methods, and observation development standards, the document supports repeatable operational analysis and reliable reporting across the Northstar Enterprise ecosystem.
 

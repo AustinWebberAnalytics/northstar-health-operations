@@ -2,7 +2,7 @@
 
 
 
-\## Northstar Health Operations
+\## Northstar Enterprise
 
 
 
@@ -52,7 +52,7 @@ This schema serves as the primary reference for vendor fulfillment event records
 
 
 
-The `vendor-fulfillment-events.csv` dataset captures vendor shipment and fulfillment activity across Northstar Health Operations.
+The `vendor-fulfillment-events.csv` dataset captures vendor shipment and fulfillment activity across Northstar Enterprise.
 
 
 

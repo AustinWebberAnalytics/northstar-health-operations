@@ -14,7 +14,7 @@ The purpose of this workflow is to:
 * Support corrective action monitoring
 * Support operational recovery consistency
 
-This workflow serves as the primary operational execution model for managing vendor corrective action activity across the Northstar Health Operations ecosystem.
+This workflow serves as the primary operational execution model for managing vendor corrective action activity across the Northstar Enterprise ecosystem.
 
 ---
 
@@ -332,5 +332,5 @@ Workflow documentation should evolve systematically to maintain consistency, ope
 
 The Vendor Corrective Action Workflow establishes a standardized process for identifying vendor-related operational disruptions, initiating remediation activities, monitoring recovery progress, and determining resolution outcomes.
 
-The workflow supports operational continuity, vendor accountability, escalation visibility, and cross-system coordination while preserving realistic enterprise remediation practices across the Northstar Health Operations ecosystem.
+The workflow supports operational continuity, vendor accountability, escalation visibility, and cross-system coordination while preserving realistic enterprise remediation practices across the Northstar Enterprise ecosystem.
 

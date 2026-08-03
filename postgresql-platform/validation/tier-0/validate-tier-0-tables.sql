@@ -1,4 +1,4 @@
--- Northstar Health Operations
+-- Northstar Enterprise
 -- Purpose: Confirm that the three approved Tier 0 tables match the locked schema.
 -- Authority: Enterprise Relational Schema and issue #8.
 -- Boundary: Read-only validation of core.location, workforce.employee, and

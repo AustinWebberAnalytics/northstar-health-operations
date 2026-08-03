@@ -1,6 +1,6 @@
 # Governance
 
-## Northstar Health Operations
+## Northstar Enterprise
 
 ---
 **Primary Audience:** Northstar architects, maintainers, reviewers, and contributors responsible for repository-wide consistency

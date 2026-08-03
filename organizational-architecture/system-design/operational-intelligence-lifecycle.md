@@ -1,6 +1,6 @@
 # Operational Intelligence Lifecycle
 
-## Northstar Health Operations
+## Northstar Enterprise
 
 ---
 **Primary Audience:** Operational analysts, Northstar architects, subsystem maintainers, and reviewers tracing analytical lineage
@@ -18,7 +18,7 @@
 ---
 # Purpose
 
-This document defines the operational intelligence lifecycle architecture used throughout the Northstar Health Operations ecosystem.
+This document defines the operational intelligence lifecycle architecture used throughout the Northstar Enterprise ecosystem.
 
 The purpose of this lifecycle model is to:
 
@@ -31,12 +31,12 @@ The purpose of this lifecycle model is to:
 * maintain intelligence architecture consistency across subsystems
 * support long-term ecosystem scalability
 
-This document serves as the primary reference for understanding how operational intelligence is transformed from operational records into enterprise-level decision support throughout the Northstar Health Operations ecosystem.
+This document serves as the primary reference for understanding how operational intelligence is transformed from operational records into enterprise-level decision support throughout the Northstar Enterprise ecosystem.
 
 ---
 # Operational Intelligence Philosophy
 
-Northstar Health Operations treats operational intelligence as:
+Northstar Enterprise treats operational intelligence as:
 
 # a structured operational reasoning process
 
@@ -536,7 +536,7 @@ All lifecycle activities should remain consistent with established governance re
 ---
 # Summary
 
-The Operational Intelligence Lifecycle defines how operational information progresses from source records to enterprise-level decision support throughout the Northstar Health Operations ecosystem.
+The Operational Intelligence Lifecycle defines how operational information progresses from source records to enterprise-level decision support throughout the Northstar Enterprise ecosystem.
 
 By standardizing intelligence generation, interpretation, aggregation, simulation, and strategic response activities, the lifecycle provides a scalable framework for operational reasoning while maintaining analytical traceability, governance alignment, and enterprise architectural consistency.
 

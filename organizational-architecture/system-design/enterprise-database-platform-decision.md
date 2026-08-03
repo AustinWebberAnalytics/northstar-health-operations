@@ -1,6 +1,6 @@
 # Enterprise Database Platform Decision
 
-## Northstar Health Operations
+## Northstar Enterprise
 
 ---
 

@@ -1,4 +1,4 @@
--- Northstar Health Operations
+-- Northstar Enterprise
 -- Purpose: Confirm that all six approved PostgreSQL schema namespaces exist.
 -- Authority: Enterprise Database Platform Decision and issue #7.
 -- Boundary: Read-only namespace validation; no database state is modified.

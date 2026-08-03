@@ -1,4 +1,4 @@
--- Northstar Health Operations
+-- Northstar Enterprise
 -- Purpose: Confirm that the five approved Tier 1 tables match the approved
 --          PostgreSQL physical implementation contract.
 -- Authority: Tier 1 PostgreSQL Implementation Contract and issue #29.

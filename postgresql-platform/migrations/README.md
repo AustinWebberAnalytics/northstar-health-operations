@@ -1,6 +1,6 @@
 # Migrations
 
-## Northstar Health Operations
+## Northstar Enterprise
 
 ---
 

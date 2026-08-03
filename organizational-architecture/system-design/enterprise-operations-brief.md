@@ -1,6 +1,6 @@
 # Enterprise Operations Brief
 
-## Northstar Health Operations
+## Northstar Enterprise
 
 ---
 **Primary Audience:** Portfolio reviewers, hiring managers, collaborators, and technical readers seeking the organizational context behind the repository
@@ -12,7 +12,7 @@
 ---
 # Organization Overview
 
-Northstar Health Operations is a fictional regional healthcare-operations and supply-coordination organization created as an enterprise portfolio environment.
+Northstar Enterprise is a fictional regional healthcare-operations and supply-coordination organization created as an enterprise portfolio environment.
 
 It supports outpatient clinics, specialty care locations, and distribution operations through centralized incident coordination, inventory oversight, vendor management, workforce planning, reporting, and process improvement.
 

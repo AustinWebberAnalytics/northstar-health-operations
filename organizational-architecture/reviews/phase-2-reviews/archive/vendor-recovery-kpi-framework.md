@@ -2,7 +2,7 @@
 
 
 
-\## Northstar Health Operations
+\## Northstar Enterprise
 
 
 
@@ -14,7 +14,7 @@
 
 
 
-This document defines the vendor recovery KPI framework for the Vendor Performance subsystem within Northstar Health Operations.
+This document defines the vendor recovery KPI framework for the Vendor Performance subsystem within Northstar Enterprise.
 
 
 

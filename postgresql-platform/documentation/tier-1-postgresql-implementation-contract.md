@@ -1,6 +1,6 @@
 # Tier 1 PostgreSQL Implementation Contract
 
-## Northstar Health Operations
+## Northstar Enterprise
 
 ---
 

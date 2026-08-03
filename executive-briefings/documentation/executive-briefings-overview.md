@@ -1,12 +1,12 @@
 # Executive Briefings Overview
 
-## Northstar Health Operations
+## Northstar Enterprise
 
 ---
 
 # Purpose
 
-The Executive Briefings subsystem serves as the enterprise operational synthesis and leadership visibility layer within the Northstar Health Operations ecosystem.
+The Executive Briefings subsystem serves as the enterprise operational synthesis and leadership visibility layer within the Northstar Enterprise ecosystem.
 
 The purpose of this subsystem is to:
 
@@ -232,7 +232,7 @@ Future maturity will be driven by increasing enterprise analytical depth rather 
 
 # Summary
 
-The Executive Briefings subsystem serves as the enterprise operational synthesis and leadership visibility layer of the Northstar Health Operations ecosystem.
+The Executive Briefings subsystem serves as the enterprise operational synthesis and leadership visibility layer of the Northstar Enterprise ecosystem.
 
 By aggregating operational intelligence across Ticketing System, Inventory Operations, Vendor Performance, and Workforce Coordination, the subsystem transforms operational activity into enterprise-level visibility, organizational intelligence, and leadership-oriented reporting.
 

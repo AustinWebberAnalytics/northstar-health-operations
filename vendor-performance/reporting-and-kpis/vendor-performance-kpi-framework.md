@@ -6,7 +6,7 @@ This document defines the core performance metrics used within the Vendor Perfor
 
 The framework establishes standardized measures for evaluating vendor fulfillment activity, shipment performance, escalation contribution, and operational reliability.
 
-These KPIs support operational monitoring, performance reporting, and vendor performance interpretation across the Northstar Health Operations ecosystem.
+These KPIs support operational monitoring, performance reporting, and vendor performance interpretation across the Northstar Enterprise ecosystem.
 
 ---
 
@@ -298,5 +298,5 @@ Changes to KPI definitions should be evaluated for consistency, reporting impact
 
 The Vendor Performance KPI Framework establishes the core metrics used to evaluate vendor reliability, fulfillment performance, shipment stability, and escalation contribution.
 
-These measures provide a standardized foundation for operational reporting, performance monitoring, and vendor performance analysis across the Northstar Health Operations ecosystem.
+These measures provide a standardized foundation for operational reporting, performance monitoring, and vendor performance analysis across the Northstar Enterprise ecosystem.
 

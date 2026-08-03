@@ -1,6 +1,6 @@
 # Scenario Intelligence Inputs
 
-## Northstar Health Operations
+## Northstar Enterprise
 
 ### Scenario Context
 
@@ -10,7 +10,7 @@ Vendor Disruption Operational Scenario Chain
 
 # Purpose
 
-This document defines the analytical intelligence inputs supporting the Vendor Disruption operational scenario chain within the Northstar Health Operations ecosystem.
+This document defines the analytical intelligence inputs supporting the Vendor Disruption operational scenario chain within the Northstar Enterprise ecosystem.
 
 The purpose of this document is to:
 
@@ -351,7 +351,7 @@ for future reviewers and stakeholders.
 
 # Governance Alignment
 
-This document operates within the governance-first architecture established throughout the Northstar Health Operations ecosystem.
+This document operates within the governance-first architecture established throughout the Northstar Enterprise ecosystem.
 
 Scenario intelligence development remains aligned with:
 

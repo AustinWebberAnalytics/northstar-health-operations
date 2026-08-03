@@ -1,6 +1,6 @@
 # Schema Namespaces
 
-## Northstar Health Operations
+## Northstar Enterprise
 
 ---
 

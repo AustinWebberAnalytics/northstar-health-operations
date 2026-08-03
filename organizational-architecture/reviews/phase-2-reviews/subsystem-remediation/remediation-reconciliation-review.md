@@ -2,7 +2,7 @@
 
 
 
-## Northstar Health Operations
+## Northstar Enterprise
 
 
 
@@ -14,7 +14,7 @@
 
 
 
-This document reconciles the original Phase II subsystem remediation initiative against the current state of the Northstar Health Operations ecosystem.
+This document reconciles the original Phase II subsystem remediation initiative against the current state of the Northstar Enterprise ecosystem.
 
 
 
@@ -774,7 +774,7 @@ Implementation Artifacts
 
 
 
-This hierarchy serves as the authoritative foundation for all future Northstar Health Operations development.
+This hierarchy serves as the authoritative foundation for all future Northstar Enterprise development.
 
 
 

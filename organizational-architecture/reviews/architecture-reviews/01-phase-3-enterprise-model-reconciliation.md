@@ -46,7 +46,7 @@
 
 
 
-This review documents the architectural reconciliation performed during Phase 3 of the Northstar Health Operations project.
+This review documents the architectural reconciliation performed during Phase 3 of the Northstar Enterprise project.
 
 
 

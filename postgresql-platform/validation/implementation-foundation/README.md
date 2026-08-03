@@ -1,6 +1,6 @@
 # Implementation Foundation Validation
 
-## Northstar Health Operations
+## Northstar Enterprise
 
 ---
 

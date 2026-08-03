@@ -6,7 +6,7 @@
 
 
 
-The Enterprise Intelligence Framework establishes how operational information is transformed into enterprise intelligence within Northstar Health Operations.
+The Enterprise Intelligence Framework establishes how operational information is transformed into enterprise intelligence within Northstar Enterprise.
 
 
 
@@ -94,7 +94,7 @@ Enterprise intelligence exists to support enterprise visibility, organizational 
 
 
 
-Northstar Health Operations develops enterprise intelligence through a structured progression.
+Northstar Enterprise develops enterprise intelligence through a structured progression.
 
 
 
@@ -468,7 +468,7 @@ Enterprise intelligence should increase organizational understanding without com
 
 
 
-This framework serves as the governing authority for enterprise intelligence development within Northstar Health Operations.
+This framework serves as the governing authority for enterprise intelligence development within Northstar Enterprise.
 
 
 

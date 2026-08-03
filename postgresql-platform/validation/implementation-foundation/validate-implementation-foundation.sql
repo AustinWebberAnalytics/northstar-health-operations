@@ -1,4 +1,4 @@
--- Northstar Health Operations
+-- Northstar Enterprise
 -- Purpose: Confirm the exact PostgreSQL implementation-foundation runtime and
 --          pre-migration user-defined object inventory approved through Tier 1.
 -- Authority: Enterprise Database Platform Decision, Enterprise Relational Schema,

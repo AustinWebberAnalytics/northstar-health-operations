@@ -2,7 +2,7 @@
 
 
 
-## Northstar Health Operations
+## Northstar Enterprise
 
 
 
@@ -28,7 +28,7 @@
 
 
 
-This document defines the enterprise operational architecture of the Northstar Health Operations ecosystem.
+This document defines the enterprise operational architecture of the Northstar Enterprise ecosystem.
 
 
 
@@ -54,7 +54,7 @@ The purpose of this system map is to:
 
 
 
-This document serves as the authoritative architectural reference for the Northstar Health Operations ecosystem.
+This document serves as the authoritative architectural reference for the Northstar Enterprise ecosystem.
 
 
 
@@ -66,7 +66,7 @@ This document serves as the authoritative architectural reference for the Norths
 
 
 
-Northstar Health Operations follows a:
+Northstar Enterprise follows a:
 
 
 
@@ -170,7 +170,7 @@ This approach promotes architectural stability while supporting long-term ecosys
 
 
 
-The Northstar Health Operations ecosystem currently contains the following enterprise domains and shared technical platform:
+The Northstar Enterprise ecosystem currently contains the following enterprise domains and shared technical platform:
 
 
 
@@ -1282,7 +1282,7 @@ The ecosystem follows the following architectural principles:
 
 
 
-Northstar Health Operations evolves through a structured governance lifecycle.
+Northstar Enterprise evolves through a structured governance lifecycle.
 
 
 
@@ -1354,7 +1354,7 @@ This diversity is considered a normal characteristic of enterprise operational e
 
 
 
-Northstar Health Operations is a subsystem-centered operational ecosystem supported by a shared PostgreSQL platform and designed to enable realistic enterprise operations, operational intelligence development, governance-aligned growth, and long-term architectural maintainability.
+Northstar Enterprise is a subsystem-centered operational ecosystem supported by a shared PostgreSQL platform and designed to enable realistic enterprise operations, operational intelligence development, governance-aligned growth, and long-term architectural maintainability.
 
 
 

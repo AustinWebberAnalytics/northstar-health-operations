@@ -1,6 +1,6 @@
 # Local PostgreSQL Environment
 
-## Northstar Health Operations
+## Northstar Enterprise
 
 ---
 

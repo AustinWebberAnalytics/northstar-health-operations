@@ -10,7 +10,7 @@ This document defines the vendor risk classification framework used within the V
 
 
 
-The framework establishes a standardized approach for evaluating operational exposure associated with vendor relationships and supports consistent classification of vendor risk across the Northstar Health Operations ecosystem.
+The framework establishes a standardized approach for evaluating operational exposure associated with vendor relationships and supports consistent classification of vendor risk across the Northstar Enterprise ecosystem.
 
 
 

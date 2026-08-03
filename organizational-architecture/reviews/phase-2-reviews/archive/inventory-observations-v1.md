@@ -1,6 +1,6 @@
 # Inventory Observations v1  
 
-## Northstar Health Operations
+## Northstar Enterprise
 
 
 
@@ -432,5 +432,5 @@ This analysis demonstrates:
 
 
 
-The Inventory & Supply Operations subsystem now represents a mature operational analytics environment within the Northstar Health Operations ecosystem.
+The Inventory & Supply Operations subsystem now represents a mature operational analytics environment within the Northstar Enterprise ecosystem.
 

@@ -14,7 +14,7 @@ The purpose of this framework is to establish a standardized approach for identi
 
 
 
-This framework supports operational stability, vendor accountability, service continuity, and continuous refinement of vendor management practices throughout the Northstar Health Operations ecosystem.
+This framework supports operational stability, vendor accountability, service continuity, and continuous refinement of vendor management practices throughout the Northstar Enterprise ecosystem.
 
 
 
@@ -528,7 +528,7 @@ The Vendor Improvement Framework establishes a standardized approach for identif
 
 
 
-By emphasizing structured improvement governance, measurable outcomes, and operational sustainability, the framework supports continuous refinement of vendor management practices and long-term operational stability across the Northstar Health Operations ecosystem.
+By emphasizing structured improvement governance, measurable outcomes, and operational sustainability, the framework supports continuous refinement of vendor management practices and long-term operational stability across the Northstar Enterprise ecosystem.
 
 
 

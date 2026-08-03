@@ -1,6 +1,6 @@
 # PostgreSQL Implementation Foundation Validation Evidence
 
-## Northstar Health Operations
+## Northstar Enterprise
 
 ---
 

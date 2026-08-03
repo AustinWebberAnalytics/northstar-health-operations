@@ -1,6 +1,6 @@
 # Tier 1 PostgreSQL Lifecycle Validation Evidence
 
-## Northstar Health Operations
+## Northstar Enterprise
 
 ---
 

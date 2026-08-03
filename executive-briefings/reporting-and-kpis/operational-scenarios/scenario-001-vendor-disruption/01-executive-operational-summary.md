@@ -2,7 +2,7 @@
 
 
 
-## Northstar Health Operations
+## Northstar Enterprise
 
 
 
@@ -20,7 +20,7 @@ Q2 Operational Review — Simulated Enterprise Snapshot
 
 
 
-Northstar Health Operations experienced elevated operational coordination pressure during the current reporting period due to a combination of:
+Northstar Enterprise experienced elevated operational coordination pressure during the current reporting period due to a combination of:
 
 
 
@@ -426,7 +426,7 @@ Continued monitoring and governance-guided operational coordination remain recom
 
 
 
-The Northstar Health Operations ecosystem currently demonstrates:
+The Northstar Enterprise ecosystem currently demonstrates:
 
 
 

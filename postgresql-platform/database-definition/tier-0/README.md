@@ -1,6 +1,6 @@
 # Tier 0 Tables
 
-## Northstar Health Operations
+## Northstar Enterprise
 
 ---
 

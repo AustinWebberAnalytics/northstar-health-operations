@@ -6,7 +6,7 @@
 
 
 
-This document defines the standardized methodology used to audit, remediate, validate, and close operational subsystems within the Northstar Health Operations ecosystem.
+This document defines the standardized methodology used to audit, remediate, validate, and close operational subsystems within the Northstar Enterprise ecosystem.
 
 
 
@@ -633,7 +633,7 @@ Each outcome should be supported by documented rationale.
 
 
 
-The Architectural Remediation Standards establish the enterprise methodology used to audit, evaluate, modernize, validate, and close operational subsystems throughout the Northstar Health Operations ecosystem.
+The Architectural Remediation Standards establish the enterprise methodology used to audit, evaluate, modernize, validate, and close operational subsystems throughout the Northstar Enterprise ecosystem.
 
 
 

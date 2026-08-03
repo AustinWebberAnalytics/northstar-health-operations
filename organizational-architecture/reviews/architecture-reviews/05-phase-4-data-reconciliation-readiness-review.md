@@ -1,6 +1,6 @@
 # Phase 4 Data Reconciliation Readiness Review
 
-## Northstar Health Operations
+## Northstar Enterprise
 
 ---
 **Primary Audience:** Northstar architects, data engineers, subsystem maintainers, and reviewers preparing for SQL implementation

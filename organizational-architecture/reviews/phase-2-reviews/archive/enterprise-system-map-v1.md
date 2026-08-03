@@ -1,12 +1,12 @@
 # Enterprise System Map  
 
-## Northstar Health Operations
+## Northstar Enterprise
 
 ---
 
 # Purpose
 
-This document defines the enterprise operational ecosystem architecture for Northstar Health Operations.
+This document defines the enterprise operational ecosystem architecture for Northstar Enterprise.
 
 The purpose of this system map is to:
 
@@ -25,7 +25,7 @@ This document serves as the foundational architectural reference for future ecos
 
 # Enterprise Architecture Philosophy
 
-Northstar Health Operations is intentionally designed using a:
+Northstar Enterprise is intentionally designed using a:
 
 # subsystem-centered operational architecture
 
@@ -82,7 +82,7 @@ This philosophy helps preserve:
 
 # Current Enterprise Domains
 
-The Northstar Health Operations ecosystem currently contains the following enterprise operational domains:
+The Northstar Enterprise ecosystem currently contains the following enterprise operational domains:
 
 ```text
 northstar-health-operations/
@@ -678,7 +678,7 @@ The ecosystem follows several core governance principles:
 
 # Ecosystem Lifecycle Philosophy
 
-The Northstar Health Operations ecosystem is intentionally designed to evolve through recurring lifecycle phases including:
+The Northstar Enterprise ecosystem is intentionally designed to evolve through recurring lifecycle phases including:
 
 ```text
 Expansion
@@ -731,4 +731,4 @@ This enterprise system map demonstrates:
 - subsystem harmonization methodology
 - long-term maintainability thinking
 
-The Northstar Health Operations ecosystem is intentionally designed to evolve as a scalable operational intelligence environment rather than a collection of disconnected portfolio projects.
+The Northstar Enterprise ecosystem is intentionally designed to evolve as a scalable operational intelligence environment rather than a collection of disconnected portfolio projects.

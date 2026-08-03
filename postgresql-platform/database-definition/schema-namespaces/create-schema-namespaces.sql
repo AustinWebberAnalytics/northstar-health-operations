@@ -1,4 +1,4 @@
--- Northstar Health Operations
+-- Northstar Enterprise
 -- Purpose: Create the six approved PostgreSQL schema namespaces.
 -- Authority: Enterprise Database Platform Decision and issue #7.
 -- Boundary: Namespace containers only; no tables or other database objects.

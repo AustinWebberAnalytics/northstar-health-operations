@@ -1,6 +1,6 @@
 # Organizational Architecture
 
-## Northstar Health Operations
+## Northstar Enterprise
 
 ---
 

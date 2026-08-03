@@ -1,6 +1,6 @@
 # Enterprise Identifier Governance Review
 
-## Northstar Health Operations
+## Northstar Enterprise
 
 ---
 
@@ -261,4 +261,4 @@ This review does not reopen business-candidate-key decisions recorded in the Ent
 
 This governance review approves eight canonical identifiers introduced through the Enterprise Logical Model and records three later format corrections discovered during repository-wide Organizational Architecture reconciliation.
 
-All approved identifier formats are grounded in current repository evidence. Two identifiers carry governed source-field renames, while three previously documented formats were corrected without requiring data migration. Together with the Cross-System Identifier Dictionary, this document establishes the authoritative enterprise identity baseline for Northstar Health Operations.
+All approved identifier formats are grounded in current repository evidence. Two identifiers carry governed source-field renames, while three previously documented formats were corrected without requiring data migration. Together with the Cross-System Identifier Dictionary, this document establishes the authoritative enterprise identity baseline for Northstar Enterprise.

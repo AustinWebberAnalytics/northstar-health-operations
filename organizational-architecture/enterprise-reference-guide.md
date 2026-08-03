@@ -1,4 +1,4 @@
-# Northstar Health Operations
+# Northstar Enterprise
 
 ## Enterprise Reference Guide
 
@@ -14,7 +14,7 @@
 
 # What Northstar Is
 
-Northstar Health Operations is a governance-first operational intelligence ecosystem built to simulate how a real organization coordinates work across connected business functions.
+Northstar Enterprise is a governance-first operational intelligence ecosystem built to simulate how a real organization coordinates work across connected business functions.
 
 The repository is not centered on one dashboard or one analysis. It models an enterprise environment where datasets, workflows, reporting, governance, and relational architecture must remain consistent as the system grows.
 

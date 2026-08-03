@@ -1,6 +1,6 @@
 # Project Governance Standards
 
-## Northstar Health Operations
+## Northstar Enterprise
 
 ---
 **Primary Audience:** Northstar architects, maintainers, reviewers, and contributors responsible for controlled ecosystem evolution
@@ -18,7 +18,7 @@
 ---
 # Purpose
 
-This document defines the enterprise governance standards used throughout the Northstar Health Operations ecosystem.
+This document defines the enterprise governance standards used throughout the Northstar Enterprise ecosystem.
 
 The purpose of these standards is to:
 
@@ -31,12 +31,12 @@ The purpose of these standards is to:
 * support scalable ecosystem growth
 * maintain long-term ecosystem continuity
 
-This document serves as the primary governance authority for the Northstar Health Operations ecosystem.
+This document serves as the primary governance authority for the Northstar Enterprise ecosystem.
 
 ---
 # Governance Philosophy
 
-Northstar Health Operations follows a:
+Northstar Enterprise follows a:
 
 # governance-first operational architecture
 
@@ -242,7 +242,7 @@ Modernization should not alter operational meaning, dataset structure, workflow 
 ---
 # Ecosystem Lifecycle Governance
 
-Northstar Health Operations evolves through a structured governance lifecycle.
+Northstar Enterprise evolves through a structured governance lifecycle.
 
 ```text
 Expansion
@@ -698,7 +698,7 @@ over historical project assumptions.
 ---
 # Summary
 
-The Project Governance Standards establish the enterprise governance framework used throughout the Northstar Health Operations ecosystem.
+The Project Governance Standards establish the enterprise governance framework used throughout the Northstar Enterprise ecosystem.
 
 By standardizing ownership, validation, documentation, operational intelligence, remediation, reporting, architecture, and expansion practices, the ecosystem maintains consistency, scalability, operational realism, and long-term architectural integrity across all current and future operational domains.
 

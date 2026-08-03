@@ -1,6 +1,6 @@
 # PostgreSQL Platform
 
-## Northstar Health Operations
+## Northstar Enterprise
 
 ---
 

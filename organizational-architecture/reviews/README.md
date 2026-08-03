@@ -1,6 +1,6 @@
 # Architecture and Remediation Reviews
 
-## Northstar Health Operations
+## Northstar Enterprise
 
 ---
 **Primary Audience:** Northstar architects, maintainers, reviewers, and contributors tracing how major decisions were reached

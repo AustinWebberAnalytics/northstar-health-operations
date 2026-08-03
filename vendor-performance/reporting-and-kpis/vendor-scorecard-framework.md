@@ -6,7 +6,7 @@ This document defines the vendor scorecard framework used within the Vendor Perf
 
 The framework establishes a standardized approach for evaluating overall vendor performance through the consolidation of operational performance, SLA outcomes, escalation activity, operational impact, and corrective action history.
 
-Scorecards support vendor comparison, performance interpretation, operational prioritization, and leadership visibility across the Northstar Health Operations ecosystem.
+Scorecards support vendor comparison, performance interpretation, operational prioritization, and leadership visibility across the Northstar Enterprise ecosystem.
 
 ---
 

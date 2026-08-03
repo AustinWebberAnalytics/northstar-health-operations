@@ -2,7 +2,7 @@
 
 
 
-\## Northstar Health Operations
+\## Northstar Enterprise
 
 
 
@@ -40,7 +40,7 @@ The purpose of this schema is to:
 
 
 
-This schema serves as the primary reference for vendor SLA tracking records across Northstar Health Operations.
+This schema serves as the primary reference for vendor SLA tracking records across Northstar Enterprise.
 
 
 

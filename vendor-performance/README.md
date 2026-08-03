@@ -1,12 +1,12 @@
 # Vendor Performance  
 
-## Northstar Health Operations
+## Northstar Enterprise
 
 ---
 
 # Overview
 
-The Vendor Performance subsystem tracks supplier reliability, fulfillment stability, SLA compliance, corrective intervention activity, and operational recovery visibility within Northstar Health Operations.
+The Vendor Performance subsystem tracks supplier reliability, fulfillment stability, SLA compliance, corrective intervention activity, and operational recovery visibility within Northstar Enterprise.
 
 This subsystem focuses on how vendor behavior affects:
 
@@ -212,4 +212,4 @@ The Vendor Performance subsystem demonstrates:
 - executive operational reporting design
 - scalable operational ecosystem planning
 
-This subsystem strengthens the Northstar Health Operations ecosystem by establishing a mature operational vendor intelligence environment supporting remediation governance, operational recovery visibility, and long-term enterprise scalability.
+This subsystem strengthens the Northstar Enterprise ecosystem by establishing a mature operational vendor intelligence environment supporting remediation governance, operational recovery visibility, and long-term enterprise scalability.

@@ -2,7 +2,7 @@
 
 
 
-\## Northstar Health Operations
+\## Northstar Enterprise
 
 
 
@@ -14,7 +14,7 @@
 
 
 
-This document provides a maturity audit for the Vendor Performance subsystem within Northstar Health Operations.
+This document provides a maturity audit for the Vendor Performance subsystem within Northstar Enterprise.
 
 
 
@@ -82,7 +82,7 @@ The subsystem functions as:
 
 
 
-within the Northstar Health Operations ecosystem.
+within the Northstar Enterprise ecosystem.
 
 
 
@@ -794,5 +794,5 @@ This audit demonstrates:
 
 
 
-The Vendor Subsystem Maturity Audit strengthens the Northstar Health Operations ecosystem by establishing a formal subsystem stabilization and self-assessment layer supporting governance cohesion, operational scalability, and long-term enterprise architectural planning.
+The Vendor Subsystem Maturity Audit strengthens the Northstar Enterprise ecosystem by establishing a formal subsystem stabilization and self-assessment layer supporting governance cohesion, operational scalability, and long-term enterprise architectural planning.
 

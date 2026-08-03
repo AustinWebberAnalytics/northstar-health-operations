@@ -506,7 +506,7 @@ These limitations have been documented to preserve architectural clarity while p
 
 
 
-The conceptual architecture established during Phase 3 is accepted as the authoritative architectural foundation of the Northstar Health Operations project.
+The conceptual architecture established during Phase 3 is accepted as the authoritative architectural foundation of the Northstar Enterprise project.
 
 
 

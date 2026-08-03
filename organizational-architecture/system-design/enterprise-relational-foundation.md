@@ -1,6 +1,6 @@
 # Enterprise Relational Foundation
 
-## Northstar Health Operations
+## Northstar Enterprise
 
 ---
 

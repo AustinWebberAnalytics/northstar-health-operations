@@ -1,6 +1,6 @@
 # Enterprise Relational Schema
 
-## Northstar Health Operations
+## Northstar Enterprise
 
 ---
 **Primary Audience:** Northstar architects, data engineers, subsystem maintainers, and reviewers translating approved logical design into a platform-neutral schema specification

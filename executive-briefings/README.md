@@ -2,7 +2,7 @@
 
 
 
-## Northstar Health Operations
+## Northstar Enterprise
 
 
 
@@ -14,7 +14,7 @@
 
 
 
-The Executive Briefings subsystem aggregates operational intelligence across the Northstar Health Operations ecosystem to support leadership visibility, enterprise operational awareness, and cross-system decision support.
+The Executive Briefings subsystem aggregates operational intelligence across the Northstar Enterprise ecosystem to support leadership visibility, enterprise operational awareness, and cross-system decision support.
 
 
 
@@ -442,5 +442,5 @@ The Executive Briefings subsystem demonstrates:
 
 
 
-This subsystem strengthens the Northstar Health Operations ecosystem by establishing a future-ready enterprise reporting environment supporting operational aggregation, leadership visibility, cross-system intelligence synthesis, and long-term ecosystem scalability.
+This subsystem strengthens the Northstar Enterprise ecosystem by establishing a future-ready enterprise reporting environment supporting operational aggregation, leadership visibility, cross-system intelligence synthesis, and long-term ecosystem scalability.
 

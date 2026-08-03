@@ -2,7 +2,7 @@
 
 
 
-## Northstar Health Operations
+## Northstar Enterprise
 
 
 
@@ -14,7 +14,7 @@
 
 
 
-This document defines the operational intelligence lifecycle architecture used throughout the Northstar Health Operations ecosystem.
+This document defines the operational intelligence lifecycle architecture used throughout the Northstar Enterprise ecosystem.
 
 
 
@@ -1114,5 +1114,5 @@ This document demonstrates:
 
 
 
-The Operational Intelligence Lifecycle strengthens the Northstar Health Operations ecosystem by formally defining how operational intelligence evolves from raw operational records into leadership synthesis, operational simulation, and strategic enterprise response modeling across the broader operational ecosystem.
+The Operational Intelligence Lifecycle strengthens the Northstar Enterprise ecosystem by formally defining how operational intelligence evolves from raw operational records into leadership synthesis, operational simulation, and strategic enterprise response modeling across the broader operational ecosystem.
 
