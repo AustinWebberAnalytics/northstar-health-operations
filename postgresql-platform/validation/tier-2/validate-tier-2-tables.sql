@@ -1,8 +1,8 @@
 -- Northstar Enterprise
--- Purpose: Confirm that the five approved Tier 1 tables match the approved
+-- Purpose: Confirm that the five approved Tier 2 tables match the approved
 --          PostgreSQL physical implementation contract.
--- Authority: Tier 1 PostgreSQL Implementation Contract and issue #29.
--- Boundary: Read-only validation of the five named Tier 1 tables; cumulative
+-- Authority: Tier 2 PostgreSQL Implementation Contract and issue #32.
+-- Boundary: Read-only validation of the five named Tier 2 tables; cumulative
 --           repository-wide relation inventory remains the responsibility of
 --           validate-implementation-foundation.sql.
 -- PostgreSQL 18 metadata note: pg_constraint.contype = 'n' represents NOT NULL
@@ -18,11 +18,11 @@ DECLARE
 BEGIN
     WITH expected_tables (table_order, schema_name, table_name) AS (
         VALUES
-            (1, 'inventory', 'inventory_item'),
-            (2, 'ticketing', 'ticket'),
-            (3, 'workforce', 'assignment'),
-            (4, 'workforce', 'coverage_schedule'),
-            (5, 'workforce', 'workload_record')
+            (1, 'vendor', 'shipment'),
+            (2, 'inventory', 'replenishment'),
+            (3, 'inventory', 'location_inventory'),
+            (4, 'workforce', 'workforce_escalation'),
+            (5, 'relationships', 'assignment_ticket')
     ),
     table_mismatches AS (
         SELECT
@@ -50,7 +50,7 @@ BEGIN
 
     IF validation_errors IS NOT NULL THEN
         RAISE EXCEPTION
-            'Tier 1 table validation failed: %',
+            'Tier 2 table validation failed: %',
             validation_errors;
     END IF;
 
@@ -59,16 +59,16 @@ BEGIN
     FROM information_schema.columns AS actual_columns
     WHERE (actual_columns.table_schema, actual_columns.table_name) IN (
         VALUES
-            ('inventory', 'inventory_item'),
-            ('ticketing', 'ticket'),
-            ('workforce', 'assignment'),
-            ('workforce', 'coverage_schedule'),
-            ('workforce', 'workload_record')
+            ('vendor', 'shipment'),
+            ('inventory', 'replenishment'),
+            ('inventory', 'location_inventory'),
+            ('workforce', 'workforce_escalation'),
+            ('relationships', 'assignment_ticket')
     );
 
-    IF actual_column_count <> 58 THEN
+    IF actual_column_count <> 47 THEN
         RAISE EXCEPTION
-            'Tier 1 column-count validation failed. Expected 58 columns across the five governed tables; found %.',
+            'Tier 2 column-count validation failed. Expected 47 columns across the five governed tables; found %.',
             actual_column_count;
     END IF;
 
@@ -79,69 +79,56 @@ BEGIN
         ordinal_position,
         column_name,
         data_type,
-        numeric_precision,
-        numeric_scale,
         is_nullable
     ) AS (
         VALUES
-            (1, 'inventory', 'inventory_item', 1, 'item_id', 'text', NULL::INTEGER, NULL::INTEGER, 'NO'),
-            (1, 'inventory', 'inventory_item', 2, 'item_category', 'text', NULL::INTEGER, NULL::INTEGER, 'NO'),
-            (1, 'inventory', 'inventory_item', 3, 'criticality_level', 'text', NULL::INTEGER, NULL::INTEGER, 'NO'),
-            (1, 'inventory', 'inventory_item', 4, 'unit_of_measure', 'text', NULL::INTEGER, NULL::INTEGER, 'NO'),
-            (1, 'inventory', 'inventory_item', 5, 'preferred_vendor_id', 'text', NULL::INTEGER, NULL::INTEGER, 'YES'),
-            (1, 'inventory', 'inventory_item', 6, 'active_flag', 'boolean', NULL::INTEGER, NULL::INTEGER, 'NO'),
-            (1, 'inventory', 'inventory_item', 7, 'item_name', 'text', NULL::INTEGER, NULL::INTEGER, 'NO'),
-            (2, 'ticketing', 'ticket', 1, 'ticket_id', 'text', NULL::INTEGER, NULL::INTEGER, 'NO'),
-            (2, 'ticketing', 'ticket', 2, 'category', 'text', NULL::INTEGER, NULL::INTEGER, 'NO'),
-            (2, 'ticketing', 'ticket', 3, 'priority', 'text', NULL::INTEGER, NULL::INTEGER, 'NO'),
-            (2, 'ticketing', 'ticket', 4, 'status', 'text', NULL::INTEGER, NULL::INTEGER, 'NO'),
-            (2, 'ticketing', 'ticket', 5, 'escalation_flag', 'boolean', NULL::INTEGER, NULL::INTEGER, 'NO'),
-            (2, 'ticketing', 'ticket', 6, 'reopened_flag', 'boolean', NULL::INTEGER, NULL::INTEGER, 'NO'),
-            (2, 'ticketing', 'ticket', 7, 'pending_flag', 'boolean', NULL::INTEGER, NULL::INTEGER, 'NO'),
-            (2, 'ticketing', 'ticket', 8, 'sla_target_hours', 'integer', NULL::INTEGER, NULL::INTEGER, 'NO'),
-            (2, 'ticketing', 'ticket', 9, 'sla_met_flag', 'boolean', NULL::INTEGER, NULL::INTEGER, 'YES'),
-            (2, 'ticketing', 'ticket', 10, 'requesting_location', 'text', NULL::INTEGER, NULL::INTEGER, 'YES'),
-            (2, 'ticketing', 'ticket', 11, 'location_id', 'text', NULL::INTEGER, NULL::INTEGER, 'YES'),
-            (2, 'ticketing', 'ticket', 12, 'assigned_department', 'text', NULL::INTEGER, NULL::INTEGER, 'NO'),
-            (2, 'ticketing', 'ticket', 13, 'assigned_owner', 'text', NULL::INTEGER, NULL::INTEGER, 'YES'),
-            (2, 'ticketing', 'ticket', 14, 'employee_id', 'text', NULL::INTEGER, NULL::INTEGER, 'YES'),
-            (2, 'ticketing', 'ticket', 15, 'created_at', 'timestamp without time zone', NULL::INTEGER, NULL::INTEGER, 'NO'),
-            (2, 'ticketing', 'ticket', 16, 'first_response_at', 'timestamp without time zone', NULL::INTEGER, NULL::INTEGER, 'YES'),
-            (2, 'ticketing', 'ticket', 17, 'resolved_at', 'timestamp without time zone', NULL::INTEGER, NULL::INTEGER, 'YES'),
-            (2, 'ticketing', 'ticket', 18, 'closed_at', 'timestamp without time zone', NULL::INTEGER, NULL::INTEGER, 'YES'),
-            (2, 'ticketing', 'ticket', 19, 'resolution_hours', 'numeric', 10, 2, 'YES'),
-            (2, 'ticketing', 'ticket', 20, 'response_hours', 'numeric', 10, 2, 'YES'),
-            (2, 'ticketing', 'ticket', 21, 'summary', 'text', NULL::INTEGER, NULL::INTEGER, 'YES'),
-            (2, 'ticketing', 'ticket', 22, 'resolution_notes', 'text', NULL::INTEGER, NULL::INTEGER, 'YES'),
-            (3, 'workforce', 'assignment', 1, 'assignment_id', 'text', NULL::INTEGER, NULL::INTEGER, 'NO'),
-            (3, 'workforce', 'assignment', 2, 'employee_id', 'text', NULL::INTEGER, NULL::INTEGER, 'NO'),
-            (3, 'workforce', 'assignment', 3, 'assignment_category', 'text', NULL::INTEGER, NULL::INTEGER, 'NO'),
-            (3, 'workforce', 'assignment', 4, 'assignment_status', 'text', NULL::INTEGER, NULL::INTEGER, 'NO'),
-            (3, 'workforce', 'assignment', 5, 'start_date', 'date', NULL::INTEGER, NULL::INTEGER, 'NO'),
-            (3, 'workforce', 'assignment', 6, 'end_date', 'date', NULL::INTEGER, NULL::INTEGER, 'YES'),
-            (3, 'workforce', 'assignment', 7, 'assignment_name', 'text', NULL::INTEGER, NULL::INTEGER, 'NO'),
-            (3, 'workforce', 'assignment', 8, 'priority_level', 'text', NULL::INTEGER, NULL::INTEGER, 'NO'),
-            (3, 'workforce', 'assignment', 9, 'estimated_hours_per_week', 'integer', NULL::INTEGER, NULL::INTEGER, 'YES'),
-            (3, 'workforce', 'assignment', 10, 'cross_functional_flag', 'boolean', NULL::INTEGER, NULL::INTEGER, 'NO'),
-            (4, 'workforce', 'coverage_schedule', 1, 'coverage_schedule_id', 'text', NULL::INTEGER, NULL::INTEGER, 'NO'),
-            (4, 'workforce', 'coverage_schedule', 2, 'employee_id', 'text', NULL::INTEGER, NULL::INTEGER, 'NO'),
-            (4, 'workforce', 'coverage_schedule', 3, 'schedule_date', 'date', NULL::INTEGER, NULL::INTEGER, 'NO'),
-            (4, 'workforce', 'coverage_schedule', 4, 'shift_type', 'text', NULL::INTEGER, NULL::INTEGER, 'NO'),
-            (4, 'workforce', 'coverage_schedule', 5, 'coverage_status', 'text', NULL::INTEGER, NULL::INTEGER, 'NO'),
-            (4, 'workforce', 'coverage_schedule', 6, 'scheduled_hours', 'integer', NULL::INTEGER, NULL::INTEGER, 'YES'),
-            (4, 'workforce', 'coverage_schedule', 7, 'coverage_area', 'text', NULL::INTEGER, NULL::INTEGER, 'YES'),
-            (4, 'workforce', 'coverage_schedule', 8, 'coverage_priority', 'text', NULL::INTEGER, NULL::INTEGER, 'YES'),
-            (4, 'workforce', 'coverage_schedule', 9, 'backup_required_flag', 'boolean', NULL::INTEGER, NULL::INTEGER, 'YES'),
-            (5, 'workforce', 'workload_record', 1, 'workload_record_id', 'text', NULL::INTEGER, NULL::INTEGER, 'NO'),
-            (5, 'workforce', 'workload_record', 2, 'employee_id', 'text', NULL::INTEGER, NULL::INTEGER, 'NO'),
-            (5, 'workforce', 'workload_record', 3, 'reporting_period', 'text', NULL::INTEGER, NULL::INTEGER, 'NO'),
-            (5, 'workforce', 'workload_record', 4, 'workload_status', 'text', NULL::INTEGER, NULL::INTEGER, 'NO'),
-            (5, 'workforce', 'workload_record', 5, 'assigned_tasks', 'integer', NULL::INTEGER, NULL::INTEGER, 'NO'),
-            (5, 'workforce', 'workload_record', 6, 'completed_tasks', 'integer', NULL::INTEGER, NULL::INTEGER, 'NO'),
-            (5, 'workforce', 'workload_record', 7, 'open_tasks', 'integer', NULL::INTEGER, NULL::INTEGER, 'NO'),
-            (5, 'workforce', 'workload_record', 8, 'estimated_hours', 'numeric', 10, 2, 'YES'),
-            (5, 'workforce', 'workload_record', 9, 'actual_hours', 'numeric', 10, 2, 'YES'),
-            (5, 'workforce', 'workload_record', 10, 'capacity_utilization_percent', 'numeric', 5, 2, 'YES')
+            (1, 'vendor', 'shipment', 1, 'shipment_id', 'text', 'NO'),
+            (1, 'vendor', 'shipment', 2, 'vendor_id', 'text', 'NO'),
+            (1, 'vendor', 'shipment', 3, 'item_id', 'text', 'NO'),
+            (1, 'vendor', 'shipment', 4, 'location_id', 'text', 'NO'),
+            (1, 'vendor', 'shipment', 5, 'related_ticket_id', 'text', 'YES'),
+            (1, 'vendor', 'shipment', 6, 'delivery_status', 'text', 'NO'),
+            (1, 'vendor', 'shipment', 7, 'ordered_quantity', 'integer', 'NO'),
+            (1, 'vendor', 'shipment', 8, 'received_quantity', 'integer', 'YES'),
+            (1, 'vendor', 'shipment', 9, 'order_date', 'date', 'NO'),
+            (1, 'vendor', 'shipment', 10, 'expected_delivery_date', 'date', 'NO'),
+            (1, 'vendor', 'shipment', 11, 'actual_delivery_date', 'date', 'YES'),
+            (1, 'vendor', 'shipment', 12, 'fulfillment_accuracy_flag', 'boolean', 'YES'),
+            (1, 'vendor', 'shipment', 13, 'delay_flag', 'boolean', 'NO'),
+            (2, 'inventory', 'replenishment', 1, 'replenishment_id', 'text', 'NO'),
+            (2, 'inventory', 'replenishment', 2, 'item_id', 'text', 'NO'),
+            (2, 'inventory', 'replenishment', 3, 'location_id', 'text', 'NO'),
+            (2, 'inventory', 'replenishment', 4, 'vendor_id', 'text', 'YES'),
+            (2, 'inventory', 'replenishment', 5, 'related_ticket_id', 'text', 'YES'),
+            (2, 'inventory', 'replenishment', 6, 'replenishment_type', 'text', 'NO'),
+            (2, 'inventory', 'replenishment', 7, 'replenishment_status', 'text', 'NO'),
+            (2, 'inventory', 'replenishment', 8, 'requested_quantity', 'integer', 'NO'),
+            (2, 'inventory', 'replenishment', 9, 'approved_quantity', 'integer', 'YES'),
+            (2, 'inventory', 'replenishment', 10, 'request_date', 'date', 'NO'),
+            (2, 'inventory', 'replenishment', 11, 'expected_arrival_date', 'date', 'YES'),
+            (2, 'inventory', 'replenishment', 12, 'received_date', 'date', 'YES'),
+            (3, 'inventory', 'location_inventory', 1, 'location_inventory_id', 'text', 'NO'),
+            (3, 'inventory', 'location_inventory', 2, 'item_id', 'text', 'NO'),
+            (3, 'inventory', 'location_inventory', 3, 'location_id', 'text', 'NO'),
+            (3, 'inventory', 'location_inventory', 4, 'current_stock', 'integer', 'NO'),
+            (3, 'inventory', 'location_inventory', 5, 'stock_status', 'text', 'NO'),
+            (3, 'inventory', 'location_inventory', 6, 'reorder_point', 'integer', 'YES'),
+            (3, 'inventory', 'location_inventory', 7, 'target_stock_level', 'integer', 'YES'),
+            (3, 'inventory', 'location_inventory', 8, 'safety_stock_level', 'integer', 'YES'),
+            (3, 'inventory', 'location_inventory', 9, 'last_count_date', 'date', 'YES'),
+            (4, 'workforce', 'workforce_escalation', 1, 'escalation_id', 'text', 'NO'),
+            (4, 'workforce', 'workforce_escalation', 2, 'related_ticket_id', 'text', 'YES'),
+            (4, 'workforce', 'workforce_escalation', 3, 'department', 'text', 'NO'),
+            (4, 'workforce', 'workforce_escalation', 4, 'escalation_type', 'text', 'NO'),
+            (4, 'workforce', 'workforce_escalation', 5, 'severity_level', 'text', 'NO'),
+            (4, 'workforce', 'workforce_escalation', 6, 'current_status', 'text', 'NO'),
+            (4, 'workforce', 'workforce_escalation', 7, 'escalation_date', 'date', 'NO'),
+            (4, 'workforce', 'workforce_escalation', 8, 'affected_team', 'text', 'YES'),
+            (4, 'workforce', 'workforce_escalation', 9, 'root_cause', 'text', 'YES'),
+            (4, 'workforce', 'workforce_escalation', 10, 'resolution_owner', 'text', 'YES'),
+            (4, 'workforce', 'workforce_escalation', 11, 'business_impact', 'text', 'YES'),
+            (5, 'relationships', 'assignment_ticket', 1, 'assignment_id', 'text', 'NO'),
+            (5, 'relationships', 'assignment_ticket', 2, 'ticket_id', 'text', 'NO')
     ),
     actual_columns AS (
         SELECT
@@ -150,8 +137,6 @@ BEGIN
             columns.ordinal_position,
             columns.column_name,
             columns.data_type,
-            CASE WHEN columns.data_type = 'numeric' THEN columns.numeric_precision END AS numeric_precision,
-            CASE WHEN columns.data_type = 'numeric' THEN columns.numeric_scale END AS numeric_scale,
             columns.is_nullable,
             columns.column_default,
             columns.is_identity,
@@ -159,11 +144,11 @@ BEGIN
         FROM information_schema.columns AS columns
         WHERE (columns.table_schema, columns.table_name) IN (
             VALUES
-                ('inventory', 'inventory_item'),
-                ('ticketing', 'ticket'),
-                ('workforce', 'assignment'),
-                ('workforce', 'coverage_schedule'),
-                ('workforce', 'workload_record')
+                ('vendor', 'shipment'),
+                ('inventory', 'replenishment'),
+                ('inventory', 'location_inventory'),
+                ('workforce', 'workforce_escalation'),
+                ('relationships', 'assignment_ticket')
         )
     ),
     column_mismatches AS (
@@ -177,10 +162,6 @@ BEGIN
             actual_columns.column_name AS actual_column_name,
             expected_columns.data_type AS expected_data_type,
             actual_columns.data_type AS actual_data_type,
-            expected_columns.numeric_precision AS expected_numeric_precision,
-            actual_columns.numeric_precision AS actual_numeric_precision,
-            expected_columns.numeric_scale AS expected_numeric_scale,
-            actual_columns.numeric_scale AS actual_numeric_scale,
             expected_columns.is_nullable AS expected_is_nullable,
             actual_columns.is_nullable AS actual_is_nullable,
             actual_columns.column_default,
@@ -195,8 +176,6 @@ BEGIN
             OR actual_columns.column_name IS NULL
             OR actual_columns.ordinal_position IS DISTINCT FROM expected_columns.ordinal_position
             OR actual_columns.data_type IS DISTINCT FROM expected_columns.data_type
-            OR actual_columns.numeric_precision IS DISTINCT FROM expected_columns.numeric_precision
-            OR actual_columns.numeric_scale IS DISTINCT FROM expected_columns.numeric_scale
             OR actual_columns.is_nullable IS DISTINCT FROM expected_columns.is_nullable
             OR actual_columns.column_default IS NOT NULL
             OR actual_columns.is_identity IS DISTINCT FROM 'NO'
@@ -218,19 +197,15 @@ BEGIN
                 expected_column_name
             )
             ELSE format(
-                '%I.%I.%I: expected position=%s type=%s precision=%s scale=%s nullable=%s default=NULL identity=NO generated=NEVER; found position=%s type=%s precision=%s scale=%s nullable=%s default=%s identity=%s generated=%s',
+                '%I.%I.%I: expected position=%s type=%s nullable=%s default=NULL identity=NO generated=NEVER; found position=%s type=%s nullable=%s default=%s identity=%s generated=%s',
                 schema_name,
                 table_name,
                 expected_column_name,
                 expected_ordinal_position,
                 expected_data_type,
-                COALESCE(expected_numeric_precision::TEXT, 'NULL'),
-                COALESCE(expected_numeric_scale::TEXT, 'NULL'),
                 expected_is_nullable,
                 actual_ordinal_position,
                 actual_data_type,
-                COALESCE(actual_numeric_precision::TEXT, 'NULL'),
-                COALESCE(actual_numeric_scale::TEXT, 'NULL'),
                 actual_is_nullable,
                 COALESCE(column_default, 'NULL'),
                 is_identity,
@@ -244,17 +219,17 @@ BEGIN
 
     IF validation_errors IS NOT NULL THEN
         RAISE EXCEPTION
-            'Tier 1 column-definition validation failed: %',
+            'Tier 2 column-definition validation failed: %',
             validation_errors;
     END IF;
 
     WITH expected_tables (table_order, schema_name, table_name) AS (
         VALUES
-            (1, 'inventory', 'inventory_item'),
-            (2, 'ticketing', 'ticket'),
-            (3, 'workforce', 'assignment'),
-            (4, 'workforce', 'coverage_schedule'),
-            (5, 'workforce', 'workload_record')
+            (1, 'vendor', 'shipment'),
+            (2, 'inventory', 'replenishment'),
+            (3, 'inventory', 'location_inventory'),
+            (4, 'workforce', 'workforce_escalation'),
+            (5, 'relationships', 'assignment_ticket')
     ),
     ownership_mismatches AS (
         SELECT
@@ -282,7 +257,7 @@ BEGIN
 
     IF validation_errors IS NOT NULL THEN
         RAISE EXCEPTION
-            'Tier 1 table-ownership validation failed: %',
+            'Tier 2 table-ownership validation failed: %',
             validation_errors;
     END IF;
 
@@ -295,11 +270,12 @@ BEGIN
         column_name
     ) AS (
         VALUES
-            (1, 'inventory', 'inventory_item', 'inventory_item_pkey', 1, 'item_id'),
-            (2, 'ticketing', 'ticket', 'ticket_pkey', 1, 'ticket_id'),
-            (3, 'workforce', 'assignment', 'assignment_pkey', 1, 'assignment_id'),
-            (4, 'workforce', 'coverage_schedule', 'coverage_schedule_pkey', 1, 'coverage_schedule_id'),
-            (5, 'workforce', 'workload_record', 'workload_record_pkey', 1, 'workload_record_id')
+            (1, 'vendor', 'shipment', 'shipment_pkey', 1, 'shipment_id'),
+            (2, 'inventory', 'replenishment', 'replenishment_pkey', 1, 'replenishment_id'),
+            (3, 'inventory', 'location_inventory', 'location_inventory_pkey', 1, 'location_inventory_id'),
+            (4, 'workforce', 'workforce_escalation', 'workforce_escalation_pkey', 1, 'escalation_id'),
+            (5, 'relationships', 'assignment_ticket', 'assignment_ticket_pkey', 1, 'assignment_id'),
+            (5, 'relationships', 'assignment_ticket', 'assignment_ticket_pkey', 2, 'ticket_id')
     ),
     actual_primary_keys AS (
         SELECT
@@ -321,11 +297,11 @@ BEGIN
         WHERE constraints.contype = 'p'
             AND (namespaces.nspname, tables.relname) IN (
                 VALUES
-                    ('inventory', 'inventory_item'),
-                    ('ticketing', 'ticket'),
-                    ('workforce', 'assignment'),
-                    ('workforce', 'coverage_schedule'),
-                    ('workforce', 'workload_record')
+                    ('vendor', 'shipment'),
+                    ('inventory', 'replenishment'),
+                    ('inventory', 'location_inventory'),
+                    ('workforce', 'workforce_escalation'),
+                    ('relationships', 'assignment_ticket')
             )
     ),
     primary_key_mismatches AS (
@@ -333,8 +309,7 @@ BEGIN
             COALESCE(expected_primary_keys.table_order, 99) AS table_order,
             COALESCE(expected_primary_keys.schema_name, actual_primary_keys.schema_name) AS schema_name,
             COALESCE(expected_primary_keys.table_name, actual_primary_keys.table_name) AS table_name,
-            expected_primary_keys.constraint_name AS expected_constraint_name,
-            actual_primary_keys.constraint_name AS actual_constraint_name,
+            COALESCE(expected_primary_keys.constraint_name, actual_primary_keys.constraint_name) AS constraint_name,
             COALESCE(expected_primary_keys.key_position, actual_primary_keys.key_position) AS key_position,
             expected_primary_keys.column_name AS expected_column_name,
             actual_primary_keys.column_name AS actual_column_name
@@ -350,13 +325,12 @@ BEGIN
     )
     SELECT string_agg(
         format(
-            '%I.%I key position %s: expected constraint=%s column=%s, found constraint=%s column=%s',
+            '%I.%I constraint %I position %s: expected column=%s, found=%s',
             schema_name,
             table_name,
+            constraint_name,
             key_position,
-            COALESCE(expected_constraint_name, 'none'),
             COALESCE(expected_column_name, 'none'),
-            COALESCE(actual_constraint_name, 'none'),
             COALESCE(actual_column_name, 'none')
         ),
         '; ' ORDER BY table_order, key_position
@@ -366,48 +340,41 @@ BEGIN
 
     IF validation_errors IS NOT NULL THEN
         RAISE EXCEPTION
-            'Tier 1 primary-key validation failed: %',
+            'Tier 2 primary-key validation failed: %',
             validation_errors;
     END IF;
 
     WITH expected_not_null (table_order, schema_name, table_name, column_name) AS (
         VALUES
-            (1, 'inventory', 'inventory_item', 'item_id'),
-            (1, 'inventory', 'inventory_item', 'item_category'),
-            (1, 'inventory', 'inventory_item', 'criticality_level'),
-            (1, 'inventory', 'inventory_item', 'unit_of_measure'),
-            (1, 'inventory', 'inventory_item', 'active_flag'),
-            (1, 'inventory', 'inventory_item', 'item_name'),
-            (2, 'ticketing', 'ticket', 'ticket_id'),
-            (2, 'ticketing', 'ticket', 'category'),
-            (2, 'ticketing', 'ticket', 'priority'),
-            (2, 'ticketing', 'ticket', 'status'),
-            (2, 'ticketing', 'ticket', 'escalation_flag'),
-            (2, 'ticketing', 'ticket', 'reopened_flag'),
-            (2, 'ticketing', 'ticket', 'pending_flag'),
-            (2, 'ticketing', 'ticket', 'sla_target_hours'),
-            (2, 'ticketing', 'ticket', 'assigned_department'),
-            (2, 'ticketing', 'ticket', 'created_at'),
-            (3, 'workforce', 'assignment', 'assignment_id'),
-            (3, 'workforce', 'assignment', 'employee_id'),
-            (3, 'workforce', 'assignment', 'assignment_category'),
-            (3, 'workforce', 'assignment', 'assignment_status'),
-            (3, 'workforce', 'assignment', 'start_date'),
-            (3, 'workforce', 'assignment', 'assignment_name'),
-            (3, 'workforce', 'assignment', 'priority_level'),
-            (3, 'workforce', 'assignment', 'cross_functional_flag'),
-            (4, 'workforce', 'coverage_schedule', 'coverage_schedule_id'),
-            (4, 'workforce', 'coverage_schedule', 'employee_id'),
-            (4, 'workforce', 'coverage_schedule', 'schedule_date'),
-            (4, 'workforce', 'coverage_schedule', 'shift_type'),
-            (4, 'workforce', 'coverage_schedule', 'coverage_status'),
-            (5, 'workforce', 'workload_record', 'workload_record_id'),
-            (5, 'workforce', 'workload_record', 'employee_id'),
-            (5, 'workforce', 'workload_record', 'reporting_period'),
-            (5, 'workforce', 'workload_record', 'workload_status'),
-            (5, 'workforce', 'workload_record', 'assigned_tasks'),
-            (5, 'workforce', 'workload_record', 'completed_tasks'),
-            (5, 'workforce', 'workload_record', 'open_tasks')
+            (1, 'vendor', 'shipment', 'shipment_id'),
+            (1, 'vendor', 'shipment', 'vendor_id'),
+            (1, 'vendor', 'shipment', 'item_id'),
+            (1, 'vendor', 'shipment', 'location_id'),
+            (1, 'vendor', 'shipment', 'delivery_status'),
+            (1, 'vendor', 'shipment', 'ordered_quantity'),
+            (1, 'vendor', 'shipment', 'order_date'),
+            (1, 'vendor', 'shipment', 'expected_delivery_date'),
+            (1, 'vendor', 'shipment', 'delay_flag'),
+            (2, 'inventory', 'replenishment', 'replenishment_id'),
+            (2, 'inventory', 'replenishment', 'item_id'),
+            (2, 'inventory', 'replenishment', 'location_id'),
+            (2, 'inventory', 'replenishment', 'replenishment_type'),
+            (2, 'inventory', 'replenishment', 'replenishment_status'),
+            (2, 'inventory', 'replenishment', 'requested_quantity'),
+            (2, 'inventory', 'replenishment', 'request_date'),
+            (3, 'inventory', 'location_inventory', 'location_inventory_id'),
+            (3, 'inventory', 'location_inventory', 'item_id'),
+            (3, 'inventory', 'location_inventory', 'location_id'),
+            (3, 'inventory', 'location_inventory', 'current_stock'),
+            (3, 'inventory', 'location_inventory', 'stock_status'),
+            (4, 'workforce', 'workforce_escalation', 'escalation_id'),
+            (4, 'workforce', 'workforce_escalation', 'department'),
+            (4, 'workforce', 'workforce_escalation', 'escalation_type'),
+            (4, 'workforce', 'workforce_escalation', 'severity_level'),
+            (4, 'workforce', 'workforce_escalation', 'current_status'),
+            (4, 'workforce', 'workforce_escalation', 'escalation_date'),
+            (5, 'relationships', 'assignment_ticket', 'assignment_id'),
+            (5, 'relationships', 'assignment_ticket', 'ticket_id')
     ),
     actual_not_null AS (
         SELECT
@@ -426,11 +393,11 @@ BEGIN
         WHERE constraints.contype = 'n'
             AND (namespaces.nspname, tables.relname) IN (
                 VALUES
-                    ('inventory', 'inventory_item'),
-                    ('ticketing', 'ticket'),
-                    ('workforce', 'assignment'),
-                    ('workforce', 'coverage_schedule'),
-                    ('workforce', 'workload_record')
+                    ('vendor', 'shipment'),
+                    ('inventory', 'replenishment'),
+                    ('inventory', 'location_inventory'),
+                    ('workforce', 'workforce_escalation'),
+                    ('relationships', 'assignment_ticket')
             )
     ),
     not_null_mismatches AS (
@@ -465,7 +432,7 @@ BEGIN
 
     IF validation_errors IS NOT NULL THEN
         RAISE EXCEPTION
-            'Tier 1 PostgreSQL 18 NOT NULL catalog validation failed: %',
+            'Tier 2 PostgreSQL 18 NOT NULL catalog validation failed: %',
             validation_errors;
     END IF;
 
@@ -486,10 +453,19 @@ BEGIN
         is_validated
     ) AS (
         VALUES
-            (1, 'inventory', 'inventory_item', 'inventory_item_preferred_vendor_id_fkey', 'preferred_vendor_id', 'vendor', 'vendor', 'vendor_id', 'a', 'r', 's', FALSE, FALSE, TRUE),
-            (3, 'workforce', 'assignment', 'assignment_employee_id_fkey', 'employee_id', 'workforce', 'employee', 'employee_id', 'a', 'r', 's', FALSE, FALSE, TRUE),
-            (4, 'workforce', 'coverage_schedule', 'coverage_schedule_employee_id_fkey', 'employee_id', 'workforce', 'employee', 'employee_id', 'a', 'r', 's', FALSE, FALSE, TRUE),
-            (5, 'workforce', 'workload_record', 'workload_record_employee_id_fkey', 'employee_id', 'workforce', 'employee', 'employee_id', 'a', 'r', 's', FALSE, FALSE, TRUE)
+            (1, 'vendor', 'shipment', 'shipment_vendor_id_fkey', 'vendor_id', 'vendor', 'vendor', 'vendor_id', 'a', 'r', 's', FALSE, FALSE, TRUE),
+            (1, 'vendor', 'shipment', 'shipment_item_id_fkey', 'item_id', 'inventory', 'inventory_item', 'item_id', 'a', 'r', 's', FALSE, FALSE, TRUE),
+            (1, 'vendor', 'shipment', 'shipment_location_id_fkey', 'location_id', 'core', 'location', 'location_id', 'a', 'r', 's', FALSE, FALSE, TRUE),
+            (1, 'vendor', 'shipment', 'shipment_related_ticket_id_fkey', 'related_ticket_id', 'ticketing', 'ticket', 'ticket_id', 'a', 'r', 's', FALSE, FALSE, TRUE),
+            (2, 'inventory', 'replenishment', 'replenishment_item_id_fkey', 'item_id', 'inventory', 'inventory_item', 'item_id', 'a', 'r', 's', FALSE, FALSE, TRUE),
+            (2, 'inventory', 'replenishment', 'replenishment_location_id_fkey', 'location_id', 'core', 'location', 'location_id', 'a', 'r', 's', FALSE, FALSE, TRUE),
+            (2, 'inventory', 'replenishment', 'replenishment_vendor_id_fkey', 'vendor_id', 'vendor', 'vendor', 'vendor_id', 'a', 'r', 's', FALSE, FALSE, TRUE),
+            (2, 'inventory', 'replenishment', 'replenishment_related_ticket_id_fkey', 'related_ticket_id', 'ticketing', 'ticket', 'ticket_id', 'a', 'r', 's', FALSE, FALSE, TRUE),
+            (3, 'inventory', 'location_inventory', 'location_inventory_item_id_fkey', 'item_id', 'inventory', 'inventory_item', 'item_id', 'a', 'r', 's', FALSE, FALSE, TRUE),
+            (3, 'inventory', 'location_inventory', 'location_inventory_location_id_fkey', 'location_id', 'core', 'location', 'location_id', 'a', 'r', 's', FALSE, FALSE, TRUE),
+            (4, 'workforce', 'workforce_escalation', 'workforce_escalation_related_ticket_id_fkey', 'related_ticket_id', 'ticketing', 'ticket', 'ticket_id', 'a', 'r', 's', FALSE, FALSE, TRUE),
+            (5, 'relationships', 'assignment_ticket', 'assignment_ticket_assignment_id_fkey', 'assignment_id', 'workforce', 'assignment', 'assignment_id', 'a', 'r', 's', FALSE, FALSE, TRUE),
+            (5, 'relationships', 'assignment_ticket', 'assignment_ticket_ticket_id_fkey', 'ticket_id', 'ticketing', 'ticket', 'ticket_id', 'a', 'r', 's', FALSE, FALSE, TRUE)
     ),
     actual_foreign_keys AS (
         SELECT
@@ -525,11 +501,11 @@ BEGIN
         WHERE constraints.contype = 'f'
             AND (source_namespaces.nspname, source_tables.relname) IN (
                 VALUES
-                    ('inventory', 'inventory_item'),
-                    ('ticketing', 'ticket'),
-                    ('workforce', 'assignment'),
-                    ('workforce', 'coverage_schedule'),
-                    ('workforce', 'workload_record')
+                    ('vendor', 'shipment'),
+                    ('inventory', 'replenishment'),
+                    ('inventory', 'location_inventory'),
+                    ('workforce', 'workforce_escalation'),
+                    ('relationships', 'assignment_ticket')
             )
     ),
     foreign_key_mismatches AS (
@@ -613,35 +589,7 @@ BEGIN
 
     IF validation_errors IS NOT NULL THEN
         RAISE EXCEPTION
-            'Tier 1 foreign-key validation failed: %',
-            validation_errors;
-    END IF;
-
-    SELECT string_agg(
-        format('%I on %I', constraints.conname, attributes.attname),
-        '; ' ORDER BY constraints.conname, attributes.attname
-    )
-    INTO validation_errors
-    FROM pg_catalog.pg_constraint AS constraints
-    INNER JOIN pg_catalog.pg_class AS tables
-        ON tables.oid = constraints.conrelid
-    INNER JOIN pg_catalog.pg_namespace AS namespaces
-        ON namespaces.oid = tables.relnamespace
-    CROSS JOIN LATERAL unnest(constraints.conkey) AS constrained_columns(attribute_number)
-    INNER JOIN pg_catalog.pg_attribute AS attributes
-        ON attributes.attrelid = tables.oid
-        AND attributes.attnum = constrained_columns.attribute_number
-    WHERE constraints.contype = 'f'
-        AND namespaces.nspname = 'ticketing'
-        AND tables.relname = 'ticket'
-        AND (
-            constraints.conname IN ('ticket_location_id_fkey', 'ticket_employee_id_fkey')
-            OR attributes.attname IN ('location_id', 'employee_id')
-        );
-
-    IF validation_errors IS NOT NULL THEN
-        RAISE EXCEPTION
-            'Tier 1 deferred Ticket foreign-key validation failed. These constraints must remain absent: %',
+            'Tier 2 foreign-key validation failed: %',
             validation_errors;
     END IF;
 
@@ -654,8 +602,8 @@ BEGIN
         column_name
     ) AS (
         VALUES
-            (5, 'workforce', 'workload_record', 'workload_record_employee_id_reporting_period_key', 1, 'employee_id'),
-            (5, 'workforce', 'workload_record', 'workload_record_employee_id_reporting_period_key', 2, 'reporting_period')
+            (3, 'inventory', 'location_inventory', 'location_inventory_location_id_item_id_key', 1, 'location_id'),
+            (3, 'inventory', 'location_inventory', 'location_inventory_location_id_item_id_key', 2, 'item_id')
     ),
     actual_unique_constraints AS (
         SELECT
@@ -677,11 +625,11 @@ BEGIN
         WHERE constraints.contype = 'u'
             AND (namespaces.nspname, tables.relname) IN (
                 VALUES
-                    ('inventory', 'inventory_item'),
-                    ('ticketing', 'ticket'),
-                    ('workforce', 'assignment'),
-                    ('workforce', 'coverage_schedule'),
-                    ('workforce', 'workload_record')
+                    ('vendor', 'shipment'),
+                    ('inventory', 'replenishment'),
+                    ('inventory', 'location_inventory'),
+                    ('workforce', 'workforce_escalation'),
+                    ('relationships', 'assignment_ticket')
             )
     ),
     unique_constraint_mismatches AS (
@@ -720,7 +668,7 @@ BEGIN
 
     IF validation_errors IS NOT NULL THEN
         RAISE EXCEPTION
-            'Tier 1 unique-constraint validation failed: %',
+            'Tier 2 unique-constraint validation failed: %',
             validation_errors;
     END IF;
 
@@ -748,26 +696,26 @@ BEGIN
     WHERE constraints.contype NOT IN ('n', 'p', 'f', 'u')
         AND (namespaces.nspname, tables.relname) IN (
             VALUES
-                ('inventory', 'inventory_item'),
-                ('ticketing', 'ticket'),
-                ('workforce', 'assignment'),
-                ('workforce', 'coverage_schedule'),
-                ('workforce', 'workload_record')
+                ('vendor', 'shipment'),
+                ('inventory', 'replenishment'),
+                ('inventory', 'location_inventory'),
+                ('workforce', 'workforce_escalation'),
+                ('relationships', 'assignment_ticket')
         );
 
     IF validation_errors IS NOT NULL THEN
         RAISE EXCEPTION
-            'Tier 1 prohibited-constraint validation failed: %',
+            'Tier 2 prohibited-constraint validation failed: %',
             validation_errors;
     END IF;
 
     WITH expected_index_counts (table_order, schema_name, table_name, expected_index_count) AS (
         VALUES
-            (1, 'inventory', 'inventory_item', 1),
-            (2, 'ticketing', 'ticket', 1),
-            (3, 'workforce', 'assignment', 1),
-            (4, 'workforce', 'coverage_schedule', 1),
-            (5, 'workforce', 'workload_record', 2)
+            (1, 'vendor', 'shipment', 1),
+            (2, 'inventory', 'replenishment', 1),
+            (3, 'inventory', 'location_inventory', 2),
+            (4, 'workforce', 'workforce_escalation', 1),
+            (5, 'relationships', 'assignment_ticket', 1)
     ),
     actual_index_counts AS (
         SELECT
@@ -794,11 +742,11 @@ BEGIN
             AND constraints.contype IN ('p', 'u')
         WHERE (namespaces.nspname, tables.relname) IN (
             VALUES
-                ('inventory', 'inventory_item'),
-                ('ticketing', 'ticket'),
-                ('workforce', 'assignment'),
-                ('workforce', 'coverage_schedule'),
-                ('workforce', 'workload_record')
+                ('vendor', 'shipment'),
+                ('inventory', 'replenishment'),
+                ('inventory', 'location_inventory'),
+                ('workforce', 'workforce_escalation'),
+                ('relationships', 'assignment_ticket')
         )
         GROUP BY namespaces.nspname, tables.relname
     ),
@@ -839,7 +787,58 @@ BEGIN
 
     IF validation_errors IS NOT NULL THEN
         RAISE EXCEPTION
-            'Tier 1 supporting-index validation failed: %',
+            'Tier 2 supporting-index validation failed: %',
+            validation_errors;
+    END IF;
+
+    SELECT string_agg(object_description, '; ' ORDER BY object_description)
+    INTO validation_errors
+    FROM (
+        SELECT format(
+            '%I.%I trigger %I',
+            namespaces.nspname,
+            tables.relname,
+            triggers.tgname
+        ) AS object_description
+        FROM pg_catalog.pg_trigger AS triggers
+        INNER JOIN pg_catalog.pg_class AS tables
+            ON tables.oid = triggers.tgrelid
+        INNER JOIN pg_catalog.pg_namespace AS namespaces
+            ON namespaces.oid = tables.relnamespace
+        WHERE NOT triggers.tgisinternal
+            AND (namespaces.nspname, tables.relname) IN (
+                VALUES
+                    ('vendor', 'shipment'),
+                    ('inventory', 'replenishment'),
+                    ('inventory', 'location_inventory'),
+                    ('workforce', 'workforce_escalation'),
+                    ('relationships', 'assignment_ticket')
+            )
+        UNION ALL
+        SELECT format(
+            '%I.%I policy %I',
+            namespaces.nspname,
+            tables.relname,
+            policies.polname
+        )
+        FROM pg_catalog.pg_policy AS policies
+        INNER JOIN pg_catalog.pg_class AS tables
+            ON tables.oid = policies.polrelid
+        INNER JOIN pg_catalog.pg_namespace AS namespaces
+            ON namespaces.oid = tables.relnamespace
+        WHERE (namespaces.nspname, tables.relname) IN (
+            VALUES
+                ('vendor', 'shipment'),
+                ('inventory', 'replenishment'),
+                ('inventory', 'location_inventory'),
+                ('workforce', 'workforce_escalation'),
+                ('relationships', 'assignment_ticket')
+        )
+    ) AS prohibited_supporting_objects;
+
+    IF validation_errors IS NOT NULL THEN
+        RAISE EXCEPTION
+            'Tier 2 prohibited supporting-object validation failed: %',
             validation_errors;
     END IF;
 
@@ -847,11 +846,11 @@ BEGIN
         SELECT *
         FROM (
             VALUES
-                (1, 'inventory', 'inventory_item'),
-                (2, 'ticketing', 'ticket'),
-                (3, 'workforce', 'assignment'),
-                (4, 'workforce', 'coverage_schedule'),
-                (5, 'workforce', 'workload_record')
+                (1, 'vendor', 'shipment'),
+                (2, 'inventory', 'replenishment'),
+                (3, 'inventory', 'location_inventory'),
+                (4, 'workforce', 'workforce_escalation'),
+                (5, 'relationships', 'assignment_ticket')
         ) AS target_tables(table_order, schema_name, table_name)
         ORDER BY target_tables.table_order
     LOOP
@@ -873,39 +872,52 @@ BEGIN
 
     IF nonempty_tables IS NOT NULL THEN
         RAISE EXCEPTION
-            'Tier 1 data-boundary validation failed. Tier 1 tables must be empty before migration; rows found in: %',
+            'Tier 2 data-boundary validation failed. Tier 2 tables must be empty before migration; rows found in: %',
             nonempty_tables;
     END IF;
 END
 $validation$;
 
 SELECT
-    5 AS approved_tier_1_table_count,
+    5 AS approved_tier_2_table_count,
     (
         SELECT count(*)
         FROM information_schema.columns AS columns
         WHERE (columns.table_schema, columns.table_name) IN (
             VALUES
-                ('inventory', 'inventory_item'),
-                ('ticketing', 'ticket'),
-                ('workforce', 'assignment'),
-                ('workforce', 'coverage_schedule'),
-                ('workforce', 'workload_record')
+                ('vendor', 'shipment'),
+                ('inventory', 'replenishment'),
+                ('inventory', 'location_inventory'),
+                ('workforce', 'workforce_escalation'),
+                ('relationships', 'assignment_ticket')
         )
-    ) AS approved_tier_1_column_count,
+    ) AS approved_tier_2_column_count,
     (
         SELECT count(*)
         FROM information_schema.columns AS columns
         WHERE (columns.table_schema, columns.table_name) IN (
             VALUES
-                ('inventory', 'inventory_item'),
-                ('ticketing', 'ticket'),
-                ('workforce', 'assignment'),
-                ('workforce', 'coverage_schedule'),
-                ('workforce', 'workload_record')
+                ('vendor', 'shipment'),
+                ('inventory', 'replenishment'),
+                ('inventory', 'location_inventory'),
+                ('workforce', 'workforce_escalation'),
+                ('relationships', 'assignment_ticket')
         )
             AND columns.is_nullable = 'NO'
     ) AS approved_not_null_column_count,
+    (
+        SELECT count(*)
+        FROM information_schema.columns AS columns
+        WHERE (columns.table_schema, columns.table_name) IN (
+            VALUES
+                ('vendor', 'shipment'),
+                ('inventory', 'replenishment'),
+                ('inventory', 'location_inventory'),
+                ('workforce', 'workforce_escalation'),
+                ('relationships', 'assignment_ticket')
+        )
+            AND columns.data_type = 'numeric'
+    ) AS approved_numeric_column_count,
     (
         SELECT count(*)
         FROM pg_catalog.pg_constraint AS constraints
@@ -916,11 +928,11 @@ SELECT
         WHERE constraints.contype = 'p'
             AND (namespaces.nspname, tables.relname) IN (
                 VALUES
-                    ('inventory', 'inventory_item'),
-                    ('ticketing', 'ticket'),
-                    ('workforce', 'assignment'),
-                    ('workforce', 'coverage_schedule'),
-                    ('workforce', 'workload_record')
+                    ('vendor', 'shipment'),
+                    ('inventory', 'replenishment'),
+                    ('inventory', 'location_inventory'),
+                    ('workforce', 'workforce_escalation'),
+                    ('relationships', 'assignment_ticket')
             )
     ) AS approved_primary_key_count,
     (
@@ -933,11 +945,11 @@ SELECT
         WHERE constraints.contype = 'f'
             AND (namespaces.nspname, tables.relname) IN (
                 VALUES
-                    ('inventory', 'inventory_item'),
-                    ('ticketing', 'ticket'),
-                    ('workforce', 'assignment'),
-                    ('workforce', 'coverage_schedule'),
-                    ('workforce', 'workload_record')
+                    ('vendor', 'shipment'),
+                    ('inventory', 'replenishment'),
+                    ('inventory', 'location_inventory'),
+                    ('workforce', 'workforce_escalation'),
+                    ('relationships', 'assignment_ticket')
             )
     ) AS approved_foreign_key_count,
     (
@@ -950,11 +962,11 @@ SELECT
         WHERE constraints.contype = 'u'
             AND (namespaces.nspname, tables.relname) IN (
                 VALUES
-                    ('inventory', 'inventory_item'),
-                    ('ticketing', 'ticket'),
-                    ('workforce', 'assignment'),
-                    ('workforce', 'coverage_schedule'),
-                    ('workforce', 'workload_record')
+                    ('vendor', 'shipment'),
+                    ('inventory', 'replenishment'),
+                    ('inventory', 'location_inventory'),
+                    ('workforce', 'workforce_escalation'),
+                    ('relationships', 'assignment_ticket')
             )
     ) AS approved_business_key_count,
     (
@@ -966,18 +978,18 @@ SELECT
             ON namespaces.oid = tables.relnamespace
         WHERE (namespaces.nspname, tables.relname) IN (
             VALUES
-                ('inventory', 'inventory_item'),
-                ('ticketing', 'ticket'),
-                ('workforce', 'assignment'),
-                ('workforce', 'coverage_schedule'),
-                ('workforce', 'workload_record')
+                ('vendor', 'shipment'),
+                ('inventory', 'replenishment'),
+                ('inventory', 'location_inventory'),
+                ('workforce', 'workforce_escalation'),
+                ('relationships', 'assignment_ticket')
         )
     ) AS approved_constraint_index_count,
     (
-        (SELECT count(*) FROM inventory.inventory_item)
-        + (SELECT count(*) FROM ticketing.ticket)
-        + (SELECT count(*) FROM workforce.assignment)
-        + (SELECT count(*) FROM workforce.coverage_schedule)
-        + (SELECT count(*) FROM workforce.workload_record)
-    ) AS tier_1_row_count,
+        (SELECT count(*) FROM vendor.shipment)
+        + (SELECT count(*) FROM inventory.replenishment)
+        + (SELECT count(*) FROM inventory.location_inventory)
+        + (SELECT count(*) FROM workforce.workforce_escalation)
+        + (SELECT count(*) FROM relationships.assignment_ticket)
+    ) AS tier_2_row_count,
     'PASS' AS validation_result;

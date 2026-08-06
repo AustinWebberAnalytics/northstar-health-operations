@@ -1,8 +1,8 @@
 -- Northstar Enterprise
 -- Purpose: Confirm the exact PostgreSQL implementation-foundation runtime and
---          pre-migration user-defined object inventory approved through Tier 1.
+--          pre-migration user-defined object inventory approved through Tier 2.
 -- Authority: Enterprise Database Platform Decision, Enterprise Relational Schema,
---            Tier 1 PostgreSQL Implementation Contract, and issue #29.
+--            Tier 2 PostgreSQL Implementation Contract, and issue #32.
 -- Boundary: Read-only foundation validation; no database state is modified.
 -- System-object scoping: pg_catalog, information_schema, pg_toast, pg_temp_*,
 --                        and pg_toast_temp_* are PostgreSQL-managed namespaces and
@@ -132,7 +132,12 @@ BEGIN
             (5, 'ticketing', 'ticket', 'r'::"char"),
             (6, 'workforce', 'assignment', 'r'::"char"),
             (7, 'workforce', 'coverage_schedule', 'r'::"char"),
-            (8, 'workforce', 'workload_record', 'r'::"char")
+            (8, 'workforce', 'workload_record', 'r'::"char"),
+            (9, 'vendor', 'shipment', 'r'::"char"),
+            (10, 'inventory', 'replenishment', 'r'::"char"),
+            (11, 'inventory', 'location_inventory', 'r'::"char"),
+            (12, 'workforce', 'workforce_escalation', 'r'::"char"),
+            (13, 'relationships', 'assignment_ticket', 'r'::"char")
     ),
     actual_relations AS (
         SELECT
@@ -183,6 +188,34 @@ BEGIN
     IF validation_errors IS NOT NULL THEN
         RAISE EXCEPTION
             'Implementation-foundation relation inventory validation failed: %',
+            validation_errors;
+    END IF;
+
+    SELECT string_agg(
+        format('%I on %I', constraints.conname, attributes.attname),
+        '; ' ORDER BY constraints.conname, attributes.attname
+    )
+    INTO validation_errors
+    FROM pg_catalog.pg_constraint AS constraints
+    INNER JOIN pg_catalog.pg_class AS tables
+        ON tables.oid = constraints.conrelid
+    INNER JOIN pg_catalog.pg_namespace AS namespaces
+        ON namespaces.oid = tables.relnamespace
+    CROSS JOIN LATERAL unnest(constraints.conkey) AS constrained_columns(attribute_number)
+    INNER JOIN pg_catalog.pg_attribute AS attributes
+        ON attributes.attrelid = tables.oid
+        AND attributes.attnum = constrained_columns.attribute_number
+    WHERE constraints.contype = 'f'
+        AND namespaces.nspname = 'ticketing'
+        AND tables.relname = 'ticket'
+        AND (
+            constraints.conname IN ('ticket_location_id_fkey', 'ticket_employee_id_fkey')
+            OR attributes.attname IN ('location_id', 'employee_id')
+        );
+
+    IF validation_errors IS NOT NULL THEN
+        RAISE EXCEPTION
+            'Implementation-foundation deferred Ticket foreign-key validation failed. These constraints must remain absent: %',
             validation_errors;
     END IF;
 
@@ -280,7 +313,12 @@ BEGIN
                 (5, 'ticketing', 'ticket'),
                 (6, 'workforce', 'assignment'),
                 (7, 'workforce', 'coverage_schedule'),
-                (8, 'workforce', 'workload_record')
+                (8, 'workforce', 'workload_record'),
+                (9, 'vendor', 'shipment'),
+                (10, 'inventory', 'replenishment'),
+                (11, 'inventory', 'location_inventory'),
+                (12, 'workforce', 'workforce_escalation'),
+                (13, 'relationships', 'assignment_ticket')
         ) AS target_tables(table_order, schema_name, table_name)
         ORDER BY target_tables.table_order
     LOOP
@@ -302,7 +340,7 @@ BEGIN
 
     IF nonempty_tables IS NOT NULL THEN
         RAISE EXCEPTION
-            'Implementation-foundation data-boundary validation failed. Tier 0 and Tier 1 tables must be empty before migration; rows found in: %',
+            'Implementation-foundation data-boundary validation failed. Tier 0, Tier 1, and Tier 2 tables must be empty before migration; rows found in: %',
             nonempty_tables;
     END IF;
 END
@@ -342,7 +380,12 @@ SELECT
                 ('ticketing', 'ticket'),
                 ('workforce', 'assignment'),
                 ('workforce', 'coverage_schedule'),
-                ('workforce', 'workload_record')
+                ('workforce', 'workload_record'),
+                ('vendor', 'shipment'),
+                ('inventory', 'replenishment'),
+                ('inventory', 'location_inventory'),
+                ('workforce', 'workforce_escalation'),
+                ('relationships', 'assignment_ticket')
         )
             AND relations.relkind = 'r'
     ) AS approved_table_count,
@@ -355,5 +398,10 @@ SELECT
         + (SELECT count(*) FROM workforce.assignment)
         + (SELECT count(*) FROM workforce.coverage_schedule)
         + (SELECT count(*) FROM workforce.workload_record)
-    ) AS tier_0_1_row_count,
+        + (SELECT count(*) FROM vendor.shipment)
+        + (SELECT count(*) FROM inventory.replenishment)
+        + (SELECT count(*) FROM inventory.location_inventory)
+        + (SELECT count(*) FROM workforce.workforce_escalation)
+        + (SELECT count(*) FROM relationships.assignment_ticket)
+    ) AS tier_0_2_row_count,
     'PASS' AS validation_result;

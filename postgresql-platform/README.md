@@ -14,7 +14,7 @@
 
 **Authority Level:** Approved Implementation Boundary
 
-**Status:** Implemented — Issue #29 Tier 1 Structural Boundary
+**Status:** Implemented — Issue #32 Tier 2 Structural Boundary
 
 **Depends On:** Enterprise Database Platform Decision, Enterprise Relational Schema, Naming Convention Standards, and Project Governance Standards
 
@@ -51,7 +51,9 @@ postgresql-platform/
 │   ├── tier-1/
 │   │   ├── README.md
 │   │   └── create-tier-1-tables.sql
-│   ├── tier-2/                            [created with first approved artifact]
+│   ├── tier-2/
+│   │   ├── README.md
+│   │   └── create-tier-2-tables.sql
 │   ├── tier-3/                            [created with first approved artifact]
 │   ├── tier-4/                            [created with first approved artifact]
 │   ├── tier-5/                            [created with first approved artifact]
@@ -64,16 +66,20 @@ postgresql-platform/
 │   ├── implementation-foundation/
 │   │   ├── README.md
 │   │   ├── validate-implementation-foundation.sql
-│   │   └── implementation-foundation-validation.md
+│   │   ├── implementation-foundation-validation.md
+│   │   └── tier-1-lifecycle-validation.md
 │   ├── schema-namespaces/
 │   │   └── validate-schema-namespaces.sql
 │   ├── tier-0/
 │   │   └── validate-tier-0-tables.sql
-│   └── tier-1/
-│       └── validate-tier-1-tables.sql
+│   ├── tier-1/
+│   │   └── validate-tier-1-tables.sql
+│   └── tier-2/
+│       └── validate-tier-2-tables.sql
 └── documentation/
     ├── README.md
-    └── tier-1-postgresql-implementation-contract.md
+    ├── tier-1-postgresql-implementation-contract.md
+    └── tier-2-postgresql-implementation-contract.md
 ```
 
 Empty leaf directories are not retained in Git. Each future leaf directory will be created with its first approved implementation artifact.
@@ -177,14 +183,14 @@ The scoped [.gitignore](.gitignore) enforces these exclusions within this platfo
 
 # Current Implementation Boundary
 
-Issues #5–#9 established the repository organization, the reproducible PostgreSQL 18 local environment, the six approved schema namespaces, the three approved Tier 0 tables, and the completed foundation-validation evidence.
+Issues #5–#9 established the repository organization, the reproducible PostgreSQL 18 local environment, the six approved schema namespaces, the three approved Tier 0 tables, and the completed foundation-validation evidence. Issues #28–#30 extended and validated the executable boundary through Tier 1.
 
-Issue #29 extends the executable boundary through Tier 1. The platform now defines and structurally validates eight empty pre-migration tables: the three Tier 0 tables and `inventory.inventory_item`, `ticketing.ticket`, `workforce.assignment`, `workforce.coverage_schedule`, and `workforce.workload_record`.
+Issue #32 extends the executable boundary through Tier 2. The platform now defines and structurally validates 13 empty pre-migration tables: three Tier 0 tables, five Tier 1 tables, and `vendor.shipment`, `inventory.replenishment`, `inventory.location_inventory`, `workforce.workforce_escalation`, and `relationships.assignment_ticket`.
 
-The Tier 1 definition contains 58 columns, five primary keys, four immediately enforceable Tier 0 foreign keys, and one Workload Record business-key unique constraint. Ticket Location and Employee foreign keys remain deferred. No source data is loaded.
+The Tier 2 definition contains 47 columns, five primary keys, 13 immediately enforceable foreign keys, and one Location Inventory business-key unique constraint. Together, Tier 0–2 contain 128 governed columns. Ticket Location and Employee foreign keys remain deferred. No source data is loaded.
 
-The live cumulative validator accepts exactly the approved six-schema, eight-table pre-migration state. The issue #9 evidence file remains the unchanged historical record of the earlier three-table foundation checkpoint.
+The live cumulative validator accepts exactly the approved six-schema, 13-table pre-migration state. The issue #9 and Tier 1 lifecycle-evidence files remain unchanged historical records of their earlier tested boundaries.
 
-No Tier 2–5 table DDL, migration logic, controlled-vocabulary `CHECK` constraint, trigger code, manually defined supporting index, cross-table integrity enforcement, data loading, or source-data correction is implemented yet.
+No Tier 3–5 table DDL, migration logic, controlled-vocabulary `CHECK` constraint, trigger code, manually defined supporting index, cross-table integrity enforcement, data loading, or source-data correction is implemented yet.
 
 Each implementation category requires its own governed issue, review, validation, and approval before executable assets are added.

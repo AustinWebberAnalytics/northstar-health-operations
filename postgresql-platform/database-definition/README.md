@@ -80,14 +80,15 @@ This directory does not own:
 
 # Current Boundary
 
-Issues #7 and #8 introduced the repository-controlled creation of the six approved schema namespaces and the three approved Tier 0 tables. Issue #29 extends the executable definition through the five approved Tier 1 tables.
+Issues #7 and #8 introduced the repository-controlled creation of the six approved schema namespaces and the three approved Tier 0 tables. Issue #29 extended the executable definition through the five approved Tier 1 tables. Issue #32 extends it through the five approved Tier 2 tables.
 
 The current executable definition includes:
 
 * `schema-namespaces/create-schema-namespaces.sql`
 * `tier-0/create-tier-0-tables.sql`
 * `tier-1/create-tier-1-tables.sql`
+* `tier-2/create-tier-2-tables.sql`
 
-The controlled executable order is namespaces → Tier 0 → Tier 1. Together, Tier 0 and Tier 1 create eight empty pre-migration tables with 81 columns.
+The controlled executable order is namespaces → Tier 0 → Tier 1 → Tier 2. Together, Tier 0–2 create 13 empty pre-migration tables with 128 columns.
 
-Tier 1 creates 58 columns, five primary keys, four immediately enforceable foreign keys to Tier 0, and one Workload Record business-key unique constraint. The two Ticket foreign keys remain deferred. Tier 2–5 tables and every later database object require their own governed issues.
+Tier 2 creates 47 columns, five primary keys, 13 immediately enforceable foreign keys, and one Location Inventory business-key unique constraint. The two Ticket foreign keys remain deferred. Tier 3–5 tables and every later database object require their own governed issues.

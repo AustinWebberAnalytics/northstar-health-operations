@@ -41,4 +41,6 @@ Enterprise governance, logical design, relational design, and platform decisions
 
 Issue #5 established this documentation boundary. Issue #28 added [Tier 1 PostgreSQL Implementation Contract](tier-1-postgresql-implementation-contract.md), which governs the physical types, constraint names, staged references, file responsibilities, validator boundaries, and documentation changes implemented through issues #29 and #30.
 
+Issue #31 added [Tier 2 PostgreSQL Implementation Contract](tier-2-postgresql-implementation-contract.md), which governs the five-table, 47-column physical boundary, 13 foreign keys, source-transition treatment, implementation files, validator responsibilities, README changes, and lifecycle-evidence boundary implemented through issues #32 and #33.
+
 Detailed runbooks will continue to be added with the executable capabilities they describe.

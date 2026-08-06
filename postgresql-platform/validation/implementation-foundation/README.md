@@ -4,27 +4,27 @@
 
 ---
 
-**Primary Audience:** Northstar architects, data engineers, subsystem maintainers, and reviewers validating the PostgreSQL pre-migration implementation foundation through Tier 1
+**Primary Audience:** Northstar architects, data engineers, subsystem maintainers, and reviewers validating the PostgreSQL pre-migration implementation foundation through Tier 2
 
 **Writing Layer:** Layer 2 — Operational / Architectural
 
-**Architectural Purpose:** Defines the controlled repository, runtime, persistence, reset, rebuild, and evidence procedure used to validate the PostgreSQL implementation foundation through Tier 1.
+**Architectural Purpose:** Defines the controlled repository, runtime, persistence, reset, rebuild, and evidence procedure used to validate the PostgreSQL implementation foundation through Tier 2.
 
 **Document Type:** Validation Procedure
 
 **Authority Level:** Approved Implementation Guidance
 
-**Status:** Implemented Procedure — Issue #30 Lifecycle Validation Pending
+**Status:** Implemented Procedure — Issue #33 Tier 2 Lifecycle Validation Pending
 
-**Depends On:** PostgreSQL Platform Repository Structure, PostgreSQL 18 Local Environment, Schema Namespaces, Tier 0 DDL, Tier 1 PostgreSQL Implementation Contract, Tier 1 DDL, Enterprise Database Platform Decision, Enterprise Relational Schema, Naming Convention Standards, and Project Governance Standards
+**Depends On:** PostgreSQL Platform Repository Structure, PostgreSQL 18 Local Environment, Schema Namespaces, Tier 0 DDL, Tier 1 PostgreSQL Implementation Contract, Tier 1 DDL, Tier 2 PostgreSQL Implementation Contract, Tier 2 DDL, Enterprise Database Platform Decision, Enterprise Relational Schema, Naming Convention Standards, and Project Governance Standards
 
 ---
 
 # Purpose
 
-This directory contains the repeatable process used to prove that Northstar's PostgreSQL implementation foundation through Tier 1 is governed, structurally exact, reproducible from repository-controlled files, and ready for later migration work.
+This directory contains the repeatable process used to prove that Northstar's PostgreSQL implementation foundation through Tier 2 is governed, structurally exact, reproducible from repository-controlled files, and ready for later migration work.
 
-The procedure validates an empty eight-table implementation foundation containing Tier 0 and Tier 1. It does not authorize source-data migration, Ticket reconciliation, the deferred Ticket foreign keys, Tier 2–5 structures, controlled-vocabulary constraints, manually defined indexes, triggers, or cross-table integrity.
+The procedure validates an empty 13-table implementation foundation containing Tier 0, Tier 1, and Tier 2. It does not authorize source-data migration, Ticket reconciliation, the deferred Ticket foreign keys, Tier 3–5 structures, controlled-vocabulary constraints, manually defined indexes, triggers, or cross-table integrity.
 
 ---
 
@@ -32,23 +32,25 @@ The procedure validates an empty eight-table implementation foundation containin
 
 | File | Responsibility |
 |---|---|
-| `validate-implementation-foundation.sql` | Fails when the runtime identity, schema ownership, exact eight-table user-defined object inventory, empty `public` schema, or pre-migration data boundary differs from the approved foundation. |
+| `validate-implementation-foundation.sql` | Fails when the runtime identity, schema ownership, exact 13-table user-defined object inventory, empty `public` schema, deferred Ticket relationship boundary, or pre-migration data boundary differs from the approved foundation. |
 | `implementation-foundation-validation.md` | Preserves the completed issue #9 three-table foundation evidence. This historical artifact must remain byte-for-byte unchanged. |
+| `tier-1-lifecycle-validation.md` | Preserves the completed issue #30 Tier 1 lifecycle evidence. This historical artifact must remain byte-for-byte unchanged. |
 
 The SQL validator is read-only. It does not create, repair, drop, or modify database objects or data.
 
 ---
 
-# Four-Validator Responsibility Boundary
+# Five-Validator Responsibility Boundary
 
-The Tier 1 pre-migration result depends on four validators executed in order.
+The Tier 2 pre-migration result depends on five validators executed in order.
 
 | Validator | Primary Responsibility |
 |---|---|
 | `schema-namespaces/validate-schema-namespaces.sql` | Confirms that all six approved namespace names exist and displays their owners. |
 | `tier-0/validate-tier-0-tables.sql` | Confirms the exact three-table, 23-column Tier 0 structure, primary keys, nullability, prohibited constraints, defaults, generated behavior, and supporting-index absence. |
 | `tier-1/validate-tier-1-tables.sql` | Confirms the exact five-table, 58-column Tier 1 structure, keys, foreign keys, unique constraint, nullability, numeric precision and scale, staged references, constraint-backed indexes, ownership, and zero-row boundary. |
-| `implementation-foundation/validate-implementation-foundation.sql` | Confirms PostgreSQL 18.4, database and user identity, namespace ownership, the exact eight-table foundation-wide object inventory, empty Tier 0–1 tables, and an empty `public` schema. |
+| `tier-2/validate-tier-2-tables.sql` | Confirms the exact five-table, 47-column Tier 2 structure, keys, foreign keys, unique constraint, nullability, absence of numeric columns, constraint-backed indexes, ownership, and zero-row boundary. |
+| `implementation-foundation/validate-implementation-foundation.sql` | Confirms PostgreSQL 18.4, database and user identity, namespace ownership, the exact 13-table foundation-wide object inventory, deferred Ticket relationship boundary, empty Tier 0–2 tables, and an empty `public` schema. |
 
 The foundation validator excludes PostgreSQL-managed `pg_catalog`, `information_schema`, `pg_toast`, `pg_temp_*`, and `pg_toast_temp_*` namespaces from the user-defined inventory. The existing `public` schema is permitted only while it contains no relation objects, routines, triggers, or policies.
 
@@ -159,6 +161,7 @@ The setup uses a normal Git installation when one is available. Otherwise, it lo
         Invoke-NorthstarSqlFile -Path (Join-Path $repoRoot 'postgresql-platform\validation\schema-namespaces\validate-schema-namespaces.sql')
         Invoke-NorthstarSqlFile -Path (Join-Path $repoRoot 'postgresql-platform\validation\tier-0\validate-tier-0-tables.sql')
         Invoke-NorthstarSqlFile -Path (Join-Path $repoRoot 'postgresql-platform\validation\tier-1\validate-tier-1-tables.sql')
+        Invoke-NorthstarSqlFile -Path (Join-Path $repoRoot 'postgresql-platform\validation\tier-2\validate-tier-2-tables.sql')
         Invoke-NorthstarSqlFile -Path (Join-Path $repoRoot 'postgresql-platform\validation\implementation-foundation\validate-implementation-foundation.sql')
     }
 
@@ -391,7 +394,7 @@ docker compose --env-file .env exec postgresql sh -c 'PGPASSWORD="$POSTGRES_PASS
 
 The result must report PostgreSQL `18.4`, database `northstar`, and user `northstar_local_admin`.
 
-Run all four validators in their governed order.
+Run all five validators in their governed order.
 
 Windows PowerShell:
 
@@ -411,10 +414,12 @@ docker compose --env-file .env exec --no-TTY postgresql sh -c 'PGPASSWORD="$POST
 
 docker compose --env-file .env exec --no-TTY postgresql sh -c 'PGPASSWORD="$POSTGRES_PASSWORD" psql --host=127.0.0.1 --username="$POSTGRES_USER" --dbname="$POSTGRES_DB" --set=ON_ERROR_STOP=1' < ../validation/tier-1/validate-tier-1-tables.sql
 
+docker compose --env-file .env exec --no-TTY postgresql sh -c 'PGPASSWORD="$POSTGRES_PASSWORD" psql --host=127.0.0.1 --username="$POSTGRES_USER" --dbname="$POSTGRES_DB" --set=ON_ERROR_STOP=1' < ../validation/tier-2/validate-tier-2-tables.sql
+
 docker compose --env-file .env exec --no-TTY postgresql sh -c 'PGPASSWORD="$POSTGRES_PASSWORD" psql --host=127.0.0.1 --username="$POSTGRES_USER" --dbname="$POSTGRES_DB" --set=ON_ERROR_STOP=1' < ../validation/implementation-foundation/validate-implementation-foundation.sql
 ```
 
-The Tier 0 and Tier 1 validators must confirm 23 and 58 columns respectively, for 81 tier-specific columns in total. The foundation validator must report `DO` followed by one summary row with `18.4`, `northstar`, `northstar_local_admin`, six schemas, eight tables, zero Tier 0–1 rows, and `PASS`.
+The Tier 0, Tier 1, and Tier 2 validators must confirm 23, 58, and 47 columns respectively, for 128 tier-specific columns in total. The foundation validator must report `DO` followed by one summary row with `18.4`, `northstar`, `northstar_local_admin`, six schemas, 13 tables, zero Tier 0–2 rows, and `PASS`.
 
 ---
 
@@ -462,7 +467,7 @@ docker compose --env-file .env up --detach --wait --wait-timeout 60
 docker compose --env-file .env ps
 ```
 
-Rerun all four Phase 2 validators. Every result must match the initial result. This proves that normal teardown removes the service container and network while preserving the governed database state in `northstar-postgresql-data`.
+Rerun all five Phase 2 validators. Every result must match the initial result. This proves that normal teardown removes the service container and network while preserving the governed database state in `northstar-postgresql-data`.
 
 ---
 
@@ -578,7 +583,7 @@ Both counts must be zero.
 
 # Phase 5 — Repository-Controlled Rebuild
 
-Run the namespace, Tier 0, and Tier 1 creation files in the approved order.
+Run the namespace, Tier 0, Tier 1, and Tier 2 creation files in the approved order.
 
 Windows PowerShell:
 
@@ -588,6 +593,7 @@ Windows PowerShell:
     Invoke-NorthstarSqlFile -Path (Join-Path $repoRoot 'postgresql-platform\database-definition\schema-namespaces\create-schema-namespaces.sql')
     Invoke-NorthstarSqlFile -Path (Join-Path $repoRoot 'postgresql-platform\database-definition\tier-0\create-tier-0-tables.sql')
     Invoke-NorthstarSqlFile -Path (Join-Path $repoRoot 'postgresql-platform\database-definition\tier-1\create-tier-1-tables.sql')
+    Invoke-NorthstarSqlFile -Path (Join-Path $repoRoot 'postgresql-platform\database-definition\tier-2\create-tier-2-tables.sql')
     Invoke-NorthstarValidators
     Confirm-NorthstarRuntime
 }
@@ -601,25 +607,27 @@ docker compose --env-file .env exec --no-TTY postgresql sh -c 'PGPASSWORD="$POST
 docker compose --env-file .env exec --no-TTY postgresql sh -c 'PGPASSWORD="$POSTGRES_PASSWORD" psql --host=127.0.0.1 --username="$POSTGRES_USER" --dbname="$POSTGRES_DB" --set=ON_ERROR_STOP=1' < ../database-definition/tier-0/create-tier-0-tables.sql
 
 docker compose --env-file .env exec --no-TTY postgresql sh -c 'PGPASSWORD="$POSTGRES_PASSWORD" psql --host=127.0.0.1 --username="$POSTGRES_USER" --dbname="$POSTGRES_DB" --set=ON_ERROR_STOP=1' < ../database-definition/tier-1/create-tier-1-tables.sql
+
+docker compose --env-file .env exec --no-TTY postgresql sh -c 'PGPASSWORD="$POSTGRES_PASSWORD" psql --host=127.0.0.1 --username="$POSTGRES_USER" --dbname="$POSTGRES_DB" --set=ON_ERROR_STOP=1' < ../database-definition/tier-2/create-tier-2-tables.sql
 ```
 
-Rerun all four Phase 2 validators. The Windows PowerShell block performs this step automatically after all three creation files succeed. Leave PostgreSQL running and healthy after every check passes.
+Rerun all five Phase 2 validators. The Windows PowerShell block performs this step automatically after all four creation files succeed. Leave PostgreSQL running and healthy after every check passes.
 
 The clean rebuild must end with:
 
 * exactly six approved schemas owned by `northstar_local_admin`
-* exactly three approved Tier 0 tables and five approved Tier 1 tables
-* exactly 23 Tier 0 columns and 58 Tier 1 columns, for 81 columns across the tier-specific validators
-* no Tier 2–5 tables or unapproved user-defined database objects
+* exactly three approved Tier 0 tables, five approved Tier 1 tables, and five approved Tier 2 tables
+* exactly 23 Tier 0 columns, 58 Tier 1 columns, and 47 Tier 2 columns, for 128 columns across the tier-specific validators
+* no Tier 3–5 tables or unapproved user-defined database objects
 * an empty `public` schema
-* zero rows in all eight Tier 0 and Tier 1 tables
+* zero rows in all 13 Tier 0–2 tables
 * PostgreSQL running and healthy
 
 ---
 
 # Phase 6 — Curated Evidence
 
-Issue #30 must create a dedicated Tier 1 lifecycle-validation record only after the complete lifecycle passes. Do not replace or edit `implementation-foundation-validation.md`; it remains the historical issue #9 evidence. The new Tier 1 evidence must record:
+Issue #33 must create a dedicated Tier 2 lifecycle-validation record only after the complete lifecycle passes. Do not replace or edit `implementation-foundation-validation.md` or `tier-1-lifecycle-validation.md`; they remain historical evidence for their earlier tested boundaries. The new Tier 2 evidence must record:
 
 * validation date and tested repository commit
 * PostgreSQL image and server version
@@ -629,10 +637,10 @@ Issue #30 must create a dedicated Tier 1 lifecycle-validation record only after 
 * normal teardown and persistence results
 * destructive reset authorization
 * clean recreation and repository-controlled rebuild results
-* final results from all four validators and final service health
+* final results from all five validators and final service health
 * discrepancy or exception log
 * relevant implementation and evidence commit links
-* an explicit pass or fail result for every issue #30 acceptance criterion
+* an explicit pass or fail result for every issue #33 acceptance criterion
 
 Use the standard Northstar document preface with one blank line between every metadata field. Record concise curated results only. Do not commit passwords, `.env` content, generated logs, full raw command output, or machine-specific secrets.
 
@@ -642,8 +650,8 @@ The validation mechanism and its execution evidence belong in separate commits s
 
 # Completion Boundary
 
-Issue #29 is complete only after the Tier 1 DDL, both live validators, and the required documentation are committed and the initial four-validator structural checkpoint passes.
+Issue #32 is complete only after the Tier 2 DDL, dedicated Tier 2 validator, cumulative validator, and required documentation are committed and the initial five-validator structural checkpoint passes.
 
-Issue #30 owns the full persistence, destructive-reset, clean-rebuild, and evidence lifecycle. It is complete only after the full lifecycle passes, the dedicated Tier 1 evidence is committed, and the evidence links the implementation and evidence commits.
+Issue #33 owns the full Tier 2 persistence, destructive-reset, clean-rebuild, and evidence lifecycle. It is complete only after the full lifecycle passes, the dedicated Tier 2 evidence is committed, and the evidence links the implementation and evidence commits.
 
 Operational source-data loading remains deferred to `postgresql-platform/migrations/`. Parent issue #4's broader load wording must be reconciled separately before that parent milestone is closed.

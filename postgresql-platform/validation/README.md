@@ -44,7 +44,8 @@ Validation should be read-only wherever practical. Any check requiring temporary
 | `schema-namespaces/validate-schema-namespaces.sql` | Fails when an approved namespace is missing and reports all six namespace owners when validation succeeds. |
 | `tier-0/validate-tier-0-tables.sql` | Fails on any governed Tier 0 structural mismatch and reports all 23 validated columns, primary keys, and table owners when validation succeeds. |
 | `tier-1/validate-tier-1-tables.sql` | Fails on any governed Tier 1 structural mismatch and reports the validated five-table, 58-column, key, foreign-key, unique-constraint, index, ownership, and zero-row boundary when validation succeeds. |
-| `implementation-foundation/validate-implementation-foundation.sql` | Fails when the runtime identity, namespace ownership, exact eight-table pre-migration object inventory, empty `public` schema, or zero-row boundary differs from the approved state. |
+| `tier-2/validate-tier-2-tables.sql` | Fails on any governed Tier 2 structural mismatch and reports the validated five-table, 47-column, key, foreign-key, unique-constraint, index, ownership, and zero-row boundary when validation succeeds. |
+| `implementation-foundation/validate-implementation-foundation.sql` | Fails when the runtime identity, namespace ownership, exact 13-table pre-migration object inventory, empty `public` schema, deferred Ticket relationship boundary, or zero-row boundary differs from the approved state. |
 
 The namespace validation reads `information_schema.schemata`. It does not create missing namespaces, transfer ownership, or otherwise repair the database.
 
@@ -52,9 +53,11 @@ Tier 0 validation reads PostgreSQL metadata for exactly `core.location`, `workfo
 
 Tier 1 validation scopes its checks to `inventory.inventory_item`, `ticketing.ticket`, `workforce.assignment`, `workforce.coverage_schedule`, and `workforce.workload_record`. It validates exact column definitions, constraint names and properties, the absence of the deferred Ticket foreign keys, six constraint-backed indexes, and zero rows without rejecting later approved tables that may share a schema.
 
-The implementation-foundation validator owns the checks that would be inappropriate in the narrower validators: exact PostgreSQL version, database and user identity, schema ownership, absence of unapproved schemas and user-defined objects, the empty `public` exception, the exact eight-table inventory, and empty Tier 0–1 tables before migration. PostgreSQL-managed `pg_catalog`, `information_schema`, `pg_toast`, `pg_temp_*`, and `pg_toast_temp_*` namespaces are excluded from the user-defined inventory.
+Tier 2 validation scopes its checks to `vendor.shipment`, `inventory.replenishment`, `inventory.location_inventory`, `workforce.workforce_escalation`, and `relationships.assignment_ticket`. It validates exact column definitions, constraint names and properties, the absence of unapproved constraints and supporting objects, six constraint-backed indexes, and zero rows without relying on shared-schema table counts.
 
-Execution commands and expected results are documented in [Schema Namespaces](../database-definition/schema-namespaces/README.md#validate-the-namespaces), [Tier 0 Tables](../database-definition/tier-0/README.md#validate-the-tier-0-tables), [Tier 1 Tables](../database-definition/tier-1/README.md#validation), and [Implementation Foundation Validation](implementation-foundation/README.md).
+The implementation-foundation validator owns the checks that would be inappropriate in the narrower validators: exact PostgreSQL version, database and user identity, schema ownership, absence of unapproved schemas and user-defined objects, the empty `public` exception, preservation of the two deferred Ticket foreign keys, the exact 13-table inventory, and empty Tier 0–2 tables before migration. PostgreSQL-managed `pg_catalog`, `information_schema`, `pg_toast`, `pg_temp_*`, and `pg_toast_temp_*` namespaces are excluded from the user-defined inventory.
+
+Execution commands and expected results are documented in [Schema Namespaces](../database-definition/schema-namespaces/README.md#validate-the-namespaces), [Tier 0 Tables](../database-definition/tier-0/README.md#validate-the-tier-0-tables), [Tier 1 Tables](../database-definition/tier-1/README.md#validation), [Tier 2 Tables](../database-definition/tier-2/README.md#validation), and [Implementation Foundation Validation](implementation-foundation/README.md).
 
 ---
 
@@ -68,8 +71,8 @@ Repository-controlled validation must return clear pass or fail results and iden
 
 # Current Boundary
 
-Issues #7–#9 introduced validation for the approved schema namespaces, the complete Tier 0 table structure, and the initial empty implementation foundation. Issue #29 extends live validation through the Tier 1 structural boundary.
+Issues #7–#9 introduced validation for the approved schema namespaces, the complete Tier 0 table structure, and the initial empty implementation foundation. Issue #29 extended live validation through Tier 1. Issue #32 extends live validation through the Tier 2 structural boundary.
 
-The tier-specific validators now cover eight approved tables and 81 columns. The cumulative validator accepts exactly those eight empty tables across the six governed schemas.
+The tier-specific validators now cover 13 approved tables and 128 columns. The cumulative validator accepts exactly those 13 empty tables across the six governed schemas.
 
-The committed issue #9 evidence remains unchanged as historical evidence. Tier 1 lifecycle execution and its separate evidence record are governed by issue #30. Migration, source-data quality, later-tier structures, triggers, and cross-table integrity remain governed by their respective implementation issues.
+The committed issue #9 and Tier 1 lifecycle evidence remain unchanged as historical evidence. Tier 2 lifecycle execution and its separate evidence record are governed by issue #33. Migration, source-data quality, later-tier structures, triggers, and cross-table integrity remain governed by their respective implementation issues.
