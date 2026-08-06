@@ -14,7 +14,7 @@
 
 **Authority Level:** Approved Implementation Boundary
 
-**Status:** Implemented — Issue #32 Tier 2 Structural Boundary
+**Status:** Implemented — Tier 2 Structural Boundary; Issue #17 Normalization Pending Validation
 
 **Depends On:** Enterprise Database Platform Decision, Enterprise Relational Schema, Naming Convention Standards, and Project Governance Standards
 
@@ -60,7 +60,11 @@ postgresql-platform/
 │   ├── supporting-indexes/                [created with first approved artifact]
 │   └── cross-table-integrity/             [created with first approved artifact]
 ├── migrations/
-│   └── README.md
+│   ├── README.md
+│   └── source-data/
+│       └── ticket-source-encoding/
+│           ├── README.md
+│           └── normalize-ticket-source-encoding.py
 ├── validation/
 │   ├── README.md
 │   ├── implementation-foundation/
@@ -191,6 +195,8 @@ The Tier 2 definition contains 47 columns, five primary keys, 13 immediately enf
 
 The live cumulative validator accepts exactly the approved six-schema, 13-table pre-migration state. The issue #9 and Tier 1 lifecycle-evidence files remain unchanged historical records of their earlier tested boundaries.
 
-No Tier 3–5 table DDL, migration logic, controlled-vocabulary `CHECK` constraint, trigger code, manually defined supporting index, cross-table integrity enforcement, data loading, or source-data correction is implemented yet.
+Issue #17 introduces one bounded migration capability: a repository-controlled Windows-1252-to-UTF-8 normalizer for the Ticket source. It writes only generated output under the ignored migration-output boundary, preserves the authoritative source, and performs no data correction, reconciliation, staging, or PostgreSQL loading. Runtime validation and completion evidence remain pending.
+
+No Tier 3–5 table DDL, controlled-vocabulary `CHECK` constraint, trigger code, manually defined supporting index, cross-table integrity enforcement, data loading, or source-data correction is implemented yet.
 
 Each implementation category requires its own governed issue, review, validation, and approval before executable assets are added.
