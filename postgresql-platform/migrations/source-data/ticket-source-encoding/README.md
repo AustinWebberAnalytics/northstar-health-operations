@@ -14,7 +14,7 @@
 
 **Authority Level:** Approved Issue #17 Implementation
 
-**Status:** Implementation Pending Runtime Validation
+**Status:** Validation Passed — Issue #17
 
 **Depends On:** Phase 4 Data Reconciliation Readiness Review, Enterprise Relational Foundation, Enterprise Database Platform Decision, and PostgreSQL Platform Migration Boundary
 
@@ -105,4 +105,6 @@ It does not:
 * enable deferred foreign keys
 * implement Tier 3 DDL
 
-The generated UTF-8 file becomes eligible for the next governed reconciliation step only after Issue #17 runtime validation and completion evidence are approved.
+Issue #17 runtime validation passed against tested commit `fad09ec6d589770dccc2105e66a8188f445e19b4`. The generated UTF-8 file is approved as the reproducible output of this encoding-normalization step and becomes eligible for the next separately governed reconciliation step.
+
+Completion evidence is recorded in [Ticket Source Encoding Normalization Validation Evidence](../../../validation/source-data/ticket-source-encoding-validation.md). This approval does not authorize data correction, reference reconciliation, staging, PostgreSQL loading, deferred foreign-key enforcement, or Tier 3 implementation.
