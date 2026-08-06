@@ -69,6 +69,25 @@ Generated exception reports and temporary staging output must remain uncommitted
 
 ---
 
+# Implemented Source Normalization
+
+Issue #17 introduces the first governed source-data migration leaf:
+
+```text
+source-data/
+└── ticket-source-encoding/
+    ├── README.md
+    └── normalize-ticket-source-encoding.py
+```
+
+The normalizer converts the authoritative Windows-1252 Ticket source into a generated UTF-8 migration input under the ignored `postgresql-platform/migration-output/` boundary. It validates strict encoding, Unicode-text equivalence, CSV structure and field-value equivalence, source preservation, and generated-output placement.
+
+The generated UTF-8 file remains uncommitted. It does not replace the authoritative source dataset.
+
+---
+
 # Current Boundary
 
-Issue #5 does not authorize migration logic, staging tables, source-data transformations, or data corrections.
+Issue #17 authorizes Ticket encoding normalization only. Runtime validation and completion evidence remain required before the normalized output is approved for the next reconciliation step.
+
+No staging table, PostgreSQL data load, source-data correction, Ticket mapping, owner reconciliation, orphan-reference resolution, deferred foreign-key enforcement, or Tier 3–5 implementation is authorized by this boundary.
