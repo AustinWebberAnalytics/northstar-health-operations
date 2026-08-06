@@ -88,6 +88,6 @@ The generated UTF-8 file remains uncommitted. It does not replace the authoritat
 
 # Current Boundary
 
-Issue #17 authorizes Ticket encoding normalization only. Runtime validation and completion evidence remain required before the normalized output is approved for the next reconciliation step.
+Issue #17 authorizes Ticket encoding normalization only. Runtime validation passed against tested commit `fad09ec6d589770dccc2105e66a8188f445e19b4`, and the governed result is recorded in [Ticket Source Encoding Normalization Validation Evidence](../validation/source-data/ticket-source-encoding-validation.md).
 
-No staging table, PostgreSQL data load, source-data correction, Ticket mapping, owner reconciliation, orphan-reference resolution, deferred foreign-key enforcement, or Tier 3–5 implementation is authorized by this boundary.
+The generated UTF-8 file is approved only as reproducible input to the next separately governed reconciliation step. No staging table, PostgreSQL data load, source-data correction, Ticket mapping, owner reconciliation, orphan-reference resolution, deferred foreign-key enforcement, or Tier 3–5 implementation is authorized by this boundary.
