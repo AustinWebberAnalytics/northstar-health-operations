@@ -69,20 +69,28 @@ Generated exception reports and temporary staging output must remain uncommitted
 
 ---
 
-# Implemented Source Normalization
+# Implemented Source Reconciliation
 
 Issue #17 introduces the first governed source-data migration leaf:
 
 ```text
 source-data/
-└── ticket-source-encoding/
+├── ticket-source-encoding/
+│   ├── README.md
+│   └── normalize-ticket-source-encoding.py
+└── ticket-location-mapping/
     ├── README.md
-    └── normalize-ticket-source-encoding.py
+    ├── ticket-location-mapping.csv
+    └── validate-ticket-location-mapping.py
 ```
 
 The normalizer converts the authoritative Windows-1252 Ticket source into a generated UTF-8 migration input under the ignored `postgresql-platform/migration-output/` boundary. It validates strict encoding, Unicode-text equivalence, CSV structure and field-value equivalence, source preservation, and generated-output placement.
 
 The generated UTF-8 file remains uncommitted. It does not replace the authoritative source dataset.
+
+Issue #18 introduces the approved Ticket Location mapping artifact and its repeatable validator. The process profiles every current `requesting_location` value, verifies the four approved one-to-one mappings against governed operational Location identifier evidence, retains the source label, adds `location_id`, and routes unmatched or ambiguous values to generated exception reporting.
+
+The mapped Ticket output remains uncommitted under the ignored migration-output boundary. Runtime validation and completion evidence remain pending.
 
 ---
 
@@ -90,4 +98,4 @@ The generated UTF-8 file remains uncommitted. It does not replace the authoritat
 
 Issue #17 authorizes Ticket encoding normalization only. Runtime validation passed against tested commit `fad09ec6d589770dccc2105e66a8188f445e19b4`, and the governed result is recorded in [Ticket Source Encoding Normalization Validation Evidence](../validation/source-data/ticket-source-encoding-validation.md).
 
-The generated UTF-8 file is approved only as reproducible input to the next separately governed reconciliation step. No staging table, PostgreSQL data load, source-data correction, Ticket mapping, owner reconciliation, orphan-reference resolution, deferred foreign-key enforcement, or Tier 3–5 implementation is authorized by this boundary.
+Issue #18 approves the four current Ticket Location mappings and introduces the repository-controlled mapping artifact and validator. Runtime validation and completion evidence remain pending. No staging table, PostgreSQL data load, source-data correction, owner reconciliation, orphan-reference resolution, deferred foreign-key enforcement, or Tier 3–5 implementation is authorized by this boundary.
