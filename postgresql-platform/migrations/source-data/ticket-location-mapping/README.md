@@ -14,9 +14,13 @@
 
 **Authority Level:** Approved Issue #18 Implementation
 
-**Status:** Approved — Runtime Validation Pending
+**Status:** Validation Passed — Issue #18
 
 **Approval Date:** August 7, 2026
+
+**Validation Date:** August 7, 2026
+
+**Tested Repository Commit:** `a5b2a8b85a117e8337c3249ae0d14547e1cb9cc9`
 
 **Depends On:** Issue #17 Ticket source encoding normalization, Phase 4 Data Reconciliation Readiness Review, Cross-System Identifier Dictionary, Enterprise Relational Schema, and governed operational Location identifier evidence
 
@@ -122,6 +126,14 @@ A failed run does not authorize use of mapped output from an earlier successful 
 # Traceability
 
 The generated output retains the original `requesting_location` column and adds `location_id` beside it. The original source label therefore remains available for migration review, exception analysis, and source-to-target reconciliation.
+
+---
+
+# Validation Evidence
+
+Runtime validation passed against tested commit [`a5b2a8b`](https://github.com/AustinWebberAnalytics/northstar-health-operations/commit/a5b2a8b85a117e8337c3249ae0d14547e1cb9cc9).
+
+The governed result is recorded in [Ticket Location Mapping Validation Evidence](../../../validation/source-data/ticket-location-mapping-validation.md). The run preserved all 15 Ticket records and all 20 original columns, resolved four distinct source labels through four approved one-to-one mappings, returned zero unmatched or ambiguous values, produced strict UTF-8 mapped output, preserved the normalized source, confirmed generated-output exclusion, and left the working tree clean.
 
 ---
 
