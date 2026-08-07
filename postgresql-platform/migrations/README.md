@@ -90,7 +90,7 @@ The generated UTF-8 file remains uncommitted. It does not replace the authoritat
 
 Issue #18 introduces the approved Ticket Location mapping artifact and its repeatable validator. The process profiles every current `requesting_location` value, verifies the four approved one-to-one mappings against governed operational Location identifier evidence, retains the source label, adds `location_id`, and routes unmatched or ambiguous values to generated exception reporting.
 
-The mapped Ticket output remains uncommitted under the ignored migration-output boundary. Runtime validation and completion evidence remain pending.
+The mapped Ticket output remains uncommitted under the ignored migration-output boundary. Runtime validation passed against tested commit `a5b2a8b85a117e8337c3249ae0d14547e1cb9cc9`, and the governed result is recorded in [Ticket Location Mapping Validation Evidence](../validation/source-data/ticket-location-mapping-validation.md).
 
 ---
 
@@ -98,4 +98,4 @@ The mapped Ticket output remains uncommitted under the ignored migration-output 
 
 Issue #17 authorizes Ticket encoding normalization only. Runtime validation passed against tested commit `fad09ec6d589770dccc2105e66a8188f445e19b4`, and the governed result is recorded in [Ticket Source Encoding Normalization Validation Evidence](../validation/source-data/ticket-source-encoding-validation.md).
 
-Issue #18 approves the four current Ticket Location mappings and introduces the repository-controlled mapping artifact and validator. Runtime validation and completion evidence remain pending. No staging table, PostgreSQL data load, source-data correction, owner reconciliation, orphan-reference resolution, deferred foreign-key enforcement, or Tier 3–5 implementation is authorized by this boundary.
+Issue #18 approves and validates the four current Ticket Location mappings through the repository-controlled mapping artifact and validator. All 15 current Ticket records resolved with zero unmatched or ambiguous values while preserving the source label and every original field value. No staging table, PostgreSQL data load, source-data correction, owner reconciliation, orphan-reference resolution, deferred foreign-key enforcement, or Tier 3–5 implementation is authorized by this boundary.
