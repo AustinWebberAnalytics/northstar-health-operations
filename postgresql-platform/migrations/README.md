@@ -78,10 +78,14 @@ source-data/
 ├── ticket-source-encoding/
 │   ├── README.md
 │   └── normalize-ticket-source-encoding.py
-└── ticket-location-mapping/
+├── ticket-location-mapping/
+│   ├── README.md
+│   ├── ticket-location-mapping.csv
+│   └── validate-ticket-location-mapping.py
+└── ticket-owner-reconciliation/
     ├── README.md
-    ├── ticket-location-mapping.csv
-    └── validate-ticket-location-mapping.py
+    ├── ticket-owner-reconciliation.csv
+    └── validate-ticket-owner-reconciliation.py
 ```
 
 The normalizer converts the authoritative Windows-1252 Ticket source into a generated UTF-8 migration input under the ignored `postgresql-platform/migration-output/` boundary. It validates strict encoding, Unicode-text equivalence, CSV structure and field-value equivalence, source preservation, and generated-output placement.
@@ -92,10 +96,14 @@ Issue #18 introduces the approved Ticket Location mapping artifact and its repea
 
 The mapped Ticket output remains uncommitted under the ignored migration-output boundary. Runtime validation passed against tested commit `a5b2a8b85a117e8337c3249ae0d14547e1cb9cc9`, and the governed result is recorded in [Ticket Location Mapping Validation Evidence](../validation/source-data/ticket-location-mapping-validation.md).
 
+Issue #19 introduces the approved Ticket owner reconciliation decision and its repeatable validator. The process reads the authoritative workforce roster, applies only the exact `Jordan Lee → EMP-008` relationship, leaves `employee_id` blank for the four approved exception owners across 12 Ticket records, retains `assigned_owner`, and generates ignored per-Ticket exception reporting. Runtime validation and completion evidence remain pending.
+
 ---
 
 # Current Boundary
 
 Issue #17 authorizes Ticket encoding normalization only. Runtime validation passed against tested commit `fad09ec6d589770dccc2105e66a8188f445e19b4`, and the governed result is recorded in [Ticket Source Encoding Normalization Validation Evidence](../validation/source-data/ticket-source-encoding-validation.md).
 
-Issue #18 approves and validates the four current Ticket Location mappings through the repository-controlled mapping artifact and validator. All 15 current Ticket records resolved with zero unmatched or ambiguous values while preserving the source label and every original field value. No staging table, PostgreSQL data load, source-data correction, owner reconciliation, orphan-reference resolution, deferred foreign-key enforcement, or Tier 3–5 implementation is authorized by this boundary.
+Issue #18 approves and validates the four current Ticket Location mappings through the repository-controlled mapping artifact and validator. All 15 current Ticket records resolved with zero unmatched or ambiguous values while preserving the source label and every original field value. That boundary does not authorize owner reconciliation or later migration work.
+
+Issue #19 approves the current owner-reconciliation decisions and repository-controlled validator. One owner relationship resolves exactly, while four names affecting 12 Ticket records remain governed exceptions with blank `employee_id` values and per-Ticket exception reporting. Runtime validation remains pending. No staging table, PostgreSQL data load, source-data correction, roster modification, approximate identity match, orphan-reference resolution, deferred foreign-key enforcement, or Tier 3–5 implementation is authorized by this boundary.
