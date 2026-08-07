@@ -47,6 +47,7 @@ Validation should be read-only wherever practical. Any check requiring temporary
 | `tier-2/validate-tier-2-tables.sql` | Fails on any governed Tier 2 structural mismatch and reports the validated five-table, 47-column, key, foreign-key, unique-constraint, index, ownership, and zero-row boundary when validation succeeds. |
 | `implementation-foundation/validate-implementation-foundation.sql` | Fails when the runtime identity, namespace ownership, exact 13-table pre-migration object inventory, empty `public` schema, deferred Ticket relationship boundary, or zero-row boundary differs from the approved state. |
 | `source-data/ticket-source-encoding-validation.md` | Records the successful Issue #17 runtime evidence proving Windows-1252-to-UTF-8 conversion, source preservation, Unicode and CSV equivalence, generated-output exclusion, and a clean repository state. |
+| `source-data/ticket-location-mapping-validation.md` | Records the successful Issue #18 runtime evidence proving complete four-value mapping coverage, one-to-one resolution, source-label and field-value preservation, generated-output exclusion, and a clean repository state. |
 
 The namespace validation reads `information_schema.schemata`. It does not create missing namespaces, transfer ownership, or otherwise repair the database.
 
@@ -76,6 +77,6 @@ Issues #7–#9 introduced validation for the approved schema namespaces, the com
 
 The tier-specific validators now cover 13 approved tables and 128 columns. The cumulative validator accepts exactly those 13 empty tables across the six governed schemas.
 
-The committed Issue #9, Tier 1, and Tier 2 lifecycle evidence remain unchanged as historical implementation-foundation records. Issue #17 adds the first source-data validation record: [Ticket Source Encoding Normalization Validation Evidence](source-data/ticket-source-encoding-validation.md).
+The committed Issue #9, Tier 1, and Tier 2 lifecycle evidence remain unchanged as historical implementation-foundation records. Issue #17 adds the first source-data validation record: [Ticket Source Encoding Normalization Validation Evidence](source-data/ticket-source-encoding-validation.md). Issue #18 adds [Ticket Location Mapping Validation Evidence](source-data/ticket-location-mapping-validation.md).
 
-The Ticket encoding-normalization boundary is validated and complete. Ticket value correction, reference reconciliation, staging, PostgreSQL loading, deferred foreign-key enforcement, later-tier structures, triggers, and cross-table integrity remain governed by their respective implementation issues.
+The Ticket encoding-normalization and Location-mapping boundaries are validated and complete. Ticket owner reconciliation, orphan-reference resolution, staging, PostgreSQL loading, deferred foreign-key enforcement, later-tier structures, triggers, and cross-table integrity remain governed by their respective implementation issues.
