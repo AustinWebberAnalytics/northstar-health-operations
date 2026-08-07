@@ -96,7 +96,9 @@ Issue #18 introduces the approved Ticket Location mapping artifact and its repea
 
 The mapped Ticket output remains uncommitted under the ignored migration-output boundary. Runtime validation passed against tested commit `a5b2a8b85a117e8337c3249ae0d14547e1cb9cc9`, and the governed result is recorded in [Ticket Location Mapping Validation Evidence](../validation/source-data/ticket-location-mapping-validation.md).
 
-Issue #19 introduces the approved Ticket owner reconciliation decision and its repeatable validator. The process reads the authoritative workforce roster, applies only the exact `Jordan Lee → EMP-008` relationship, leaves `employee_id` blank for the four approved exception owners across 12 Ticket records, retains `assigned_owner`, and generates ignored per-Ticket exception reporting. Runtime validation and completion evidence remain pending.
+Issue #19 introduces the approved and validated Ticket owner reconciliation decision and its repeatable validator. The process reads the authoritative workforce roster, applies only the exact `Jordan Lee → EMP-008` relationship, leaves `employee_id` blank for the four approved exception owners across 12 Ticket records, retains `assigned_owner`, and generates ignored per-Ticket exception reporting.
+
+Runtime validation passed against tested commit `92571dd2e196cb2547db34e34458181e36468dfb`, and the governed result is recorded in [Ticket Owner Reconciliation Validation Evidence](../validation/source-data/ticket-owner-reconciliation-validation.md).
 
 ---
 
@@ -106,4 +108,4 @@ Issue #17 authorizes Ticket encoding normalization only. Runtime validation pass
 
 Issue #18 approves and validates the four current Ticket Location mappings through the repository-controlled mapping artifact and validator. All 15 current Ticket records resolved with zero unmatched or ambiguous values while preserving the source label and every original field value. That boundary does not authorize owner reconciliation or later migration work.
 
-Issue #19 approves the current owner-reconciliation decisions and repository-controlled validator. One owner relationship resolves exactly, while four names affecting 12 Ticket records remain governed exceptions with blank `employee_id` values and per-Ticket exception reporting. Runtime validation remains pending. No staging table, PostgreSQL data load, source-data correction, roster modification, approximate identity match, orphan-reference resolution, deferred foreign-key enforcement, or Tier 3–5 implementation is authorized by this boundary.
+Issue #19 approves and validates the current owner-reconciliation decisions and repository-controlled validator. One owner relationship resolves exactly, while four names affecting 12 Ticket records remain governed exceptions with blank `employee_id` values and per-Ticket exception reporting. All 15 Ticket records and 21 source columns were preserved; both generated outputs are strict UTF-8, ignored, and uncommitted. No staging table, PostgreSQL data load, source-data correction, roster modification, approximate identity match, orphan-reference resolution, deferred foreign-key enforcement, or Tier 3–5 implementation is authorized by this boundary.
