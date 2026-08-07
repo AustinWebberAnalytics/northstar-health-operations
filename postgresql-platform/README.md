@@ -14,7 +14,7 @@
 
 **Authority Level:** Approved Implementation Boundary
 
-**Status:** Implemented — Tier 2 Structural Boundary; Issue #18 Ticket Location Mapping Approved
+**Status:** Implemented — Tier 2 Structural Boundary; Issue #18 Ticket Location Mapping Validated
 
 **Depends On:** Enterprise Database Platform Decision, Enterprise Relational Schema, Naming Convention Standards, and Project Governance Standards
 
@@ -78,6 +78,9 @@ postgresql-platform/
 │   │   └── tier-1-lifecycle-validation.md
 │   ├── schema-namespaces/
 │   │   └── validate-schema-namespaces.sql
+│   ├── source-data/
+│   │   ├── ticket-location-mapping-validation.md
+│   │   └── ticket-source-encoding-validation.md
 │   ├── tier-0/
 │   │   └── validate-tier-0-tables.sql
 │   ├── tier-1/
@@ -203,7 +206,9 @@ Issue #17 introduces one bounded migration capability: a repository-controlled W
 
 Runtime validation passed against tested commit `fad09ec6d589770dccc2105e66a8188f445e19b4`. The governed result is recorded in [Ticket Source Encoding Normalization Validation Evidence](validation/source-data/ticket-source-encoding-validation.md).
 
-Issue #18 approves the four current Ticket Location mappings and adds a repository-controlled mapping artifact and validator. The process retains `requesting_location`, adds `location_id`, validates full one-to-one coverage, and routes unmatched or ambiguous values to ignored exception output. Runtime validation and completion evidence remain pending.
+Issue #18 approves and validates the four current Ticket Location mappings through a repository-controlled mapping artifact and validator. The process retains `requesting_location`, adds `location_id`, validates full one-to-one coverage, and routes unmatched or ambiguous values to ignored exception output.
+
+Runtime validation passed against tested commit `a5b2a8b85a117e8337c3249ae0d14547e1cb9cc9`. The governed result is recorded in [Ticket Location Mapping Validation Evidence](validation/source-data/ticket-location-mapping-validation.md).
 
 No Tier 3–5 table DDL, controlled-vocabulary `CHECK` constraint, trigger code, manually defined supporting index, cross-table integrity enforcement, data loading, deferred Ticket foreign-key enforcement, or source-data correction is implemented yet.
 
