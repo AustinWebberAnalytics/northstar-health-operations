@@ -14,7 +14,7 @@
 
 **Authority Level:** Approved Implementation Boundary
 
-**Status:** Implemented — Tier 2 Structural Boundary; Issue #19 Ticket Owner Reconciliation Validated
+**Status:** Implemented — Tier 2 Structural Boundary; Issue #20 Ticket Reference Reconciliation Pending Runtime Validation
 
 **Depends On:** Enterprise Database Platform Decision, Enterprise Relational Schema, Naming Convention Standards, and Project Governance Standards
 
@@ -69,10 +69,14 @@ postgresql-platform/
 │       │   ├── README.md
 │       │   ├── ticket-location-mapping.csv
 │       │   └── validate-ticket-location-mapping.py
-│       └── ticket-owner-reconciliation/
+│       ├── ticket-owner-reconciliation/
+│       │   ├── README.md
+│       │   ├── ticket-owner-reconciliation.csv
+│       │   └── validate-ticket-owner-reconciliation.py
+│       └── ticket-reference-reconciliation/
 │           ├── README.md
-│           ├── ticket-owner-reconciliation.csv
-│           └── validate-ticket-owner-reconciliation.py
+│           ├── ticket-reference-reconciliation.csv
+│           └── validate-ticket-reference-reconciliation.py
 ├── validation/
 │   ├── README.md
 │   ├── implementation-foundation/
@@ -84,6 +88,7 @@ postgresql-platform/
 │   │   └── validate-schema-namespaces.sql
 │   ├── source-data/
 │   │   ├── ticket-location-mapping-validation.md
+│   │   ├── ticket-owner-reconciliation-validation.md
 │   │   └── ticket-source-encoding-validation.md
 │   ├── tier-0/
 │   │   └── validate-tier-0-tables.sql
@@ -217,6 +222,8 @@ Runtime validation passed against tested commit `a5b2a8b85a117e8337c3249ae0d1454
 Issue #19 approves and validates the current Ticket owner reconciliation boundary through a repository-controlled decision artifact and validator. The process applies the single exact relationship `Jordan Lee → EMP-008`, preserves four unmatched owner names as approved exceptions across 12 Ticket records, retains `assigned_owner`, and generates per-Ticket exception reporting.
 
 Runtime validation passed against tested commit `92571dd2e196cb2547db34e34458181e36468dfb`. The governed result is recorded in [Ticket Owner Reconciliation Validation Evidence](validation/source-data/ticket-owner-reconciliation-validation.md).
+
+Issue #20 approves the three current orphaned Ticket references as visible migration exceptions and introduces their repository-controlled decision artifact and validator. The process preserves all Inventory Discrepancy and Shortage records, retains each original source identifier, leaves only the three unsupported canonical relationships blank, and requires every nonblank canonical Ticket reference to resolve exactly. Runtime validation remains pending.
 
 No Tier 3–5 table DDL, controlled-vocabulary `CHECK` constraint, trigger code, manually defined supporting index, cross-table integrity enforcement, data loading, deferred Ticket foreign-key enforcement, or source-data correction is implemented yet.
 

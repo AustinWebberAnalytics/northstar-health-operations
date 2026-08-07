@@ -1,0 +1,4 @@
+record_type,source_dataset,source_record_id,source_related_ticket_id,canonical_related_ticket_id,reconciliation_status,decision_basis
+inventory_discrepancy,inventory-operations/datasets/data/inventory-discrepancies.csv,DISC-1005,INC-100018,,approved_exception,No authoritative Ticket record or correction evidence
+shortage_event,inventory-operations/datasets/data/shortage-events.csv,SHORT-1004,INC-100021,,approved_exception,No authoritative Ticket record or correction evidence
+inventory_discrepancy,inventory-operations/datasets/data/inventory-discrepancies.csv,DISC-1004,INC-100031,,approved_exception,No authoritative Ticket record or correction evidence
