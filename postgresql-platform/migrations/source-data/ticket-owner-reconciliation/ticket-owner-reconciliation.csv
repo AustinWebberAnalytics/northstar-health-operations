@@ -1,0 +1,6 @@
+assigned_owner,employee_id,reconciliation_status,ticket_count,decision_basis
+Jordan Lee,EMP-008,resolved,3,Exact unique active match in authoritative workforce roster
+Avery Patel,,approved_exception,4,No authoritative workforce roster record
+Marcus Nguyen,,approved_exception,2,No authoritative workforce roster record
+Samantha Ortiz,,approved_exception,3,No authoritative workforce roster record
+Taylor Brooks,,approved_exception,3,No authoritative workforce roster record
