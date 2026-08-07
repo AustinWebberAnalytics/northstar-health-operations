@@ -14,7 +14,7 @@
 
 **Authority Level:** Approved Implementation Boundary
 
-**Status:** Implemented — Tier 2 Structural Boundary; Issue #17 Normalization Validated
+**Status:** Implemented — Tier 2 Structural Boundary; Issue #18 Ticket Location Mapping Approved
 
 **Depends On:** Enterprise Database Platform Decision, Enterprise Relational Schema, Naming Convention Standards, and Project Governance Standards
 
@@ -62,9 +62,13 @@ postgresql-platform/
 ├── migrations/
 │   ├── README.md
 │   └── source-data/
-│       └── ticket-source-encoding/
+│       ├── ticket-source-encoding/
+│       │   ├── README.md
+│       │   └── normalize-ticket-source-encoding.py
+│       └── ticket-location-mapping/
 │           ├── README.md
-│           └── normalize-ticket-source-encoding.py
+│           ├── ticket-location-mapping.csv
+│           └── validate-ticket-location-mapping.py
 ├── validation/
 │   ├── README.md
 │   ├── implementation-foundation/
@@ -199,6 +203,8 @@ Issue #17 introduces one bounded migration capability: a repository-controlled W
 
 Runtime validation passed against tested commit `fad09ec6d589770dccc2105e66a8188f445e19b4`. The governed result is recorded in [Ticket Source Encoding Normalization Validation Evidence](validation/source-data/ticket-source-encoding-validation.md).
 
-No Tier 3–5 table DDL, controlled-vocabulary `CHECK` constraint, trigger code, manually defined supporting index, cross-table integrity enforcement, data loading, or source-data correction is implemented yet.
+Issue #18 approves the four current Ticket Location mappings and adds a repository-controlled mapping artifact and validator. The process retains `requesting_location`, adds `location_id`, validates full one-to-one coverage, and routes unmatched or ambiguous values to ignored exception output. Runtime validation and completion evidence remain pending.
+
+No Tier 3–5 table DDL, controlled-vocabulary `CHECK` constraint, trigger code, manually defined supporting index, cross-table integrity enforcement, data loading, deferred Ticket foreign-key enforcement, or source-data correction is implemented yet.
 
 Each implementation category requires its own governed issue, review, validation, and approval before executable assets are added.
