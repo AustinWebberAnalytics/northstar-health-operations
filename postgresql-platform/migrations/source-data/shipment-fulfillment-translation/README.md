@@ -14,7 +14,7 @@
 
 **Authority Level:** Approved Issue #21 Implementation
 
-**Status:** Implementation Complete — Runtime Validation Pending
+**Status:** Validation Passed — Issue #21
 
 **Approval Date:** August 25, 2026
 
@@ -193,7 +193,11 @@ Row-level checks may validate internal date, quantity, flag, and status consiste
 
 # Validation Evidence
 
-Runtime validation has not yet been executed on the approved repository commit. Issue #21 remains open until the governed runtime result, generated-output exclusion, and clean working-tree state are confirmed and recorded.
+Runtime validation passed on August 25, 2026 against tested commit `81c815e2afaf2947fe023dc9e0ed9d0ed2fb262d`.
+
+The process compared all six current Shipment and Fulfillment Event pairs, accepted exactly two approved pending blank/zero translations, confirmed four exact received-quantity pairs, retained both source representations, produced zero contradiction exceptions, and wrote two strict-UTF-8 outputs under the ignored migration-output boundary.
+
+The governed result is recorded in [Shipment and Fulfillment Event Translation Validation Evidence](../../../validation/source-data/shipment-fulfillment-translation-validation.md).
 
 ---
 

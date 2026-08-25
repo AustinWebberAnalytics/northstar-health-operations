@@ -87,9 +87,9 @@ source-data/
 │   ├── ticket-owner-reconciliation.csv
 │   └── validate-ticket-owner-reconciliation.py
 ├── ticket-reference-reconciliation/
-    ├── README.md
-    ├── ticket-reference-reconciliation.csv
-    └── validate-ticket-reference-reconciliation.py
+│   ├── README.md
+│   ├── ticket-reference-reconciliation.csv
+│   └── validate-ticket-reference-reconciliation.py
 └── shipment-fulfillment-translation/
     ├── README.md
     ├── shipment-fulfillment-field-rules.csv
@@ -113,7 +113,9 @@ Issue #20 introduces the approved and validated orphaned Ticket-reference decisi
 
 Runtime validation passed against tested commit `51071e8a9285daee0fa00340da88c71423b9a488`, and the governed result is recorded in [Ticket Reference Reconciliation Validation Evidence](../validation/source-data/ticket-reference-reconciliation-validation.md).
 
-Issue #21 introduces the approved Shipment and Fulfillment Event authority model, field-rule matrix, status-combination matrix, and repeatable validator. Shipment remains authoritative for physical-movement fields; Fulfillment Event remains an independently retained assessment snapshot; pending blank/zero and blank/`FALSE` pairs are governed translations; and delivery timing remains distinct from fulfillment completeness. Runtime validation remains pending.
+Issue #21 introduces the approved and validated Shipment and Fulfillment Event authority model, field-rule matrix, status-combination matrix, and repeatable validator. Shipment remains authoritative for physical-movement fields; Fulfillment Event remains an independently retained assessment snapshot; pending blank/zero and blank/`FALSE` pairs are governed translations; and delivery timing remains distinct from fulfillment completeness.
+
+Runtime validation passed against tested commit `81c815e2afaf2947fe023dc9e0ed9d0ed2fb262d`, and the governed result is recorded in [Shipment and Fulfillment Event Translation Validation Evidence](../validation/source-data/shipment-fulfillment-translation-validation.md).
 
 ---
 
@@ -127,4 +129,4 @@ Issue #19 approves and validates the current owner-reconciliation decisions and 
 
 Issue #20 approves and validates the current orphaned Ticket-reference decisions and repository-controlled validator. `DISC-1004`, `DISC-1005`, and `SHORT-1004` remain intact; their original unsupported identifiers remain traceable; and their canonical `related_ticket_id` values remain nullable. All ten operational records were preserved, all four nonblank canonical Ticket references resolved, and the three generated outputs are strict UTF-8, ignored, and uncommitted. Staging, PostgreSQL loading, and foreign-key enforcement remain pending.
 
-Issue #21 approves the Shipment and Fulfillment Event authority and translation rules. The implementation preserves both sources, requires repeated references and authoritative physical-movement fields to agree, accepts only the explicit pending snapshot differences, validates independent status combinations, and reports contradictions without overwriting either source. Runtime validation, Tier 3 DDL, PostgreSQL loading, triggers, hard vocabulary constraints, and Issue #22 allocation decisions remain pending.
+Issue #21 approves and validates the Shipment and Fulfillment Event authority and translation rules. All six current pairs passed, exactly two approved pending snapshot translations were accepted, four received-quantity pairs matched exactly, both source representations were retained, and zero contradiction exceptions were produced. Both generated outputs are strict UTF-8, ignored, and uncommitted. Tier 3 DDL, PostgreSQL loading, triggers, hard vocabulary constraints, and Issue #22 allocation decisions remain pending.

@@ -14,7 +14,7 @@
 
 **Authority Level:** Approved Implementation Boundary
 
-**Status:** Implemented — Tier 2 Structural Boundary; Issue #21 Shipment/Fulfillment Translation Pending Runtime Validation
+**Status:** Implemented — Tier 2 Structural Boundary; Issue #21 Shipment/Fulfillment Translation Validated
 
 **Depends On:** Enterprise Database Platform Decision, Enterprise Relational Schema, Naming Convention Standards, and Project Governance Standards
 
@@ -73,10 +73,15 @@ postgresql-platform/
 │       │   ├── README.md
 │       │   ├── ticket-owner-reconciliation.csv
 │       │   └── validate-ticket-owner-reconciliation.py
-│       └── ticket-reference-reconciliation/
+│       ├── ticket-reference-reconciliation/
+│       │   ├── README.md
+│       │   ├── ticket-reference-reconciliation.csv
+│       │   └── validate-ticket-reference-reconciliation.py
+│       └── shipment-fulfillment-translation/
 │           ├── README.md
-│           ├── ticket-reference-reconciliation.csv
-│           └── validate-ticket-reference-reconciliation.py
+│           ├── shipment-fulfillment-field-rules.csv
+│           ├── shipment-fulfillment-status-rules.csv
+│           └── validate-shipment-fulfillment-translation.py
 ├── validation/
 │   ├── README.md
 │   ├── implementation-foundation/
@@ -87,8 +92,10 @@ postgresql-platform/
 │   ├── schema-namespaces/
 │   │   └── validate-schema-namespaces.sql
 │   ├── source-data/
+│   │   ├── shipment-fulfillment-translation-validation.md
 │   │   ├── ticket-location-mapping-validation.md
 │   │   ├── ticket-owner-reconciliation-validation.md
+│   │   ├── ticket-reference-reconciliation-validation.md
 │   │   └── ticket-source-encoding-validation.md
 │   ├── tier-0/
 │   │   └── validate-tier-0-tables.sql
@@ -227,7 +234,9 @@ Issue #20 approves and validates the three current orphaned Ticket references as
 
 Runtime validation passed against tested commit `51071e8a9285daee0fa00340da88c71423b9a488`. The governed result is recorded in [Ticket Reference Reconciliation Validation Evidence](validation/source-data/ticket-reference-reconciliation-validation.md).
 
-Issue #21 approves the authority and translation model for repeated Shipment and Fulfillment Event fields. Shipment remains the physical-movement authority, Fulfillment Event remains an assessment snapshot, pending blank/zero and blank/`FALSE` pairs are explicitly governed, and the delivery-status fields remain independent concepts interpreted through a status-combination matrix. Runtime validation remains pending.
+Issue #21 approves and validates the authority and translation model for repeated Shipment and Fulfillment Event fields. Shipment remains the physical-movement authority, Fulfillment Event remains an assessment snapshot, pending blank/zero and blank/`FALSE` pairs are explicitly governed, and the delivery-status fields remain independent concepts interpreted through a status-combination matrix.
+
+Runtime validation passed against tested commit `81c815e2afaf2947fe023dc9e0ed9d0ed2fb262d`. The governed result is recorded in [Shipment and Fulfillment Event Translation Validation Evidence](validation/source-data/shipment-fulfillment-translation-validation.md).
 
 No Tier 3–5 table DDL, controlled-vocabulary `CHECK` constraint, trigger code, manually defined supporting index, cross-table integrity enforcement, data loading, deferred Ticket foreign-key enforcement, or source-data correction is implemented yet.
 
