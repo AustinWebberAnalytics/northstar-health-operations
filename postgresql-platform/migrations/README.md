@@ -104,7 +104,9 @@ Issue #19 introduces the approved and validated Ticket owner reconciliation deci
 
 Runtime validation passed against tested commit `92571dd2e196cb2547db34e34458181e36468dfb`, and the governed result is recorded in [Ticket Owner Reconciliation Validation Evidence](../validation/source-data/ticket-owner-reconciliation-validation.md).
 
-Issue #20 introduces the approved orphaned Ticket-reference decision and its repeatable validator. The process preserves all five Inventory Discrepancy and five Shortage records, retains every original source relationship in `source_related_ticket_id`, leaves the three approved unsupported canonical relationships blank, and generates ignored exception reporting. Runtime validation remains pending.
+Issue #20 introduces the approved and validated orphaned Ticket-reference decision and its repeatable validator. The process preserves all five Inventory Discrepancy and five Shortage records, retains every original source relationship in `source_related_ticket_id`, leaves the three approved unsupported canonical relationships blank, and generates ignored exception reporting.
+
+Runtime validation passed against tested commit `51071e8a9285daee0fa00340da88c71423b9a488`, and the governed result is recorded in [Ticket Reference Reconciliation Validation Evidence](../validation/source-data/ticket-reference-reconciliation-validation.md).
 
 ---
 
@@ -116,4 +118,4 @@ Issue #18 approves and validates the four current Ticket Location mappings throu
 
 Issue #19 approves and validates the current owner-reconciliation decisions and repository-controlled validator. One owner relationship resolves exactly, while four names affecting 12 Ticket records remain governed exceptions with blank `employee_id` values and per-Ticket exception reporting. All 15 Ticket records and 21 source columns were preserved; both generated outputs are strict UTF-8, ignored, and uncommitted. No staging table, PostgreSQL data load, source-data correction, roster modification, approximate identity match, orphan-reference resolution, deferred foreign-key enforcement, or Tier 3–5 implementation is authorized by this boundary.
 
-Issue #20 approves the current orphaned Ticket-reference decisions and repository-controlled validator. `DISC-1004`, `DISC-1005`, and `SHORT-1004` remain intact; their original unsupported identifiers remain traceable; and their canonical `related_ticket_id` values remain nullable. Runtime validation, staging, PostgreSQL loading, and foreign-key enforcement remain pending.
+Issue #20 approves and validates the current orphaned Ticket-reference decisions and repository-controlled validator. `DISC-1004`, `DISC-1005`, and `SHORT-1004` remain intact; their original unsupported identifiers remain traceable; and their canonical `related_ticket_id` values remain nullable. All ten operational records were preserved, all four nonblank canonical Ticket references resolved, and the three generated outputs are strict UTF-8, ignored, and uncommitted. Staging, PostgreSQL loading, and foreign-key enforcement remain pending.
