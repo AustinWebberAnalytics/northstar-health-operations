@@ -14,7 +14,7 @@
 
 **Authority Level:** Approved Implementation Boundary
 
-**Status:** Implemented — Tier 2 Structural Boundary; Issue #20 Ticket Reference Reconciliation Validated
+**Status:** Implemented — Tier 2 Structural Boundary; Issue #21 Shipment/Fulfillment Translation Pending Runtime Validation
 
 **Depends On:** Enterprise Database Platform Decision, Enterprise Relational Schema, Naming Convention Standards, and Project Governance Standards
 
@@ -226,6 +226,8 @@ Runtime validation passed against tested commit `92571dd2e196cb2547db34e34458181
 Issue #20 approves and validates the three current orphaned Ticket references as visible migration exceptions through a repository-controlled decision artifact and validator. The process preserves all Inventory Discrepancy and Shortage records, retains each original source identifier, leaves only the three unsupported canonical relationships blank, and requires every nonblank canonical Ticket reference to resolve exactly.
 
 Runtime validation passed against tested commit `51071e8a9285daee0fa00340da88c71423b9a488`. The governed result is recorded in [Ticket Reference Reconciliation Validation Evidence](validation/source-data/ticket-reference-reconciliation-validation.md).
+
+Issue #21 approves the authority and translation model for repeated Shipment and Fulfillment Event fields. Shipment remains the physical-movement authority, Fulfillment Event remains an assessment snapshot, pending blank/zero and blank/`FALSE` pairs are explicitly governed, and the delivery-status fields remain independent concepts interpreted through a status-combination matrix. Runtime validation remains pending.
 
 No Tier 3–5 table DDL, controlled-vocabulary `CHECK` constraint, trigger code, manually defined supporting index, cross-table integrity enforcement, data loading, deferred Ticket foreign-key enforcement, or source-data correction is implemented yet.
 

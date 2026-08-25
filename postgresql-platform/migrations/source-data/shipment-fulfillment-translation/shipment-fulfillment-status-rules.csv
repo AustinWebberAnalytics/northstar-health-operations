@@ -1,0 +1,9 @@
+status_rule_id,shipment_delivery_status,fulfillment_delivery_status,fulfillment_status,received_state,interpretation
+SR-001,Pending,Pending,Pending,pending_zero_snapshot,Physical receipt is not finalized and the assessment records zero received to date
+SR-002,Received,Delivered,Complete,complete,Complete shipment delivered without a recorded delay
+SR-003,Received,Delayed,Complete,complete,Complete shipment delivered late
+SR-004,Partial,Delivered,Partial,partial,Partial quantity delivered without a recorded delay
+SR-005,Partial,Delayed,Partial,partial,Partial quantity delivered late
+SR-006,Delayed,Delayed,Pending,pending_zero_snapshot,Shipment is overdue and no physical receipt quantity is finalized
+SR-007,Delayed,Delayed,Partial,partial,Shipment is delayed with a partial quantity received
+SR-008,Delayed,Delayed,Complete,complete,Shipment was completed after a delay
