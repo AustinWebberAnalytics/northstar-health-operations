@@ -90,11 +90,15 @@ source-data/
 │   ├── README.md
 │   ├── ticket-reference-reconciliation.csv
 │   └── validate-ticket-reference-reconciliation.py
-└── shipment-fulfillment-translation/
+├── shipment-fulfillment-translation/
     ├── README.md
     ├── shipment-fulfillment-field-rules.csv
     ├── shipment-fulfillment-status-rules.csv
     └── validate-shipment-fulfillment-translation.py
+└── shipment-replenishment-allocation-rules/
+    ├── README.md
+    ├── shipment-replenishment-allocation-rules.csv
+    └── validate-shipment-replenishment-allocation-rules.py
 ```
 
 The normalizer converts the authoritative Windows-1252 Ticket source into a generated UTF-8 migration input under the ignored `postgresql-platform/migration-output/` boundary. It validates strict encoding, Unicode-text equivalence, CSV structure and field-value equivalence, source preservation, and generated-output placement.
@@ -117,6 +121,8 @@ Issue #21 introduces the approved and validated Shipment and Fulfillment Event a
 
 Runtime validation passed against tested commit `81c815e2afaf2947fe023dc9e0ed9d0ed2fb262d`, and the governed result is recorded in [Shipment and Fulfillment Event Translation Validation Evidence](../validation/source-data/shipment-fulfillment-translation-validation.md).
 
+Issue #22 introduces the approved Shipment Replenishment Allocation timing and aggregate-ceiling model. Allocation requires known Shipment `received_quantity` and Replenishment `approved_quantity`; aggregate totals are capped by those actual and authorized quantities; partial receipts remain allocatable; and ordered or requested planning values cannot substitute as ceilings. The validator profiles the current parent data and exercises the rules through controlled in-memory scenarios without creating operational allocation rows. Runtime validation is pending.
+
 ---
 
 # Current Boundary
@@ -129,4 +135,6 @@ Issue #19 approves and validates the current owner-reconciliation decisions and 
 
 Issue #20 approves and validates the current orphaned Ticket-reference decisions and repository-controlled validator. `DISC-1004`, `DISC-1005`, and `SHORT-1004` remain intact; their original unsupported identifiers remain traceable; and their canonical `related_ticket_id` values remain nullable. All ten operational records were preserved, all four nonblank canonical Ticket references resolved, and the three generated outputs are strict UTF-8, ignored, and uncommitted. Staging, PostgreSQL loading, and foreign-key enforcement remain pending.
 
-Issue #21 approves and validates the Shipment and Fulfillment Event authority and translation rules. All six current pairs passed, exactly two approved pending snapshot translations were accepted, four received-quantity pairs matched exactly, both source representations were retained, and zero contradiction exceptions were produced. Both generated outputs are strict UTF-8, ignored, and uncommitted. Tier 3 DDL, PostgreSQL loading, triggers, hard vocabulary constraints, and Issue #22 allocation decisions remain pending.
+Issue #21 approves and validates the Shipment and Fulfillment Event authority and translation rules. All six current pairs passed, exactly two approved pending snapshot translations were accepted, four received-quantity pairs matched exactly, both source representations were retained, and zero contradiction exceptions were produced. Both generated outputs are strict UTF-8, ignored, and uncommitted.
+
+Issue #22 approves the Shipment Replenishment Allocation timing and quantity-ceiling rules. Allocations are prohibited while Shipment `received_quantity` or Replenishment `approved_quantity` is unknown; Shipment totals are capped by received quantity; Replenishment totals are capped by approved quantity; and partial receipts may be allocated up to the amount received. No operational allocation records are inferred or created. Runtime validation, Tier 3 DDL, PostgreSQL loading, and aggregate-trigger implementation remain pending.

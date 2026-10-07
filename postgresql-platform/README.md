@@ -238,6 +238,8 @@ Issue #21 approves and validates the authority and translation model for repeate
 
 Runtime validation passed against tested commit `81c815e2afaf2947fe023dc9e0ed9d0ed2fb262d`. The governed result is recorded in [Shipment and Fulfillment Event Translation Validation Evidence](validation/source-data/shipment-fulfillment-translation-validation.md).
 
+Issue #22 approves the Shipment Replenishment Allocation timing and aggregate quantity-ceiling model. Allocation requires known Shipment `received_quantity` and Replenishment `approved_quantity`; aggregate totals are capped by those actual and authorized quantities; partial receipts remain allocatable; and ordered or requested planning values cannot substitute for either ceiling. The repository-controlled validator exercises the rules without creating operational allocation records. Runtime validation is pending.
+
 No Tier 3–5 table DDL, controlled-vocabulary `CHECK` constraint, trigger code, manually defined supporting index, cross-table integrity enforcement, data loading, deferred Ticket foreign-key enforcement, or source-data correction is implemented yet.
 
 Each implementation category requires its own governed issue, review, validation, and approval before executable assets are added.
