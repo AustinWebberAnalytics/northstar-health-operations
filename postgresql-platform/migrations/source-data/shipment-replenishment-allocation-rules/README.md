@@ -14,7 +14,7 @@
 
 **Authority Level:** Approved Issue #22 Implementation
 
-**Status:** Implementation Complete — Runtime Validation Pending
+**Status:** Implementation and Runtime Validation Complete
 
 **Approval Date:** October 7, 2026
 
@@ -91,6 +91,8 @@ If a governing parent quantity is reduced, the change must not leave existing al
 | Generated scenario report | `postgresql-platform/migration-output/shipment-replenishment-allocation-rules/shipment-replenishment-allocation-rule-validation.csv` |
 
 The generated scenario report remains ignored and uncommitted.
+
+Successful runtime evidence is recorded in [Shipment Replenishment Allocation Rule Validation Evidence](../../../validation/source-data/shipment-replenishment-allocation-rule-validation.md).
 
 ---
 
